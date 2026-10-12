@@ -7,3 +7,4 @@ Route::get('/', function () {
 });
 
 /* TO DO: Agregar rutas del sitio web */
+/* Debe contemplarse los cambios con respecto a los tipo de procesos */
