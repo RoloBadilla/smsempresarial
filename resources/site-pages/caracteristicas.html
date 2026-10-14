@@ -1,0 +1,445 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Funciones de SMS Empresarial | SMS, WhatsApp y API</title>
+<meta property="og:locale" content="es_CR">
+<meta property="og:title" content="Características de SMS Empresarial | SMS, WhatsApp y API">
+<meta property="og:url" content="https://smsempresarial.com/caracteristicas.html">
+<meta name="twitter:title" content="Características de SMS Empresarial">
+  <meta name="description" content="Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <link rel="canonical" href="https://smsempresarial.com/caracteristicas.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CR">
+  <meta property="og:site_name" content="SMS Empresarial">
+  <meta property="og:title" content="Funciones de SMS Empresarial | SMS, WhatsApp y API">
+  <meta property="og:description" content="Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.">
+  <meta property="og:url" content="https://smsempresarial.com/caracteristicas.html">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Funciones de SMS Empresarial | SMS, WhatsApp y API">
+  <meta name="twitter:description" content="Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.">
+  <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"https://smsempresarial.com/"},{"url":"https://smsempresarial.com/","name":"SMS Empresarial","@id":"https://smsempresarial.com/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"https://smsempresarial.com/#website"},"name":"Funciones de SMS Empresarial | SMS, WhatsApp y API","inLanguage":"es-CR","description":"Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.","@type":"WebPage","url":"https://smsempresarial.com/caracteristicas.html"}]}</script><link rel="preload" href="assets/fonts/plus-jakarta-sans-latin.woff2" as="font" type="font/woff2" crossorigin><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  
+
+  <style>@font-face{font-family:'Plus Jakarta Sans';font-style:normal;font-weight:400 800;font-display:swap;src:url('assets/fonts/plus-jakarta-sans-latin.woff2') format('woff2')}
+    /* Colores de la marca: aquí los cambias una sola vez */
+    :root {
+      --azul: #3561AB;
+      --azul-80: #5D81BC;
+      --azul-60: #869FCC;
+      --azul-40: #B0BEDD;
+      --azul-20: #D9E0EE;
+      --azul-0: #FFFFFF;
+      --marino: #0A2A5E;
+      --celeste: #5D81BC;
+      --fondo: #FFFFFF;
+    }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: var(--fondo); color: #14213D; }
+
+    /* Menú */
+    .navbar .nav-link {
+    color: var(--fondo);
+    font-weight: 700;
+    font-size: 14px;
+    text-transform: uppercase;
+    }
+
+    .navbar .nav-link:hover {
+    color: var(--celeste)!important ;
+    }
+    .navbar .nav-link.active {
+    color: var(--fondo);
+    }
+    .logo {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        padding: 0;
+        background: transparent;
+        }
+
+        .logo img {
+        width: 200px;
+        height: auto;
+        display: block;
+    }
+
+    /* Botones */
+    .btn-celeste { background: var(--celeste); color: var(--marino); font-weight: 800; border-radius: 999px; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .btn-celeste:hover { background: var(--azul-60); color: var(--marino); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0, 0, 0, .2); }
+    .btn-azul { background: var(--azul); color: #fff; font-weight: 800; border-radius: 999px; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+    .btn-azul:hover { background: var(--azul-80); color: #fff; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0, 0, 0, .2); }
+    .hero .btn-azul { box-shadow: 0 10px 28px rgba(53, 97, 171, .4); }
+    .hero .btn-azul::after { content: "\2192"; display: inline-block; margin-left: .65rem; transition: transform .2s ease; }
+    .hero .btn-azul:hover::after { transform: translateX(4px); }
+    .btn-hero-secundario { background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .72); color: #fff; transition: background .2s ease, color .2s ease, transform .2s ease; }
+    .btn-hero-secundario:hover { background: #fff; color: var(--marino); transform: translateY(-2px); }
+    .hero .btn:focus-visible { outline: 3px solid var(--azul-40); outline-offset: 3px; }
+
+    /* Portada */
+    .hero { background: radial-gradient(ellipse at 82% 48%, rgba(93, 129, 188, .2), transparent 36%), var(--marino); color: #fff; }
+    .hero h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 800; letter-spacing: -.04em; line-height: 1.05; }
+    .hero p.lead { color: #D6E4FA; max-width: 650px; line-height: 1.7; }
+    .etiqueta { background: var(--azul); color: #fff; border: 1px solid rgba(255, 255, 255, .18); border-radius: 999px; padding: 10px 18px; font-weight: 700; font-size: 14px; }
+
+    /* Celular de la portada */
+    .hero-visual { position: relative; isolation: isolate; display: grid; place-items: center; padding: 1.5rem 0; }
+    .hero-visual::before { content: ""; position: absolute; z-index: -1; width: min(420px, 95%); aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(93, 129, 188, .3), rgba(53, 97, 171, .12) 58%, transparent 70%); }
+    .hero-visual::after { content: ""; position: absolute; z-index: -1; width: min(350px, 78%); aspect-ratio: 1; border: 1px solid rgba(217, 224, 238, .25); border-radius: 50%; }
+    .celular { width: min(320px, calc(100vw - 48px)); height: auto; aspect-ratio: 320 / 570; background: #061737; border: 1px solid rgba(217, 224, 238, .25); border-radius: 48px; padding: 12px; margin: auto; position: relative; box-shadow: 0 28px 70px rgba(0, 0, 0, .38) !important; }
+    .pantalla { background: var(--fondo); height: 100%; border-radius: 34px; padding: 22px 18px; color: #14213D; display: flex; flex-direction: column; justify-content: center; }
+    .mensaje { background: #F3F6FB; border: 1px solid rgba(53, 97, 171, .08); border-radius: 16px 16px 16px 4px; padding: 14px; font-size: 13px; margin-bottom: 14px; width: 86%; align-self: flex-start; text-align: left; animation: mensaje-entrada .7s ease both; }
+    .mensaje:nth-child(2) { animation-delay: .18s; }
+    .mensaje:nth-child(3) { animation-delay: .36s; }
+    .mensaje:nth-child(2) { align-self: flex-end; background: #EAF1FB; border-radius: 16px 16px 4px 16px; }
+    .burbuja { position: absolute; color: #fff; font-weight: 800; padding: 14px 22px; }
+    .burbuja-sms { background: var(--azul); left: -20px; top: -18px; border-radius: 30px 30px 30px 6px; font-size: 24px; animation: etiqueta-flota 4.5s ease-in-out infinite; }
+    .burbuja-wa { background: #128C4A; right: -22px; bottom: -18px; border-radius: 30px 30px 6px 30px; font-size: 18px; animation: etiqueta-flota 5s ease-in-out .5s infinite; }
+    @keyframes mensaje-entrada { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    @keyframes etiqueta-flota { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+
+    /* Tarjetas */
+    .tarjeta { background: linear-gradient(145deg, #fff 55%, #F3F6FB 100%); border: 1px solid var(--azul-20); border-radius: 20px; padding: 28px; height: 100%; transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+    .tarjeta:hover { transform: translateY(-5px); border-color: var(--azul-40); box-shadow: 0 14px 30px rgba(10, 42, 94, .09); }
+    .tarjeta .icono { width: 56px; height: 56px; border-radius: 16px; background: var(--azul-20); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; transition: transform .22s ease, background .22s ease; }
+    .tarjeta:hover .icono { transform: scale(1.05); background: #EAF1FB; }
+    .tarjeta h3 { font-size: 1.15rem; font-weight: 700; color: var(--marino); margin: 0; }
+
+    /* Banda del 99% */
+    .banda { background: var(--azul); color: #fff; }
+    .banda .numero { font-size: clamp(5rem, 12vw, 8.5rem); font-weight: 800; line-height: 1; }
+    .banda-etiqueta { display: block; margin-top: .65rem; max-width: 11rem; font-size: .95rem; font-weight: 700; line-height: 1.35; color: rgba(255, 255, 255, .88); }
+    .banda-mensaje { display: flex; align-items: center; gap: 1rem; margin-bottom: .85rem; }
+    .banda-icono { flex: 0 0 48px; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 15px; color: #fff; background: rgba(255, 255, 255, .15); border: 1px solid rgba(255, 255, 255, .25); }
+    .banda-mensaje h2 { font-size: clamp(1.6rem, 3vw, 2.25rem); line-height: 1.15; }
+    .banda-descripcion { max-width: 620px; color: rgba(255, 255, 255, .88); }
+
+    .marcas { overflow: hidden; background: #F2F6FB; position: relative; }
+    .marcas::before { content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); border-left: 16px solid transparent; border-right: 16px solid transparent; border-top: 16px solid #fff; }
+    .marcas-track { display: flex; width: max-content; animation: marcas-scroll 30s linear infinite; }
+
+    .marcas-grupo { display: flex; align-items: center; justify-content: space-around; gap: clamp(2.5rem, 6vw, 6rem); padding: 2rem 3rem; min-width: 100vw; }
+    .marca-logo { width: clamp(125px, 15vw, 190px); height: 48px; object-fit: contain; filter: grayscale(1) brightness(.7); opacity: .48; transition: filter .25s ease, opacity .25s ease; }
+    .marca-logo:hover { filter: grayscale(1) brightness(0); opacity: 1; }
+    @keyframes marcas-scroll { to { transform: translateX(-50%); } }
+    @media (prefers-reduced-motion: reduce) {
+      .marcas-track, .mensaje, .burbuja-sms, .burbuja-wa { animation: none !important; }
+      .btn-celeste, .btn-azul, .btn-hero-secundario, .whatsapp-flotante { transition: none; }
+      .hero .btn-azul::after { transition: none; }
+      .tarjeta, .tarjeta .icono, .footer-social a { transition: none; }
+    }
+    .footer-main { background: var(--marino); color: #D6E4FA; }
+    .footer-title { color: #fff; font-size: 1.1rem; font-weight: 800; text-transform: uppercase; margin-bottom: 1rem; }
+    .footer-list { display: grid; gap: .65rem; font-size: .9rem; }
+    .footer-list a { color: inherit; text-decoration: none; }
+    .footer-list a:hover { color: var(--celeste); }
+    .footer-social { display: flex; flex-wrap: wrap; gap: .75rem; }
+    .footer-social a { width: 48px; height: 48px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: #fff; border: 2px solid #fff; box-shadow: 0 4px 12px rgba(0, 0, 0, .18); text-decoration: none; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+    .footer-social a:hover { background: var(--azul-20); border-color: var(--azul-40); transform: translateY(-3px); box-shadow: 0 8px 18px rgba(0, 0, 0, .24); }
+    .footer-social img { display: block; width: 23px; height: 23px; object-fit: contain; filter: brightness(0) saturate(100%) invert(14%) sepia(32%) saturate(2060%) hue-rotate(187deg) brightness(91%) contrast(96%); }
+    .footer-social a:focus-visible { outline: 3px solid var(--azul-40); outline-offset: 3px; }
+    .footer-bottom { background: #fff; color: #53627A; }
+    .copyright-line { font-size: .9rem; }
+    .footer-cyberfuel-link, .footer-trust-link { display: inline-flex; align-items: center; justify-content: center; }
+    .footer-cyberfuel-logo { width: min(200px, 100%); height: auto; }
+    .footer-trust-seal { display: block; width: 100px; max-width: 100%; height: auto; }
+    .footer-brand { color: var(--azul); font-size: 1.7rem; line-height: 1; font-weight: 800; font-style: italic; }
+    .footer-brand span { font-size: .95rem; font-weight: 500; font-style: normal; }
+    .whatsapp-flotante { position: fixed; right: 1.25rem; bottom: calc(1.25rem + env(safe-area-inset-bottom)); z-index: 1050; width: 62px; height: 62px; display: grid; place-items: center; border-radius: 50%; background: #25D366; color: #fff; box-shadow: 0 8px 24px rgba(0, 0, 0, .24); text-decoration: none; transition: transform .2s ease, background .2s ease, box-shadow .2s ease; }
+    .whatsapp-flotante:hover { background: #1EBE5D; color: #fff; transform: translateY(-3px) scale(1.04); box-shadow: 0 12px 28px rgba(0, 0, 0, .28); }
+    .whatsapp-flotante:focus-visible { outline: 3px solid var(--azul-40); outline-offset: 4px; }
+    .whatsapp-flotante svg { width: 32px; height: 32px; }
+
+    /* Ajustes para distintos anchos y dispositivos */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { width: 100%; overflow-x: clip; }
+    body { min-width: 0; width: 100%; overflow-x: clip; }
+    img, svg { max-width: 100%; }
+    .navbar { width: 100%; }
+    .navbar .container-fluid { min-width: 0; }
+    .navbar .logo { flex: 0 1 auto; min-width: 0; }
+    .navbar .logo img { width: clamp(145px, 22vw, 200px); }
+    .navbar-toggler { flex: 0 0 auto; }
+    .navbar-collapse { min-width: 0; }
+    .navbar-nav { flex-wrap: wrap; }
+    .navbar .nav-link { font-size: clamp(.76rem, .9vw, .875rem); }
+    .hero { overflow: hidden; }
+    .hero h1 { overflow-wrap: anywhere; }
+    .celular { max-width: 100%; }
+    .burbuja { max-width: 55%; padding: clamp(.6rem, 2vw, .875rem) clamp(.75rem, 2.5vw, 1.375rem); }
+    .burbuja-sms { left: -10px; font-size: clamp(1.15rem, 4vw, 1.5rem); }
+    .burbuja-wa { right: -10px; font-size: clamp(.9rem, 3.5vw, 1.125rem); }
+    .tarjeta h3, .footer-list li { overflow-wrap: anywhere; }
+    .marcas { width: 100%; }
+    .marcas-grupo { gap: clamp(1.5rem, 5vw, 5rem); padding-inline: clamp(1.5rem, 4vw, 3rem); }
+    .marca-logo { flex: 0 0 clamp(90px, 15vw, 190px); max-width: clamp(90px, 15vw, 190px); }
+    .footer-main, .footer-bottom { overflow-wrap: anywhere; }
+      .footer-social { flex-wrap: wrap; }
+    .footer-brand { font-size: clamp(1.4rem, 5vw, 1.7rem); }
+    @media (max-width: 1199.98px) {
+      .navbar-collapse { padding: .75rem 0 1rem; }
+      .navbar-nav { gap: .25rem 1rem !important; }
+      .navbar-collapse > .btn { margin-top: .5rem; }
+    }
+    @media (max-width: 767.98px) {
+      .hero .row { text-align: center; }
+      .hero .d-flex { justify-content: center; }
+      .hero .btn { white-space: normal; }
+      .hero-visual { margin-top: .5rem; }
+      .burbuja-sms { top: -16px; left: -8px; }
+      .burbuja-wa { bottom: -16px; right: -8px; }
+      .mensaje { overflow-wrap: anywhere; }
+      .banda .numero { font-size: clamp(4rem, 18vw, 7rem); }
+      .banda .col-lg-auto, .banda .col-lg { text-align: center; }
+      .banda-mensaje { justify-content: center; }
+      .banda-etiqueta, .banda-descripcion { margin-inline: auto; }
+      .banda-etiqueta { max-width: 9rem; font-size: .82rem; }
+      .banda-icono { flex-basis: 42px; width: 42px; height: 42px; }
+      .footer-main .container { padding-inline: 1.25rem; }
+      .footer-bottom .container { text-align: center; }
+    }
+    @media (max-width: 575.98px) {
+      .navbar { padding-inline: .75rem !important; }
+      .navbar .logo img { width: clamp(130px, 48vw, 170px); }
+      .whatsapp-flotante { right: 1rem; width: 56px; height: 56px; }
+      .whatsapp-flotante svg { width: 29px; height: 29px; }
+      .hero { padding-block: 2.5rem !important; }
+      .hero h1 { font-size: clamp(2.1rem, 11vw, 3rem); }
+      .hero .btn { width: 100%; }
+      .etiqueta { font-size: .75rem; padding: .55rem .8rem; }
+      .celular { width: min(260px, calc(100vw - 56px)); }
+      .pantalla { padding: 34px 14px 14px; display: flex; flex-direction: column; justify-content: center; }
+      .mensaje { width: 88%; text-align: left; }
+      .mensaje { padding: .75rem; font-size: .75rem; }
+      .tarjeta { padding: 1.25rem; }
+      .marcas-grupo { gap: 1.5rem; }
+      .marca-logo { flex-basis: 90px; max-width: 90px; height: 38px; }
+      .footer-title { font-size: 1rem; }
+      .footer-list { font-size: .85rem; }
+    }
+    .pagina-hero { position: relative; overflow: hidden; color: #fff; background: radial-gradient(ellipse at 82% 45%, rgba(93, 129, 188, .22), transparent 36%), var(--marino); }
+    .pagina-hero::after { content: ""; position: absolute; width: 24rem; height: 24rem; right: -8rem; bottom: -18rem; border: 1px solid rgba(217, 224, 238, .2); border-radius: 50%; box-shadow: 0 0 0 2rem rgba(217, 224, 238, .035), 0 0 0 4rem rgba(217, 224, 238, .025); }
+    .pagina-hero-inner { position: relative; z-index: 1; }
+    .pagina-kicker { display: inline-flex; align-items: center; gap: .5rem; padding: .45rem .8rem; border: 1px solid rgba(255, 255, 255, .22); border-radius: 999px; background: rgba(255, 255, 255, .08); color: #E5ECF8; font-size: .85rem; font-weight: 700; }
+    .pagina-breadcrumbs { color: #D6E4FA; font-size: .9rem; }
+    .pagina-breadcrumbs a { color: #fff; text-decoration: none; }
+    .pagina-breadcrumbs a:hover { color: var(--azul-40); }
+    .pagina-hero h1 { max-width: 800px; font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.08; font-weight: 800; letter-spacing: -.04em; }
+    .pagina-hero p { max-width: 760px; color: #D6E4FA; font-size: clamp(1rem, 2vw, 1.2rem); line-height: 1.7; }
+    .feature-section { scroll-margin-top: 1.5rem; }
+    .feature-heading { max-width: 780px; margin-bottom: 2rem; }
+    .feature-heading h2 { color: var(--marino); font-size: clamp(1.75rem, 3vw, 2.35rem); font-weight: 800; letter-spacing: -.025em; }
+    .feature-heading p { color: #53627A; line-height: 1.7; margin-bottom: 0; }
+    .feature-card { display: flex; gap: 1rem; align-items: flex-start; height: 100%; padding: 1.5rem; border: 1px solid var(--azul-20); border-radius: 20px; background: linear-gradient(145deg, #fff 55%, #F3F6FB 100%); transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease; }
+    .feature-card:hover { transform: translateY(-4px); border-color: var(--azul-40); box-shadow: 0 14px 30px rgba(10, 42, 94, .09); }
+    .feature-icon { flex: 0 0 48px; width: 48px; height: 48px; display: grid; place-items: center; border-radius: 14px; background: var(--azul-20); color: var(--azul); }
+    .feature-icon svg { width: 25px; height: 25px; }
+    .feature-card h3 { margin: .15rem 0 .55rem; color: var(--marino); font-size: 1.08rem; font-weight: 800; }
+    .feature-card p { margin: 0; color: #53627A; font-size: .95rem; line-height: 1.65; }
+    .feature-band { background: #F3F6FB; }
+    .feature-band .feature-card { background: #fff; }
+    .feature-note { display: inline-flex; align-items: center; gap: .5rem; padding: .55rem .85rem; border-radius: 999px; background: var(--azul-20); color: var(--marino); font-size: .9rem; font-weight: 700; }
+    .feature-cta { background: var(--marino); color: #fff; border-radius: 24px; padding: clamp(1.5rem, 4vw, 3rem); }
+    .feature-cta h2 { font-weight: 800; }
+    .feature-cta p { color: #D6E4FA; max-width: 650px; }
+    @media (max-width: 575.98px) {
+      .feature-card { flex-direction: column; padding: 1.25rem; }
+      .feature-icon { flex-basis: 44px; width: 44px; height: 44px; }
+      .pagina-hero { padding-block: 2.75rem !important; }
+    }
+    @media (prefers-reduced-motion: reduce) { .feature-card { transition: none; } }  .skip-link{position:absolute;left:.75rem;top:-5rem;z-index:2000;padding:.75rem 1rem;background:#fff;color:#0A2A5E;border:2px solid #3561AB;border-radius:.5rem;font-weight:700}.skip-link:focus{top:.75rem;left:.75rem}</style>
+</head>
+<body><a class="skip-link" href="#contenido">Saltar al contenido</a>
+  <nav class="navbar navbar-expand-xl navbar-dark border-bottom px-lg-5" aria-label="Navegación principal"
+  style="background-color:var(--azul)">
+    <div class="container-fluid">
+        <a class="logo" href="#">
+            <img src="img/sms-empresarial-white.svg" alt="SMS empresarial.com" width="200" height="94">
+        </a>   
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-lg-4 gap-3">
+          <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link active" aria-current="page" href="caracteristicas.html">Características</a></li>
+          
+          <li class="nav-item"><a class="nav-link" href="faq.html">Preguntas frecuentes</a></li>
+          <li class="nav-item"><a class="nav-link" href="./rutasytarifas.html">Rutas y tarifas</a></li>
+          <li class="nav-item"><a class="nav-link" href="./contactanos.html">Contáctenos</a></li>
+        </ul>
+        <a href="contactanos.html" class="btn btn-azul px-4">Hablar con ventas</a>
+      </div>
+    </div>
+  </nav>
+  <main id="contenido">
+    <header class="pagina-hero py-5">
+      <div class="container pagina-hero-inner py-lg-4">
+        <nav class="pagina-breadcrumbs mb-4" aria-label="Ruta de navegación">
+          <a href="index.html">Inicio</a><span class="mx-2" aria-hidden="true">&rsaquo;</span><span aria-current="page">Características</span>
+        </nav>
+        <span class="pagina-kicker mb-3">Plataforma de mensajería empresarial</span>
+        <h1 class="mb-3">Todo lo que necesitas para comunicarte mejor</h1>
+        <p class="mb-0">Envía mensajes, organiza tus contactos, recibe respuestas y revisa resultados desde una sola plataforma para SMS y WhatsApp. Las herramientas ayudan a los equipos a organizar contactos, enviar mensajes y consultar resultados desde una sola plataforma.</p>
+      </div>
+    </header>
+
+    <section class="feature-section container py-5" id="envio">
+      <div class="feature-heading">
+        <h2>Envío de mensajes</h2>
+        <p>Elige cómo enviar tus comunicaciones: individualmente, a grupos o mediante integraciones con tus sistemas.</p>
+      </div>
+      <div class="row row-cols-1 row-cols-md-2 g-4">
+        <div class="col"><article class="feature-card">
+          <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/><path d="M8 3h8"/></svg></span>
+          <div><h3>Mensajes individuales y grupales</h3><p>Envía uno o varios mensajes en el momento o prográmalos para una fecha determinada.</p></div>
+        </article></div>
+        <div class="col"><article class="feature-card">
+          <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h4l9 5V5l-9 5H3Z"/><path d="M7 14l2 6h4l-3-7"/><path d="M19 9a5 5 0 0 1 0 6"/></svg></span>
+          <div><h3>Campañas masivas personalizadas</h3><p>Carga contactos desde Excel, personaliza cada mensaje con los datos de tu lista y programa el envío.</p></div>
+        </article></div>
+        <div class="col"><article class="feature-card">
+          <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 7h16"/><path d="m7 11 2 2-2 2M12 15h5"/></svg></span>
+          <div><h3>Convierte correos en mensajes</h3><p>Envía el contenido de un correo como mensaje de texto y usa su encabezado para identificarlo.</p></div>
+        </article></div>
+        <div class="col"><article class="feature-card">
+          <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span>
+          <div><h3>Integración Web Service / API</h3><p>Conecta tus sistemas mediante API REST (GET o POST) o Web Service SOAP para enviar SMS y WhatsApp.</p></div>
+        </article></div>
+      </div>
+    </section>
+
+    <section class="feature-band py-5" id="recepcion">
+      <div class="container">
+        <div class="feature-heading">
+          <h2>Recepción de mensajes</h2>
+          <p>Integra las respuestas de tus clientes en los procesos de atención y seguimiento.</p>
+        </div>
+        <article class="feature-card feature-horizontal">
+          <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H7l-4 2v-6.5A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 11h8M8 14h5"/></svg></span>
+          <div><h3>Recibe respuestas por tus rutas</h3><p>Configura rutas de recepción para consultar los mensajes entrantes en la plataforma, recibirlos por correo o procesarlos mediante un Web Service.</p></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="feature-section container py-5" id="reportes">
+      <div class="feature-heading">
+        <h2>Reportes para dar seguimiento</h2>
+        <p>Consulta el historial de mensajes enviados y recibidos con filtros de búsqueda para encontrar la información que necesitas.</p>
+      </div>
+      <div class="feature-note"><span aria-hidden="true">&#10003;</span> Historial de mensajes enviados y recibidos</div>
+    </section>
+
+    <section class="feature-band py-5" id="configuracion">
+      <div class="container">
+        <div class="feature-heading">
+          <h2>Configuración y gestión de contactos</h2>
+          <p>Organiza destinatarios y controla cómo se distribuyen tus campañas.</p>
+        </div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+          <div class="col"><article class="feature-card">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1H3ZM17 11a3 3 0 1 0-2-5.2M17 14a5 5 0 0 1 4 5v1h-3"/></svg></span>
+            <div><h3>Contactos</h3><p>Registra nombres y números para enviar mensajes a destinatarios individuales.</p></div>
+          </article></div>
+          <div class="col"><article class="feature-card">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01"/></svg></span>
+            <div><h3>Listas de contactos</h3><p>Agrupa contactos y selecciona una lista para enviar el mismo mensaje a todos sus integrantes.</p></div>
+          </article></div>
+          <div class="col"><article class="feature-card">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 9 6 6M15 9l-6 6"/></svg></span>
+            <div><h3>Lista de bloqueos</h3><p>Administra números bloqueados para evitar comunicaciones a destinatarios que no deseas contactar.</p></div>
+          </article></div>
+          <div class="col"><article class="feature-card">
+            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/><path d="m15 17 2 2 4-4"/></svg></span>
+            <div><h3>Sistema de suscripción</h3><p>Gestiona las altas y solicitudes de baja de tus destinatarios según las reglas configuradas para cada ruta.</p></div>
+          </article></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="container py-5">
+      <div class="feature-cta">
+        <h2 class="mb-3">Conoce una forma más directa de comunicarte</h2>
+        <p class="mb-4">Explora cómo combinar SMS, WhatsApp y automatización para mantener informados a tus clientes.</p>
+        <a href="index.html" class="btn btn-celeste btn-lg rounded-pill px-4">Volver al inicio</a>
+      </div>
+    </section>
+  </main>
+  <section class="marcas" aria-label="Marcas del grupo Cyberfuel">
+    <div class="marcas-track" aria-hidden="true">
+      <div class="marcas-grupo">
+        <img class="marca-logo" src="img/cyberfuel.svg" alt="Cyberfuel" width="190" height="48">
+        <img class="marca-logo" src="img/factura-profesional.svg" alt="Factura Profesional" width="190" height="48">
+        <img class="marca-logo" src="img/planilla.svg" alt="Planilla" width="190" height="48">
+        <img class="marca-logo" src="img/cybersinpe.svg" alt="CyberSinpe" width="190" height="48">
+      </div>
+      <div class="marcas-grupo">
+        <img class="marca-logo" src="img/cyberfuel.svg" alt="" width="190" height="48">
+        <img class="marca-logo" src="img/factura-profesional.svg" alt="" width="190" height="48">
+        <img class="marca-logo" src="img/planilla.svg" alt="" width="190" height="48">
+        <img class="marca-logo" src="img/cybersinpe.svg" alt="" width="190" height="48">
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-main">
+    <div class="container py-5">
+      <div class="row g-4 g-lg-5">
+        <div class="col-md-6 col-lg-4">
+          <h2 class="footer-title">Contacto general</h2>
+          <ul class="footer-list list-unstyled mb-0">
+            <li><strong>Información:</strong> <a href="mailto:info@cyberfuel.com">info@cyberfuel.com</a></li>
+            <li><strong>Tel / WhatsApp:</strong> <a href="tel:+50622049494">+506 2204 9494</a></li>
+            <li><strong>Dirección:</strong> Edificio E, Forum 1. Santa Ana, San José, Costa Rica</li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <h2 class="footer-title">Correos directos</h2>
+          <ul class="footer-list list-unstyled mb-0">
+            <li><strong>Ventas:</strong> <a href="mailto:ventas@cyberfuel.com">ventas@cyberfuel.com</a></li>
+            <li><strong>Servicio al cliente:</strong> <a href="mailto:sac@cyberfuel.com">sac@cyberfuel.com</a></li>
+            <li><strong>Soporte 24/7:</strong> <a href="mailto:soporte@cyberfuel.com">soporte@cyberfuel.com</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <h2 class="footer-title">Síguenos</h2>
+          <p class="mb-3">Conéctate con nosotros en redes sociales:</p>
+          <div class="footer-social" aria-label="Redes sociales">
+            <a href="https://www.facebook.com/cyberfuelcom" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="23" height="23" fill="#0A2A5E" aria-hidden="true"><path d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2v2.3H7.7V13h2.6v8h3.1z"/></svg></a>
+            <a href="https://www.instagram.com/cyberfuel_sa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="#0A2A5E" stroke-width="2.2"/><circle cx="12" cy="12" r="4" stroke="#0A2A5E" stroke-width="2.2"/><circle cx="17.5" cy="6.5" r="1.25" fill="#0A2A5E"/></svg></a>
+            <a href="https://www.tiktok.com/@cyberfuel.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" width="23" height="23" fill="#0A2A5E" aria-hidden="true" focusable="false"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.57v13.67a2.9 2.9 0 1 1-2.9-2.9 2.9 2.9 0 0 1 2.9 2.9V12a6.48 6.48 0 1 0 3.57 5.79V10.4a8.35 8.35 0 0 0 4.9 1.58V8.41a4.85 4.85 0 0 1-1.13-.13Z"/></svg></a>
+            <a href="https://www.linkedin.com/company/1017615" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="23" height="23" fill="#0A2A5E" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container py-3">
+        <div class="row copyright justify-content-center align-items-center g-3 text-center">
+          <div class="col-auto"><span class="copyright-line">Copyright © 2026</span></div>
+          <div class="col-auto">
+            <a class="footer-cyberfuel-link" href="https://www.cyberfuel.com" aria-label="Cyberfuel.com">
+              <img class="footer-cyberfuel-logo" src="img/cyberfuel.svg" alt="Cyberfuel" width="200" height="43" loading="lazy">
+            </a>
+          </div>
+          <div class="col-auto">
+            <a class="footer-trust-link" href="https://www.trustlogo.com/ttb_searcher/trustlogo?v_querytype=W&amp;v_shortname=SECDV&amp;v_search=http://www.smsempresarial.com/&amp;x=6&amp;y=5" target="_blank" rel="noopener noreferrer" title="Sello de Seguridad PositiveSSL">
+              <img class="footer-trust-seal" src="img/secured-by-sectigo.webp" alt="PositiveSSL Trust Seal" width="100" height="39" loading="lazy">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <a class="whatsapp-flotante" href="https://api.whatsapp.com/send?phone=50622049494" target="_blank" rel="noopener noreferrer" aria-label="Escríbenos por WhatsApp" title="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">
+      <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93a7.9 7.9 0 0 0-2.327-5.607zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232"/>
+    </svg>
+  </a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+</body>
+</html>
+

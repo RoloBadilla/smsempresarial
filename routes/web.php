@@ -1,10 +1,11 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-/* TO DO: Agregar rutas del sitio web */
-/* Debe contemplarse los cambios con respecto a los tipo de procesos */
+Route::get('/', [SiteController::class, 'home'])->name('home');
+Route::get('/index.html', [SiteController::class, 'home'])->name('home.legacy');
+Route::get('/{page}.html', [SiteController::class, 'show'])
+    ->where('page', 'caracteristicas|faq|rutasytarifas|contactanos')
+    ->name('site.page');
+Route::post('/contacto', [SiteController::class, 'contact'])->name('contact.submit');
