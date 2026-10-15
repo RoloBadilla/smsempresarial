@@ -28,13 +28,11 @@ Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial
 
   
   <main id="contenido">
-    <header class="faq-hero py-5">
+    <header class="faq-hero page-hero">
       <div class="container pagina-hero-inner py-lg-4">
         <div class="faq-hero-grid">
           <div class="faq-hero-copy">
-            <nav class="pagina-breadcrumbs mb-4" aria-label="Ruta de navegación">
-              <a href="/">Inicio</a><span class="mx-2" aria-hidden="true">&rsaquo;</span><span aria-current="page">Preguntas frecuentes</span>
-            </nav>
+            <x-breadcrumbs current="Preguntas frecuentes" />
             <span class="pagina-kicker mb-3">Centro de ayuda</span>
             <h1 class="mb-3">Resuelve tus dudas <span>en un solo lugar.</span></h1>
             <p class="mb-4">Encuentra respuestas sobre el envío de SMS y WhatsApp, tus contactos, el saldo y las funciones de la plataforma. Consulta c&oacute;mo usar la plataforma, revisar tarifas y conocer las opciones de integraci&oacute;n.</p>
@@ -153,22 +151,7 @@ Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial
       </div>
     </section>
   </main>
-  <section class="marcas" aria-label="Marcas del grupo Cyberfuel">
-    <div class="marcas-track" aria-hidden="true">
-      <div class="marcas-grupo">
-        <img class="marca-logo" src="{{ asset('site-img/cyberfuel.svg') }}" alt="Cyberfuel" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/factura-profesional.svg') }}" alt="Factura Profesional" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/planilla.svg') }}" alt="Planilla" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/cybersinpe.svg') }}" alt="CyberSinpe" width="190" height="48">
-      </div>
-      <div class="marcas-grupo">
-        <img class="marca-logo" src="{{ asset('site-img/cyberfuel.svg') }}" alt="" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/factura-profesional.svg') }}" alt="" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/planilla.svg') }}" alt="" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/cybersinpe.svg') }}" alt="" width="190" height="48">
-      </div>
-    </div>
-  </section>
+  <x-brand-marquee />
 
 
   

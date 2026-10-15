@@ -1,15 +1,28 @@
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="dark" data-bs-theme="dark">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="color-scheme" content="dark light">
     <title>@yield('title')</title>
     @yield('seo')
     @if (app()->environment('local', 'testing'))
         <meta name="robots" content="noindex, nofollow">
     @endif
+    {{-- Tema antes de pintar: elección guardada, si no la del sistema (oscuro si no hay preferencia clara). --}}
+    <script>
+        (function () {
+            var root = document.documentElement, theme = null;
+            try { theme = localStorage.getItem('tema'); } catch (e) {}
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+            root.setAttribute('data-theme', theme);
+            root.setAttribute('data-bs-theme', theme);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('motion-ok');
+        })();
+    </script>
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preload" href="{{ asset('assets/fonts/plus-jakarta-sans-latin.woff2') }}" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     @php
         $pageStyles = [
@@ -19,17 +32,15 @@
             'contactanos' => 'resources/css/pages/contact.css',
             'rutasytarifas' => 'resources/css/pages/rates.css',
         ];
-        $styleEntries = in_array($pageKey, ['home', 'caracteristicas', 'faq'], true)
-            ? ['resources/css/site-shared.css', $pageStyles[$pageKey]]
-            : [$pageStyles[$pageKey]];
     @endphp
-    @vite($styleEntries)
+    @vite(['resources/css/site-shared.css', $pageStyles[$pageKey]])
 </head>
 <body>
     <x-header :page="$pageKey" />
     @yield('content')
     <x-footer :variant="$footerVariant" />
-    <x-whatsapp-button :variant="$pageKey === 'rutasytarifas' ? 'rates' : ($pageKey === 'contactanos' ? 'contact' : 'default')" />
+    <x-whatsapp-button />
+    @vite('resources/js/site.js')
     @if ($pageKey === 'faq')
         @vite('resources/js/pages/faq.js')
     @elseif ($pageKey === 'rutasytarifas')

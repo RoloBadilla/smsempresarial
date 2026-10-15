@@ -28,11 +28,9 @@ Funciones de SMS Empresarial | SMS, WhatsApp y API
 
   
   <main id="contenido">
-    <header class="pagina-hero py-5">
+    <header class="pagina-hero page-hero">
       <div class="container pagina-hero-inner py-lg-4">
-        <nav class="pagina-breadcrumbs mb-4" aria-label="Ruta de navegación">
-          <a href="/">Inicio</a><span class="mx-2" aria-hidden="true">&rsaquo;</span><span aria-current="page">Características</span>
-        </nav>
+        <x-breadcrumbs current="Características" />
         <span class="pagina-kicker mb-3">Plataforma de mensajería empresarial</span>
         <h1 class="mb-3">Todo lo que necesitas para comunicarte mejor</h1>
         <p class="mb-0">Envía mensajes, organiza tus contactos, recibe respuestas y revisa resultados desde una sola plataforma para SMS y WhatsApp. Las herramientas ayudan a los equipos a organizar contactos, enviar mensajes y consultar resultados desde una sola plataforma.</p>
@@ -82,7 +80,7 @@ Funciones de SMS Empresarial | SMS, WhatsApp y API
         <h2>Reportes para dar seguimiento</h2>
         <p>Consulta el historial de mensajes enviados y recibidos con filtros de búsqueda para encontrar la información que necesitas.</p>
       </div>
-      <div class="feature-note"><span aria-hidden="true">&#10003;</span> Historial de mensajes enviados y recibidos</div>
+      <div class="feature-note"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 5 5 9-10"/></svg> Historial de mensajes enviados y recibidos</div>
     </section>
 
     <section class="feature-band py-5" id="configuracion">
@@ -120,22 +118,7 @@ Funciones de SMS Empresarial | SMS, WhatsApp y API
       </div>
     </section>
   </main>
-  <section class="marcas" aria-label="Marcas del grupo Cyberfuel">
-    <div class="marcas-track" aria-hidden="true">
-      <div class="marcas-grupo">
-        <img class="marca-logo" src="{{ asset('site-img/cyberfuel.svg') }}" alt="Cyberfuel" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/factura-profesional.svg') }}" alt="Factura Profesional" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/planilla.svg') }}" alt="Planilla" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/cybersinpe.svg') }}" alt="CyberSinpe" width="190" height="48">
-      </div>
-      <div class="marcas-grupo">
-        <img class="marca-logo" src="{{ asset('site-img/cyberfuel.svg') }}" alt="" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/factura-profesional.svg') }}" alt="" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/planilla.svg') }}" alt="" width="190" height="48">
-        <img class="marca-logo" src="{{ asset('site-img/cybersinpe.svg') }}" alt="" width="190" height="48">
-      </div>
-    </div>
-  </section>
+  <x-brand-marquee />
 
   
   
