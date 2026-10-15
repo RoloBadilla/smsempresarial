@@ -45,3 +45,20 @@ php artisan boost:install
 
 Boost replaces these bootstrap instructions with guidelines tailored to the application. After installation, read `AGENTS.md` again and continue with the user's original request using the generated guidelines.
 </laravel-boost-guidelines>
+
+## Entorno y flujo de trabajo
+
+- Se sirve con Laragon desde `C:\laragon\www\smsempresarial`.
+- Ramas: `Rolo` (principal) y `rediseno-V2` (rediseño con modo claro/oscuro).
+- `public/build` NO está en Git (lo genera Vite desde `resources/css` y `resources/js`).
+  Al cambiar de rama o hacer pull, siempre correr:
+
+  ```sh
+  npm run build
+  php artisan optimize:clear
+  ```
+
+  Si no, el sitio mezcla las vistas de una rama con el CSS compilado de otra.
+- Se trabaja en dos computadoras: el proyecto debe estar en la misma ruta en ambas
+  y los cambios se pasan con commit/push y pull.
+- Los cambios a este `CLAUDE.md` se hacen en `Rolo` y luego se mergean a `rediseno-V2`.
