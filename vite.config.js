@@ -11,6 +11,7 @@ export default defineConfig({
                 'resources/css/pages/faq.css',
                 'resources/css/pages/contact.css',
                 'resources/css/pages/rates.css',
+                'resources/js/site.js',
                 'resources/js/pages/faq.js',
                 'resources/js/pages/rates.js',
             ],
