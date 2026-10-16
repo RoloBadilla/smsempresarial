@@ -340,11 +340,12 @@ a:hover { color: var(--accent); }
 /* ---------- 10. Marcas del grupo ---------- */
 .marcas { position: relative; overflow: hidden; width: 100%; background: var(--surface); border-block: 1px solid var(--border); }
 .marcas-track { display: flex; width: max-content; animation: marcas-scroll 32s linear infinite; }
-.marcas.is-paused .marcas-track, .marcas:hover .marcas-track { animation-play-state: paused; }
+.marcas.is-paused .marcas-track { animation-play-state: paused; }
 .marcas-grupo { display: flex; align-items: center; justify-content: space-around; gap: clamp(1.5rem, 5vw, 5rem); min-width: 100vw; padding: 2rem clamp(1.5rem, 4vw, 3rem); }
-.marca-logo { flex: 0 0 clamp(90px, 15vw, 180px); max-width: clamp(90px, 15vw, 180px); height: 46px; object-fit: contain; filter: grayscale(1) brightness(0) invert(1); opacity: .6; transition: opacity var(--dur) ease; }
+.marca-logo { flex: 0 0 clamp(90px, 15vw, 180px); max-width: clamp(90px, 15vw, 180px); height: 46px; object-fit: contain; filter: grayscale(1) brightness(0) invert(1); opacity: .6; transition: opacity var(--dur) ease, filter var(--dur) ease; }
 :root[data-theme="light"] .marca-logo { filter: grayscale(1) brightness(.35); opacity: .55; }
 .marca-logo:hover { opacity: 1; }
+:root[data-theme="light"] .marca-logo:hover { filter: grayscale(1) brightness(0); opacity: 1; }
 .marcas-pausa {
   position: absolute;
   right: .75rem;
