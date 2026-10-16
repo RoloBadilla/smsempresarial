@@ -1,0 +1,132 @@
+<script src="js/vista-previa.js?v=10"></script>
+<!-- @extends('layout') -->
+<!-- @section('titulo', 'Rutas y tarifas SMSempresarial.com para envío SMS y WhatsApp') -->
+
+<!-- @include('partials.header') -->
+
+<main id="contenido">
+  <header class="cabecera-pagina">
+    <div class="contenedor">
+      <nav class="migas" aria-label="Ruta de navegación">
+        <ol>
+          <li><a href="inicio.html">Inicio</a></li>
+          <li aria-current="page">Tabla de rutas y tarifas</li>
+        </ol>
+      </nav>
+      <h1 class="cabecera-pagina__titulo">Rutas y Tarifas</h1>
+    </div>
+  </header>
+
+  <div class="contenedor tarifas-pagina">
+    <section class="tarifas" aria-labelledby="tarifas-sms">
+      <div class="tarifas__cabecera">
+        <h2 class="titulo-seccion" id="tarifas-sms">
+          Rutas y tarifas de SMS
+          <img class="icono-linea" src="img/iconos/sms.svg" alt="Short Message Service" width="28" height="28">
+        </h2>
+        <div class="tarifas__alta">
+          <p>Crea tu cuenta para envío de mensajes de texto SMS con $30.00 consumibles.</p>
+          <span class="boton deshabilitado" aria-disabled="true">Registrarse</span>
+        </div>
+      </div>
+
+      <div class="tabla-desplazable" tabindex="0" role="region" aria-labelledby="tarifas-sms">
+        <table class="tabla-tarifas">
+          <thead>
+            <tr>
+              <th scope="col">País</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Bahamas.png" alt="" width="24" height="16"> Bahamas <span class="tarifas__codigo">(+1242)</span></th>
+            <td><span class="tarifas__monto">$ 0.2000</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Brazil.png" alt="" width="24" height="16"> Brasil <span class="tarifas__codigo">(+55)</span></th>
+            <td><span class="tarifas__monto">$ 0.1000</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Chile.png" alt="" width="24" height="16"> Chile <span class="tarifas__codigo">(+56)</span></th>
+            <td><span class="tarifas__monto">$ 0.0500</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Colombia.png" alt="" width="24" height="16"> Colombia <span class="tarifas__codigo">(+57)</span></th>
+            <td><span class="tarifas__monto">$ 0.0500</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Costa_Rica.png" alt="" width="24" height="16"> Costa Rica <span class="tarifas__codigo">(+506)</span></th>
+            <td><span class="tarifas__monto">$ 0.0120</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_El_Salvador.png" alt="" width="24" height="16"> El Salvador <span class="tarifas__codigo">(+503)</span></th>
+            <td><span class="tarifas__monto">$ 0.3100</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Espana.png" alt="" width="24" height="16"> España <span class="tarifas__codigo">(+34)</span></th>
+            <td><span class="tarifas__monto">$ 0.1000</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_the_United_States.png" alt="" width="24" height="16"> Estados Unidos <span class="tarifas__codigo">(+1)</span></th>
+            <td><span class="tarifas__monto">$ 0.1000</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Guatemala.png" alt="" width="24" height="16"> Guatemala <span class="tarifas__codigo">(+502)</span></th>
+            <td><span class="tarifas__monto">$ 0.3100</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Honduras.png" alt="" width="24" height="16"> Honduras <span class="tarifas__codigo">(+504)</span></th>
+            <td><span class="tarifas__monto">$ 0.2000</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Mexico.png" alt="" width="24" height="16"> México <span class="tarifas__codigo">(+52)</span></th>
+            <td><span class="tarifas__monto">$ 0.3100</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Nicaragua.png" alt="" width="24" height="16"> Nicaragua <span class="tarifas__codigo">(+505)</span></th>
+            <td><span class="tarifas__monto">$ 0.2000</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Panama.png" alt="" width="24" height="16"> Panamá <span class="tarifas__codigo">(+507)</span></th>
+            <td><span class="tarifas__monto">$ 0.2500</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Peru.png" alt="" width="24" height="16"> Perú <span class="tarifas__codigo">(+51)</span></th>
+            <td><span class="tarifas__monto">$ 0.4000</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Puerto_Rico.png" alt="" width="24" height="16"> Puerto Rico <span class="tarifas__codigo">(+1939)</span></th>
+            <td><span class="tarifas__monto">$ 0.0500</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Republica_Dominicana.png" alt="" width="24" height="16"> República Dominicana <span class="tarifas__codigo">(+1849)</span></th>
+            <td><span class="tarifas__monto">$ 0.3000</span> por mensaje + IVA*</td>
+          </tr>
+          <tr>
+            <th scope="row"><img src="img/banderas/Flag_of_Trinidad_and_Tobago.png" alt="" width="24" height="16"> Trinidad &amp; Tobago <span class="tarifas__codigo">(+1868)</span></th>
+            <td><span class="tarifas__monto">$ 0.3000</span> por mensaje + IVA*</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="tarifas__nota">(*) El IVA se cobra únicamente a clientes de Costa Rica.</p>
+    </section>
+
+    <section class="tarifas tarifas--whatsapp" aria-labelledby="tarifas-whatsapp">
+      <h2 class="titulo-seccion" id="tarifas-whatsapp">
+        Rutas y tarifas WhatsApp
+        <span class="icono-whatsapp" role="img" aria-label="WhatsApp"></span>
+      </h2>
+      <p>WhatsApp Business requiere de un número exclusivo para trabajar con las tarifas de WhatsApp y SMSempresarial.com. Recomendamos que se ponga en contacto para poderle brindar los precios del servicio.</p>
+
+      <div class="aviso">
+        <h3 class="aviso__titulo">Nota:</h3>
+        <p>Contacte con un agente para poderle ayudar con el país al que necesita enviar.</p>
+        <a class="boton boton--whatsapp" href="contactenos.html">Contáctanos</a>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- @include('partials.footer') -->
