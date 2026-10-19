@@ -31,7 +31,7 @@ Características de SMS Empresarial | SMS, WhatsApp y API
             <x-breadcrumbs current="Características" />
             <span class="pagina-kicker mb-3">Plataforma de mensajería empresarial</span>
             <h1 class="mb-3">Todo lo que necesitas para comunicarte mejor</h1>
-            <p class="mb-0">Envía mensajes, organiza tus contactos, recibe respuestas y revisa resultados desde una sola plataforma para SMS y WhatsApp. Las herramientas ayudan a los equipos a organizar contactos, enviar mensajes y consultar resultados desde una sola plataforma.</p>
+            <p class="mb-0">Envía mensajes, organiza tus contactos, recibe respuestas y revisa resultados desde una sola plataforma para SMS y WhatsApp.</p>
           </div>
           <x-orbita-rutas />
         </div>

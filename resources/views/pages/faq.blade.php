@@ -143,7 +143,7 @@ Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial
           </div></div>
         </div>
       </div>
-        <div class="faq-empty mt-3" id="faqEmpty" hidden>No encontramos preguntas con ese término. Prueba con otra palabra.</div>
+        <x-empty-state id="faqEmpty" title="No encontramos preguntas con ese término" text="Prueba con otra palabra, como “saldo”, “WhatsApp” o “caracteres”." link-text="¿No está tu pregunta? Escríbenos" />
       </div>
     </section>
   </main>

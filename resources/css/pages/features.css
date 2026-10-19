@@ -58,8 +58,26 @@
 .feature-cta p { position: relative; max-width: 650px; color: var(--cf-blanco); }
 .feature-cta .btn { position: relative; }
 
-@media (max-width: 575.98px) {
-  .feature-card { flex-direction: column; padding: 1.3rem; }
+/* ---------- Móvil: más limpio y más corto ---------- */
+@media (max-width: 767.98px) {
+  /* Sin la etiqueta "Plataforma de mensajería empresarial": el título ya lo dice */
+  .pagina-hero .pagina-kicker { display: none; }
+  .pagina-hero h1 { margin-bottom: .75rem !important; }
+  .pagina-hero p { font-size: 1rem; line-height: 1.65; }
+
+  .feature-heading h2, .feature-cta h2 { font-size: clamp(1.45rem, 6.2vw, 1.75rem); }
+  .feature-heading p { font-size: .95rem; line-height: 1.6; }
+
+  /* Tarjetas horizontales: ícono pequeño a la izquierda, texto a la derecha */
+  .feature-card { gap: .85rem; padding: 1rem; border-radius: var(--radius-sm); }
+  .feature-card .feature-icon { width: 40px; height: 40px; border-radius: 12px; }
+  .feature-card .feature-icon svg { width: 21px; height: 21px; }
+  .feature-card h3 { margin: 0 0 .25rem; font-size: 1rem; }
+  .feature-card p { font-size: .92rem; line-height: 1.55; }
+
+  .feature-note { font-size: .9rem; padding: .6rem 1rem; border-radius: var(--radius-sm); }
+  .feature-cta { padding: 1.5rem 1.25rem; }
+  .feature-cta .btn { width: 100%; }
 }
 
 /* ---------- Cabecera con órbita de rutas (estilo de la versión futurista) ---------- */
@@ -86,6 +104,11 @@
   mask-image: radial-gradient(closest-side, var(--cf-negro) 85%, transparent);
 }
 @media (max-width: 991.98px) { .orbita { max-width: 360px; } }
+/* En celular la órbita acompaña sin ocupar toda la pantalla */
+@media (max-width: 767.98px) {
+  .caracteristicas-hero-grid { gap: .5rem; }
+  .orbita { max-width: 270px; margin-top: .25rem; }
+}
 
 .orbita__mapa { display: block; width: 100%; height: auto; overflow: visible; }
 .orbita__anillo { fill: none; stroke: color-mix(in srgb, var(--orbita-celeste) 22%, transparent); stroke-width: 1; stroke-dasharray: 2 6; }
