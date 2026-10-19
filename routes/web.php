@@ -8,4 +8,3 @@ Route::get('/index.html', [SiteController::class, 'home'])->name('home.legacy');
 Route::get('/{page}.html', [SiteController::class, 'show'])
     ->where('page', 'caracteristicas|faq|rutasytarifas|contactanos')
     ->name('site.page');
-Route::post('/contacto', [SiteController::class, 'contact'])->name('contact.submit');

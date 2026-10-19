@@ -1,17 +1,17 @@
 <footer class="pie" id="contacto">
   <div class="pie__columnas contenedor">
     <section class="pie__bloque pie__bloque--contacto" aria-labelledby="pie-contacto">
-      <a class="pie__logo" href="inicio.html">
-        <img src="img/logos/sms-empresarial-white.svg" alt="SMS Empresarial" width="132" height="62" loading="lazy">
+      <a class="pie__logo" href="{{ route('home') }}">
+        <img src="{{ asset('img') }}/logos/sms-empresarial-white.svg" alt="SMS Empresarial" width="132" height="62" loading="lazy">
       </a>
       <h2 class="pie__titulo" id="pie-contacto">Contacto General</h2>
       <dl class="pie__datos">
         <div class="pie__dato pie__dato--destacado">
-          <dt><img class="pie__bandera" src="img/banderas/Flag_of_Costa_Rica.png" alt="Bandera de Costa Rica" width="20" height="13"> Tel / WhatsApp:</dt>
+          <dt><img class="pie__bandera" src="{{ asset('img') }}/banderas/Flag_of_Costa_Rica.png" alt="Bandera de Costa Rica" width="20" height="13"> Tel / WhatsApp:</dt>
           <dd><a href="https://wa.me/50622049494">+506 2204 9494</a></dd>
         </div>
         <div class="pie__dato pie__dato--destacado">
-          <dt><img class="pie__bandera" src="img/banderas/Flag_of_the_United_States.png" alt="Bandera de Estados Unidos" width="20" height="13"> Teléfono:</dt>
+          <dt><img class="pie__bandera" src="{{ asset('img') }}/banderas/Flag_of_the_United_States.png" alt="Bandera de Estados Unidos" width="20" height="13"> Teléfono:</dt>
           <dd><a href="tel:+13059097248">(+1)305-909-7248</a></dd>
         </div>
         <div class="pie__dato">
@@ -58,25 +58,25 @@
   <div class="pie__marcas contenedor">
     <ul class="marcas" aria-label="Marcas del grupo">
       <li class="marcas__item">
-        <a href="https://www.cyberfuel.com" target="_blank" rel="noopener"><img src="img/logos/cyberfuel.svg" alt="Cyberfuel" width="160" height="34" loading="lazy"></a>
+        <a href="https://www.cyberfuel.com" target="_blank" rel="noopener"><img src="{{ asset('img') }}/logos/cyberfuel.svg" alt="Cyberfuel" width="160" height="34" loading="lazy"></a>
       </li>
       <li class="marcas__item">
-        <a href="https://www.facturaprofesional.com" target="_blank" rel="noopener"><img src="img/logos/factura-profesional.svg" alt="Factura Profesional" width="160" height="40" loading="lazy"></a>
+        <a href="https://www.facturaprofesional.com" target="_blank" rel="noopener"><img src="{{ asset('img') }}/logos/factura-profesional.svg" alt="Factura Profesional" width="160" height="40" loading="lazy"></a>
       </li>
       <li class="marcas__item">
-        <a href="https://planillaprofesional.com/" target="_blank" rel="noopener"><img src="img/logos/planilla.svg" alt="Planilla Profesional" width="160" height="40" loading="lazy"></a>
+        <a href="https://planillaprofesional.com/" target="_blank" rel="noopener"><img src="{{ asset('img') }}/logos/planilla.svg" alt="Planilla Profesional" width="160" height="40" loading="lazy"></a>
       </li>
       <li class="marcas__item">
-        <a href="https://www.cybersinpe.com/" target="_blank" rel="noopener"><img src="img/logos/cybersinpe.svg" alt="CyberSinpe" width="160" height="40" loading="lazy"></a>
+        <a href="https://www.cybersinpe.com/" target="_blank" rel="noopener"><img src="{{ asset('img') }}/logos/cybersinpe.svg" alt="CyberSinpe" width="160" height="40" loading="lazy"></a>
       </li>
     </ul>
   </div>
 
   <div class="pie__legal contenedor">
     <p class="pie__copyright">Copyright © 2026</p>
-    <a class="pie__cyberfuel" href="https://www.cyberfuel.com" target="_blank" rel="noopener"><img src="img/logos/cyberfuel-white.svg" alt="Cyberfuel" width="120" height="26" loading="lazy"></a>
+    <a class="pie__cyberfuel" href="https://www.cyberfuel.com" target="_blank" rel="noopener"><img src="{{ asset('img') }}/logos/cyberfuel-white.svg" alt="Cyberfuel" width="120" height="26" loading="lazy"></a>
     <a class="pie__sello" href="https://www.trustlogo.com/ttb_searcher/trustlogo?v_querytype=W&amp;v_shortname=SECDV&amp;v_search=http://www.smsempresarial.com/&amp;x=6&amp;y=5" target="_blank" rel="noopener">
-      <img src="img/logos/secured-by-sectigo.webp" alt="PositiveSSL Trust Seal" width="100" height="38" loading="lazy">
+      <img src="{{ asset('img') }}/logos/secured-by-sectigo.webp" alt="PositiveSSL Trust Seal" width="100" height="38" loading="lazy">
     </a>
   </div>
 </footer>

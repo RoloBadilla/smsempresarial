@@ -1,24 +1,24 @@
 <header class="encabezado">
   <div class="encabezado__barra contenedor">
-    <a class="encabezado__logo" href="inicio.html">
-      <img class="solo-oscuro" src="img/logos/sms-empresarial-white.svg" alt="SMS Empresarial" width="120" height="56">
-      <img class="solo-claro" src="img/logos/sms-empresarial.svg" alt="SMS Empresarial" width="120" height="56">
+    <a class="encabezado__logo" href="{{ route('home') }}">
+      <img class="solo-oscuro" src="{{ asset('img') }}/logos/sms-empresarial-white.svg" alt="SMS Empresarial" width="120" height="56">
+      <img class="solo-claro" src="{{ asset('img') }}/logos/sms-empresarial.svg" alt="SMS Empresarial" width="120" height="56">
     </a>
 
     <nav class="menu" id="menu-principal" aria-label="Principal">
       <ul class="menu__lista">
-        <li><a class="menu__enlace" href="inicio.html">Inicio</a></li>
-        <li><a class="menu__enlace" href="caracteristicas.html">Características</a></li>
+        <li><a class="menu__enlace" href="{{ route('home') }}" @if ($pagina === 'home') aria-current="page" @endif>Inicio</a></li>
+        <li><a class="menu__enlace" href="{{ route('site.page', 'caracteristicas') }}" @if ($pagina === 'caracteristicas') aria-current="page" @endif>Características</a></li>
         <li><span class="menu__enlace deshabilitado" aria-disabled="true">Registrarse</span></li>
-        <li><a class="menu__enlace" href="preguntas-frecuentes.html">Preguntas frecuentes</a></li>
-        <li><a class="menu__enlace" href="rutas-tarifas.html">Rutas y Tarifas</a></li>
-        <li><a class="menu__enlace" href="contactenos.html">Contáctenos</a></li>
+        <li><a class="menu__enlace" href="{{ route('site.page', 'faq') }}" @if ($pagina === 'faq') aria-current="page" @endif>Preguntas frecuentes</a></li>
+        <li><a class="menu__enlace" href="{{ route('site.page', 'rutasytarifas') }}" @if ($pagina === 'rutasytarifas') aria-current="page" @endif>Rutas y Tarifas</a></li>
+        <li><a class="menu__enlace" href="{{ route('site.page', 'contactanos') }}" @if ($pagina === 'contactanos') aria-current="page" @endif>Contáctenos</a></li>
         <li><span class="menu__enlace menu__enlace--acceso deshabilitado" aria-disabled="true">Mi acceso</span></li>
       </ul>
     </nav>
 
     <div class="ajustes">
-      <!-- El texto y la etiqueta de estos dos botones los pone js/preferencias.js según el estado -->
+      {{-- El texto y la etiqueta de estos dos botones los pone resources/js/sitio.js según el estado --}}
       <button class="ajustes__boton ajustes__boton--idioma" type="button" data-cambiar-idioma>EN</button>
       <button class="ajustes__boton ajustes__boton--tema" type="button" data-cambiar-tema aria-label="Modo claro">
         <svg class="ajustes__icono ajustes__icono--sol" viewBox="0 0 24 24" aria-hidden="true" focusable="false">

@@ -1,127 +1,81 @@
-@extends('layouts.app', ['pageKey' => 'caracteristicas', 'footerVariant' => 'marketing'])
+@extends('layouts.app')
 
-@section('title')
-Funciones de SMS Empresarial | SMS, WhatsApp y API
-@endsection
+@section('titulo', 'Características SMSempresarial.com: envío SMS y WhatsApp')
 
-@section('seo')
-<meta property="og:locale" content="es_CR">
-<meta property="og:title" content="Características de SMS Empresarial | SMS, WhatsApp y API">
-<meta property="og:url" content="https://smsempresarial.com/caracteristicas.html">
-<meta name="twitter:title" content="Características de SMS Empresarial">
-  <meta name="description" content="Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="canonical" href="https://smsempresarial.com/caracteristicas.html">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_CR">
-  <meta property="og:site_name" content="SMS Empresarial">
-  <meta property="og:title" content="Funciones de SMS Empresarial | SMS, WhatsApp y API">
-  <meta property="og:description" content="Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.">
-  <meta property="og:url" content="https://smsempresarial.com/caracteristicas.html">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Funciones de SMS Empresarial | SMS, WhatsApp y API">
-  <meta name="twitter:description" content="Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.">
-  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"https://smsempresarial.com/"},{"url":"https://smsempresarial.com/","name":"SMS Empresarial","@id":"https://smsempresarial.com/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"https://smsempresarial.com/#website"},"name":"Funciones de SMS Empresarial | SMS, WhatsApp y API","inLanguage":"es-CR","description":"Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.","@type":"WebPage","url":"https://smsempresarial.com/caracteristicas.html"}]}</script>
-@endsection
+@section('contenido')
+<main id="contenido">
+  <header class="cabecera-pagina">
+    <div class="contenedor">
+      <nav class="migas" aria-label="Ruta de navegación">
+        <ol>
+          <li><a href="{{ route('home') }}">Inicio</a></li>
+          <li aria-current="page">Características</li>
+        </ol>
+      </nav>
+      <h1 class="cabecera-pagina__titulo">Características</h1>
+    </div>
+  </header>
 
-@section('content')
+  <div class="contenedor prosa-ancha">
+    <h2 class="titulo-seccion">SMSempresarial.com por medio de su plataforma ofrecer las diferentes soluciones:</h2>
 
-  
-  <main id="contenido">
-    <header class="pagina-hero page-hero">
-      <div class="container pagina-hero-inner py-lg-4">
-        <x-breadcrumbs current="Características" />
-        <span class="pagina-kicker mb-3">Plataforma de mensajería empresarial</span>
-        <h1 class="mb-3">Todo lo que necesitas para comunicarte mejor</h1>
-        <p class="mb-0">Envía mensajes, organiza tus contactos, recibe respuestas y revisa resultados desde una sola plataforma para SMS y WhatsApp. Las herramientas ayudan a los equipos a organizar contactos, enviar mensajes y consultar resultados desde una sola plataforma.</p>
-      </div>
-    </header>
-
-    <section class="feature-section container py-5" id="envio">
-      <div class="feature-heading">
-        <h2>Envío de mensajes</h2>
-        <p>Elige cómo enviar tus comunicaciones: individualmente, a grupos o mediante integraciones con tus sistemas.</p>
-      </div>
-      <div class="row row-cols-1 row-cols-md-2 g-4">
-        <div class="col"><article class="feature-card">
-          <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="m4 7 8 6 8-6"/><path d="M8 3h8"/></svg></span>
-          <div><h3>Mensajes individuales y grupales</h3><p>Envía uno o varios mensajes en el momento o prográmalos para una fecha determinada.</p></div>
-        </article></div>
-        <div class="col"><article class="feature-card">
-          <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4h4l9 5V5l-9 5H3Z"/><path d="M7 14l2 6h4l-3-7"/><path d="M19 9a5 5 0 0 1 0 6"/></svg></span>
-          <div><h3>Campañas masivas personalizadas</h3><p>Carga contactos desde Excel, personaliza cada mensaje con los datos de tu lista y programa el envío.</p></div>
-        </article></div>
-        <div class="col"><article class="feature-card">
-          <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v16H4z"/><path d="M4 7h16"/><path d="m7 11 2 2-2 2M12 15h5"/></svg></span>
-          <div><h3>Convierte correos en mensajes</h3><p>Envía el contenido de un correo como mensaje de texto y usa su encabezado para identificarlo.</p></div>
-        </article></div>
-        <div class="col"><article class="feature-card">
-          <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4M16 8l4 4-4 4M14 5l-4 14"/></svg></span>
-          <div><h3>Integración Web Service / API</h3><p>Conecta tus sistemas mediante API REST (GET o POST) o Web Service SOAP para enviar SMS y WhatsApp.</p></div>
-        </article></div>
-      </div>
-    </section>
-
-    <section class="feature-band py-5" id="recepcion">
-      <div class="container">
-        <div class="feature-heading">
-          <h2>Recepción de mensajes</h2>
-          <p>Integra las respuestas de tus clientes en los procesos de atención y seguimiento.</p>
-        </div>
-        <article class="feature-card feature-horizontal">
-          <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H7l-4 2v-6.5A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 11h8M8 14h5"/></svg></span>
-          <div><h3>Recibe respuestas por tus rutas</h3><p>Configura rutas de recepción para consultar los mensajes entrantes en la plataforma, recibirlos por correo o procesarlos mediante un Web Service.</p></div>
+    <section class="grupo" aria-labelledby="grupo-envio">
+      <h2 class="grupo__titulo" id="grupo-envio">Envío:</h2>
+      <div class="grupo__contenido">
+        <article class="funcion">
+          <h3>Mensajes individuales y/o grupales</h3>
+          <p>Permite el envío de uno o varios mensajes en el momento o en una fecha determinada.</p>
+        </article>
+        <article class="funcion">
+          <h3>Campañas o envíos masivos personalizados</h3>
+          <p>Mediante un archivo de MS-Excel podrá cargar la lista de contactos e inclusive personalizar campos en el mensaje de texto con el fin de enviarlo de forma inmediata o bien en una fecha predeterminada.</p>
+        </article>
+        <article class="funcion">
+          <h3>Convierta un Correo Electrónico a un Mensaje</h3>
+          <p>Desde un correo electrónico único utilizando el encabezado del correo como identificador podrá trasmitir el cuerpo del correo como el texto del mensaje. O bien usando un correo individual podrá también transmitir el cuerpo del correo como mensaje de texto.</p>
+        </article>
+        <article class="funcion">
+          <h3>Webservice / API</h3>
+          <p>Se cuenta con un webservice REST en método GET y POST, así como un webservice SOAP para recibir el mensaje y convertirlo un mensaje de texto SMS o WhatsApp.</p>
         </article>
       </div>
     </section>
 
-    <section class="feature-section container py-5" id="reportes">
-      <div class="feature-heading">
-        <h2>Reportes para dar seguimiento</h2>
-        <p>Consulta el historial de mensajes enviados y recibidos con filtros de búsqueda para encontrar la información que necesitas.</p>
-      </div>
-      <div class="feature-note"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="m5 12 5 5 9-10"/></svg> Historial de mensajes enviados y recibidos</div>
-    </section>
-
-    <section class="feature-band py-5" id="configuracion">
-      <div class="container">
-        <div class="feature-heading">
-          <h2>Configuración y gestión de contactos</h2>
-          <p>Organiza destinatarios y controla cómo se distribuyen tus campañas.</p>
-        </div>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-          <div class="col"><article class="feature-card">
-            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1H3ZM17 11a3 3 0 1 0-2-5.2M17 14a5 5 0 0 1 4 5v1h-3"/></svg></span>
-            <div><h3>Contactos</h3><p>Registra nombres y números para enviar mensajes a destinatarios individuales.</p></div>
-          </article></div>
-          <div class="col"><article class="feature-card">
-            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6h12M9 12h12M9 18h12"/><path d="M4 6h.01M4 12h.01M4 18h.01"/></svg></span>
-            <div><h3>Listas de contactos</h3><p>Agrupa contactos y selecciona una lista para enviar el mismo mensaje a todos sus integrantes.</p></div>
-          </article></div>
-          <div class="col"><article class="feature-card">
-            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z"/><path d="m9 9 6 6M15 9l-6 6"/></svg></span>
-            <div><h3>Lista de bloqueos</h3><p>Administra números bloqueados para evitar comunicaciones a destinatarios que no deseas contactar.</p></div>
-          </article></div>
-          <div class="col"><article class="feature-card">
-            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v14H4z"/><path d="M8 9h8M8 13h5"/><path d="m15 17 2 2 4-4"/></svg></span>
-            <div><h3>Sistema de suscripción</h3><p>Gestiona las altas y solicitudes de baja de tus destinatarios según las reglas configuradas para cada ruta.</p></div>
-          </article></div>
-        </div>
+    <section class="grupo" aria-labelledby="grupo-recepcion">
+      <h2 class="grupo__titulo" id="grupo-recepcion">Recepción:</h2>
+      <div class="grupo__contenido">
+        <p>Permite en rutas exclusivas tener una recepción de mensajes para poder no solo dejarlo en la plataforma, si no enviarlo por correo electrónico o bien utilizar un webservice para colocar la información.</p>
       </div>
     </section>
 
-    <section class="container py-5">
-      <div class="feature-cta">
-        <h2 class="mb-3">Conoce una forma más directa de comunicarte</h2>
-        <p class="mb-4">Explora cómo combinar SMS, WhatsApp y automatización para mantener informados a tus clientes.</p>
-        <a href="/" class="btn btn-celeste btn-lg rounded-pill px-4">Volver al inicio</a>
+    <section class="grupo" aria-labelledby="grupo-reportes">
+      <h2 class="grupo__titulo" id="grupo-reportes">Reportes:</h2>
+      <div class="grupo__contenido">
+        <p>Contamos con reportes de mensajes enviados y mensajes recibidos, los mismos contienen diferentes filtros de búsqueda.</p>
       </div>
     </section>
-  </main>
-  <x-brand-marquee />
 
-  
-  
-  
-
+    <section class="grupo" aria-labelledby="grupo-configuracion">
+      <h2 class="grupo__titulo" id="grupo-configuracion">Configuración:</h2>
+      <div class="grupo__contenido">
+        <article class="funcion">
+          <h3>Contactos</h3>
+          <p>Podrá ingresar el nombre del contacto y el número para poderle enviar mensajes solo seleccionándolo o bien crearle el correo individual para hacer uso de este.</p>
+        </article>
+        <article class="funcion">
+          <h3>Lista de Contactos</h3>
+          <p>Los contactos registrados podrás asignarlos a una lista para que de esta forma puedas seleccionar el grupo y enviarlo. Pero también la lista crea un correo individual que al hacer uso les llega el mensaje a todos los contactos.</p>
+        </article>
+        <article class="funcion">
+          <h3>Lista de Bloqueos</h3>
+          <p>Permite bloquear usuarios de no deseados.</p>
+        </article>
+        <article class="funcion">
+          <h3>Sistema de Suscripción:</h3>
+          <p>En caso de tener un número exclusivo con su ruta, podrá optar por esta funcionalidad tanto para SMS como para WhatsApp, con el fin de que los mismos usuarios se den de alta y así poderles enviar mensajes; esta modalidad fue diseñada para la opción de WhatsApp para prevenir que los usuarios soliciten el Bloqueo del número y lo categoricen como SPAM.</p>
+        </article>
+      </div>
+    </section>
+  </div>
+</main>
 @endsection

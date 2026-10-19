@@ -608,8 +608,8 @@
   margin-left: 0.2em;
   vertical-align: -0.05em;
   background: var(--whatsapp-texto);
-  -webkit-mask: url("../img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
-  mask: url("../img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
+  -webkit-mask: url("/img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
+  mask: url("/img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
 }
 
 .aviso {
@@ -664,8 +664,8 @@
   width: 26px;
   height: 26px;
   background: #FFFFFF;
-  -webkit-mask: url("../img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
-  mask: url("../img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
+  -webkit-mask: url("/img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
+  mask: url("/img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
 }
 
 .contacto .formulario {

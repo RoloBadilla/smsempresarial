@@ -1,3 +1,4 @@
+<script>
 /*
   Se carga en el <head> (sin defer) para aplicar tema e idioma antes de pintar la página.
   - Tema: lo que el usuario eligió antes; si nunca eligió, el del sistema.
@@ -27,3 +28,4 @@
     setTimeout(() => raiz.classList.remove('traduciendo'), 2000);
   }
 })();
+</script>

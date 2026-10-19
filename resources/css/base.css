@@ -639,10 +639,10 @@ body { transition: background-color 300ms, color 300ms; }
   -webkit-mask: var(--icono) center / contain no-repeat;
   mask: var(--icono) center / contain no-repeat;
 }
-.redes__enlace--facebook { --icono: url("../img/iconos/facebook.svg"); }
-.redes__enlace--instagram { --icono: url("../img/iconos/instagram.svg"); }
-.redes__enlace--tiktok { --icono: url("../img/iconos/tiktok.svg"); }
-.redes__enlace--linkedin { --icono: url("../img/iconos/linkedin.svg"); }
+.redes__enlace--facebook { --icono: url("/img/iconos/facebook.svg"); }
+.redes__enlace--instagram { --icono: url("/img/iconos/instagram.svg"); }
+.redes__enlace--tiktok { --icono: url("/img/iconos/tiktok.svg"); }
+.redes__enlace--linkedin { --icono: url("/img/iconos/linkedin.svg"); }
 
 /* Marcas del grupo: una celda por marca, en blanco para leerse sobre el fondo */
 .pie__marcas { margin-top: var(--e-6); }
@@ -735,8 +735,8 @@ body { transition: background-color 300ms, color 300ms; }
   width: 30px;
   height: 30px;
   background: #FFFFFF;
-  -webkit-mask: url("../img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
-  mask: url("../img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
+  -webkit-mask: url("/img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
+  mask: url("/img/iconos/whatsapp-glifo.svg") center / contain no-repeat;
 }
 .flotante-whatsapp:hover {
   transform: scale(1.06);

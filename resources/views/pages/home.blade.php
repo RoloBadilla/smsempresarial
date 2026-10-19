@@ -1,160 +1,225 @@
-@extends('layouts.app', ['pageKey' => 'home', 'footerVariant' => 'marketing'])
+@extends('layouts.app')
 
-@section('title')
-SMS empresarial en Costa Rica | SMS masivos y WhatsApp
-@endsection
+@section('titulo', 'SMS y WhatsApp empresarial fácil con SMSempresarial.com')
 
-@section('seo')
-<meta property="og:locale" content="es_CR">
-<meta property="og:title" content="SMS Empresarial en Costa Rica | SMS y WhatsApp Masivos">
-<meta property="og:url" content="https://smsempresarial.com/">
-<meta name="twitter:title" content="SMS Empresarial en Costa Rica | SMS y WhatsApp Masivos">
-    <meta name="description" content="Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.">
-  <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="canonical" href="https://smsempresarial.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="es_CR">
-  <meta property="og:site_name" content="SMS Empresarial">
-  <meta property="og:title" content="SMS empresarial en Costa Rica | SMS masivos y WhatsApp">
-  <meta property="og:description" content="Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.">
-  <meta property="og:url" content="https://smsempresarial.com/">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="SMS empresarial en Costa Rica | SMS masivos y WhatsApp">
-  <meta name="twitter:description" content="Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.">
-  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"https://smsempresarial.com/"},{"url":"https://smsempresarial.com/","name":"SMS Empresarial","@id":"https://smsempresarial.com/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"https://smsempresarial.com/#website"},"name":"SMS empresarial en Costa Rica | SMS masivos y WhatsApp","inLanguage":"es-CR","description":"Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.","@type":"WebPage","url":"https://smsempresarial.com/"}]}</script>
-@endsection
+@section('contenido')
+<main id="contenido">
+  <section class="hero" aria-labelledby="hero-titulo">
+    <div class="hero__marco contenedor">
+      <div class="hero__texto">
+        <h1 class="hero__titulo" id="hero-titulo">SMS EMPRESARIAL</h1>
 
-@section('content')
-  <main id="contenido">
-  <!-- ===== PORTADA ===== -->
-  <header class="hero hero-home">
-    <svg class="hero-shapes" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-      <defs>
-        <linearGradient id="hero-arc" x1="0" y1="0" x2="1" y2="1"><stop class="stop-a" offset="0"/><stop class="stop-b" offset="1"/></linearGradient>
-      </defs>
-      <circle class="shape-arc" cx="960" cy="380" r="300"/>
-      <circle class="shape-ring" cx="960" cy="380" r="390"/>
-      <circle class="shape-ring shape-ring--dashed" cx="960" cy="380" r="480"/>
-      <path class="shape-wave" d="M-40 690 C 260 590, 520 780, 820 680 S 1240 600, 1260 640"/>
-      <path class="shape-wave shape-wave--soft" d="M-40 730 C 300 640, 540 820, 860 720 S 1240 650, 1260 690"/>
-    </svg>
-    <div class="container">
-      <div class="row align-items-center g-5">
-        <div class="col-lg-7">
-          <h1 class="mb-4">SMS masivos y WhatsApp empresarial en Costa Rica</h1>
-          <p class="lead mb-4">Ponemos a tu disposici&oacute;n el env&iacute;o de mensajes de texto (SMS) y WhatsApp desde tu computadora a tel&eacute;fonos celulares en distintos pa&iacute;ses. La plataforma permite planificar campa&ntilde;as, enviar notificaciones y conectar tus sistemas mediante una API de mensajer&iacute;a.</p>
-          <div class="d-flex flex-wrap gap-3 mb-4">
-            <a href="#" class="btn btn-azul btn-lg px-5 btn-hero-primario">¡Lo quiero!</a>
-            <a href="/rutasytarifas.html" class="btn btn-hero-secundario btn-lg px-4 rounded-pill fw-bold">Consultar tarifas</a>
-          </div>
-          <div class="d-flex flex-wrap gap-2">
-            <span class="etiqueta">Campañas personalizadas</span>
-            <span class="etiqueta">API de integración</span>
-          </div>
-        </div>
-        <div class="col-lg-5">
-          <div class="hero-visual">
-          <div class="celular shadow-lg">
-            <div class="pantalla">
-              <div class="mensaje"><b class="tag-sms">SMS</b><br>Recordatorio de evento</div>
-              <div class="mensaje"><b class="tag-wa">WhatsApp</b><br>Promoción para clientes</div>
-              <div class="mensaje"><b class="tag-sms">SMS</b><br>Su código OTP / Token</div>
-            </div>
-            <div class="burbuja burbuja-sms">SMS</div>
-            <div class="burbuja burbuja-wa">WhatsApp</div>
-          </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header>
+        <ol class="transmisiones" aria-label="Mensajes de SMS Empresarial">
+          <li class="transmision">
+            <p class="transmision__texto">Ponemos a tu disposición el envío mensajes de texto (SMS) y WhatsApp desde tu computador a teléfonos celulares en diferentes países.</p>
+          </li>
+          <li class="transmision">
+            <h2 class="transmision__titulo">Campañas personalizadas</h2>
+            <p class="transmision__texto">Permite el envío de campañas de texto SMS de forma personalizada</p>
+          </li>
+          <li class="transmision">
+            <h2 class="transmision__titulo">API de integración</h2>
+            <p class="transmision__texto">Conecte su sistema para recibir y/o enviar mensajes de texto SMS o WhatsApp con su sistema.</p>
+          </li>
+        </ol>
 
-  <!-- ===== USOS ===== -->
-  <section class="usos container">
-    <div class="section-heading">
-    <h2 class="mb-3">Desde nuestra plataforma usted podrá</h2>
-    <p class="section-lead mb-0">Desde la aplicación de SMSEmpresarial.com podrá enviar mensajes de texto SMS (Short Message Service) o WhatsApp (mensajes cortos de texto) a sus clientes para:</p>
-    </div>
+        <p class="hero__acciones">
+          <span class="boton deshabilitado" aria-disabled="true">Registrarse</span>
+          <a class="boton boton--contorno" href="{{ route('site.page', 'rutasytarifas') }}">Rutas y Tarifas</a>
+        </p>
+      </div>
 
-    <div class="row g-4">
-      <div class="col-md-6 col-lg-4">
-        <div class="tarjeta">
-          <div class="icono" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1z"/><path d="M15 9a4 4 0 0 1 0 6"/><path d="M18 6.5a8 8 0 0 1 0 11"/></svg></div>
-          <h3>Enviar Comunicados</h3>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="tarjeta">
-          <div class="icono" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></svg></div>
-          <h3>Enviar Recordatorios / Eventos</h3>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="tarjeta">
-          <div class="icono" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg></div>
-          <h3>Promociones o Campañas de Publicidad / Envío masivo</h3>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="tarjeta">
-          <div class="icono" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></svg></div>
-          <h3>Notificaciones o Alertas</h3>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="tarjeta">
-          <div class="icono" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
-          <h3>Envíe su OTP o Token para el 2FA - Segundo Factor de autenticación o validación</h3>
-        </div>
-      </div>
-      <div class="col-md-6 col-lg-4">
-        <div class="tarjeta">
-          <div class="icono" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h13l-3-3"/><path d="M17 17H4l3 3"/></svg></div>
-          <h3>Comunicarse bidireccionalmente con sus clientes / SINPE móvil</h3>
-        </div>
+      <div class="orbita">
+        <svg class="orbita__mapa" viewBox="-30 -10 660 620" aria-hidden="true" focusable="false">
+          <circle class="orbita__anillo" cx="300" cy="300" r="205"/>
+          <circle class="orbita__anillo orbita__anillo--giro" cx="300" cy="300" r="140"/>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="300.0" y2="95.0"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="300.0" y2="95.0" pathLength="100"/>
+            <circle class="ruta__nodo" cx="300.0" cy="95.0" r="5"/>
+            <text class="ruta__codigo" x="300.0" y="55.0" text-anchor="middle">+1242</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="374.1" y2="108.8"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="374.1" y2="108.8" pathLength="100"/>
+            <circle class="ruta__nodo" cx="374.1" cy="108.8" r="5"/>
+            <text class="ruta__codigo" x="390.3" y="71.9" text-anchor="start">+55</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="438.1" y2="148.5"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="438.1" y2="148.5" pathLength="100"/>
+            <circle class="ruta__nodo" cx="438.1" cy="148.5" r="5"/>
+            <text class="ruta__codigo" x="468.4" y="120.2" text-anchor="start">+56</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="483.5" y2="208.6"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="483.5" y2="208.6" pathLength="100"/>
+            <circle class="ruta__nodo" cx="483.5" cy="208.6" r="5"/>
+            <text class="ruta__codigo" x="523.8" y="193.6" text-anchor="start">+57</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="504.1" y2="281.1"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="504.1" y2="281.1" pathLength="100"/>
+            <circle class="ruta__nodo" cx="504.1" cy="281.1" r="5"/>
+            <text class="ruta__codigo" x="548.9" y="281.9" text-anchor="start">+506</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="497.2" y2="356.1"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="497.2" y2="356.1" pathLength="100"/>
+            <circle class="ruta__nodo" cx="497.2" cy="356.1" r="5"/>
+            <text class="ruta__codigo" x="540.5" y="373.4" text-anchor="start">+503</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="463.6" y2="423.5"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="463.6" y2="423.5" pathLength="100"/>
+            <circle class="ruta__nodo" cx="463.6" cy="423.5" r="5"/>
+            <text class="ruta__codigo" x="499.5" y="455.7" text-anchor="start">+34</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="407.9" y2="474.3"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="407.9" y2="474.3" pathLength="100"/>
+            <circle class="ruta__nodo" cx="407.9" cy="474.3" r="5"/>
+            <text class="ruta__codigo" x="431.6" y="517.6" text-anchor="start">+1</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="337.7" y2="501.5"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="337.7" y2="501.5" pathLength="100"/>
+            <circle class="ruta__nodo" cx="337.7" cy="501.5" r="5"/>
+            <text class="ruta__codigo" x="345.9" y="550.7" text-anchor="middle">+502</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="262.3" y2="501.5"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="262.3" y2="501.5" pathLength="100"/>
+            <circle class="ruta__nodo" cx="262.3" cy="501.5" r="5"/>
+            <text class="ruta__codigo" x="254.1" y="550.7" text-anchor="middle">+504</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="192.1" y2="474.3"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="192.1" y2="474.3" pathLength="100"/>
+            <circle class="ruta__nodo" cx="192.1" cy="474.3" r="5"/>
+            <text class="ruta__codigo" x="168.4" y="517.6" text-anchor="end">+52</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="136.4" y2="423.5"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="136.4" y2="423.5" pathLength="100"/>
+            <circle class="ruta__nodo" cx="136.4" cy="423.5" r="5"/>
+            <text class="ruta__codigo" x="100.5" y="455.7" text-anchor="end">+505</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="102.8" y2="356.1"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="102.8" y2="356.1" pathLength="100"/>
+            <circle class="ruta__nodo" cx="102.8" cy="356.1" r="5"/>
+            <text class="ruta__codigo" x="59.5" y="373.4" text-anchor="end">+507</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="95.9" y2="281.1"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="95.9" y2="281.1" pathLength="100"/>
+            <circle class="ruta__nodo" cx="95.9" cy="281.1" r="5"/>
+            <text class="ruta__codigo" x="51.1" y="281.9" text-anchor="end">+51</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="116.5" y2="208.6"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="116.5" y2="208.6" pathLength="100"/>
+            <circle class="ruta__nodo" cx="116.5" cy="208.6" r="5"/>
+            <text class="ruta__codigo" x="76.2" y="193.6" text-anchor="end">+1939</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="161.9" y2="148.5"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="161.9" y2="148.5" pathLength="100"/>
+            <circle class="ruta__nodo" cx="161.9" cy="148.5" r="5"/>
+            <text class="ruta__codigo" x="131.6" y="120.2" text-anchor="end">+1849</text>
+          </g>
+          <g class="ruta">
+            <line class="ruta__linea" x1="300" y1="300" x2="225.9" y2="108.8"/>
+            <line class="ruta__pulso" x1="300" y1="300" x2="225.9" y2="108.8" pathLength="100"/>
+            <circle class="ruta__nodo" cx="225.9" cy="108.8" r="5"/>
+            <text class="ruta__codigo" x="209.7" y="71.9" text-anchor="end">+1868</text>
+          </g>
+          <circle class="orbita__centro-halo" cx="300" cy="300" r="46"/>
+          <circle class="orbita__centro" cx="300" cy="300" r="34"/>
+          <text class="orbita__centro-texto" x="300" y="307" text-anchor="middle">SMS</text>
+        </svg>
       </div>
     </div>
   </section>
 
-  <!-- ===== BANDA 99% ===== -->
-  <section class="banda">
-    <div class="container py-3">
-      <div class="row align-items-center g-4">
-        <div class="col-lg-auto"><div class="numero">99%</div><span class="banda-etiqueta">de los mensajes de texto son leídos</span></div>
-        <div class="col-lg">
-          <div class="banda-mensaje">
-            <span class="banda-icono" aria-hidden="true">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/><path d="m14.5 17 2 2 4-4"/></svg>
-            </span>
-            <h2 class="fw-bold mb-0">Tus mensajes sí se leen.</h2>
-          </div>
-          <p class="banda-descripcion mb-4">Usa SMS para enviar avisos, promociones y recordatorios a tus clientes.</p>
-          <a href="/rutasytarifas.html" class="btn btn-banda btn-lg rounded-pill fw-bold px-4">Tabla de destinos y tarifas</a>
-        </div>
-      </div>
+  <section class="seccion" aria-labelledby="usos-titulo">
+    <div class="contenedor">
+      <h2 class="titulo-seccion" id="usos-titulo">Desde nuestra plataforma usted podrá</h2>
+      <p class="parrafo-guia">
+        Desde la aplicación de SMSEmpresarial.com podrá enviar mensajes de texto SMS (Short Message Service
+        <img class="icono-linea" src="{{ asset('img') }}/iconos/sms.svg" alt="Short Message Service" width="20" height="20">
+        o WhatsApp
+        <img class="icono-linea" src="{{ asset('img') }}/iconos/whatsapp.svg" alt="WhatsApp" width="20" height="20">,
+        mensajes cortos de texto) a sus clientes para:
+      </p>
+
+      <ul class="usos" data-revelar>
+        <li class="usos__item"><h3>Enviar Comunicados</h3></li>
+        <li class="usos__item"><h3>Enviar Recordatorios / Eventos</h3></li>
+        <li class="usos__item"><h3>Promociones o Campañas de Publicidad / Envío masivo</h3></li>
+        <li class="usos__item"><h3>Notificaciones o Alertas</h3></li>
+        <li class="usos__item"><h3>Envíe su OTP o Token para el 2FA - Segundo Factor de autenticación o validación</h3></li>
+        <li class="usos__item"><h3>Comunicarse bidireccionalmente con sus clientes / SINPE móvil</h3></li>
+      </ul>
     </div>
   </section>
 
-  <!-- ===== OPINIONES ===== -->
-    <section class="reviews container text-center">
-    <div class="d-flex flex-wrap align-items-center justify-content-center gap-4">
-        <h2 class="fs-3 m-0">
-        Lo que nuestros clientes dicen
-        </h2>
-
-        <div class="reviews-card d-flex align-items-center gap-3 px-4 py-3">
-        <span class="fw-bold">Google Reviews</span>
-        <span class="reviews-score display-5 fw-bold lh-1">4.8</span>
-        <span>
-            <span class="reviews-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
-            <small class="text-secondary">34 reviews</small>
-        </span>
-        </div>
+  <section class="lectura" aria-labelledby="lectura-titulo">
+    <div class="lectura__marco contenedor">
+      <h2 class="lectura__frase" id="lectura-titulo">Por que el 99% de los mensajes de texto son leídos.</h2>
+      <div class="medidor" aria-hidden="true" data-revelar>
+        <div class="medidor__barra"></div>
+      </div>
+      <a class="boton" href="{{ route('site.page', 'rutasytarifas') }}">Tabla de destinos y tarifas</a>
     </div>
-    </section>
-  <!-- ===== MARCAS QUE ROTAN ===== -->
-  </main>
-  <x-brand-marquee />
-  
+  </section>
 
+  <section class="seccion" aria-labelledby="resenas-titulo">
+    <div class="contenedor">
+      <div class="resenas__encabezado">
+        <h2 class="titulo-seccion" id="resenas-titulo">Lo que nuestros clientes Dicen</h2>
+        <a class="calificacion" href="https://www.google.com/search?q=cyberfuel+sa&amp;rlz=1C1GCEU_esCR955CR955&amp;oq=cyberfuel+sa&amp;gs_lcrp=EgZjaHJvbWUyBggAEEUYOTIGCAEQRRg8MgYIAhBFGDwyBggDEEUYPNIBCDIzODhqMGo0qAIAsAIB&amp;sourceid=chrome&amp;ie=UTF-8#lrd=0x8fa0f9526a47746d:0x1740f4a7c60b88d1,1,,,," target="_blank" rel="noopener">
+          <img src="{{ asset('img') }}/iconos/google-logo-r.svg" alt="" width="26" height="20">
+          <span class="calificacion__fuente">Google Reviews</span>
+          <span class="calificacion__nota">4.8</span>
+          <span class="calificacion__total">34 reviews</span>
+        </a>
+      </div>
+
+      <ul class="resenas">
+        <li class="resena">
+          <p class="resena__estrellas" aria-label="5 de 5 estrellas">★ ★ ★ ★ ★</p>
+          <p class="resena__texto resena__texto--vacio">El usuario dejó una calificación sin comentarios.</p>
+          <p class="resena__autor">Carlos Enrique Rivera Viquez, 09/06/2026</p>
+        </li>
+        <li class="resena">
+          <p class="resena__estrellas" aria-label="5 de 5 estrellas">★ ★ ★ ★ ★</p>
+          <p class="resena__texto resena__texto--vacio">El usuario dejó una calificación sin comentarios.</p>
+          <p class="resena__autor">Yolanda Varela Bosque, 30/01/2025</p>
+        </li>
+        <li class="resena">
+          <p class="resena__estrellas" aria-label="5 de 5 estrellas">★ ★ ★ ★ ★</p>
+          <p class="resena__texto">"Buen servicio (Translated by Google) Good service"</p>
+          <p class="resena__autor">Daniel CR (Mclaren), 26/11/2023</p>
+        </li>
+        <li class="resena">
+          <p class="resena__estrellas" aria-label="5 de 5 estrellas">★ ★ ★ ★ ★</p>
+          <p class="resena__texto resena__texto--vacio">El usuario dejó una calificación sin comentarios.</p>
+          <p class="resena__autor">Nidia Morales, 12/01/2023</p>
+        </li>
+        <li class="resena">
+          <p class="resena__estrellas" aria-label="5 de 5 estrellas">★ ★ ★ ★ ★</p>
+          <p class="resena__texto">"Empresa de tecnología para internet, 100% costarricense (Translated by Google) Internet technology company, 100% Costa Rican"</p>
+          <p class="resena__autor">Carlos Enrique Solis Esquivel, 06/01/2021</p>
+        </li>
+        <li class="resena">
+          <p class="resena__estrellas" aria-label="5 de 5 estrellas">★ ★ ★ ★ ★</p>
+          <p class="resena__texto resena__texto--vacio">El usuario dejó una calificación sin comentarios.</p>
+          <p class="resena__autor">Christopher Fernández Monge, 17/09/2022</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+</main>
 @endsection

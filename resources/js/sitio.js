@@ -32,7 +32,7 @@ botonTema?.addEventListener('click', () => {
 });
 
 // ---------- Idioma español / inglés ----------
-// lang/en.json usa el texto en español como clave, igual que lang/en.json de Laravel.
+// public/lang/en.json usa el texto en español como clave, igual que lang/en.json de Laravel.
 const botonIdioma = document.querySelector('[data-cambiar-idioma]');
 
 const pintarBotonIdioma = () => {
@@ -75,7 +75,7 @@ const traducir = (diccionario) => {
 const terminarTraduccion = () => raiz.classList.remove('traduciendo');
 
 if (idiomaActual() === 'en') {
-  fetch('lang/en.json')
+  fetch(document.querySelector('meta[name="diccionario-en"]').content)
     .then((respuesta) => respuesta.json())
     .then(traducir)
     .catch(() => { /* si falla, la página queda en español */ })
@@ -144,14 +144,6 @@ if (botonMenu && menu) {
     }
   });
 }
-
-// Marca la página actual en el menú (en Blade se puede hacer con request()->routeIs())
-const archivoActual = location.pathname.split('/').pop() || 'inicio.html';
-document.querySelectorAll('.menu__enlace').forEach((enlace) => {
-  if (enlace.getAttribute('href') === archivoActual) {
-    enlace.setAttribute('aria-current', 'page');
-  }
-});
 
 // Contáctenos: muestra "¿Cuál Otro?" cuando se elige la opción Otro
 const medios = document.getElementById('medios');
