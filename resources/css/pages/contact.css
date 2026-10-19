@@ -12,7 +12,7 @@
 }
 .contact-hero h1 { max-width: 14ch; }
 
-.main { padding-bottom: clamp(3.5rem, 8vw, 6rem); background: linear-gradient(var(--surface) 0, var(--bg) 360px); }
+.main { padding-bottom: var(--section-py); background: linear-gradient(var(--surface) 0, var(--bg) 360px); }
 .contact-wrap { position: relative; z-index: 1; margin-top: -3rem; }
 
 /* Formulario */

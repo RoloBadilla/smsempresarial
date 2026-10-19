@@ -11,11 +11,11 @@
   opacity: .6;
 }
 
-.feature-section { padding-block: clamp(3.5rem, 8vw, 6rem) !important; }
-.feature-band { padding-block: clamp(3.5rem, 8vw, 6rem) !important; background: var(--surface); border-block: 1px solid var(--border); }
+.feature-section { padding-block: var(--section-py) !important; }
+.feature-band { padding-block: var(--section-py) !important; background: var(--surface); border-block: 1px solid var(--border); }
 .feature-band .feature-card { background: var(--bg); }
 
-.feature-card { display: flex; gap: 1.1rem; align-items: flex-start; height: 100%; padding: 1.6rem; overflow: hidden; }
+.feature-card { display: flex; gap: 1rem; align-items: flex-start; height: 100%; padding: 1.25rem; overflow: hidden; }
 .feature-card::before {
   content: "";
   position: absolute;
@@ -48,7 +48,7 @@
 .feature-cta {
   position: relative;
   overflow: hidden;
-  padding: clamp(2rem, 5vw, 3.5rem);
+  padding: clamp(1.5rem, 4vw, 2.5rem);
   border-radius: var(--radius-lg);
   background: var(--texture-noise), radial-gradient(60% 120% at 100% 0%, color-mix(in srgb, var(--cf-cian) 25%, transparent), transparent 60%), linear-gradient(135deg, color-mix(in srgb, var(--cf-azul) 62%, var(--cf-negro)), var(--cf-azul));
   color: var(--cf-blanco);
@@ -60,4 +60,105 @@
 
 @media (max-width: 575.98px) {
   .feature-card { flex-direction: column; padding: 1.3rem; }
+}
+
+/* ---------- Cabecera con órbita de rutas (estilo de la versión futurista) ---------- */
+.caracteristicas-hero-grid { display: grid; gap: 1.5rem; align-items: center; }
+@media (min-width: 992px) {
+  .caracteristicas-hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, .9fr); gap: clamp(1.5rem, 4vw, 3rem); }
+}
+
+.orbita {
+  /* La cabecera es oscura en los dos temas, así que la órbita usa colores fijos */
+  --orbita-fondo: color-mix(in srgb, var(--cf-azul) 18%, var(--cf-negro));
+  --orbita-celeste: #5FC1F0;
+  --orbita-lima: #CDE50D;
+  --orbita-rotulo: color-mix(in srgb, var(--cf-blanco) 72%, var(--cf-celeste));
+  width: 100%;
+  max-width: 440px;
+  justify-self: center;
+  /* Retícula tenue detrás, como en la imagen de referencia */
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--cf-blanco) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--cf-blanco) 6%, transparent) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(closest-side, var(--cf-negro) 85%, transparent);
+  mask-image: radial-gradient(closest-side, var(--cf-negro) 85%, transparent);
+}
+@media (max-width: 991.98px) { .orbita { max-width: 360px; } }
+
+.orbita__mapa { display: block; width: 100%; height: auto; overflow: visible; }
+.orbita__anillo { fill: none; stroke: color-mix(in srgb, var(--orbita-celeste) 22%, transparent); stroke-width: 1; stroke-dasharray: 2 6; }
+.orbita__anillo--giro {
+  stroke: color-mix(in srgb, var(--orbita-celeste) 40%, transparent);
+  stroke-dasharray: 60 24 8 24;
+  transform-origin: 300px 300px;
+  animation: orbita-girar 40s linear infinite;
+}
+.ruta__linea { stroke: var(--orbita-celeste); stroke-opacity: .16; stroke-width: 1; }
+.ruta__pulso {
+  stroke: var(--orbita-celeste);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 14 120;
+  stroke-dashoffset: 14;
+  filter: drop-shadow(0 0 4px var(--orbita-celeste));
+  animation: orbita-pulso 6.8s linear infinite;
+}
+.ruta__nodo {
+  fill: var(--orbita-fondo);
+  stroke: var(--orbita-celeste);
+  stroke-width: 1.5;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: orbita-llegada 6.8s linear infinite;
+}
+.ruta__codigo { fill: var(--orbita-rotulo); font-family: var(--font-brand); font-size: .9375rem; font-weight: var(--fw-bold); animation: orbita-rotulo 6.8s linear infinite; }
+
+/* Cada ruta sale 0.4 s después de la anterior */
+.ruta:nth-of-type(2) > * { animation-delay: .4s; }
+.ruta:nth-of-type(3) > * { animation-delay: .8s; }
+.ruta:nth-of-type(4) > * { animation-delay: 1.2s; }
+.ruta:nth-of-type(5) > * { animation-delay: 1.6s; }
+.ruta:nth-of-type(6) > * { animation-delay: 2s; }
+.ruta:nth-of-type(7) > * { animation-delay: 2.4s; }
+.ruta:nth-of-type(8) > * { animation-delay: 2.8s; }
+.ruta:nth-of-type(9) > * { animation-delay: 3.2s; }
+.ruta:nth-of-type(10) > * { animation-delay: 3.6s; }
+.ruta:nth-of-type(11) > * { animation-delay: 4s; }
+.ruta:nth-of-type(12) > * { animation-delay: 4.4s; }
+.ruta:nth-of-type(13) > * { animation-delay: 4.8s; }
+.ruta:nth-of-type(14) > * { animation-delay: 5.2s; }
+.ruta:nth-of-type(15) > * { animation-delay: 5.6s; }
+.ruta:nth-of-type(16) > * { animation-delay: 6s; }
+.ruta:nth-of-type(17) > * { animation-delay: 6.4s; }
+
+.orbita__centro { fill: var(--orbita-celeste); }
+.orbita__centro-halo { fill: none; stroke: var(--orbita-celeste); stroke-width: 1.5; transform-origin: 300px 300px; animation: orbita-latido 2.4s ease-out infinite; }
+.orbita__centro-texto { fill: var(--orbita-fondo); font-family: var(--font-brand); font-size: 1.125rem; font-weight: var(--fw-bold); }
+
+@keyframes orbita-girar { to { transform: rotate(360deg); } }
+@keyframes orbita-pulso {
+  0% { stroke-dashoffset: 14; }
+  38%, 100% { stroke-dashoffset: -110; }
+}
+@keyframes orbita-llegada {
+  0%, 30%, 48%, 100% { fill: var(--orbita-fondo); stroke: var(--orbita-celeste); transform: none; }
+  36% { fill: var(--orbita-lima); stroke: var(--orbita-lima); transform: scale(1.6); }
+}
+@keyframes orbita-rotulo {
+  0%, 30%, 52%, 100% { fill: var(--orbita-rotulo); }
+  36%, 44% { fill: var(--cf-blanco); }
+}
+@keyframes orbita-latido {
+  from { transform: scale(.75); opacity: .9; }
+  to { transform: scale(1.35); opacity: 0; }
+}
+
+/* Con movimiento reducido la órbita queda quieta y legible */
+@media (prefers-reduced-motion: reduce) {
+  .ruta__pulso, .orbita__centro-halo { display: none; }
+}
+@media (max-width: 575.98px) {
+  .ruta__codigo { font-size: 1.25rem; }
 }

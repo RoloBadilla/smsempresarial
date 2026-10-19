@@ -5,10 +5,6 @@ SMS empresarial en Costa Rica | SMS masivos y WhatsApp
 @endsection
 
 @section('seo')
-<meta property="og:locale" content="es_CR">
-<meta property="og:title" content="SMS Empresarial en Costa Rica | SMS y WhatsApp Masivos">
-<meta property="og:url" content="https://smsempresarial.com/">
-<meta name="twitter:title" content="SMS Empresarial en Costa Rica | SMS y WhatsApp Masivos">
     <meta name="description" content="Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://smsempresarial.com/">
@@ -120,8 +116,8 @@ SMS empresarial en Costa Rica | SMS masivos y WhatsApp
   <section class="banda">
     <div class="container py-3">
       <div class="row align-items-center g-4">
-        <div class="col-lg-auto"><div class="numero">99%</div><span class="banda-etiqueta">de los mensajes de texto son leídos</span></div>
-        <div class="col-lg">
+        <div class="col-md-auto banda-cifra"><div class="numero">99%</div><span class="banda-etiqueta">de los mensajes de texto son leídos</span></div>
+        <div class="col-md banda-texto">
           <div class="banda-mensaje">
             <span class="banda-icono" aria-hidden="true">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/><path d="m14.5 17 2 2 4-4"/></svg>

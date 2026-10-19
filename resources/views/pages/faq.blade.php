@@ -5,10 +5,6 @@ Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial
 @endsection
 
 @section('seo')
-<meta property="og:locale" content="es_CR">
-<meta property="og:title" content="Preguntas frecuentes | SMS Empresarial">
-<meta property="og:url" content="https://smsempresarial.com/faq.html">
-<meta name="twitter:title" content="Preguntas frecuentes | SMS Empresarial">
   <meta name="description" content="Resuelve tus dudas sobre SMS Empresarial: campañas, WhatsApp, tarifas, saldo, contactos, mensajes SMS y uso de la plataforma.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://smsempresarial.com/faq.html">

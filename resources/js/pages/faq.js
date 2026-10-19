@@ -14,8 +14,12 @@
           if (matches) visible += 1;
         });
         empty.hidden = visible !== 0;
+        const english = document.documentElement.lang === 'en';
+        const found = english
+          ? (visible === 1 ? 'result found' : 'results found')
+          : (visible === 1 ? 'resultado encontrado' : 'resultados encontrados');
         count.textContent = query
-          ? `${visible} ${visible === 1 ? 'resultado encontrado' : 'resultados encontrados'}`
-          : `${items.length} preguntas disponibles`;
+          ? `${visible} ${found}`
+          : `${items.length} ${english ? 'questions available' : 'preguntas disponibles'}`;
       });
     })();

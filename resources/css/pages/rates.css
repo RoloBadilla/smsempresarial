@@ -66,7 +66,7 @@ main { background: linear-gradient(var(--surface) 0, var(--bg) 380px); }
 .table-note { color: var(--text-muted); font-size: .82rem; }
 
 /* WhatsApp */
-.wa-section { padding-block: clamp(3.5rem, 8vw, 5rem); }
+.wa-section { padding-block: var(--section-py); }
 .wa-card {
   position: relative;
   overflow: hidden;

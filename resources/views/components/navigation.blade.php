@@ -6,6 +6,7 @@
             <img src="{{ asset('site-img/sms-empresarial-white.svg') }}" alt="SMS Empresarial" width="200" height="94">
         </a>
         <div class="nav-actions order-xl-last">
+            <button class="theme-toggle lang-toggle" type="button" data-lang-toggle lang="en" title="View in English" aria-label="View in English" hidden>EN</button>
             <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" title="Modo oscuro" hidden>
                 <span class="visually-hidden">Modo oscuro</span>
                 <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>

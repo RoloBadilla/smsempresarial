@@ -20,10 +20,23 @@
             root.setAttribute('data-theme', theme);
             root.setAttribute('data-bs-theme', theme);
             if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('motion-ok');
+
+            // Idioma: ?lang=en|es en la URL, si no el elegido antes; por defecto español.
+            var lang = new URLSearchParams(location.search).get('lang');
+            try {
+                if (lang === 'en' || lang === 'es') localStorage.setItem('idioma', lang);
+                else lang = localStorage.getItem('idioma');
+            } catch (e) {}
+            if (lang === 'en') {
+                root.lang = 'en';
+                // Oculta la página mientras llega la traducción; nunca más de 2 s.
+                root.classList.add('traduciendo');
+                setTimeout(function () { root.classList.remove('traduciendo'); }, 2000);
+            }
         })();
     </script>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <style>.traduciendo body { visibility: hidden; }</style>
+    <meta name="diccionario-en" content="{{ asset('lang/en.json') }}">
     @php
         $pageStyles = [
             'home' => 'resources/css/pages/home.css',
@@ -33,19 +46,20 @@
             'rutasytarifas' => 'resources/css/pages/rates.css',
         ];
     @endphp
-    @vite(['resources/css/site-shared.css', $pageStyles[$pageKey]])
+    @vite(['resources/css/bootstrap.scss', 'resources/css/site-shared.css', $pageStyles[$pageKey]])
 </head>
 <body>
     <x-header :page="$pageKey" />
     @yield('content')
     <x-footer :variant="$footerVariant" />
+    @if ($pageKey !== 'contactanos')
+        <x-lo-quiero-button />
+    @endif
     <x-whatsapp-button />
     @vite('resources/js/site.js')
     @if ($pageKey === 'faq')
         @vite('resources/js/pages/faq.js')
     @elseif ($pageKey === 'rutasytarifas')
         @vite('resources/js/pages/rates.js')
-    @endif
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-</body>
+    @endif</body>
 </html>

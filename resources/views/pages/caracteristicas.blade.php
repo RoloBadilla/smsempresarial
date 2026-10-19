@@ -1,27 +1,23 @@
 @extends('layouts.app', ['pageKey' => 'caracteristicas', 'footerVariant' => 'marketing'])
 
 @section('title')
-Funciones de SMS Empresarial | SMS, WhatsApp y API
+Características de SMS Empresarial | SMS, WhatsApp y API
 @endsection
 
 @section('seo')
-<meta property="og:locale" content="es_CR">
-<meta property="og:title" content="Características de SMS Empresarial | SMS, WhatsApp y API">
-<meta property="og:url" content="https://smsempresarial.com/caracteristicas.html">
-<meta name="twitter:title" content="Características de SMS Empresarial">
-  <meta name="description" content="Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.">
+  <meta name="description" content="Funciones de SMS Empresarial: campañas masivas de SMS y WhatsApp, integración por API, recepción de respuestas, reportes y gestión de contactos.">
   <meta name="robots" content="index,follow,max-image-preview:large">
   <link rel="canonical" href="https://smsempresarial.com/caracteristicas.html">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CR">
   <meta property="og:site_name" content="SMS Empresarial">
-  <meta property="og:title" content="Funciones de SMS Empresarial | SMS, WhatsApp y API">
-  <meta property="og:description" content="Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.">
+  <meta property="og:title" content="Características de SMS Empresarial | SMS, WhatsApp y API">
+  <meta property="og:description" content="Funciones de SMS Empresarial: campañas masivas de SMS y WhatsApp, integración por API, recepción de respuestas, reportes y gestión de contactos.">
   <meta property="og:url" content="https://smsempresarial.com/caracteristicas.html">
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Funciones de SMS Empresarial | SMS, WhatsApp y API">
-  <meta name="twitter:description" content="Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.">
-  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"https://smsempresarial.com/"},{"url":"https://smsempresarial.com/","name":"SMS Empresarial","@id":"https://smsempresarial.com/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"https://smsempresarial.com/#website"},"name":"Funciones de SMS Empresarial | SMS, WhatsApp y API","inLanguage":"es-CR","description":"Conoce las funciones de SMS Empresarial: campañas de SMS y WhatsApp, integración API, recepción de mensajes, reportes y gestión de contactos.","@type":"WebPage","url":"https://smsempresarial.com/caracteristicas.html"}]}</script>
+  <meta name="twitter:title" content="Características de SMS Empresarial | SMS, WhatsApp y API">
+  <meta name="twitter:description" content="Funciones de SMS Empresarial: campañas masivas de SMS y WhatsApp, integración por API, recepción de respuestas, reportes y gestión de contactos.">
+  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://smsempresarial.com/#organization","name":"SMS Empresarial","url":"https://smsempresarial.com/","telephone":"+506 2204 9494","email":"info@cyberfuel.com","areaServed":"Costa Rica"},{"@type":"WebSite","@id":"https://smsempresarial.com/#website","url":"https://smsempresarial.com/","name":"SMS Empresarial","inLanguage":"es-CR","publisher":{"@id":"https://smsempresarial.com/#organization"}},{"@type":"WebPage","@id":"https://smsempresarial.com/caracteristicas.html#webpage","url":"https://smsempresarial.com/caracteristicas.html","name":"Características de SMS Empresarial | SMS, WhatsApp y API","description":"Funciones de SMS Empresarial: campañas masivas de SMS y WhatsApp, integración por API, recepción de respuestas, reportes y gestión de contactos.","inLanguage":"es-CR","isPartOf":{"@id":"https://smsempresarial.com/#website"},"breadcrumb":{"@id":"https://smsempresarial.com/caracteristicas.html#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://smsempresarial.com/caracteristicas.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://smsempresarial.com/"},{"@type":"ListItem","position":2,"name":"Características","item":"https://smsempresarial.com/caracteristicas.html"}]}]}</script>
 @endsection
 
 @section('content')
@@ -29,11 +25,16 @@ Funciones de SMS Empresarial | SMS, WhatsApp y API
   
   <main id="contenido">
     <header class="pagina-hero page-hero">
-      <div class="container pagina-hero-inner py-lg-4">
-        <x-breadcrumbs current="Características" />
-        <span class="pagina-kicker mb-3">Plataforma de mensajería empresarial</span>
-        <h1 class="mb-3">Todo lo que necesitas para comunicarte mejor</h1>
-        <p class="mb-0">Envía mensajes, organiza tus contactos, recibe respuestas y revisa resultados desde una sola plataforma para SMS y WhatsApp. Las herramientas ayudan a los equipos a organizar contactos, enviar mensajes y consultar resultados desde una sola plataforma.</p>
+      <div class="container pagina-hero-inner">
+        <div class="caracteristicas-hero-grid">
+          <div>
+            <x-breadcrumbs current="Características" />
+            <span class="pagina-kicker mb-3">Plataforma de mensajería empresarial</span>
+            <h1 class="mb-3">Todo lo que necesitas para comunicarte mejor</h1>
+            <p class="mb-0">Envía mensajes, organiza tus contactos, recibe respuestas y revisa resultados desde una sola plataforma para SMS y WhatsApp. Las herramientas ayudan a los equipos a organizar contactos, enviar mensajes y consultar resultados desde una sola plataforma.</p>
+          </div>
+          <x-orbita-rutas />
+        </div>
       </div>
     </header>
 
