@@ -32,6 +32,22 @@
 .form-control:focus, .form-select:focus { border-color: var(--focus); background-color: var(--field-bg); color: var(--text); box-shadow: 0 0 0 4px color-mix(in srgb, var(--focus) 25%, transparent); }
 .form-select option { background: var(--surface); color: var(--text); }
 .btn-brand { padding: .9rem 1.5rem; }
+.form-control.is-invalid, .form-select.is-invalid { border-color: var(--bs-form-invalid-border-color); }
+.invalid-feedback:not(:empty) { display: block; }
+
+/* Teléfono con país (intl-tel-input): mismos colores que el resto del formulario.
+   Su CSS carga después que este, por eso los selectores llevan un nivel más de especificidad.
+   En el celular la lista se abre fuera del formulario: las variables van en la raíz. */
+html:root { --iti-border-color: var(--border); --iti-dropdown-bg: var(--surface); --iti-hover-color: var(--surface-2); --iti-dialcode-color: var(--text-muted); --iti-arrow-color: var(--text-muted); --iti-search-icon-color: var(--text-muted); }
+.contact-wrap .iti { display: block; width: 100%; }
+body .iti__selected-dial-code { color: var(--text); }
+body .iti__dropdown-content { border-radius: var(--radius-sm); color: var(--text); box-shadow: var(--shadow); }
+body .iti__search-input { padding-block: .6rem; background: var(--surface); color: var(--text); }
+body .iti__country.iti__highlight { background-color: var(--surface-2); }
+
+/* reCAPTCHA v3: la insignia flotante se oculta porque el aviso ya está junto al botón (lo permite Google) */
+.grecaptcha-badge { visibility: hidden; }
+.recaptcha-aviso a { color: var(--accent); }
 
 /* Datos de contacto */
 .contact-item { height: 100%; padding: 1.3rem; border: 1px solid var(--border); border-radius: 18px; background: var(--surface-2); transition: transform var(--dur) var(--ease), border-color var(--dur) ease; }

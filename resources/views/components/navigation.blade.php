@@ -2,7 +2,7 @@
 
 <nav class="site-nav navbar navbar-expand-xl px-lg-5" aria-label="Navegación principal">
     <div class="container-fluid">
-        <a class="logo" href="/" aria-label="SMS Empresarial, inicio">
+        <a class="logo" href="{{ route('home') }}" aria-label="SMS Empresarial, inicio">
             <img src="{{ asset('site-img/sms-empresarial-white.svg') }}" alt="SMS Empresarial" width="200" height="94">
         </a>
         <div class="nav-actions order-xl-last">
@@ -18,11 +18,11 @@
         </div>
         <div class="collapse navbar-collapse" id="menu">
             <ul class="navbar-nav ms-xl-4 gap-xl-3">
-                <li class="nav-item"><a class="nav-link {{ $page === 'home' ? 'active' : '' }}" href="/" @if($page === 'home') aria-current="page" @endif>Inicio</a></li>
-                <li class="nav-item"><a class="nav-link {{ $page === 'caracteristicas' ? 'active' : '' }}" href="/caracteristicas.html" @if($page === 'caracteristicas') aria-current="page" @endif>Características</a></li>
-                <li class="nav-item"><a class="nav-link {{ $page === 'faq' ? 'active' : '' }}" href="/faq.html" @if($page === 'faq') aria-current="page" @endif>Preguntas frecuentes</a></li>
-                <li class="nav-item"><a class="nav-link {{ $page === 'rutasytarifas' ? 'active' : '' }}" href="/rutasytarifas.html" @if($page === 'rutasytarifas') aria-current="page" @endif>Rutas y tarifas</a></li>
-                <li class="nav-item"><a class="nav-link {{ $page === 'contactanos' ? 'active' : '' }}" href="/contactanos.html" @if($page === 'contactanos') aria-current="page" @endif>Contáctenos</a></li>
+                <li class="nav-item"><a class="nav-link {{ $page === 'home' ? 'active' : '' }}" href="{{ route('home') }}" @if($page === 'home') aria-current="page" @endif>Inicio</a></li>
+                <li class="nav-item"><a class="nav-link {{ $page === 'caracteristicas' ? 'active' : '' }}" href="{{ route('site.page', 'caracteristicas') }}" @if($page === 'caracteristicas') aria-current="page" @endif>Características</a></li>
+                <li class="nav-item"><a class="nav-link {{ $page === 'faq' ? 'active' : '' }}" href="{{ route('site.page', 'faq') }}" @if($page === 'faq') aria-current="page" @endif>Preguntas frecuentes</a></li>
+                <li class="nav-item"><a class="nav-link {{ $page === 'rutasytarifas' ? 'active' : '' }}" href="{{ route('site.page', 'rutasytarifas') }}" @if($page === 'rutasytarifas') aria-current="page" @endif>Rutas y tarifas</a></li>
+                <li class="nav-item"><a class="nav-link {{ $page === 'contactanos' ? 'active' : '' }}" href="{{ route('site.page', 'contactanos') }}" @if($page === 'contactanos') aria-current="page" @endif>Contáctenos</a></li>
             </ul>
         </div>
     </div>

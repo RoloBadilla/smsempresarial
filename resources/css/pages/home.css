@@ -210,6 +210,12 @@
 .reviews-card:hover { transform: translateY(-3px); border-color: var(--border-strong); }
 .reviews-score { color: var(--heading); }
 .reviews-stars { color: var(--accent); letter-spacing: 2px; }
+.review-item { height: 100%; padding: 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+.review-foto { flex: none; width: 40px; height: 40px; border-radius: 50%; object-fit: cover; }
+.review-inicial { display: grid; place-items: center; background: var(--surface-2); color: var(--heading); font-weight: var(--fw-bold); }
+.review-autor { color: var(--heading); font-size: .98rem; font-weight: var(--fw-bold); }
+.review-vacia { color: var(--border-strong); }
+.review-texto { color: var(--text-muted); font-size: .92rem; line-height: 1.6; }
 
 /* ---------- Responsive ---------- */
 /* Tableta y móvil: texto alineado a la izquierda (los párrafos largos centrados cuestan leerlos) */

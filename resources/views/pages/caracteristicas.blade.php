@@ -115,7 +115,7 @@ Características de SMS Empresarial | SMS, WhatsApp y API
       <div class="feature-cta">
         <h2 class="mb-3">Conoce una forma más directa de comunicarte</h2>
         <p class="mb-4">Explora cómo combinar SMS, WhatsApp y automatización para mantener informados a tus clientes.</p>
-        <a href="/" class="btn btn-celeste btn-lg rounded-pill px-4">Volver al inicio</a>
+        <a href="{{ route('home') }}" class="btn btn-celeste btn-lg rounded-pill px-4">Volver al inicio</a>
       </div>
     </section>
   </main>

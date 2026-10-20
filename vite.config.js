@@ -15,6 +15,7 @@ export default defineConfig({
                 'resources/js/site.js',
                 'resources/js/pages/faq.js',
                 'resources/js/pages/rates.js',
+                'resources/js/pages/contact.js',
             ],
             refresh: true,
         }),

@@ -1,4 +1,4 @@
-@props(['id', 'title', 'text', 'linkText' => null, 'linkHref' => '/contactanos.html'])
+@props(['id', 'title', 'text', 'linkText' => null, 'linkHref' => null])
 
 {{-- Estado vacío de los buscadores: explica qué pasó y ofrece un siguiente paso. Lo muestra/oculta el JS de la página. --}}
 <div class="empty-state" id="{{ $id }}" hidden>
@@ -10,7 +10,7 @@
     <div class="empty-state-acciones">
         <button class="btn btn-brand btn-sm px-3" type="button" data-empty-clear>Limpiar búsqueda</button>
         @if ($linkText)
-            <a class="empty-state-enlace" href="{{ $linkHref }}">{{ $linkText }}</a>
+            <a class="empty-state-enlace" href="{{ $linkHref ?? route('site.page', 'contactanos') }}">{{ $linkText }}</a>
         @endif
     </div>
 </div>

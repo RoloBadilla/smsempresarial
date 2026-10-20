@@ -61,5 +61,7 @@
         @vite('resources/js/pages/faq.js')
     @elseif ($pageKey === 'rutasytarifas')
         @vite('resources/js/pages/rates.js')
+    @elseif ($pageKey === 'contactanos')
+        @vite('resources/js/pages/contact.js')
     @endif</body>
 </html>

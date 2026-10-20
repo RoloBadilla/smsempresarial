@@ -40,8 +40,8 @@ SMS empresarial en Costa Rica | SMS masivos y WhatsApp
           <h1 class="mb-4">SMS masivos y WhatsApp empresarial en Costa Rica</h1>
           <p class="lead mb-4">Ponemos a tu disposici&oacute;n el env&iacute;o de mensajes de texto (SMS) y WhatsApp desde tu computadora a tel&eacute;fonos celulares en distintos pa&iacute;ses. La plataforma permite planificar campa&ntilde;as, enviar notificaciones y conectar tus sistemas mediante una API de mensajer&iacute;a.</p>
           <div class="d-flex flex-wrap gap-3 mb-4">
-            <a href="#" class="btn btn-azul btn-lg px-5 btn-hero-primario">¡Lo quiero!</a>
-            <a href="/rutasytarifas.html" class="btn btn-hero-secundario btn-lg px-4 rounded-pill fw-bold">Consultar tarifas</a>
+            <a href="{{ route('site.page', 'contactanos') }}" class="btn btn-azul btn-lg px-5 btn-hero-primario">¡Lo quiero!</a>
+            <a href="{{ route('site.page', 'rutasytarifas') }}" class="btn btn-hero-secundario btn-lg px-4 rounded-pill fw-bold">Consultar tarifas</a>
           </div>
           <div class="d-flex flex-wrap gap-2">
             <span class="etiqueta">Campañas personalizadas</span>
@@ -125,7 +125,7 @@ SMS empresarial en Costa Rica | SMS masivos y WhatsApp
             <h2 class="fw-bold mb-0">Tus mensajes sí se leen.</h2>
           </div>
           <p class="banda-descripcion mb-4">Usa SMS para enviar avisos, promociones y recordatorios a tus clientes.</p>
-          <a href="/rutasytarifas.html" class="btn btn-banda btn-lg rounded-pill fw-bold px-4">Tabla de destinos y tarifas</a>
+          <a href="{{ route('site.page', 'rutasytarifas') }}" class="btn btn-banda btn-lg rounded-pill fw-bold px-4">Tabla de destinos y tarifas</a>
         </div>
       </div>
     </div>
@@ -140,13 +140,35 @@ SMS empresarial en Costa Rica | SMS masivos y WhatsApp
 
         <div class="reviews-card d-flex align-items-center gap-3 px-4 py-3">
         <span class="fw-bold">Google Reviews</span>
-        <span class="reviews-score display-5 fw-bold lh-1">4.8</span>
+        <span class="reviews-score display-5 fw-bold lh-1">{{ $reviews ? number_format($reviews['average'], 1) : '4.8' }}</span>
         <span>
             <span class="reviews-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
-            <small class="text-secondary">34 reviews</small>
+            <small class="text-secondary">{{ $reviews ? $reviews['total'] : 34 }} reviews</small>
         </span>
         </div>
     </div>
+    @if ($reviews && $reviews['reviews'])
+    <div class="row g-3 mt-4 text-start">
+        @foreach ($reviews['reviews'] as $review)
+        <div class="col-md-6 col-lg-4">
+            <article class="review-item">
+                <div class="d-flex align-items-center gap-3 mb-2">
+                    @if ($review['photo'])
+                    <img class="review-foto" src="{{ $review['photo'] }}" alt="" width="40" height="40" loading="lazy" referrerpolicy="no-referrer">
+                    @else
+                    <span class="review-foto review-inicial" aria-hidden="true">{{ mb_substr($review['author'], 0, 1) }}</span>
+                    @endif
+                    <div>
+                        <h3 class="review-autor mb-0">{{ $review['author'] }}</h3>
+                        <span class="reviews-stars small" role="img" aria-label="{{ $review['rating'] }} de 5 estrellas">{{ str_repeat('★', $review['rating']) }}<span class="review-vacia">{{ str_repeat('★', 5 - $review['rating']) }}</span></span>
+                    </div>
+                </div>
+                <p class="review-texto mb-0">{{ \Illuminate\Support\Str::limit($review['comment'], 220) }}</p>
+            </article>
+        </div>
+        @endforeach
+    </div>
+    @endif
     </section>
   <!-- ===== MARCAS QUE ROTAN ===== -->
   </main>

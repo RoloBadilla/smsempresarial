@@ -35,4 +35,35 @@ return [
         ],
     ],
 
+    // reCAPTCHA v3 (invisible) del formulario de contacto.
+    'recaptcha' => [
+        'site_key' => env('RECAPTCHA_SITE_KEY'),
+        'secret_key' => env('RECAPTCHA_SECRET_KEY'),
+        'min_score' => (float) env('RECAPTCHA_MIN_SCORE', 0.5),
+    ],
+
+    // Servicio de leads de Cyberfuel: recibe los contactos del formulario.
+    'cyberfuel_leads' => [
+        'url' => env('CYBERFUEL_LEADS_URL', 'https://paybac.cyberfuel.com/leads/public/addleads/api'),
+        'usuario' => env('CYBERFUEL_LEADS_USUARIO'),
+        'clave' => env('CYBERFUEL_LEADS_CLAVE'),
+        'producto' => env('CYBERFUEL_LEADS_PRODUCTO', 'SMSEmpresarial'),
+    ],
+
+    // Opciones de "¿Cómo te enteraste de nosotros?".
+    'cyberfuel_medios' => [
+        'url' => env('CYBERFUEL_MEDIOS_URL', 'https://paybac.cyberfuel.com/ws_funciones_psc/public/obtener_medios_comerciales/api'),
+        'usuario' => env('CYBERFUEL_MEDIOS_USUARIO'),
+        'clave' => env('CYBERFUEL_MEDIOS_CLAVE'),
+    ],
+
+    // Reseñas de Google Business Profile para la portada.
+    'google_reviews' => [
+        'client_id' => env('GOOGLE_CLIENT_ID'),
+        'client_secret' => env('GOOGLE_CLIENT_SECRET'),
+        'refresh_token' => env('GOOGLE_REFRESH_TOKEN'),
+        'account_id' => env('GOOGLE_ACCOUNT_ID'),
+        'location_id' => env('GOOGLE_LOCATION_ID'),
+    ],
+
 ];
