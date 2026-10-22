@@ -10,7 +10,7 @@
     <div class="empty-state-acciones">
         <button class="btn btn-brand btn-sm px-3" type="button" data-empty-clear>Limpiar búsqueda</button>
         @if ($linkText)
-            <a class="empty-state-enlace" href="{{ $linkHref ?? route('site.page', 'contactanos') }}">{{ $linkText }}</a>
+            <a class="empty-state-enlace" href="{{ $linkHref ?? route('contactanos') }}">{{ $linkText }}</a>
         @endif
     </div>
 </div>

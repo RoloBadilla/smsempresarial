@@ -7,17 +7,17 @@ Rutas y tarifas de SMS | SMS Empresarial Costa Rica
 @section('seo')
 <meta name="description" content="Consulta las tarifas por SMS de SMS Empresarial en Costa Rica y otros destinos. Solicita una cotización para WhatsApp Business.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="canonical" href="https://smsempresarial.com/rutasytarifas.html">
+  <link rel="canonical" href="{{ route('rutasytarifas') }}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CR">
   <meta property="og:site_name" content="SMS Empresarial">
   <meta property="og:title" content="Rutas y tarifas de SMS | SMS Empresarial Costa Rica">
   <meta property="og:description" content="Consulta las tarifas por SMS de SMS Empresarial en Costa Rica y otros destinos. Solicita una cotización para WhatsApp Business.">
-  <meta property="og:url" content="https://smsempresarial.com/rutasytarifas.html">
+  <meta property="og:url" content="{{ route('rutasytarifas') }}">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Rutas y tarifas de SMS | SMS Empresarial Costa Rica">
   <meta name="twitter:description" content="Consulta las tarifas por SMS de SMS Empresarial en Costa Rica y otros destinos. Solicita una cotización para WhatsApp Business.">
-  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"https://smsempresarial.com/"},{"url":"https://smsempresarial.com/","name":"SMS Empresarial","@id":"https://smsempresarial.com/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"https://smsempresarial.com/#website"},"name":"Rutas y tarifas de SMS | SMS Empresarial Costa Rica","inLanguage":"es-CR","description":"Consulta las tarifas por SMS de SMS Empresarial en Costa Rica y otros destinos. Solicita una cotización para WhatsApp Business.","@type":"WebPage","url":"https://smsempresarial.com/rutasytarifas.html"}]}</script>
+  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"{{ url('/') }}/"},{"url":"{{ url('/') }}/","name":"SMS Empresarial","@id":"{{ url('/') }}/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"{{ url('/') }}/#website"},"name":"Rutas y tarifas de SMS | SMS Empresarial Costa Rica","inLanguage":"es-CR","description":"Consulta las tarifas por SMS de SMS Empresarial en Costa Rica y otros destinos. Solicita una cotización para WhatsApp Business.","@type":"WebPage","url":"{{ route('rutasytarifas') }}"}]}</script>
 @endsection
 
 @section('content')
@@ -57,7 +57,7 @@ Rutas y tarifas de SMS | SMS Empresarial Costa Rica
   <div class="col-lg-8"><div class="d-flex align-items-center gap-3 mb-3"><span class="wa-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor" focusable="false"><path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.5 0 .16 5.34.16 11.91c0 2.1.55 4.16 1.6 5.97L.06 24l6.27-1.64a11.9 11.9 0 0 0 5.74 1.46h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.17-3.47-8.43ZM12.08 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.73.98 1-3.64-.23-.37a9.86 9.86 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.9-9.9 2.65 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.9-9.91 9.9Zm5.43-7.41c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.66.15-.2.3-.76.97-.93 1.17-.17.2-.34.22-.64.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.76-1.66-2.06-.17-.3-.02-.46.13-.61.14-.13.3-.34.45-.51.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.2-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37s-1.04 1.02-1.04 2.48 1.07 2.88 1.22 3.08c.15.2 2.1 3.2 5.09 4.49.71.31 1.26.5 1.69.64.71.23 1.36.2 1.87.12.57-.09 1.76-.72 2.01-1.42.25-.7.25-1.31.17-1.43-.07-.12-.27-.2-.57-.35Z"/></svg></span><div><span class="section-kicker kicker-wa">También disponible</span><h2 class="section-title mb-0">Rutas y tarifas WhatsApp</h2></div></div><p class="section-copy mb-0">WhatsApp Business requiere un número exclusivo para trabajar con las tarifas de WhatsApp y SMS Empresarial. Cada conversación se cotiza según el país y el tipo de servicio.</p></div>
   <div class="col-lg-4"><div class="wa-note"><strong>¿Necesitas una tarifa?</strong><br>Cuéntanos a qué país quieres escribir y un agente te ayudará con la opción adecuada.<div class="mt-3"><a class="btn btn-brand px-4 py-2" href="https://api.whatsapp.com/send?phone=50622049494" target="_blank" rel="noopener noreferrer">Contactar a un agente</a></div></div></div>
 </div></div></div></section>
-<x-cta-panel section-class="pb-5" button-class="px-4 py-3" kicker="¿Listo para comenzar?" title="Activa tus comunicaciones" text="Crea tu cuenta y empieza a enviar mensajes desde una plataforma sencilla." href="https://smsempresarial.com/" label="Crear mi cuenta" />
+<x-cta-panel section-class="pb-5" button-class="px-4 py-3" kicker="¿Listo para comenzar?" title="Activa tus comunicaciones" text="Crea tu cuenta y empieza a enviar mensajes desde una plataforma sencilla." :href="config('services.plataforma.registro')" label="Crear mi cuenta" />
 </main>
 
 

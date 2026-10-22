@@ -7,17 +7,17 @@ Contáctanos | SMS Empresarial Costa Rica
 @section('seo')
 <meta name="description" content="Contacta a SMS Empresarial para recibir asesoría sobre SMS masivos, WhatsApp Business, tarifas e integración de mensajería.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="canonical" href="https://smsempresarial.com/contactanos.html">
+  <link rel="canonical" href="{{ route('contactanos') }}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CR">
   <meta property="og:site_name" content="SMS Empresarial">
   <meta property="og:title" content="Contáctanos | SMS Empresarial Costa Rica">
   <meta property="og:description" content="Contacta a SMS Empresarial para recibir asesoría sobre SMS masivos, WhatsApp Business, tarifas e integración de mensajería.">
-  <meta property="og:url" content="https://smsempresarial.com/contactanos.html">
+  <meta property="og:url" content="{{ route('contactanos') }}">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Contáctanos | SMS Empresarial Costa Rica">
   <meta name="twitter:description" content="Contacta a SMS Empresarial para recibir asesoría sobre SMS masivos, WhatsApp Business, tarifas e integración de mensajería.">
-  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"https://smsempresarial.com/"},{"url":"https://smsempresarial.com/","name":"SMS Empresarial","@id":"https://smsempresarial.com/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"https://smsempresarial.com/#website"},"name":"Contáctanos | SMS Empresarial Costa Rica","inLanguage":"es-CR","description":"Contacta a SMS Empresarial para recibir asesoría sobre SMS masivos, WhatsApp Business, tarifas e integración de mensajería.","@type":"WebPage","url":"https://smsempresarial.com/contactanos.html"}]}</script>
+  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"{{ url('/') }}/"},{"url":"{{ url('/') }}/","name":"SMS Empresarial","@id":"{{ url('/') }}/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"{{ url('/') }}/#website"},"name":"Contáctanos | SMS Empresarial Costa Rica","inLanguage":"es-CR","description":"Contacta a SMS Empresarial para recibir asesoría sobre SMS masivos, WhatsApp Business, tarifas e integración de mensajería.","@type":"WebPage","url":"{{ route('contactanos') }}"}]}</script>
 @endsection
 
 @section('content')
@@ -55,7 +55,7 @@ Contáctanos | SMS Empresarial Costa Rica
 <div class="col-12"><article class="contact-item"><div class="contact-icon mb-3" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 21s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></svg></div><h3>Visítanos</h3><p class="mb-0">Edificio E, Forum 1<br>Santa Ana, San José, Costa Rica</p></article></div>
 </div><p class="note mt-3 mb-0">Tus datos se usan solo para responder tu consulta. Si prefieres, también puedes escribirnos directamente por correo o WhatsApp.</p></aside>
 </div></div></section>
-<x-cta-panel section-class="pt-5" kicker="¿Ya tienes todo listo?" title="Empieza a comunicarte" text="Conoce las opciones para enviar mensajes a tus clientes." :href="route('site.page', 'rutasytarifas')" label="Ver rutas y tarifas" />
+<x-cta-panel section-class="pt-5" kicker="¿Ya tienes todo listo?" title="Empieza a comunicarte" text="Conoce las opciones para enviar mensajes a tus clientes." :href="route('rutasytarifas')" label="Ver rutas y tarifas" />
 </main>
 
 

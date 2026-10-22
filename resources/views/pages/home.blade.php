@@ -7,17 +7,17 @@ SMS empresarial en Costa Rica | SMS masivos y WhatsApp
 @section('seo')
     <meta name="description" content="Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="canonical" href="https://smsempresarial.com/">
+  <link rel="canonical" href="{{ url('/') }}/">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CR">
   <meta property="og:site_name" content="SMS Empresarial">
   <meta property="og:title" content="SMS empresarial en Costa Rica | SMS masivos y WhatsApp">
   <meta property="og:description" content="Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.">
-  <meta property="og:url" content="https://smsempresarial.com/">
+  <meta property="og:url" content="{{ url('/') }}/">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="SMS empresarial en Costa Rica | SMS masivos y WhatsApp">
   <meta name="twitter:description" content="Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.">
-  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"https://smsempresarial.com/"},{"url":"https://smsempresarial.com/","name":"SMS Empresarial","@id":"https://smsempresarial.com/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"https://smsempresarial.com/#website"},"name":"SMS empresarial en Costa Rica | SMS masivos y WhatsApp","inLanguage":"es-CR","description":"Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.","@type":"WebPage","url":"https://smsempresarial.com/"}]}</script>
+  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"{{ url('/') }}/"},{"url":"{{ url('/') }}/","name":"SMS Empresarial","@id":"{{ url('/') }}/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"{{ url('/') }}/#website"},"name":"SMS empresarial en Costa Rica | SMS masivos y WhatsApp","inLanguage":"es-CR","description":"Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.","@type":"WebPage","url":"{{ url('/') }}/"}]}</script>
 @endsection
 
 @section('content')
@@ -40,8 +40,8 @@ SMS empresarial en Costa Rica | SMS masivos y WhatsApp
           <h1 class="mb-4">SMS masivos y WhatsApp empresarial en Costa Rica</h1>
           <p class="lead mb-4">Ponemos a tu disposici&oacute;n el env&iacute;o de mensajes de texto (SMS) y WhatsApp desde tu computadora a tel&eacute;fonos celulares en distintos pa&iacute;ses. La plataforma permite planificar campa&ntilde;as, enviar notificaciones y conectar tus sistemas mediante una API de mensajer&iacute;a.</p>
           <div class="d-flex flex-wrap gap-3 mb-4">
-            <a href="{{ route('site.page', 'contactanos') }}" class="btn btn-azul btn-lg px-5 btn-hero-primario">¡Lo quiero!</a>
-            <a href="{{ route('site.page', 'rutasytarifas') }}" class="btn btn-hero-secundario btn-lg px-4 rounded-pill fw-bold">Consultar tarifas</a>
+            <a href="{{ route('contactanos') }}" class="btn btn-azul btn-lg px-5 btn-hero-primario">¡Lo quiero!</a>
+            <a href="{{ route('rutasytarifas') }}" class="btn btn-hero-secundario btn-lg px-4 rounded-pill fw-bold">Consultar tarifas</a>
           </div>
           <div class="d-flex flex-wrap gap-2">
             <span class="etiqueta">Campañas personalizadas</span>
@@ -125,7 +125,7 @@ SMS empresarial en Costa Rica | SMS masivos y WhatsApp
             <h2 class="fw-bold mb-0">Tus mensajes sí se leen.</h2>
           </div>
           <p class="banda-descripcion mb-4">Usa SMS para enviar avisos, promociones y recordatorios a tus clientes.</p>
-          <a href="{{ route('site.page', 'rutasytarifas') }}" class="btn btn-banda btn-lg rounded-pill fw-bold px-4">Tabla de destinos y tarifas</a>
+          <a href="{{ route('rutasytarifas') }}" class="btn btn-banda btn-lg rounded-pill fw-bold px-4">Tabla de destinos y tarifas</a>
         </div>
       </div>
     </div>

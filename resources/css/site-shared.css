@@ -153,7 +153,7 @@ body {
   transition: background-color var(--dur) ease, color var(--dur) ease;
 }
 img, svg { max-width: 100%; }
-h1, h2, h3, h4, .h1, .h2, .h3 { font-family: var(--font-brand); font-weight: var(--fw-bold); color: var(--heading); letter-spacing: -.02em; text-wrap: balance; }
+h1, h2, h3, h4, .h1, .h2, .h3 { font-family: var(--font-brand); font-weight: var(--fw-bold); color: var(--heading); text-wrap: balance; }
 p { text-wrap: pretty; }
 a { color: var(--accent); text-underline-offset: .2em; }
 a:hover { color: var(--accent); }
@@ -291,7 +291,7 @@ a:hover { color: var(--accent); }
   box-shadow: 0 0 0 2.5rem color-mix(in srgb, var(--cf-blanco) 4%, transparent), 0 0 0 5rem color-mix(in srgb, var(--cf-blanco) 3%, transparent);
   pointer-events: none;
 }
-.page-hero h1 { max-width: 16ch; margin-bottom: 1rem; color: var(--hero-text); font-size: var(--fs-h1); line-height: 1.05; letter-spacing: -.035em; }
+.page-hero h1 { max-width: 16ch; margin-bottom: 1rem; color: var(--hero-text); font-size: var(--fs-h1); line-height: 1.05; }
 .page-hero p { max-width: 62ch; color: var(--hero-muted); font-size: clamp(1rem, .95rem + .3vw, 1.15rem); line-height: 1.75; }
 
 /* Ruta de navegación y etiquetas de cabecera */
@@ -333,7 +333,7 @@ main .g-5 { --bs-gutter-x: 2rem; --bs-gutter-y: 1.5rem; }
 main .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
 :is(.footer-main, .footer) > .container.py-5 { padding-block: clamp(1.75rem, 4vw, 2.75rem) !important; }
 :is(.footer-main, .footer) .g-lg-5 { --bs-gutter-y: 1.25rem; }
-.feature-heading h2, .section-title, .title { color: var(--heading); font-size: var(--fs-h2); line-height: 1.12; letter-spacing: -.03em; }
+.feature-heading h2, .section-title, .title { color: var(--heading); font-size: var(--fs-h2); line-height: 1.12; }
 .feature-heading p, .section-copy, .copy { color: var(--text-muted); line-height: 1.75; margin-bottom: 0; }
 
 .surface-card, .feature-card, .tarjeta, .panel, .card-panel {

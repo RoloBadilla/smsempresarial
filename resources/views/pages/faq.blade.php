@@ -7,17 +7,17 @@ Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial
 @section('seo')
   <meta name="description" content="Resuelve tus dudas sobre SMS Empresarial: campañas, WhatsApp, tarifas, saldo, contactos, mensajes SMS y uso de la plataforma.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="canonical" href="https://smsempresarial.com/faq.html">
+  <link rel="canonical" href="{{ route('faq') }}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CR">
   <meta property="og:site_name" content="SMS Empresarial">
   <meta property="og:title" content="Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial">
   <meta property="og:description" content="Resuelve tus dudas sobre SMS Empresarial: campañas, WhatsApp, tarifas, saldo, contactos, mensajes SMS y uso de la plataforma.">
-  <meta property="og:url" content="https://smsempresarial.com/faq.html">
+  <meta property="og:url" content="{{ route('faq') }}">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial">
   <meta name="twitter:description" content="Resuelve tus dudas sobre SMS Empresarial: campañas, WhatsApp, tarifas, saldo, contactos, mensajes SMS y uso de la plataforma.">
-  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"https://smsempresarial.com/"},{"url":"https://smsempresarial.com/","name":"SMS Empresarial","@id":"https://smsempresarial.com/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"https://smsempresarial.com/#website"},"name":"Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial","inLanguage":"es-CR","description":"Resuelve tus dudas sobre SMS Empresarial: campañas, WhatsApp, tarifas, saldo, contactos, mensajes SMS y uso de la plataforma.","@type":"WebPage","url":"https://smsempresarial.com/faq.html"}]}</script>
+  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"areaServed":"Costa Rica","name":"SMS Empresarial","telephone":"+506 2204 9494","email":"info@cyberfuel.com","@type":"Organization","url":"{{ url('/') }}/"},{"url":"{{ url('/') }}/","name":"SMS Empresarial","@id":"{{ url('/') }}/#website","@type":"WebSite","inLanguage":"es-CR"},{"isPartOf":{"@id":"{{ url('/') }}/#website"},"name":"Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial","inLanguage":"es-CR","description":"Resuelve tus dudas sobre SMS Empresarial: campañas, WhatsApp, tarifas, saldo, contactos, mensajes SMS y uso de la plataforma.","@type":"WebPage","url":"{{ route('faq') }}"}]}</script>
 @endsection
 
 @section('content')
@@ -69,7 +69,7 @@ Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial
           <div id="faq-collapse-1" class="accordion-collapse collapse show" aria-labelledby="faq-heading-1" data-bs-parent="#faqAccordion"><div class="accordion-body">
             <p>SMSEmpresarial.com es un ente pasivo que le permite enviar mensajes de texto SMS (Short Message Service, mensajes cortos de texto) o WhatsApp desde Internet a usuarios finales en diferentes países.</p>
             <p>Con este servicio no necesita invertir en equipo, software ni mantenimiento, y puede realizar varios envíos simultáneos sin tener que esperar largos tiempos de recepción.</p>
-            <p>Para utilizar el sistema, solo necesita conexión a Internet. Acceda desde su navegador a <a href="https://smsempresarial.com/">smsempresarial.com</a>, regístrese e ingrese a su cuenta.</p>
+            <p>Para utilizar el sistema, solo necesita conexión a Internet. Acceda desde su navegador a <a href="{{ route('home') }}">smsempresarial.com</a>, <a href="{{ config('services.plataforma.registro') }}">regístrese</a> e ingrese a su cuenta.</p>
             <p>SMSEmpresarial.com no brinda bases de datos de teléfonos. Cada cliente es responsable de contar con la autorización del abonado o usuario final que recibe el mensaje, de acuerdo con la legislación de cada país donde se realice el envío.</p>
           </div></div>
         </div>

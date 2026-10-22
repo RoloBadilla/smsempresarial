@@ -10,13 +10,6 @@ use Illuminate\View\View;
 
 class SiteController extends Controller
 {
-    private const PAGES = [
-        'caracteristicas',
-        'faq',
-        'rutasytarifas',
-        'contactanos',
-    ];
-
     public function home(GoogleReviews $reviews): View
     {
         return view('pages.home', [
@@ -24,29 +17,27 @@ class SiteController extends Controller
         ]);
     }
 
-    public function show(string $page): View
+    public function caracteristicas(): View
     {
-        abort_unless(in_array($page, self::PAGES, true), 404);
+        return view('pages.caracteristicas');
+    }
 
-        $footerVariant = match ($page) {
-            'contactanos' => 'contact',
-            'rutasytarifas' => 'rates',
-            default => 'marketing',
-        };
+    public function faq(): View
+    {
+        return view('pages.faq');
+    }
 
-        $data = [
-            'pageKey' => $page,
-            'footerVariant' => $footerVariant,
-        ];
+    public function rutasYTarifas(): View
+    {
+        return view('pages.rutasytarifas');
+    }
 
-        if ($page === 'contactanos') {
-            $data += [
-                'temas' => ContactRequest::TEMAS,
-                'medios' => app(CyberfuelLeads::class)->mediosComerciales(),
-                'recaptchaKey' => app(Recaptcha::class)->siteKey(),
-            ];
-        }
-
-        return view('pages.'.$page, $data);
+    public function contactanos(CyberfuelLeads $leads, Recaptcha $recaptcha): View
+    {
+        return view('pages.contactanos', [
+            'temas' => ContactRequest::TEMAS,
+            'medios' => $leads->mediosComerciales(),
+            'recaptchaKey' => $recaptcha->siteKey(),
+        ]);
     }
 }

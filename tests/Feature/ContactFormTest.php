@@ -49,7 +49,7 @@ function datosContacto(array $cambios = []): array
 test('la página de contacto muestra los medios comerciales', function () {
     fakeServicios();
 
-    $this->get('/contactanos.html')
+    $this->get('/contactanos')
         ->assertOk()
         ->assertSee('¿Cómo te enteraste de nosotros?')
         ->assertSee('<option value="Facebook"', false);
@@ -58,7 +58,7 @@ test('la página de contacto muestra los medios comerciales', function () {
 test('si el servicio de medios falla la pregunta no aparece y no es obligatoria', function () {
     fakeServicios(['*/obtener_medios_comerciales/*' => Http::response('error', 500)]);
 
-    $this->get('/contactanos.html')->assertOk()->assertDontSee('¿Cómo te enteraste de nosotros?');
+    $this->get('/contactanos')->assertOk()->assertDontSee('¿Cómo te enteraste de nosotros?');
 
     $this->post('/contacto', datosContacto(['medio' => null]))->assertSessionHas('contact_sent');
 });
@@ -66,7 +66,7 @@ test('si el servicio de medios falla la pregunta no aparece y no es obligatoria'
 test('un contacto válido se envía al servicio de leads', function () {
     fakeServicios();
     $this->post('/contacto', datosContacto())
-        ->assertRedirect(route('site.page', 'contactanos').'#contacto')
+        ->assertRedirect(route('contactanos').'#contacto')
         ->assertSessionHas('contact_sent');
 
     Http::assertSent(fn (Request $request) => str_contains($request->url(), 'addleads')

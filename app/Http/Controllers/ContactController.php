@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function store(ContactRequest $request, Recaptcha $recaptcha, CyberfuelLeads $leads): RedirectResponse
     {
-        $back = redirect()->to(route('site.page', 'contactanos').'#contacto')->withInput();
+        $back = redirect()->to(route('contactanos').'#contacto')->withInput();
 
         if (! $recaptcha->verify($request->input('recaptcha_token'), 'contacto', $request->ip())) {
             return $back->withErrors(['recaptcha' => 'No pudimos verificar el envío. Intenta de nuevo.']);
@@ -41,6 +41,6 @@ class ContactController extends Controller
             return $back->with('contact_error', true);
         }
 
-        return redirect()->to(route('site.page', 'contactanos').'#contacto')->with('contact_sent', true);
+        return redirect()->to(route('contactanos').'#contacto')->with('contact_sent', true);
     }
 }

@@ -7,17 +7,17 @@ Características de SMS Empresarial | SMS, WhatsApp y API
 @section('seo')
   <meta name="description" content="Funciones de SMS Empresarial: campañas masivas de SMS y WhatsApp, integración por API, recepción de respuestas, reportes y gestión de contactos.">
   <meta name="robots" content="index,follow,max-image-preview:large">
-  <link rel="canonical" href="https://smsempresarial.com/caracteristicas.html">
+  <link rel="canonical" href="{{ route('caracteristicas') }}">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="es_CR">
   <meta property="og:site_name" content="SMS Empresarial">
   <meta property="og:title" content="Características de SMS Empresarial | SMS, WhatsApp y API">
   <meta property="og:description" content="Funciones de SMS Empresarial: campañas masivas de SMS y WhatsApp, integración por API, recepción de respuestas, reportes y gestión de contactos.">
-  <meta property="og:url" content="https://smsempresarial.com/caracteristicas.html">
+  <meta property="og:url" content="{{ route('caracteristicas') }}">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Características de SMS Empresarial | SMS, WhatsApp y API">
   <meta name="twitter:description" content="Funciones de SMS Empresarial: campañas masivas de SMS y WhatsApp, integración por API, recepción de respuestas, reportes y gestión de contactos.">
-  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://smsempresarial.com/#organization","name":"SMS Empresarial","url":"https://smsempresarial.com/","telephone":"+506 2204 9494","email":"info@cyberfuel.com","areaServed":"Costa Rica"},{"@type":"WebSite","@id":"https://smsempresarial.com/#website","url":"https://smsempresarial.com/","name":"SMS Empresarial","inLanguage":"es-CR","publisher":{"@id":"https://smsempresarial.com/#organization"}},{"@type":"WebPage","@id":"https://smsempresarial.com/caracteristicas.html#webpage","url":"https://smsempresarial.com/caracteristicas.html","name":"Características de SMS Empresarial | SMS, WhatsApp y API","description":"Funciones de SMS Empresarial: campañas masivas de SMS y WhatsApp, integración por API, recepción de respuestas, reportes y gestión de contactos.","inLanguage":"es-CR","isPartOf":{"@id":"https://smsempresarial.com/#website"},"breadcrumb":{"@id":"https://smsempresarial.com/caracteristicas.html#breadcrumb"}},{"@type":"BreadcrumbList","@id":"https://smsempresarial.com/caracteristicas.html#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://smsempresarial.com/"},{"@type":"ListItem","position":2,"name":"Características","item":"https://smsempresarial.com/caracteristicas.html"}]}]}</script>
+  <script type="application/ld+json">{"@@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"{{ url('/') }}/#organization","name":"SMS Empresarial","url":"{{ url('/') }}/","telephone":"+506 2204 9494","email":"info@cyberfuel.com","areaServed":"Costa Rica"},{"@type":"WebSite","@id":"{{ url('/') }}/#website","url":"{{ url('/') }}/","name":"SMS Empresarial","inLanguage":"es-CR","publisher":{"@id":"{{ url('/') }}/#organization"}},{"@type":"WebPage","@id":"{{ route('caracteristicas') }}#webpage","url":"{{ route('caracteristicas') }}","name":"Características de SMS Empresarial | SMS, WhatsApp y API","description":"Funciones de SMS Empresarial: campañas masivas de SMS y WhatsApp, integración por API, recepción de respuestas, reportes y gestión de contactos.","inLanguage":"es-CR","isPartOf":{"@id":"{{ url('/') }}/#website"},"breadcrumb":{"@id":"{{ route('caracteristicas') }}#breadcrumb"}},{"@type":"BreadcrumbList","@id":"{{ route('caracteristicas') }}#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"{{ url('/') }}/"},{"@type":"ListItem","position":2,"name":"Características","item":"{{ route('caracteristicas') }}"}]}]}</script>
 @endsection
 
 @section('content')

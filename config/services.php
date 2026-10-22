@@ -66,4 +66,9 @@ return [
         'location_id' => env('GOOGLE_LOCATION_ID'),
     ],
 
+    // Plataforma donde el cliente crea su cuenta y envía mensajes.
+    'plataforma' => [
+        'registro' => env('PLATAFORMA_REGISTRO_URL', 'https://app.smsempresarial.com/index.php?action=registro'),
+    ],
+
 ];
