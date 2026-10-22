@@ -74,6 +74,21 @@ Boost replaces these bootstrap instructions with guidelines tailored to the appl
   credenciales (Cyberfuel, reCAPTCHA, Google) se copian a mano.
 - Los cambios a este `CLAUDE.md` se hacen directamente en `rediseno-V2`.
 
+## Estructura de `public/`
+
+```
+public/
+├── build/            CSS y JS compilados por Vite (no se edita ni se sube a Git)
+├── images/logos/     logos de SMS Empresarial, Cyberfuel y marcas del grupo
+├── images/sellos/    sellos de seguridad (Sectigo)
+├── lang/en.json      traducción al inglés
+└── favicon.ico, robots.txt, sitemap.xml, index.php, .htaccess   (deben quedar en la raíz)
+```
+
+- El CSS y el JS se escriben en `resources/css` y `resources/js`, nunca en `public/css` o `public/js`.
+- Las imágenes y archivos de `public/` se enlazan con `versioned_asset('images/...')`, no con `asset()`,
+  para que el navegador no use una copia vieja al reemplazarlos.
+
 ## Guardar y subir cambios a Git
 
 Siempre en este orden (también disponible con el comando `/orden`):

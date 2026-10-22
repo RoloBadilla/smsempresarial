@@ -34,7 +34,22 @@ test('el tema y el idioma se aplican en el head antes de pintar', function () {
 test('los archivos de public que no pasan por Vite llevan versión en la URL', function () {
     $this->get('/')
         ->assertSee(asset('lang/en.json').'?v='.filemtime(public_path('lang/en.json')), false)
-        ->assertSee(asset('site-img/sms-empresarial-white.svg').'?v=', false);
+        ->assertSee(asset('images/logos/sms-empresarial-white.svg').'?v=', false);
+});
+
+test('todos los archivos de public usados en las vistas existen', function () {
+    $missing = collect(File::allFiles(resource_path('views')))
+        ->flatMap(function ($file) {
+            preg_match_all("/versioned_asset\('([^']+)'\)/", $file->getContents(), $matches);
+
+            return $matches[1];
+        })
+        ->unique()
+        ->reject(fn ($path) => is_file(public_path($path)))
+        ->values()
+        ->all();
+
+    expect($missing)->toBe([]);
 });
 
 test('el canonical de cada página apunta a su dirección sin .html', function () {
