@@ -8,7 +8,7 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/caracteristicas', 'caracteristicas')->name('caracteristicas');
     Route::get('/preguntas-frecuentes', 'faq')->name('faq');
-    Route::get('/tarifas', 'rutasYTarifas')->name('rutasytarifas');
+    Route::get('/tarifas', 'tarifas')->name('tarifas');
     Route::get('/contactanos', 'contactanos')->name('contactanos');
 });
 

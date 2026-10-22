@@ -52,6 +52,34 @@ test('todos los archivos de public usados en las vistas existen', function () {
     expect($missing)->toBe([]);
 });
 
+test('cada página tiene datos estructurados válidos con los datos de la empresa', function (string $url) {
+    $html = $this->get($url)->assertOk()->getContent();
+
+    preg_match('#<script type="application/ld\+json">(.*?)</script>#s', $html, $match);
+    $graph = collect(json_decode($match[1], true, flags: JSON_THROW_ON_ERROR)['@graph']);
+
+    expect($graph->firstWhere('@type', 'Organization')['telephone'])->toBe(config('sitio.telefono'))
+        ->and($graph->firstWhere('@type', 'WebPage'))->not->toBeNull();
+})->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos']);
+
+test('solo producción permite que Google indexe el sitio', function () {
+    $this->get('/')->assertSee('<meta name="robots" content="noindex, nofollow">', false);
+
+    app()['env'] = 'production';
+    $this->get('/')->assertSee('<meta name="robots" content="index,follow,max-image-preview:large">', false);
+});
+
+test('la tabla de tarifas muestra cada destino de la configuración con su bandera local', function () {
+    $response = $this->get('/tarifas')->assertOk();
+
+    foreach (config('tarifas.sms') as $tarifa) {
+        expect(public_path("images/banderas/{$tarifa['bandera']}.png"))->toBeFile();
+        $response->assertSee('$'.$tarifa['precio'])->assertSee($tarifa['pais']);
+    }
+
+    $response->assertDontSee('flagcdn.com');
+});
+
 test('el canonical de cada página apunta a su dirección sin .html', function () {
     $this->get('/preguntas-frecuentes')->assertSee('<link rel="canonical" href="'.route('faq').'">', false);
 });
@@ -60,7 +88,7 @@ test('el menú usa las rutas con nombre', function () {
     $this->get('/preguntas-frecuentes')
         ->assertSee('href="'.route('caracteristicas').'"', false)
         ->assertSee('href="'.route('faq').'"', false)
-        ->assertSee('href="'.route('rutasytarifas').'"', false)
+        ->assertSee('href="'.route('tarifas').'"', false)
         ->assertSee('href="'.route('contactanos').'"', false)
         ->assertSee('href="'.route('home').'"', false);
 });

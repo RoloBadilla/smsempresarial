@@ -4,11 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark light">
-    <title>@yield('title')</title>
-    @yield('seo')
-    @if (app()->environment('local', 'testing'))
-        <meta name="robots" content="noindex, nofollow">
-    @endif
+    <title>{{ $title }}</title>
+    <x-seo :title="$title" :description="$description" :breadcrumb="$breadcrumb ?? null" />
     {{-- Tema e idioma antes de pintar (evita parpadeo). La lógica vive en un solo archivo, compartido con site.js. --}}
     <script>{!! file_get_contents(resource_path('js/inline/preferences.js')) !!}</script>
     <style>.traduciendo body { visibility: hidden; }</style>
@@ -16,15 +13,15 @@
     @php
         $pageStyles = [
             'home' => 'resources/css/pages/home.css',
-            'caracteristicas' => 'resources/css/pages/features.css',
+            'caracteristicas' => 'resources/css/pages/caracteristicas.css',
             'faq' => 'resources/css/pages/faq.css',
-            'contactanos' => 'resources/css/pages/contact.css',
-            'rutasytarifas' => 'resources/css/pages/rates.css',
+            'contactanos' => 'resources/css/pages/contactanos.css',
+            'tarifas' => 'resources/css/pages/tarifas.css',
         ];
         $pageScripts = [
             'faq' => 'resources/js/pages/faq.js',
-            'contactanos' => 'resources/js/pages/contact.js',
-            'rutasytarifas' => 'resources/js/pages/rates.js',
+            'contactanos' => 'resources/js/pages/contactanos.js',
+            'tarifas' => 'resources/js/pages/tarifas.js',
         ];
     @endphp
     {{-- Un solo @vite en el head: todo el CSS (también el que importa el JS) llega antes de pintar.

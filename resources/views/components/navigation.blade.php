@@ -21,7 +21,7 @@
                 <li class="nav-item"><a class="nav-link {{ $page === 'home' ? 'active' : '' }}" href="{{ route('home') }}" @if($page === 'home') aria-current="page" @endif>Inicio</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'caracteristicas' ? 'active' : '' }}" href="{{ route('caracteristicas') }}" @if($page === 'caracteristicas') aria-current="page" @endif>Características</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'faq' ? 'active' : '' }}" href="{{ route('faq') }}" @if($page === 'faq') aria-current="page" @endif>Preguntas frecuentes</a></li>
-                <li class="nav-item"><a class="nav-link {{ $page === 'rutasytarifas' ? 'active' : '' }}" href="{{ route('rutasytarifas') }}" @if($page === 'rutasytarifas') aria-current="page" @endif>Rutas y tarifas</a></li>
+                <li class="nav-item"><a class="nav-link {{ $page === 'tarifas' ? 'active' : '' }}" href="{{ route('tarifas') }}" @if($page === 'tarifas') aria-current="page" @endif>Rutas y tarifas</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'contactanos' ? 'active' : '' }}" href="{{ route('contactanos') }}" @if($page === 'contactanos') aria-current="page" @endif>Contáctenos</a></li>
             </ul>
         </div>

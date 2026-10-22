@@ -27,9 +27,9 @@ class SiteController extends Controller
         return view('pages.faq');
     }
 
-    public function rutasYTarifas(): View
+    public function tarifas(): View
     {
-        return view('pages.rutasytarifas');
+        return view('pages.tarifas');
     }
 
     public function contactanos(CyberfuelLeads $leads, Recaptcha $recaptcha): View
