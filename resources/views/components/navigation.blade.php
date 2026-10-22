@@ -3,7 +3,7 @@
 <nav class="site-nav navbar navbar-expand-xl px-lg-5" aria-label="Navegación principal">
     <div class="container-fluid">
         <a class="logo" href="{{ route('home') }}" aria-label="SMS Empresarial, inicio">
-            <img src="{{ asset('site-img/sms-empresarial-white.svg') }}" alt="SMS Empresarial" width="200" height="94">
+            <img src="{{ versioned_asset('site-img/sms-empresarial-white.svg') }}" alt="SMS Empresarial" width="200" height="94">
         </a>
         <div class="nav-actions order-xl-last">
             <button class="theme-toggle lang-toggle" type="button" data-lang-toggle lang="en" title="View in English" aria-label="View in English" hidden>EN</button>

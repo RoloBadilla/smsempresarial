@@ -9,34 +9,10 @@
     @if (app()->environment('local', 'testing'))
         <meta name="robots" content="noindex, nofollow">
     @endif
-    {{-- Tema antes de pintar: elección guardada, si no la del sistema (oscuro si no hay preferencia clara). --}}
-    <script>
-        (function () {
-            var root = document.documentElement, theme = null;
-            try { theme = localStorage.getItem('tema'); } catch (e) {}
-            if (theme !== 'light' && theme !== 'dark') {
-                theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-            }
-            root.setAttribute('data-theme', theme);
-            root.setAttribute('data-bs-theme', theme);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('motion-ok');
-
-            // Idioma: ?lang=en|es en la URL, si no el elegido antes; por defecto español.
-            var lang = new URLSearchParams(location.search).get('lang');
-            try {
-                if (lang === 'en' || lang === 'es') localStorage.setItem('idioma', lang);
-                else lang = localStorage.getItem('idioma');
-            } catch (e) {}
-            if (lang === 'en') {
-                root.lang = 'en';
-                // Oculta la página mientras llega la traducción; nunca más de 2 s.
-                root.classList.add('traduciendo');
-                setTimeout(function () { root.classList.remove('traduciendo'); }, 2000);
-            }
-        })();
-    </script>
+    {{-- Tema e idioma antes de pintar (evita parpadeo). La lógica vive en un solo archivo, compartido con site.js. --}}
+    <script>{!! file_get_contents(resource_path('js/inline/preferences.js')) !!}</script>
     <style>.traduciendo body { visibility: hidden; }</style>
-    <meta name="diccionario-en" content="{{ asset('lang/en.json') }}">
+    <meta name="diccionario-en" content="{{ versioned_asset('lang/en.json') }}">
     @php
         $pageStyles = [
             'home' => 'resources/css/pages/home.css',
@@ -45,8 +21,21 @@
             'contactanos' => 'resources/css/pages/contact.css',
             'rutasytarifas' => 'resources/css/pages/rates.css',
         ];
+        $pageScripts = [
+            'faq' => 'resources/js/pages/faq.js',
+            'contactanos' => 'resources/js/pages/contact.js',
+            'rutasytarifas' => 'resources/js/pages/rates.js',
+        ];
     @endphp
-    @vite(['resources/css/bootstrap.scss', 'resources/css/site-shared.css', $pageStyles[$pageKey]])
+    {{-- Un solo @vite en el head: todo el CSS (también el que importa el JS) llega antes de pintar.
+         Los scripts son type="module", que esperan solos a que cargue la página: no bloquean. --}}
+    @vite(array_filter([
+        'resources/css/bootstrap.scss',
+        'resources/css/site-shared.css',
+        $pageStyles[$pageKey],
+        'resources/js/site.js',
+        $pageScripts[$pageKey] ?? null,
+    ]))
 </head>
 <body>
     <x-header :page="$pageKey" />
@@ -56,12 +45,5 @@
         <x-lo-quiero-button />
     @endif
     <x-whatsapp-button />
-    @vite('resources/js/site.js')
-    @if ($pageKey === 'faq')
-        @vite('resources/js/pages/faq.js')
-    @elseif ($pageKey === 'rutasytarifas')
-        @vite('resources/js/pages/rates.js')
-    @elseif ($pageKey === 'contactanos')
-        @vite('resources/js/pages/contact.js')
-    @endif</body>
+</body>
 </html>

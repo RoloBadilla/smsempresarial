@@ -23,7 +23,7 @@ export default defineConfig({
     css: {
         preprocessorOptions: {
             // Bootstrap 5.3 todavía usa @import y funciones viejas de Sass: se silencian esos avisos.
-            scss: { quietDeps: true, silenceDeprecations: ['import', 'global-builtin', 'color-functions', 'mixed-decls'] },
+            scss: { quietDeps: true, silenceDeprecations: ['import', 'global-builtin', 'color-functions'] },
         },
     },
     server: {

@@ -27,6 +27,16 @@ test('una página que no existe da 404', function () {
     $this->get('/otra.html')->assertNotFound();
 });
 
+test('el tema y el idioma se aplican en el head antes de pintar', function () {
+    $this->get('/')->assertSee('window.preferences = {', false);
+});
+
+test('los archivos de public que no pasan por Vite llevan versión en la URL', function () {
+    $this->get('/')
+        ->assertSee(asset('lang/en.json').'?v='.filemtime(public_path('lang/en.json')), false)
+        ->assertSee(asset('site-img/sms-empresarial-white.svg').'?v=', false);
+});
+
 test('el canonical de cada página apunta a su dirección sin .html', function () {
     $this->get('/preguntas-frecuentes')->assertSee('<link rel="canonical" href="'.route('faq').'">', false);
 });

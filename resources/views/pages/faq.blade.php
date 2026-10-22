@@ -36,7 +36,7 @@ Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial
           </div>
           <aside class="faq-hero-card" aria-label="Temas disponibles en preguntas frecuentes">
             <div class="faq-card-label"><span class="faq-card-dot" aria-hidden="true"></span> Centro de ayuda SMSEmpresarial</div>
-            <div class="faq-card-art"><img class="faq-card-logo" src="{{ asset('site-img/sms.svg') }}" alt="Logotipo de SMS Empresarial" width="205" height="205"></div>
+            <div class="faq-card-art"><img class="faq-card-logo" src="{{ versioned_asset('site-img/sms.svg') }}" alt="Logotipo de SMS Empresarial" width="205" height="205"></div>
             <div class="faq-card-summary">
               <div class="faq-card-count"><strong>10</strong><span>respuestas<br>frecuentes</span></div>
               <span class="faq-card-hint">Encuentra aquí lo que necesitas</span>

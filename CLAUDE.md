@@ -49,16 +49,44 @@ Boost replaces these bootstrap instructions with guidelines tailored to the appl
 ## Entorno y flujo de trabajo
 
 - Se sirve con Laragon desde `C:\laragon\www\smsempresarial`.
-- Ramas: `Rolo` (principal) y `rediseno-V2` (rediseño con modo claro/oscuro).
+- Ramas: todo el trabajo se hace en `rediseno-V2` (rediseño con modo claro/oscuro).
+  `Rolo` queda reservada para la página final: no se toca (ni commits ni merges).
 - `public/build` NO está en Git (lo genera Vite desde `resources/css` y `resources/js`).
   Al cambiar de rama o hacer pull, siempre correr:
 
   ```sh
+  composer install
+  npm install
   npm run build
+  php artisan migrate
   php artisan optimize:clear
   ```
 
   Si no, el sitio mezcla las vistas de una rama con el CSS compilado de otra.
+- Mientras se edita CSS o JS: `npm run dev` (los cambios se ven al instante).
+  Cerrarlo siempre con `Ctrl+C`: si se cierra de golpe deja `public/hot` y el sitio
+  carga sin estilos (se arregla borrándolo o con `npm run build`).
+- Al terminar, después de un pull o cambio de rama, y siempre para producción:
+  `npm run build`. Producción nunca usa `npm run dev`.
+- `APP_URL` en `.env` debe ser `http://smsempresarial.test` en ambas computadoras.
 - Se trabaja en dos computadoras: el proyecto debe estar en la misma ruta en ambas
-  y los cambios se pasan con commit/push y pull.
-- Los cambios a este `CLAUDE.md` se hacen en `Rolo` y luego se mergean a `rediseno-V2`.
+  y los cambios se pasan con commit/push y pull. El `.env` no va por Git: las
+  credenciales (Cyberfuel, reCAPTCHA, Google) se copian a mano.
+- Los cambios a este `CLAUDE.md` se hacen directamente en `rediseno-V2`.
+
+## Guardar y subir cambios a Git
+
+Siempre en este orden (también disponible con el comando `/orden`):
+
+```sh
+git status                      # 1. ¿rama correcta? ¿qué cambió?
+git pull                        # 2. traer lo último
+git add .                       # 3. preparar
+git commit -m "mensaje claro"   # 4. guardar
+git push                        # 5. subir
+```
+
+- La rama debe ser `rediseno-V2`. Si `git status` muestra `Rolo`, detenerse.
+- Antes del commit, correr `npm run build` y `php artisan test` para no subir algo roto.
+- Preguntar siempre al usuario el mensaje del commit antes de hacerlo.
+- Hacer push antes de cambiar de computadora.
