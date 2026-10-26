@@ -80,8 +80,11 @@ test('la tabla de tarifas muestra cada destino de la configuración con su bande
     $response->assertDontSee('flagcdn.com');
 });
 
-test('el canonical de cada página apunta a su dirección sin .html', function () {
-    $this->get('/preguntas-frecuentes')->assertSee('<link rel="canonical" href="'.route('faq').'">', false);
+test('el canonical apunta al dominio real, sin .html, aunque se abra en la copia de prueba', function () {
+    $this->get('/')->assertSee('<link rel="canonical" href="https://smsempresarial.com/">', false);
+    $this->get('/preguntas-frecuentes')
+        ->assertSee('<link rel="canonical" href="https://smsempresarial.com/preguntas-frecuentes">', false)
+        ->assertSee('<meta property="og:url" content="https://smsempresarial.com/preguntas-frecuentes">', false);
 });
 
 test('el menú usa las rutas con nombre', function () {

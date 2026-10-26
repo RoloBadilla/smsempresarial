@@ -4,8 +4,9 @@
 
 @php
     $sitio = config('sitio');
-    $inicio = url('/').'/';
-    $url = request()->routeIs('home') ? $inicio : url()->current();
+    $dominio = rtrim($sitio['url'], '/');
+    $inicio = $dominio.'/';
+    $url = request()->routeIs('home') ? $inicio : $dominio.'/'.ltrim(request()->path(), '/');
 
     $pagina = [
         '@type' => 'WebPage',
