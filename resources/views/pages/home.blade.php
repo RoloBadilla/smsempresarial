@@ -48,7 +48,7 @@
                                 <div class="pantalla">
                                     <div class="mensaje"><b class="tag-sms">SMS</b><br>Recordatorio de evento</div>
                                     <div class="mensaje"><b class="tag-wa">WhatsApp</b><br>Promoción para clientes</div>
-                                    <div class="mensaje"><b class="tag-sms">SMS</b><br>Su código OTP / Token</div>
+                                    <div class="mensaje"><b class="tag-sms">SMS</b><br>Tu código OTP / Token</div>
                                 </div>
                                 <div class="burbuja burbuja-sms">SMS</div>
                                 <div class="burbuja burbuja-wa">WhatsApp</div>
@@ -62,9 +62,9 @@
         <!-- ===== USOS ===== -->
         <section class="usos container">
             <div class="section-heading">
-                <h2 class="mb-3">Desde nuestra plataforma usted podrá</h2>
-                <p class="section-lead mb-0">Desde la aplicación de SMSEmpresarial.com podrá enviar mensajes de texto SMS
-                    (Short Message Service) o WhatsApp (mensajes cortos de texto) a sus clientes para:</p>
+                <h2 class="mb-3">Con nuestra plataforma puedes</h2>
+                <p class="section-lead mb-0">Desde SMSEmpresarial.com envías mensajes de texto (SMS) y mensajes de WhatsApp
+                    a tus clientes, tu equipo o tus proveedores para:</p>
             </div>
 
             <div class="row g-4">
@@ -77,7 +77,10 @@
                                 <path d="M15 9a4 4 0 0 1 0 6" />
                                 <path d="M18 6.5a8 8 0 0 1 0 11" />
                             </svg></div>
-                        <h3>Enviar Comunicados</h3>
+                        <div>
+                            <h3>Enviar comunicados</h3>
+                            <p>Avisa a clientes, colaboradores o proveedores al instante y en un solo envío.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -88,7 +91,10 @@
                                 <rect x="3" y="5" width="18" height="16" rx="2" />
                                 <path d="M8 3v4M16 3v4M3 10h18" />
                             </svg></div>
-                        <h3>Enviar Recordatorios / Eventos</h3>
+                        <div>
+                            <h3>Enviar recordatorios y eventos</h3>
+                            <p>Recuerda citas, pagos, reuniones y eventos para reducir ausencias y atrasos.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -99,7 +105,10 @@
                                 <path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z" />
                                 <circle cx="7.5" cy="7.5" r="1.2" />
                             </svg></div>
-                        <h3>Promociones o Campañas de Publicidad / Envío masivo</h3>
+                        <div>
+                            <h3>Promociones y campañas masivas</h3>
+                            <p>Envía ofertas a toda tu lista y personaliza cada mensaje con los datos de cada cliente.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -110,7 +119,10 @@
                                 <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9" />
                                 <path d="M10.3 21a1.9 1.9 0 0 0 3.4 0" />
                             </svg></div>
-                        <h3>Notificaciones o Alertas</h3>
+                        <div>
+                            <h3>Notificaciones y alertas</h3>
+                            <p>Informa entregas, cambios de estado o alertas de seguridad en el momento.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -121,7 +133,10 @@
                                 <path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z" />
                                 <path d="M9 12l2 2 4-4" />
                             </svg></div>
-                        <h3>Envíe su OTP o Token para el 2FA - Segundo Factor de autenticación o validación</h3>
+                        <div>
+                            <h3>Códigos OTP y verificación en dos pasos (2FA)</h3>
+                            <p>Envía códigos de un solo uso desde tus sistemas por API para validar accesos y transacciones.</p>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-4">
@@ -132,7 +147,10 @@
                                 <path d="M7 7h13l-3-3" />
                                 <path d="M17 17H4l3 3" />
                             </svg></div>
-                        <h3>Comunicarse bidireccionalmente con sus clientes / SINPE móvil</h3>
+                        <div>
+                            <h3>Comunicación en dos vías y SINPE Móvil</h3>
+                            <p>Recibe las respuestas de tus clientes, por ejemplo confirmaciones de pago por SINPE Móvil.</p>
+                        </div>
                     </div>
                 </div>
             </div>

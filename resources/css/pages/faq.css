@@ -133,7 +133,6 @@
 .faq-accordion .accordion-body strong { color: var(--text); }
 .faq-accordion .accordion-body ul { padding-left: 1.25rem; }
 .faq-accordion .accordion-body li { margin-bottom: .4rem; }
-.faq-accordion .faq-nota { padding: .85rem 1rem; border-left: 3px solid var(--accent); border-radius: 0 10px 10px 0; background: var(--surface-2); font-size: .94rem; }
 
 /* ---------- Responsive ---------- */
 @media (max-width: 767.98px) {

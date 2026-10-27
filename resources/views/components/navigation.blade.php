@@ -26,4 +26,5 @@
             </ul>
         </div>
     </div>
+    <div class="reading-progress" aria-hidden="true"><span class="reading-progress__bar"></span></div>
 </nav>

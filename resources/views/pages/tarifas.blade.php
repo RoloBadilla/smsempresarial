@@ -4,6 +4,29 @@
     'title' => 'Rutas y tarifas de SMS | SMS Empresarial Costa Rica',
     'description' => 'Consulta las tarifas por SMS de SMS Empresarial en Costa Rica y otros destinos. Solicita una cotización para WhatsApp Business.',
     'breadcrumb' => 'Rutas y tarifas',
+    // Datos estructurados: el servicio y su precio por destino (sale de config/tarifas.php).
+    'schema' => [[
+        '@type' => 'Service',
+        '@id' => route('tarifas').'#servicio',
+        'name' => 'Envío de SMS masivos',
+        'serviceType' => 'SMS masivos y mensajería empresarial',
+        'provider' => ['@id' => url('/').'/#organization'],
+        'areaServed' => array_map(fn ($tarifa) => ['@type' => 'Country', 'name' => $tarifa['pais']], config('tarifas.sms')),
+        'offers' => array_map(fn ($tarifa) => [
+            '@type' => 'Offer',
+            'name' => 'SMS a '.$tarifa['pais'].' ('.$tarifa['marcacion'].')',
+            'price' => $tarifa['precio'],
+            'priceCurrency' => 'USD',
+            'priceSpecification' => [
+                '@type' => 'UnitPriceSpecification',
+                'price' => $tarifa['precio'],
+                'priceCurrency' => 'USD',
+                'unitText' => 'mensaje',
+                'valueAddedTaxIncluded' => false,
+            ],
+            'url' => route('tarifas'),
+        ], config('tarifas.sms')),
+    ]],
 ])
 
 @section('content')

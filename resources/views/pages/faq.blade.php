@@ -1,9 +1,119 @@
+@php
+    // Preguntas frecuentes: de esta lista salen el acordeón y los datos estructurados FAQPage
+    // (lo que leen Google y los buscadores con IA). Para agregar una pregunta, se agrega aquí.
+    // Si se cambia un texto, actualizar también su traducción en public/lang/en.json.
+    $tarifas = collect(config('tarifas.sms'));
+    $local = $tarifas->firstWhere('ruta', 'Local');
+    $internacionales = $tarifas->where('ruta', 'Internacional');
+    $desde = $internacionales->sortBy(fn ($tarifa) => (float) $tarifa['precio'])->first();
+
+    $registro = e(config('services.plataforma.registro'));
+
+    $preguntas = [
+        [
+            'pregunta' => '¿Qué es SMSEmpresarial.com?',
+            'respuesta' => '<p>SMSEmpresarial.com es una plataforma de Cyberfuel para enviar mensajes de texto SMS y mensajes
+                de WhatsApp desde Internet a tus clientes en Costa Rica y otros países. Funciona desde el navegador o
+                conectada a tus sistemas por API.</p>
+                <p>No necesitas invertir en equipo, software ni mantenimiento, y puedes hacer varios envíos al mismo
+                tiempo sin esperas largas.</p>
+                <p>Para usarla solo necesitas conexión a Internet: entra a <a href="'.route('home').'">smsempresarial.com</a>,
+                <a href="'.$registro.'">regístrate</a> e ingresa a tu cuenta.</p>
+                <p>SMSEmpresarial.com no brinda bases de datos de teléfonos. Cada cliente es responsable de contar con la
+                autorización de la persona que recibe el mensaje, según la legislación de cada país donde se hace el envío.</p>',
+        ],
+        [
+            'pregunta' => '¿Quién proporciona la base de datos de contactos?',
+            'respuesta' => '<p>La base de datos de contactos la proporciona el cliente: SMSEmpresarial.com no brinda bases de
+                datos de teléfonos.</p>
+                <p>Cada cliente es responsable del uso de sus contactos, de contar con su autorización para enviarles
+                mensajes y del contenido de esos mensajes.</p>',
+        ],
+        [
+            'pregunta' => '¿Para qué puedo usar SMSEmpresarial.com?',
+            'respuesta' => '<p>Te permite comunicarte de forma directa y efectiva con tus clientes, tu equipo o tus
+                proveedores. Puedes usarlo para:</p>
+                <ul>
+                    <li>Enviar comunicados a tus mensajeros.</li>
+                    <li>Enviar mensajes a las personas de tu oficina.</li>
+                    <li>Enviar recordatorios de cobro personalizados con el sistema de campañas.</li>
+                    <li>Enviar saludos de cumpleaños, Navidad y Año Nuevo a tus clientes.</li>
+                    <li>Recordar citas o reuniones.</li>
+                    <li>Hacer campañas publicitarias o de mercadeo con mensajes personalizados.</li>
+                    <li>Enviar promociones, información de productos, circulares, recordatorios, boletines o eventos.</li>
+                    <li>Enviar códigos OTP o tokens para la verificación en dos pasos (2FA).</li>
+                    <li>Recibir en tu celular contenido enviado desde un correo electrónico.</li>
+                    <li>Conectar los sistemas de alertas de tu empresa para que envíen mensajes de texto.</li>
+                </ul>',
+        ],
+        [
+            'pregunta' => '¿Puedo enviar mensajes de WhatsApp?',
+            'respuesta' => '<p>Sí. SMSEmpresarial.com envía y recibe mensajes de WhatsApp Business por medio de su Web
+                Service (API). WhatsApp necesita un número exclusivo para tu empresa; para activarlo,
+                <a href="'.route('contactanos').'">escríbele al equipo de ventas</a>.</p>',
+        ],
+        [
+            'pregunta' => '¿En qué países funciona y cuánto cuesta?',
+            'respuesta' => '<p>Puedes enviar SMS a Costa Rica y a <strong>'.$internacionales->count().'</strong> destinos
+                internacionales. Un SMS a Costa Rica cuesta <strong>$'.e($local['precio']).'</strong> + IVA; a otros
+                países, desde <strong>$'.e($desde['precio']).'</strong> por mensaje.</p>
+                <p>Las tarifas están en dólares estadounidenses y el IVA se cobra solo a clientes de Costa Rica. WhatsApp
+                se cotiza según el país y el tipo de servicio.</p>
+                <p>Consulta todos los países y precios en <a href="'.route('tarifas').'">Rutas y tarifas</a>.</p>',
+        ],
+        [
+            'pregunta' => '¿Cuánto dura el saldo adquirido?',
+            'respuesta' => '<p>Cada recarga extiende la vigencia del nuevo saldo por 12 meses. Si no haces otra recarga antes
+                de que pasen esos 12 meses, pierdes el saldo adquirido.</p>',
+        ],
+        [
+            'pregunta' => '¿Cómo puedo dejar de recibir mensajes de los clientes de SMSEmpresarial?',
+            'respuesta' => '<p>SMSEmpresarial.com no proporciona bases de datos: cada empresa cliente administra sus propios
+                contactos y es responsable de sus envíos. Si ya no quieres recibir sus mensajes, contacta directamente a
+                la empresa que te los envía y pide que retire tu número de su lista.</p>',
+        ],
+        [
+            'pregunta' => '¿Cómo puedo comprar saldo y empezar a utilizar el servicio?',
+            'respuesta' => '<p>El sistema acepta tarjetas de crédito Visa, MasterCard y American Express. Para empezar,
+                <a href="'.$registro.'">regístrate</a> y compra el monto inicial.</p>
+                <p>Cuando el pago se aprueba, recibes una confirmación por correo electrónico y puedes empezar a usar
+                SMSEmpresarial.com de inmediato.</p>',
+        ],
+        [
+            'pregunta' => '¿Cuál es el largo de un mensaje de texto SMS?',
+            'respuesta' => '<p>Un mensaje SMS tiene hasta 160 caracteres en formato UTF-8 (UCS Transformation Format 8).
+                Si la ruta seleccionada admite caracteres especiales, el límite puede reducirse según los caracteres
+                utilizados.</p>
+                <p>Si la ruta permite mensajes largos, también se reduce la cantidad disponible por mensaje: el protocolo
+                utiliza 20 caracteres para identificar los mensajes anteriores y siguientes, de manera que el dispositivo
+                pueda ordenarlos correctamente.</p>',
+        ],
+        [
+            'pregunta' => '¿Cuáles son los caracteres especiales?',
+            'respuesta' => '<p>Los mensajes de texto utilizan el formato UTF-8 (UCS Transformation Format 8). Algunos
+                caracteres latinos, como Á, É, Í, Ó, Ú, Ñ, á, é, í, ó, ú, ñ, ä, ë, ï, ö, ü y ¿, pueden ocupar más
+                espacio que un carácter básico y reducir la longitud disponible del mensaje.</p>',
+        ],
+    ];
+
+    $texto = fn (string $html) => trim(preg_replace('/\s+/u', ' ', strip_tags(str_replace('<li>', '<li>• ', $html))));
+@endphp
+
 @extends('layouts.app', [
     'pageKey' => 'faq',
     'footerVariant' => 'marketing',
     'title' => 'Preguntas frecuentes sobre SMS y WhatsApp | SMS Empresarial',
     'description' => 'Resuelve tus dudas sobre SMS Empresarial: campañas, WhatsApp, tarifas, saldo, contactos, mensajes SMS y uso de la plataforma.',
     'breadcrumb' => 'Preguntas frecuentes',
+    'schema' => [[
+        '@type' => 'FAQPage',
+        '@id' => route('faq').'#preguntas',
+        'mainEntity' => array_map(fn ($item) => [
+            '@type' => 'Question',
+            'name' => $item['pregunta'],
+            'acceptedAnswer' => ['@type' => 'Answer', 'text' => $texto($item['respuesta'])],
+        ], $preguntas),
+    ]],
 ])
 
 @section('content')
@@ -28,7 +138,7 @@
                                 src="{{ versioned_asset('images/logos/sms.svg') }}" alt="Logotipo de SMS Empresarial"
                                 width="205" height="205"></div>
                         <div class="faq-card-summary">
-                            <div class="faq-card-count"><strong>10</strong><span>respuestas<br>frecuentes</span></div>
+                            <div class="faq-card-count"><strong>{{ count($preguntas) }}</strong><span>respuestas<br>frecuentes</span></div>
                             <span class="faq-card-hint">Encuentra aquí lo que necesitas</span>
                         </div>
                         <div class="faq-card-topics"><span>SMS</span><span>WhatsApp</span><span>Cuenta y saldo</span></div>
@@ -51,7 +161,7 @@
                             <input id="faqSearch" type="search" placeholder="Busca por tema: WhatsApp, saldo o mensajes"
                                 autocomplete="off">
                         </div>
-                        <p class="faq-search-count" id="faqSearchCount" aria-live="polite">10 preguntas disponibles</p>
+                        <p class="faq-search-count" id="faqSearchCount" aria-live="polite">{{ count($preguntas) }} preguntas disponibles</p>
                     </div>
                 </div>
                 <div class="feature-heading mb-4">
@@ -59,184 +169,23 @@
                     <p>Selecciona una pregunta para consultar la información.</p>
                 </div>
                 <div class="accordion faq-accordion" id="faqAccordion">
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq-heading-1"><button class="accordion-button" type="button"
-                                data-bs-toggle="collapse" data-bs-target="#faq-collapse-1" aria-expanded="true"
-                                aria-controls="faq-collapse-1"><span class="faq-numero">01</span><span>¿Qué es
-                                    SMSEmpresarial.com?</span></button></h3>
-                        <div id="faq-collapse-1" class="accordion-collapse collapse show" aria-labelledby="faq-heading-1"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>SMSEmpresarial.com es un ente pasivo que le permite enviar mensajes de texto SMS (Short
-                                    Message Service, mensajes cortos de texto) o WhatsApp desde Internet a usuarios finales
-                                    en diferentes países.</p>
-                                <p>Con este servicio no necesita invertir en equipo, software ni mantenimiento, y puede
-                                    realizar varios envíos simultáneos sin tener que esperar largos tiempos de recepción.
-                                </p>
-                                <p>Para utilizar el sistema, solo necesita conexión a Internet. Acceda desde su navegador a
-                                    <a href="{{ route('home') }}">smsempresarial.com</a>, <a
-                                        href="{{ config('services.plataforma.registro') }}">regístrese</a> e ingrese a su
-                                    cuenta.</p>
-                                <p>SMSEmpresarial.com no brinda bases de datos de teléfonos. Cada cliente es responsable de
-                                    contar con la autorización del abonado o usuario final que recibe el mensaje, de acuerdo
-                                    con la legislación de cada país donde se realice el envío.</p>
+                    @foreach ($preguntas as $item)
+                        @php($n = $loop->iteration)
+                        <div class="accordion-item">
+                            <h3 class="accordion-header" id="faq-heading-{{ $n }}"><button
+                                    class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-collapse-{{ $n }}"
+                                    aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
+                                    aria-controls="faq-collapse-{{ $n }}"><span
+                                        class="faq-numero">{{ sprintf('%02d', $n) }}</span><span>{{ $item['pregunta'] }}</span></button></h3>
+                            <div id="faq-collapse-{{ $n }}" class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
+                                aria-labelledby="faq-heading-{{ $n }}" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    {!! $item['respuesta'] !!}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq-heading-2"><button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-2"
-                                aria-expanded="false" aria-controls="faq-collapse-2"><span
-                                    class="faq-numero">02</span><span>¿Quién proporciona la base de datos de
-                                    contactos?</span></button></h3>
-                        <div id="faq-collapse-2" class="accordion-collapse collapse" aria-labelledby="faq-heading-2"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>La base de datos de contactos la proporciona el cliente. SMSEmpresarial.com no brinda
-                                    bases de datos de teléfonos.</p>
-                                <p>El cliente es responsable del uso de esos contactos, de contar con autorización para
-                                    enviarles mensajes y del contenido de los mensajes. SMSEmpresarial.com es un sistema
-                                    pasivo que facilita la comunicación de sus clientes.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq-heading-3"><button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-3"
-                                aria-expanded="false" aria-controls="faq-collapse-3"><span
-                                    class="faq-numero">03</span><span>¿Para qué puedo usar
-                                    SMSEmpresarial.com?</span></button></h3>
-                        <div id="faq-collapse-3" class="accordion-collapse collapse" aria-labelledby="faq-heading-3"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>El servicio le permite comunicarse de forma directa, eficiente y efectiva con sus
-                                    clientes. Puede utilizarlo para:</p>
-                                <ul>
-                                    <li>Enviar comunicados a sus mensajeros.</li>
-                                    <li>Enviar mensajes a los integrantes de su oficina.</li>
-                                    <li>Enviar mensajes de cobro personalizados mediante el sistema de campañas.</li>
-                                    <li>Enviar saludos de cumpleaños, Navidad y Año Nuevo a sus clientes.</li>
-                                    <li>Recordar citas o reuniones.</li>
-                                    <li>Realizar campañas publicitarias o de mercadeo con comunicados personalizados.</li>
-                                    <li>Enviar promociones, información de productos, circulares, recordatorios, boletines o
-                                        eventos.</li>
-                                    <li>Recibir en su celular contenido enviado desde un correo electrónico.</li>
-                                    <li>Interconectar los sistemas de avisos electrónicos de su empresa para que envíen
-                                        mensajes de texto.</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq-heading-4"><button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-4"
-                                aria-expanded="false" aria-controls="faq-collapse-4"><span
-                                    class="faq-numero">04</span><span>¿Puedo hacer uso de WhatsApp?</span></button></h3>
-                        <div id="faq-collapse-4" class="accordion-collapse collapse" aria-labelledby="faq-heading-4"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>SMSEmpresarial.com permite que el sistema de Web Service envíe y reciba mensajes de
-                                    WhatsApp. Para dar de alta una línea de WhatsApp, comuníquese con el departamento de
-                                    ventas.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq-heading-5"><button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-5"
-                                aria-expanded="false" aria-controls="faq-collapse-5"><span
-                                    class="faq-numero">05</span><span>¿En qué países funciona y cuáles son las
-                                    tarifas?</span></button></h3>
-                        <div id="faq-collapse-5" class="accordion-collapse collapse" aria-labelledby="faq-heading-5"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>Consulte la sección <strong>Rutas y Tarifas</strong> para ver los países disponibles y la
-                                    información de precios.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq-heading-6"><button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-6"
-                                aria-expanded="false" aria-controls="faq-collapse-6"><span
-                                    class="faq-numero">06</span><span>¿Cuánto dura el saldo adquirido?</span></button></h3>
-                        <div id="faq-collapse-6" class="accordion-collapse collapse" aria-labelledby="faq-heading-6"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>Cada recarga extiende la vigencia del nuevo saldo por 12 meses. Si no realiza otra
-                                    recarga antes de que transcurran esos 12 meses, perderá el saldo adquirido.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq-heading-7"><button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-7"
-                                aria-expanded="false" aria-controls="faq-collapse-7"><span
-                                    class="faq-numero">07</span><span>¿Cómo puedo dejar de recibir mensajes de los clientes
-                                    de SMSEmpresarial?</span></button></h3>
-                        <div id="faq-collapse-7" class="accordion-collapse collapse" aria-labelledby="faq-heading-7"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>SMSEmpresarial.com no proporciona bases de datos: cada cliente administra sus propios
-                                    contactos y es responsable de sus envíos. Si no desea recibir más mensajes, contacte
-                                    directamente a la empresa que se los envía y solicite que retire su número de su lista.
-                                </p>
-                                <p class="faq-nota mb-0">La información recibida no especifica un mecanismo automático de
-                                    baja para los destinatarios.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq-heading-8"><button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-8"
-                                aria-expanded="false" aria-controls="faq-collapse-8"><span
-                                    class="faq-numero">08</span><span>¿Cómo puedo comprar saldo y empezar a utilizar el
-                                    servicio?</span></button></h3>
-                        <div id="faq-collapse-8" class="accordion-collapse collapse" aria-labelledby="faq-heading-8"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>El sistema acepta tarjetas de crédito Visa, MasterCard y American Express. Debe
-                                    registrarse y comprar el monto inicial para utilizar el servicio.</p>
-                                <p>Si la transacción se realiza correctamente, recibirá una confirmación por correo
-                                    electrónico y podrá empezar a utilizar SMSEmpresarial.com en ese momento.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq-heading-9"><button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-9"
-                                aria-expanded="false" aria-controls="faq-collapse-9"><span
-                                    class="faq-numero">09</span><span>¿Cuál es el largo de un mensaje de texto
-                                    SMS?</span></button></h3>
-                        <div id="faq-collapse-9" class="accordion-collapse collapse" aria-labelledby="faq-heading-9"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>Un mensaje SMS tiene hasta 160 caracteres en formato UTF-8 (UCS Transformation Format 8).
-                                    Si la ruta seleccionada admite caracteres especiales, el límite puede reducirse según
-                                    los caracteres utilizados.</p>
-                                <p>Si la ruta permite mensajes largos, también se reduce la cantidad disponible por mensaje:
-                                    el protocolo utiliza 20 caracteres para identificar los mensajes anteriores y
-                                    siguientes, de manera que el dispositivo pueda ordenarlos correctamente.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h3 class="accordion-header" id="faq-heading-10"><button class="accordion-button collapsed"
-                                type="button" data-bs-toggle="collapse" data-bs-target="#faq-collapse-10"
-                                aria-expanded="false" aria-controls="faq-collapse-10"><span
-                                    class="faq-numero">10</span><span>¿Cuáles son los caracteres
-                                    especiales?</span></button></h3>
-                        <div id="faq-collapse-10" class="accordion-collapse collapse" aria-labelledby="faq-heading-10"
-                            data-bs-parent="#faqAccordion">
-                            <div class="accordion-body">
-                                <p>Los mensajes de texto utilizan el formato UTF-8 (UCS Transformation Format 8). Algunos
-                                    caracteres latinos, como &Aacute;, &Eacute;, &Iacute;, &Oacute;, &Uacute;, &Ntilde;,
-                                    &aacute;, &eacute;, &iacute;, &oacute;, &uacute;, &ntilde;, &auml;, &euml;, &iuml;,
-                                    &ouml;, &uuml; y &iquest;, pueden ocupar m&aacute;s espacio que un car&aacute;cter
-                                    b&aacute;sico y reducir la longitud disponible del mensaje.</p>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <x-empty-state id="faqEmpty" title="No encontramos preguntas con ese término"
                     text="Prueba con otra palabra, como “saldo”, “WhatsApp” o “caracteres”."

@@ -177,6 +177,31 @@ a:hover { color: var(--accent); }
 .skip-link { position: absolute; left: .75rem; top: -5rem; z-index: 2000; padding: .75rem 1rem; background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 55%, var(--cf-negro)); border: 2px solid var(--cf-azul); border-radius: .5rem; font-weight: var(--fw-bold); text-decoration: none; }
 .skip-link:focus { top: .75rem; }
 
+/* Barra de progreso de lectura: va dentro del menú (sticky), pegada a su borde de abajo */
+.reading-progress { --progreso: 0%; position: absolute; inset: 100% 0 auto; height: 3px; pointer-events: none; opacity: 0; transition: opacity .3s ease; }
+.reading-progress.is-active { opacity: 1; }
+.reading-progress__bar {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--cf-azul), var(--cf-cian), var(--cf-celeste), var(--cf-verde));
+  box-shadow: 0 0 12px color-mix(in srgb, var(--cf-cian) 55%, transparent);
+  clip-path: inset(0 calc(100% - var(--progreso)) 0 0);
+}
+/* Punta luminosa que sigue el avance */
+.reading-progress::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: var(--progreso);
+  width: 14px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cf-blanco);
+  box-shadow: 0 0 8px 2px var(--cf-cian), 0 0 18px 4px color-mix(in srgb, var(--cf-celeste) 60%, transparent);
+  transform: translate(-100%, -50%);
+  opacity: .9;
+}
+
 /* ---------- 6. Navegación ---------- */
 .site-nav {
   position: sticky;

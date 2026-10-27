@@ -9,6 +9,7 @@ import { initLanguage } from './modules/language';
 import { initForms } from './modules/forms';
 import { initMarquee } from './modules/marquee';
 import { initReveal } from './modules/reveal';
+import { initReadingProgress } from './modules/reading-progress';
 
 initTheme();
 initNavigation();
@@ -16,3 +17,4 @@ initLanguage();
 initForms();
 initMarquee();
 initReveal();
+initReadingProgress();

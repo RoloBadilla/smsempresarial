@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark light">
     <title>{{ $title }}</title>
-    <x-seo :title="$title" :description="$description" :breadcrumb="$breadcrumb ?? null" />
+    <x-seo :title="$title" :description="$description" :breadcrumb="$breadcrumb ?? null" :schema="$schema ?? []" />
     {{-- Tema e idioma antes de pintar (evita parpadeo). La lógica vive en un solo archivo, compartido con site.js. --}}
     <script>{!! file_get_contents(resource_path('js/inline/preferences.js')) !!}</script>
     <style>.traduciendo body { visibility: hidden; }</style>

@@ -81,6 +81,7 @@ public/
 ├── build/            CSS y JS compilados por Vite (no se edita ni se sube a Git)
 ├── images/logos/     logos de SMS Empresarial, Cyberfuel y marcas del grupo
 ├── images/sellos/    sellos de seguridad (Sectigo)
+├── images/compartir/ imagen 1200×630 que se ve al compartir el link (og:image, se define en config/sitio.php)
 ├── lang/en.json      traducción al inglés
 └── favicon.ico, robots.txt, sitemap.xml, index.php, .htaccess   (deben quedar en la raíz)
 ```

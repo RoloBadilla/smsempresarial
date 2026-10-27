@@ -58,9 +58,44 @@ test('cada página tiene datos estructurados válidos con los datos de la empres
     preg_match('#<script type="application/ld\+json">(.*?)</script>#s', $html, $match);
     $graph = collect(json_decode($match[1], true, flags: JSON_THROW_ON_ERROR)['@graph']);
 
-    expect($graph->firstWhere('@type', 'Organization')['telephone'])->toBe(config('sitio.telefono'))
-        ->and($graph->firstWhere('@type', 'WebPage'))->not->toBeNull();
+    $empresa = $graph->first(fn ($nodo) => str_ends_with($nodo['@id'] ?? '', '#organization'));
+
+    expect($empresa['@type'])->toContain('Organization', 'LocalBusiness')
+        ->and($empresa['telephone'])->toBe(config('sitio.telefono'))
+        ->and($empresa['address']['addressLocality'])->toBe(config('sitio.direccion.ciudad'))
+        ->and($empresa['sameAs'])->toBe(config('sitio.redes'))
+        ->and($graph->firstWhere('@type', 'WebPage'))->not->toBeNull()
+        ->and($html)->toContain('<meta property="og:image" content="'.rtrim(config('sitio.url'), '/').'/'.config('sitio.imagen_compartir').'">');
 })->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos']);
+
+test('la imagen para compartir y el logo de los datos estructurados existen', function () {
+    expect(public_path(config('sitio.imagen_compartir')))->toBeFile()
+        ->and(public_path(config('sitio.logo')))->toBeFile();
+});
+
+test('las preguntas frecuentes generan FAQPage con las mismas preguntas del acordeón', function () {
+    $html = $this->get('/preguntas-frecuentes')->assertOk()->getContent();
+
+    preg_match('#<script type="application/ld\+json">(.*?)</script>#s', $html, $match);
+    $faq = collect(json_decode($match[1], true, flags: JSON_THROW_ON_ERROR)['@graph'])->firstWhere('@type', 'FAQPage');
+
+    expect($faq['mainEntity'])->toHaveCount(substr_count($html, 'class="accordion-item"'));
+
+    foreach ($faq['mainEntity'] as $pregunta) {
+        expect($html)->toContain(e($pregunta['name']))
+            ->and($pregunta['acceptedAnswer']['text'])->not->toBeEmpty()->not->toContain('<');
+    }
+});
+
+test('las tarifas generan un Service con una oferta por destino', function () {
+    $html = $this->get('/tarifas')->assertOk()->getContent();
+
+    preg_match('#<script type="application/ld\+json">(.*?)</script>#s', $html, $match);
+    $servicio = collect(json_decode($match[1], true, flags: JSON_THROW_ON_ERROR)['@graph'])->firstWhere('@type', 'Service');
+
+    expect($servicio['offers'])->toHaveCount(count(config('tarifas.sms')))
+        ->and(collect($servicio['offers'])->pluck('price')->all())->toBe(array_column(config('tarifas.sms'), 'precio'));
+});
 
 test('solo producción permite que Google indexe el sitio', function () {
     $this->get('/')->assertSee('<meta name="robots" content="noindex, nofollow">', false);

@@ -165,6 +165,7 @@
 .tarjeta:hover::after { opacity: 1; }
 .tarjeta:hover .icono { transform: rotate(-6deg) scale(1.06); }
 .tarjeta h3 { position: relative; margin: 0; color: var(--heading); font-size: clamp(1rem, .96rem + .2vw, 1.08rem); line-height: 1.4; overflow-wrap: break-word; hyphens: auto; }
+.tarjeta p { position: relative; margin: .3rem 0 0; color: var(--text-muted); font-size: .93rem; line-height: 1.5; }
 
 /* ---------- Banda del 99% ---------- */
 .banda {
