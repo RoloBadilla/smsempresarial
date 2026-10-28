@@ -12,6 +12,7 @@ export default defineConfig({
                 'resources/css/pages/faq.css',
                 'resources/css/pages/contactanos.css',
                 'resources/css/pages/tarifas.css',
+                'resources/css/pages/servicio.css',
                 'resources/js/site.js',
                 'resources/js/pages/faq.js',
                 'resources/js/pages/tarifas.js',

@@ -218,9 +218,10 @@ a:hover { color: var(--accent); }
   transition: box-shadow var(--dur) ease, background-color var(--dur) ease;
 }
 .site-nav.is-scrolled { box-shadow: 0 10px 30px color-mix(in srgb, var(--cf-negro) 35%, transparent); }
-.site-nav .container-fluid { min-width: 0; }
+.site-nav .container { min-width: 0; }
 .logo { display: inline-flex; align-items: center; flex: 0 1 auto; min-width: 0; text-decoration: none; }
-.logo img { display: block; width: clamp(130px, 18vw, 170px); height: auto; }
+/* El SVG trae espacio vacío a la izquierda (~13% de su ancho): el margen negativo alinea el dibujo con el contenido. */
+.logo img { --logo-ancho: clamp(130px, 18vw, 170px); display: block; width: var(--logo-ancho); height: auto; margin-left: calc(var(--logo-ancho) * -0.13); }
 .nav-actions { display: flex; align-items: center; gap: .5rem; margin-left: auto; }
 .navbar-collapse { min-width: 0; }
 .navbar-nav { flex-wrap: wrap; }
@@ -270,6 +271,12 @@ a:hover { color: var(--accent); }
 .theme-toggle svg { width: 20px; height: 20px; }
 .lang-toggle { font-size: .8rem; font-weight: var(--fw-bold); letter-spacing: .04em; }
 .lang-toggle:hover { transform: none; }
+
+/* Bandera del idioma actual, a la izquierda del botón ES/EN */
+.lang-bandera { display: inline-grid; flex: 0 0 auto; width: 30px; height: 30px; overflow: hidden; border: 2px solid color-mix(in srgb, var(--cf-blanco) 55%, transparent); border-radius: 50%; box-shadow: 0 2px 8px color-mix(in srgb, var(--cf-negro) 30%, transparent); }
+.lang-bandera svg { grid-area: 1 / 1; width: 100%; height: 100%; }
+.lang-bandera .bandera-gb, html[lang="en"] .lang-bandera .bandera-cr { display: none; }
+html[lang="en"] .lang-bandera .bandera-gb { display: block; }
 .theme-toggle .icon-sun { display: none; }
 .theme-toggle[aria-pressed="true"] .icon-sun { display: block; }
 .theme-toggle[aria-pressed="true"] .icon-moon { display: none; }

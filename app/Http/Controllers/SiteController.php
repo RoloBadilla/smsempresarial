@@ -22,6 +22,14 @@ class SiteController extends Controller
         return view('pages.caracteristicas');
     }
 
+    public function servicio(string $servicio): View
+    {
+        return view('pages.servicio', [
+            'slug' => $servicio,
+            'servicio' => config('servicios.'.$servicio),
+        ]);
+    }
+
     public function faq(): View
     {
         return view('pages.faq');

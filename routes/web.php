@@ -10,6 +10,11 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/preguntas-frecuentes', 'faq')->name('faq');
     Route::get('/tarifas', 'tarifas')->name('tarifas');
     Route::get('/contactanos', 'contactanos')->name('contactanos');
+
+    // Una página por cada uso de la plataforma (config/servicios.php): /envio-de-comunicados, /codigos-otp-por-sms...
+    Route::get('/{servicio}', 'servicio')
+        ->whereIn('servicio', array_keys(config('servicios')))
+        ->name('servicio');
 });
 
 Route::post('/contacto', [ContactController::class, 'store'])

@@ -1,11 +1,16 @@
 @props(['page'])
 
-<nav class="site-nav navbar navbar-expand-xl px-lg-5" aria-label="Navegación principal">
-    <div class="container-fluid">
+<nav class="site-nav navbar navbar-expand-xl" aria-label="Navegación principal">
+    <div class="container">
         <a class="logo" href="{{ route('home') }}" aria-label="SMS Empresarial, inicio">
             <img src="{{ versioned_asset('images/logos/sms-empresarial-white.svg') }}" alt="SMS Empresarial" width="200" height="94">
         </a>
         <div class="nav-actions order-xl-last">
+            {{-- Bandera del idioma actual: Costa Rica en español, Reino Unido en inglés (el CSS la cambia según <html lang>). --}}
+            <span class="lang-bandera" aria-hidden="true">
+                <svg class="bandera-cr" viewBox="0 0 30 30" focusable="false"><path fill="#002B7F" d="M0 0h30v30H0z"/><path fill="#FFF" d="M0 5h30v20H0z"/><path fill="#CE1126" d="M0 10h30v10H0z"/></svg>
+                <svg class="bandera-gb" viewBox="15 0 30 30" focusable="false"><clipPath id="bandera-gb-cruz"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#FFF" stroke-width="6" d="M0 0l60 30m0-30L0 30"/><path stroke="#C8102E" stroke-width="4" clip-path="url(#bandera-gb-cruz)" d="M0 0l60 30m0-30L0 30"/><path stroke="#FFF" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg>
+            </span>
             <button class="theme-toggle lang-toggle" type="button" data-lang-toggle lang="en" title="View in English" aria-label="View in English" hidden>EN</button>
             <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" title="Modo oscuro" hidden>
                 <span class="visually-hidden">Modo oscuro</span>

@@ -183,3 +183,36 @@ test('si Google falla la portada sigue cargando', function () {
 
     $this->get('/')->assertOk()->assertSee('34 reviews');
 });
+
+test('cada tarjeta del inicio lleva a la página de su servicio', function () {
+    $html = $this->get('/')->assertOk()->getContent();
+
+    foreach (array_keys(config('servicios')) as $slug) {
+        expect($html)->toContain('href="'.route('servicio', $slug).'"');
+    }
+});
+
+test('cada página de servicio carga con sus secciones y sus preguntas en FAQPage', function (string $slug) {
+    $servicio = config('servicios.'.$slug);
+    $html = $this->get('/'.$slug)->assertOk()
+        ->assertSee($servicio['h1'])
+        ->assertSee('Cómo llega el mensaje')
+        ->assertSee('Cuándo usarlo')
+        ->getContent();
+
+    preg_match('#<script type="application/ld\+json">(.*?)</script>#s', $html, $match);
+    $graph = collect(json_decode($match[1], true, flags: JSON_THROW_ON_ERROR)['@graph']);
+
+    expect($graph->firstWhere('@type', 'FAQPage')['mainEntity'])->toHaveCount(count($servicio['faq']))
+        ->and($graph->firstWhere('@type', 'Service')['name'])->toBe($servicio['titulo'])
+        ->and(substr_count($html, 'class="accordion-item"'))->toBe(count($servicio['faq']))
+        ->and($html)->not->toContain(':precio');
+})->with(['envio-de-comunicados', 'recordatorios-por-sms', 'campanas-de-sms-masivos', 'notificaciones-y-alertas', 'codigos-otp-por-sms', 'sms-dos-vias-sinpe-movil']);
+
+test('el sitemap incluye las páginas de servicios', function () {
+    $sitemap = file_get_contents(public_path('sitemap.xml'));
+
+    foreach (array_keys(config('servicios')) as $slug) {
+        expect($sitemap)->toContain('<loc>https://smsempresarial.com/'.$slug.'</loc>');
+    }
+});
