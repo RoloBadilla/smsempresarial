@@ -31,15 +31,9 @@
                             WhatsApp desde tu computadora a tel&eacute;fonos celulares en distintos pa&iacute;ses. La
                             plataforma permite planificar campa&ntilde;as, enviar notificaciones y conectar tus sistemas
                             mediante una API de mensajer&iacute;a.</p>
-                        <div class="d-flex flex-wrap gap-3 mb-4">
-                            <a href="{{ route('contactanos') }}" class="btn btn-azul btn-lg px-5 btn-hero-primario">¡Lo
-                                quiero!</a>
-                            <a href="{{ route('tarifas') }}"
-                                class="btn btn-hero-secundario btn-lg px-4 rounded-pill fw-bold">Consultar tarifas</a>
-                        </div>
-                        <div class="d-flex flex-wrap gap-2">
-                            <span class="etiqueta">Campañas personalizadas</span>
-                            <span class="etiqueta">API de integración</span>
+                        <div class="d-flex flex-wrap gap-3">
+                            <a href="{{ route('contactanos') }}" class="btn btn-azul btn-lg rounded-pill fw-bold btn-hero btn-hero-primario">¡Lo quiero!</a>
+                            <a href="{{ route('tarifas') }}" class="btn btn-lg rounded-pill fw-bold btn-hero btn-hero-secundario">Consultar tarifas</a>
                         </div>
                     </div>
                     <div class="col-lg-5">

@@ -59,29 +59,16 @@
 .hero-home .lead { max-width: 58ch; color: var(--hero-muted); font-size: clamp(1rem, .95rem + .35vw, 1.2rem); line-height: 1.75; }
 
 /* Botones de la cabecera */
+/* Los dos botones de la portada: mismo alto, mismo ancho mínimo y texto centrado */
+.btn-hero { display: inline-flex; align-items: center; justify-content: center; min-width: 13.5rem; padding: .85rem 1.75rem; }
 .hero-home .btn-hero-primario { box-shadow: 0 12px 32px var(--glow); }
 .hero-home .btn-hero-primario::after { content: "\2192"; display: inline-block; margin-left: .65rem; transition: transform var(--dur) var(--ease); }
 .hero-home .btn-hero-primario:hover::after { transform: translateX(4px); }
 :root[data-theme="light"] .hero-home .btn-hero-primario { background: var(--cf-blanco); color: var(--cf-azul); }
 :root[data-theme="light"] .hero-home .btn-hero-primario:hover { background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 55%, var(--cf-negro)); }
-.btn-hero-secundario { background: color-mix(in srgb, var(--cf-blanco) 6%, transparent); border: 1px solid color-mix(in srgb, var(--cf-blanco) 70%, transparent); color: var(--cf-blanco); }
+.btn-hero-secundario { background: color-mix(in srgb, var(--cf-blanco) 8%, transparent); border: 1px solid color-mix(in srgb, var(--cf-blanco) 45%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: var(--cf-blanco); }
 .btn-hero-secundario:hover, .btn-hero-secundario:focus-visible { background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 55%, var(--cf-negro)); transform: translateY(-2px); }
 
-.etiqueta {
-  display: inline-flex;
-  align-items: center;
-  gap: .5rem;
-  padding: .5rem 1rem;
-  border: 1px solid color-mix(in srgb, var(--cf-blanco) 25%, transparent);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--cf-blanco) 8%, transparent);
-  color: var(--cf-blanco);
-  font-size: .85rem;
-  font-weight: var(--fw-bold);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-}
-.etiqueta::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: var(--cf-celeste); }
 
 /* Celular */
 .hero-visual { position: relative; display: grid; place-items: center; padding: 2rem 0; }
@@ -194,8 +181,8 @@
 .banda .container { position: relative; }
 .banda h2 { color: var(--cf-blanco); }
 .banda .row { --bs-gutter-y: 1.25rem; }
-.banda .numero { font-size: clamp(4.25rem, 3rem + 9vw, 9.5rem); font-weight: var(--fw-bold); line-height: .9; }
-.banda-etiqueta { display: block; max-width: 11rem; margin-top: .6rem; color: color-mix(in srgb, var(--cf-blanco) 90%, var(--cf-azul)); font-size: clamp(.88rem, .82rem + .25vw, .95rem); font-weight: var(--fw-bold); line-height: 1.35; }
+.banda .numero { font-size: clamp(3.25rem, 2.5rem + 5vw, 6rem); font-weight: var(--fw-bold); line-height: .9; }
+.banda-etiqueta { display: block; max-width: 14rem; margin-top: .75rem; color: color-mix(in srgb, var(--cf-blanco) 90%, var(--cf-azul)); font-size: clamp(1.05rem, 1rem + .45vw, 1.35rem); font-weight: var(--fw-bold); line-height: 1.35; }
 .banda-mensaje { display: flex; align-items: center; gap: 1rem; margin-bottom: .85rem; }
 .banda-icono { display: grid; place-items: center; flex: 0 0 52px; width: 52px; height: 52px; border: 1px solid color-mix(in srgb, var(--cf-blanco) 30%, transparent); border-radius: 16px; background: color-mix(in srgb, var(--cf-blanco) 14%, transparent); color: var(--cf-blanco); }
 .banda-mensaje h2 { font-size: clamp(1.6rem, 1.2rem + 2vw, 2.6rem); line-height: 1.1; text-wrap: balance; }
@@ -246,7 +233,6 @@
   .hero-home h1 { font-size: clamp(2.1rem, 9.5vw, 2.8rem); }
   .hero-home .lead { font-size: 1.02rem; line-height: 1.65; }
   .hero-home .btn { width: 100%; white-space: normal; }
-  .etiqueta { font-size: .75rem; padding: .45rem .8rem; }
   /* El celular es decorativo: en pantallas chicas se reduce para no empujar el contenido */
   .celular { width: min(200px, calc(100vw - 96px)); border-radius: 34px; padding: 9px; }
   .pantalla { padding: 16px 10px; border-radius: 26px; }

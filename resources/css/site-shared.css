@@ -281,6 +281,12 @@ html[lang="en"] .lang-bandera .bandera-gb { display: block; }
 .theme-toggle[aria-pressed="true"] .icon-sun { display: block; }
 .theme-toggle[aria-pressed="true"] .icon-moon { display: none; }
 
+/* Pantallas de 1200 a 1399px: el menú se compacta para que las 6 opciones quepan en una línea */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .site-nav .navbar-nav { gap: .35rem !important; margin-left: 1rem !important; }
+  .site-nav .nav-link { font-size: .76rem; letter-spacing: .02em; }
+}
+
 @media (max-width: 1199.98px) {
   .navbar-collapse { padding: .5rem 0 1rem; }
   .navbar-nav { gap: 0 !important; }
@@ -394,7 +400,7 @@ main .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
 /* ---------- 10. Marcas del grupo ---------- */
 .marcas { position: relative; overflow: hidden; width: 100%; background: var(--surface); border-block: 1px solid var(--border); }
 .marcas-track { display: flex; width: max-content; animation: marcas-scroll 32s linear infinite; }
-.marcas.is-paused .marcas-track, .marcas:hover .marcas-track { animation-play-state: paused; }
+.marcas:hover .marcas-track { animation-play-state: paused; }
 .marcas-grupo { display: flex; align-items: center; justify-content: space-around; gap: clamp(1.5rem, 5vw, 5rem); min-width: 100vw; padding: 1.25rem clamp(1.5rem, 4vw, 3rem); }
 .marca-logo { flex: 0 0 clamp(90px, 15vw, 180px); max-width: clamp(90px, 15vw, 180px); height: 46px; object-fit: contain; filter: grayscale(1) brightness(0) invert(1); opacity: .6; transition: opacity var(--dur) ease, filter var(--dur) ease, transform var(--dur) var(--ease); }
 .marca-logo:hover { opacity: 1; transform: scale(1.05); }
@@ -402,26 +408,6 @@ main .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
    (Este selector es más específico que .marca-logo:hover, por eso el hover se repite aquí.) */
 :root[data-theme="light"] .marca-logo { filter: grayscale(1) brightness(.35); opacity: .55; }
 :root[data-theme="light"] .marca-logo:hover { filter: none; opacity: 1; }
-.marcas-pausa {
-  position: absolute;
-  right: .75rem;
-  top: 50%;
-  translate: 0 -50%;
-  z-index: 1;
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
-  padding: 0;
-  border: 1px solid var(--border-strong);
-  border-radius: 50%;
-  background: var(--surface);
-  color: var(--text);
-}
-.marcas-pausa svg { width: 16px; height: 16px; }
-.marcas-pausa .icon-play { display: none; }
-.marcas-pausa[aria-pressed="true"] .icon-play { display: block; }
-.marcas-pausa[aria-pressed="true"] .icon-pause { display: none; }
 @keyframes marcas-scroll { to { transform: translateX(-50%); } }
 
 /* ---------- 11. Pie de página ---------- */
@@ -625,7 +611,6 @@ html.traduciendo::after {
     scroll-behavior: auto !important;
   }
   .marcas-track { animation: none !important; }
-  .marcas-pausa { display: none; }
   [data-reveal] { opacity: 1 !important; transform: none !important; }
   .btn:hover, .tarjeta:hover, .feature-card:hover, .footer-social a:hover, .whatsapp-flotante:hover, .lo-quiero-flotante:hover, .theme-toggle:hover { transform: none !important; }
 }

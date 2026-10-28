@@ -130,65 +130,72 @@
                     <h2>Configuración y gestión de contactos</h2>
                     <p>Organiza destinatarios y controla cómo se distribuyen tus campañas.</p>
                 </div>
-                <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-                    <div class="col">
-                        <article class="feature-card">
-                            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                                    <circle cx="9" cy="8" r="3" />
-                                    <path d="M3 20v-1a6 6 0 0 1 12 0v1H3ZM17 11a3 3 0 1 0-2-5.2M17 14a5 5 0 0 1 4 5v1h-3" />
-                                </svg></span>
-                            <div>
-                                <h3>Contactos</h3>
-                                <p>Registra nombres y números para enviar mensajes a destinatarios individuales.</p>
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-lg-8">
+                        <div class="row row-cols-1 row-cols-md-2 g-4">
+                            <div class="col">
+                                <article class="feature-card">
+                                    <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                            <circle cx="9" cy="8" r="3" />
+                                            <path d="M3 20v-1a6 6 0 0 1 12 0v1H3ZM17 11a3 3 0 1 0-2-5.2M17 14a5 5 0 0 1 4 5v1h-3" />
+                                        </svg></span>
+                                    <div>
+                                        <h3>Contactos</h3>
+                                        <p>Registra nombres y números para enviar mensajes a destinatarios individuales.</p>
+                                    </div>
+                                </article>
                             </div>
-                        </article>
+                            <div class="col">
+                                <article class="feature-card">
+                                    <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M9 6h12M9 12h12M9 18h12" />
+                                            <path d="M4 6h.01M4 12h.01M4 18h.01" />
+                                        </svg></span>
+                                    <div>
+                                        <h3>Listas de contactos</h3>
+                                        <p>Agrupa contactos y selecciona una lista para enviar el mismo mensaje a todos sus
+                                            integrantes.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col">
+                                <article class="feature-card">
+                                    <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M4 5h16v14H4z" />
+                                            <path d="M8 9h8M8 13h5" />
+                                            <path d="m15 17 2 2 4-4" />
+                                        </svg></span>
+                                    <div>
+                                        <h3>Sistema de suscripción</h3>
+                                        <p>Gestiona las altas y solicitudes de baja de tus destinatarios según las reglas
+                                            configuradas para cada ruta.</p>
+                                    </div>
+                                </article>
+                            </div>
+                            <div class="col">
+                                <article class="feature-card">
+                                    <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                            stroke-linejoin="round">
+                                            <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" />
+                                            <path d="m9 9 6 6M15 9l-6 6" />
+                                        </svg></span>
+                                    <div>
+                                        <h3>Lista de bloqueos</h3>
+                                        <p>Administra números bloqueados para evitar comunicaciones a destinatarios que no deseas
+                                            contactar.</p>
+                                    </div>
+                                </article>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col">
-                        <article class="feature-card">
-                            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M9 6h12M9 12h12M9 18h12" />
-                                    <path d="M4 6h.01M4 12h.01M4 18h.01" />
-                                </svg></span>
-                            <div>
-                                <h3>Listas de contactos</h3>
-                                <p>Agrupa contactos y selecciona una lista para enviar el mismo mensaje a todos sus
-                                    integrantes.</p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col">
-                        <article class="feature-card">
-                            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11Z" />
-                                    <path d="m9 9 6 6M15 9l-6 6" />
-                                </svg></span>
-                            <div>
-                                <h3>Lista de bloqueos</h3>
-                                <p>Administra números bloqueados para evitar comunicaciones a destinatarios que no deseas
-                                    contactar.</p>
-                            </div>
-                        </article>
-                    </div>
-                    <div class="col">
-                        <article class="feature-card">
-                            <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
-                                    stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
-                                    stroke-linejoin="round">
-                                    <path d="M4 5h16v14H4z" />
-                                    <path d="M8 9h8M8 13h5" />
-                                    <path d="m15 17 2 2 4-4" />
-                                </svg></span>
-                            <div>
-                                <h3>Sistema de suscripción</h3>
-                                <p>Gestiona las altas y solicitudes de baja de tus destinatarios según las reglas
-                                    configuradas para cada ruta.</p>
-                            </div>
-                        </article>
+                    <div class="col-lg-4">
+                        <x-ilustracion-contactos />
                     </div>
                 </div>
             </div>

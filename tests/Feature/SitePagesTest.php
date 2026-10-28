@@ -8,7 +8,7 @@ beforeEach(function () {
 
 test('todas las páginas cargan', function (string $url) {
     $this->get($url)->assertOk();
-})->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos']);
+})->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
 
 test('las direcciones viejas con .html redirigen de forma permanente', function (string $vieja, string $nueva) {
     $this->get($vieja)->assertStatus(301)->assertRedirect($nueva);
@@ -66,7 +66,7 @@ test('cada página tiene datos estructurados válidos con los datos de la empres
         ->and($empresa['sameAs'])->toBe(config('sitio.redes'))
         ->and($graph->firstWhere('@type', 'WebPage'))->not->toBeNull()
         ->and($html)->toContain('<meta property="og:image" content="'.rtrim(config('sitio.url'), '/').'/'.config('sitio.imagen_compartir').'">');
-})->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos']);
+})->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
 
 test('la imagen para compartir y el logo de los datos estructurados existen', function () {
     expect(public_path(config('sitio.imagen_compartir')))->toBeFile()
@@ -128,6 +128,7 @@ test('el menú usa las rutas con nombre', function () {
         ->assertSee('href="'.route('faq').'"', false)
         ->assertSee('href="'.route('tarifas').'"', false)
         ->assertSee('href="'.route('contactanos').'"', false)
+        ->assertSee('href="'.route('nosotros').'"', false)
         ->assertSee('href="'.route('home').'"', false);
 });
 
@@ -215,4 +216,12 @@ test('el sitemap incluye las páginas de servicios', function () {
     foreach (array_keys(config('servicios')) as $slug) {
         expect($sitemap)->toContain('<loc>https://smsempresarial.com/'.$slug.'</loc>');
     }
+});
+
+test('la página Nosotros está en el sitemap y enlaza a las páginas de servicios', function () {
+    expect(file_get_contents(public_path('sitemap.xml')))->toContain('<loc>https://smsempresarial.com/nosotros</loc>');
+
+    $this->get('/nosotros')->assertOk()
+        ->assertSee('Detrás de cada mensaje hay una empresa local')
+        ->assertSee('href="'.route('servicio', 'codigos-otp-por-sms').'"', false);
 });

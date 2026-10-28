@@ -18,6 +18,7 @@
             'contactanos' => 'resources/css/pages/contactanos.css',
             'tarifas' => 'resources/css/pages/tarifas.css',
             'servicio' => 'resources/css/pages/servicio.css',
+            'nosotros' => 'resources/css/pages/nosotros.css',
         ];
         $pageScripts = [
             'faq' => 'resources/js/pages/faq.js',

@@ -185,3 +185,43 @@
 @media (max-width: 575.98px) {
   .ruta__codigo { font-size: 1.25rem; }
 }
+
+/* ---------- Ilustración de gestión de contactos ---------- */
+.ilustracion-contactos {
+  display: grid;
+  place-items: center;
+  height: 100%;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background:
+    radial-gradient(circle at 50% 50%, color-mix(in srgb, var(--cf-celeste) 16%, transparent), transparent 65%),
+    var(--bg);
+}
+.ilustracion-contactos svg { display: block; width: 100%; max-width: 440px; height: auto; overflow: visible; }
+.ilu-linea { fill: none; stroke: var(--cf-celeste); stroke-width: 2; stroke-dasharray: 5 6; stroke-linecap: round; animation: ilu-flujo 1.6s linear infinite; }
+.ilu-linea--bloqueada { stroke: var(--text-muted); stroke-opacity: .5; animation: none; }
+.ilu-burbuja rect, .ilu-burbuja path { fill: var(--cf-azul); }
+.ilu-burbuja circle { fill: var(--cf-blanco); }
+.ilu-celular { fill: color-mix(in srgb, var(--cf-azul) 45%, var(--cf-negro)); }
+.ilu-pantalla { fill: color-mix(in srgb, var(--cf-azul) 12%, var(--cf-blanco)); }
+.ilu-msj { fill: color-mix(in srgb, var(--cf-celeste) 55%, var(--cf-blanco)); }
+.ilu-msj--azul { fill: var(--cf-azul); }
+.ilu-enviar { fill: var(--cf-azul); }
+.ilu-enviar-flecha, .ilu-check-marca { fill: none; stroke: var(--cf-blanco); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.ilu-grupo { fill: var(--surface); stroke: var(--border); }
+.ilu-texto { fill: var(--heading); font-family: var(--font-brand); font-size: 13px; font-weight: var(--fw-bold); }
+.ilu-mas { fill: var(--text-muted); font-family: var(--font-brand); font-size: 12px; font-weight: var(--fw-bold); }
+.ilu-avatar { stroke: var(--surface); stroke-width: 3; }
+.ilu-avatar--azul { fill: var(--cf-azul); }
+.ilu-avatar--celeste { fill: color-mix(in srgb, var(--cf-celeste) 85%, var(--cf-azul)); }
+.ilu-avatar--marino { fill: color-mix(in srgb, var(--cf-azul) 55%, var(--cf-negro)); }
+.ilu-avatar--bloqueado { fill: #9AA3AF; stroke: var(--bg); }
+.ilu-persona { fill: var(--cf-blanco); opacity: .92; }
+.ilu-check { fill: #46AD4A; stroke: var(--surface); stroke-width: 2; }
+.ilu-alto, .ilu-escudo { fill: #E5484D; stroke: var(--bg); stroke-width: 2; }
+.ilu-alto-x, .ilu-escudo-x { fill: none; stroke: var(--cf-blanco); stroke-width: 2.2; stroke-linecap: round; }
+@keyframes ilu-flujo { to { stroke-dashoffset: -22; } }
+@media (prefers-reduced-motion: reduce) { .ilu-linea { animation: none; } }
+@media (max-width: 991.98px) { .ilustracion-contactos svg { max-width: 400px; } }

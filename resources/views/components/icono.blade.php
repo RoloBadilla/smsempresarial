@@ -23,6 +23,11 @@
         'navegador' => '<rect x="3" y="4" width="18" height="16" rx="2" /><path d="M3 9h18M7 6.5h.01M10 6.5h.01" />',
         'celular' => '<rect x="6" y="2.5" width="12" height="19" rx="2.5" /><path d="M11 18.5h2" />',
         'operador' => '<path d="M12 10v11" /><path d="M8.5 6.5a5 5 0 0 1 7 0" /><path d="M5.5 3.5a9 9 0 0 1 13 0" /><circle cx="12" cy="10" r="1.5" />',
+        'ubicacion' => '<path d="M12 21s-7-6.2-7-12a7 7 0 0 1 14 0c0 5.8-7 12-7 12z" /><circle cx="12" cy="9" r="2.5" />',
+        'soporte' => '<path d="M4 13v-1a8 8 0 0 1 16 0v1" /><rect x="3" y="13" width="4" height="6" rx="1.5" /><rect x="17" y="13" width="4" height="6" rx="1.5" /><path d="M19 19c0 1.5-2 2.5-5 2.5" />',
+        'bandera' => '<path d="M5 21V4" /><path d="M5 4h13l-2.5 4L18 12H5" />',
+        'equipo' => '<circle cx="12" cy="7.5" r="3" /><path d="M6.5 19a5.5 5.5 0 0 1 11 0" /><circle cx="5" cy="10" r="2" /><path d="M1.5 18a3.5 3.5 0 0 1 4-3.4" /><circle cx="19" cy="10" r="2" /><path d="M22.5 18a3.5 3.5 0 0 0-4-3.4" />',
+        'socio' => '<path d="M11 17l2 2a1.4 1.4 0 0 0 2-2" /><path d="M14 16l2.5 2.5a1.4 1.4 0 0 0 2-2L15 13" /><path d="M2 12l4-6 4 2 3-1 5 2 4 4-3 3" /><path d="M6 6l-1 7 4 4 2 1" /><path d="M10 8l-2 3a1.5 1.5 0 0 0 2.4 1.8L13 10l4 3.5" />',
         'plataforma' => '<rect x="3" y="4" width="18" height="12" rx="2" /><path d="M8 20h8M12 16v4" />',
     ];
 @endphp

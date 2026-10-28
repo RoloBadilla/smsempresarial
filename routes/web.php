@@ -10,6 +10,7 @@ Route::controller(SiteController::class)->group(function () {
     Route::get('/preguntas-frecuentes', 'faq')->name('faq');
     Route::get('/tarifas', 'tarifas')->name('tarifas');
     Route::get('/contactanos', 'contactanos')->name('contactanos');
+    Route::get('/nosotros', 'nosotros')->name('nosotros');
 
     // Una página por cada uso de la plataforma (config/servicios.php): /envio-de-comunicados, /codigos-otp-por-sms...
     Route::get('/{servicio}', 'servicio')
