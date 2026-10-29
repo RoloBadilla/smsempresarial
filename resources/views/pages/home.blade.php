@@ -33,7 +33,7 @@
                             mediante una API de mensajer&iacute;a.</p>
                         <div class="d-flex flex-wrap gap-3">
                             <a href="{{ route('contactanos') }}" class="btn btn-azul btn-lg rounded-pill fw-bold btn-hero btn-hero-primario">¡Lo quiero!</a>
-                            <a href="{{ route('tarifas') }}" class="btn btn-lg rounded-pill fw-bold btn-hero btn-hero-secundario">Consultar tarifas</a>
+                            <a href="{{ route('tarifas') }}" class="btn btn-lg rounded-pill fw-bold btn-hero btn-hero-secundario">Ver tarifas</a>
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -93,8 +93,7 @@
                         </div>
                         <p class="banda-descripcion mb-4">Usa SMS para enviar avisos, promociones y recordatorios a tus
                             clientes.</p>
-                        <a href="{{ route('tarifas') }}" class="btn btn-banda btn-lg rounded-pill fw-bold px-4">Tabla de
-                            destinos y tarifas</a>
+                        <a href="{{ route('tarifas') }}" class="btn btn-banda btn-lg rounded-pill fw-bold px-4">Ver tarifas</a>
                     </div>
                 </div>
             </div>
@@ -103,14 +102,14 @@
         <!-- ===== OPINIONES ===== -->
         <section class="reviews container text-center">
             <div class="d-flex flex-wrap align-items-center justify-content-center gap-4">
-                <h2 class="fs-3 m-0">
+                <h2 class="reviews-titulo m-0">
                     Lo que nuestros clientes dicen
                 </h2>
 
                 <div class="reviews-card d-flex align-items-center gap-3 px-4 py-3">
                     <span class="fw-bold">Google Reviews</span>
                     <span
-                        class="reviews-score display-5 fw-bold lh-1">{{ $reviews ? number_format($reviews['average'], 1) : '4.8' }}</span>
+                        class="reviews-score fw-bold lh-1">{{ $reviews ? number_format($reviews['average'], 1) : '4.8' }}</span>
                     <span>
                         <span class="reviews-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
                         <small class="text-secondary">{{ $reviews ? $reviews['total'] : 34 }} reviews</small>

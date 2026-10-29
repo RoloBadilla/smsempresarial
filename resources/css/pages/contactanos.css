@@ -16,7 +16,7 @@
 .contact-wrap { position: relative; z-index: 1; margin-top: -3rem; }
 
 /* Formulario */
-.form-label { color: var(--heading); font-size: .9rem; font-weight: var(--fw-bold); }
+.form-label { color: var(--heading); font-size: var(--fs-sm); font-weight: var(--fw-bold); }
 .form-control, .form-select {
   padding: .85rem .95rem;
   border: 1px solid var(--field-border);
@@ -24,7 +24,7 @@
   background-color: var(--field-bg);
   color: var(--text);
   font: inherit;
-  font-size: .95rem;
+  font-size: var(--fs-base);
   transition: border-color var(--dur) ease, box-shadow var(--dur) ease;
 }
 .form-control::placeholder { color: var(--text-muted); opacity: 1; }
@@ -55,10 +55,10 @@ body .iti__country.iti__highlight { background-color: var(--surface-2); }
 .contact-item:hover .contact-icon { transform: rotate(-6deg) scale(1.06); }
 .contact-icon { width: 46px; height: 46px; border-radius: 14px; }
 .contact-icon svg { width: 22px; height: 22px; }
-.contact-item h3 { color: var(--heading); font-size: 1.02rem; }
-.contact-item p { color: var(--text-muted); font-size: .9rem; line-height: 1.6; }
-.contact-item a { display: block; width: fit-content; color: var(--accent); font-size: .92rem; font-weight: var(--fw-bold); line-height: 1.9; overflow-wrap: anywhere; }
-.note { padding: .9rem 1rem; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--surface-2); color: var(--text-muted); font-size: .85rem; line-height: 1.6; }
+.contact-item h3 { color: var(--heading); font-size: var(--fs-base); }
+.contact-item p { color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.6; }
+.contact-item a { display: block; width: fit-content; color: var(--accent); font-size: var(--fs-sm); font-weight: var(--fw-bold); line-height: 1.9; overflow-wrap: anywhere; }
+.note { padding: .9rem 1rem; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--surface-2); color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.6; }
 
 @media (max-width: 767.98px) {
   .contact-wrap { margin-top: -2rem; }
@@ -66,4 +66,48 @@ body .iti__country.iti__highlight { background-color: var(--surface-2); }
 }
 @media (prefers-reduced-motion: reduce) {
   .contact-item:hover { transform: none; }
+}
+
+/* Marca de campo obligatorio (*) y aviso de campo opcional. El "required" del campo ya lo anuncia a lectores de pantalla. */
+.campo-obligatorio { color: var(--cf-cian); font-weight: var(--fw-bold); }
+.campo-opcional { color: var(--text-muted); font-weight: var(--fw-regular); }
+
+/* Texto de introducción a la izquierda y nota "Campos obligatorios" a la derecha, en la misma línea.
+   En pantallas angostas la nota baja debajo del texto. */
+.form-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.nota-obligatorios {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  flex: 0 0 auto;
+  padding: .25rem .7rem .25rem .3rem;
+  border: 1px solid color-mix(in srgb, var(--cf-cian) 30%, var(--border));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cf-cian) 8%, transparent);
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.nota-obligatorios-icono {
+  display: grid;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background: var(--cf-cian);
+  color: var(--cf-blanco);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  padding-top: .3rem;
 }

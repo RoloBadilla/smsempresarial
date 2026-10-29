@@ -16,7 +16,7 @@ $enviar = [
 
 $precio = [
     'pregunta' => '¿Cuánto cuesta cada mensaje?',
-    'respuesta' => 'Pagas por mensaje enviado, con saldo prepago. Un SMS a Costa Rica cuesta $:precio + IVA; los demás países están en Rutas y tarifas. WhatsApp se cotiza según el país y el tipo de servicio.',
+    'respuesta' => 'Pagas por mensaje enviado, con saldo prepago. Un SMS a Costa Rica cuesta $:precio + IVA; los demás países están en Tarifas. WhatsApp se cotiza según el país y el tipo de servicio.',
 ];
 
 return [
@@ -150,7 +150,7 @@ return [
         ],
         'faq' => [
             ['pregunta' => '¿Cómo conecto mi sistema?', 'respuesta' => 'Por API REST con GET o POST, o por Web Service SOAP. Si tu sistema ya envía correos, también puedes convertir esos correos en mensajes de texto.'],
-            ['pregunta' => '¿Puedo enviar alertas a otros países?', 'respuesta' => 'Sí. Puedes enviar SMS a Costa Rica y a otros países. Consulta los destinos y los precios en Rutas y tarifas.'],
+            ['pregunta' => '¿Puedo enviar alertas a otros países?', 'respuesta' => 'Sí. Puedes enviar SMS a Costa Rica y a otros países. Consulta los destinos y los precios en Tarifas.'],
             $precio,
         ],
     ],
@@ -187,7 +187,7 @@ return [
         ],
         'faq' => [
             ['pregunta' => '¿Cómo se integra con mi aplicación?', 'respuesta' => 'Tu sistema se conecta por API REST, con GET o POST, o por Web Service SOAP, y envía cada código como un mensaje de texto.'],
-            ['pregunta' => '¿Puedo enviar códigos a usuarios de otros países?', 'respuesta' => 'Sí. Puedes enviar SMS a Costa Rica y a otros países. Consulta los destinos y los precios en Rutas y tarifas.'],
+            ['pregunta' => '¿Puedo enviar códigos a usuarios de otros países?', 'respuesta' => 'Sí. Puedes enviar SMS a Costa Rica y a otros países. Consulta los destinos y los precios en Tarifas.'],
             $precio,
         ],
     ],

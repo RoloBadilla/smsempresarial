@@ -25,7 +25,10 @@
                     <div class="col-lg-7">
                         <span class="eyebrow">Escríbenos</span>
                         <h2 class="title mt-2 mb-2">¿Cómo podemos ayudarte?</h2>
-                        <p class="copy mb-4">Completa tus datos y un asesor te contactará.</p>
+                        <div class="form-intro mb-4">
+                            <p class="copy mb-0">Completa tus datos y un asesor te contactará.</p>
+                            <p class="nota-obligatorios mb-0"><span class="nota-obligatorios-icono" aria-hidden="true">*</span>Campos obligatorios</p>
+                        </div>
 
                         @if (session('contact_sent'))
                             <div class="alert alert-success" role="status">
@@ -63,7 +66,7 @@
 
                             <div class="row g-3">
                                 <div class="col-md-6">
-                                    <label class="form-label" for="nombre">Nombre</label>
+                                    <label class="form-label" for="nombre">Nombre <span class="campo-obligatorio" aria-hidden="true">*</span></label>
                                     <input class="form-control @error('nombre') is-invalid @enderror" id="nombre" name="nombre"
                                         value="{{ old('nombre') }}" autocomplete="name" maxlength="120" required>
                                 </div>
@@ -73,12 +76,12 @@
                                         value="{{ old('empresa') }}" autocomplete="organization" maxlength="160">
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label" for="correo">Correo electrónico</label>
+                                    <label class="form-label" for="correo">Correo electrónico <span class="campo-obligatorio" aria-hidden="true">*</span></label>
                                     <input class="form-control @error('correo') is-invalid @enderror" id="correo" name="correo"
                                         type="email" value="{{ old('correo') }}" autocomplete="email" maxlength="255" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label" for="telefono">Teléfono</label>
+                                    <label class="form-label" for="telefono">Teléfono <span class="campo-obligatorio" aria-hidden="true">*</span></label>
                                     <input type="hidden" id="country_code" name="country_code" value="{{ old('country_code', '506') }}">
                                     <input class="form-control @error('telefono') is-invalid @enderror" id="telefono" name="telefono"
                                         type="tel" value="{{ old('telefono') }}" autocomplete="tel-national" inputmode="tel" required>
@@ -96,8 +99,8 @@
 
                                 @if ($medios)
                                     <div class="col-md-6">
-                                        <label class="form-label" for="medio">¿Cómo te enteraste de nosotros?</label>
-                                        <select class="form-select @error('medio') is-invalid @enderror" id="medio" name="medio" required>
+                                        <label class="form-label" for="medio">¿Cómo te enteraste de nosotros? <span class="campo-opcional">(opcional)</span></label>
+                                        <select class="form-select @error('medio') is-invalid @enderror" id="medio" name="medio">
                                             <option value="">Selecciona una opción</option>
                                             @foreach ($medios as $medio)
                                                 <option value="{{ $medio }}" @selected(old('medio') === $medio)>{{ $medio }}</option>
@@ -112,7 +115,7 @@
                                 @endif
 
                                 <div class="col-12">
-                                    <label class="form-label" for="mensaje">Mensaje</label>
+                                    <label class="form-label" for="mensaje">Mensaje <span class="campo-obligatorio" aria-hidden="true">*</span></label>
                                     <textarea class="form-control @error('mensaje') is-invalid @enderror" id="mensaje" name="mensaje" rows="5"
                                         maxlength="5000" required placeholder="Cuéntanos un poco sobre lo que necesitas…">{{ old('mensaje') }}</textarea>
                                 </div>
@@ -177,7 +180,7 @@
             title="Empieza a comunicarte"
             text="Conoce las opciones para enviar mensajes a tus clientes."
             :href="route('tarifas')"
-            label="Ver rutas y tarifas"
+            label="Ver tarifas"
         />
     </main>
 @endsection

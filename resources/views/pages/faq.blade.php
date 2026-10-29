@@ -59,7 +59,7 @@
                 países, desde <strong>$'.e($desde['precio']).'</strong> por mensaje.</p>
                 <p>Las tarifas están en dólares estadounidenses y el IVA se cobra solo a clientes de Costa Rica. WhatsApp
                 se cotiza según el país y el tipo de servicio.</p>
-                <p>Consulta todos los países y precios en <a href="'.route('tarifas').'">Rutas y tarifas</a>.</p>',
+                <p>Consulta todos los países y precios en <a href="'.route('tarifas').'">Tarifas</a>.</p>',
         ],
         [
             'pregunta' => '¿Cuánto dura el saldo adquirido?',

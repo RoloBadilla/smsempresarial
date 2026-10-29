@@ -14,6 +14,7 @@ export default defineConfig({
                 'resources/css/pages/tarifas.css',
                 'resources/css/pages/servicio.css',
                 'resources/css/pages/nosotros.css',
+                'resources/css/esqueleto.css',
                 'resources/js/site.js',
                 'resources/js/pages/faq.js',
                 'resources/js/pages/tarifas.js',

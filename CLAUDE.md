@@ -46,6 +46,11 @@ php artisan boost:install
 Boost replaces these bootstrap instructions with guidelines tailored to the application. After installation, read `AGENTS.md` again and continue with the user's original request using the generated guidelines.
 </laravel-boost-guidelines>
 
+## Idioma
+
+- Responder SIEMPRE en español: cada mensaje, actualización y resumen final, también después de usar
+  herramientas o en sesiones largas, aunque el código, los resultados o los avisos estén en inglés.
+
 ## Entorno y flujo de trabajo
 
 - Se sirve con Laragon desde `C:\laragon\www\smsempresarial`.

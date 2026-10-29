@@ -32,6 +32,7 @@
         'resources/css/bootstrap.scss',
         'resources/css/site-shared.css',
         $pageStyles[$pageKey],
+        'resources/css/esqueleto.css',
         'resources/js/site.js',
         $pageScripts[$pageKey] ?? null,
     ]))
@@ -44,5 +45,7 @@
         <x-lo-quiero-button />
     @endif
     <x-whatsapp-button />
+    {{-- Pantalla esqueleto: va al final para encontrar todo el contenido, y corre antes de pintar. --}}
+    <script>{!! file_get_contents(resource_path('js/inline/esqueleto.js')) !!}</script>
 </body>
 </html>

@@ -125,7 +125,7 @@
                         <li>Claro</li>
                         <li>Liberty</li>
                     </ul>
-                    <a class="btn btn-lg rounded-pill nosotros-cobertura-btn" href="{{ route('tarifas') }}">Ver rutas y tarifas</a>
+                    <a class="btn btn-lg rounded-pill nosotros-cobertura-btn" href="{{ route('tarifas') }}">Ver tarifas</a>
                 </div>
             </div>
         </section>

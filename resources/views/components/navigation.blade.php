@@ -6,10 +6,10 @@
             <img src="{{ versioned_asset('images/logos/sms-empresarial-white.svg') }}" alt="SMS Empresarial" width="200" height="94">
         </a>
         <div class="nav-actions order-xl-last">
-            {{-- Bandera del idioma actual: Costa Rica en español, Reino Unido en inglés (el CSS la cambia según <html lang>). --}}
+            {{-- Bandera del idioma actual: Costa Rica en español, Estados Unidos en inglés (el CSS la cambia según <html lang>). --}}
             <span class="lang-bandera" aria-hidden="true">
                 <svg class="bandera-cr" viewBox="0 0 30 30" focusable="false"><path fill="#002B7F" d="M0 0h30v30H0z"/><path fill="#FFF" d="M0 5h30v20H0z"/><path fill="#CE1126" d="M0 10h30v10H0z"/></svg>
-                <svg class="bandera-gb" viewBox="15 0 30 30" focusable="false"><clipPath id="bandera-gb-cruz"><path d="M30 15h30v15zv15H0zH0V0zV0h30z"/></clipPath><path fill="#012169" d="M0 0h60v30H0z"/><path stroke="#FFF" stroke-width="6" d="M0 0l60 30m0-30L0 30"/><path stroke="#C8102E" stroke-width="4" clip-path="url(#bandera-gb-cruz)" d="M0 0l60 30m0-30L0 30"/><path stroke="#FFF" stroke-width="10" d="M30 0v30M0 15h60"/><path stroke="#C8102E" stroke-width="6" d="M30 0v30M0 15h60"/></svg>
+                <svg class="bandera-us" viewBox="0 0 30 30" focusable="false"><path fill="#B22234" d="M0 0h30v30H0z"/><path fill="#FFF" d="M0 2.308h30v2.308H0zM0 6.923h30v2.308H0zM0 11.538h30v2.308H0zM0 16.154h30v2.308H0zM0 20.769h30v2.308H0zM0 25.385h30v2.308H0z"/><path fill="#3C3B6E" d="M0 0h17v16.154H0z"/><g fill="#FFF"><circle cx="2.10" cy="1.90" r=".7"/><circle cx="8.50" cy="1.90" r=".7"/><circle cx="14.90" cy="1.90" r=".7"/><circle cx="5.30" cy="5.00" r=".7"/><circle cx="11.70" cy="5.00" r=".7"/><circle cx="2.10" cy="8.10" r=".7"/><circle cx="8.50" cy="8.10" r=".7"/><circle cx="14.90" cy="8.10" r=".7"/><circle cx="5.30" cy="11.20" r=".7"/><circle cx="11.70" cy="11.20" r=".7"/><circle cx="2.10" cy="14.30" r=".7"/><circle cx="8.50" cy="14.30" r=".7"/><circle cx="14.90" cy="14.30" r=".7"/></g></svg>
             </span>
             <button class="theme-toggle lang-toggle" type="button" data-lang-toggle lang="en" title="View in English" aria-label="View in English" hidden>EN</button>
             <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="true" title="Modo oscuro" hidden>
@@ -26,7 +26,7 @@
                 <li class="nav-item"><a class="nav-link {{ $page === 'home' ? 'active' : '' }}" href="{{ route('home') }}" @if($page === 'home') aria-current="page" @endif>Inicio</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'caracteristicas' ? 'active' : '' }}" href="{{ route('caracteristicas') }}" @if($page === 'caracteristicas') aria-current="page" @endif>Características</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'faq' ? 'active' : '' }}" href="{{ route('faq') }}" @if($page === 'faq') aria-current="page" @endif>Preguntas frecuentes</a></li>
-                <li class="nav-item"><a class="nav-link {{ $page === 'tarifas' ? 'active' : '' }}" href="{{ route('tarifas') }}" @if($page === 'tarifas') aria-current="page" @endif>Rutas y tarifas</a></li>
+                <li class="nav-item"><a class="nav-link {{ $page === 'tarifas' ? 'active' : '' }}" href="{{ route('tarifas') }}" @if($page === 'tarifas') aria-current="page" @endif>Tarifas</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'nosotros' ? 'active' : '' }}" href="{{ route('nosotros') }}" @if($page === 'nosotros') aria-current="page" @endif>Nosotros</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'contactanos' ? 'active' : '' }}" href="{{ route('contactanos') }}" @if($page === 'contactanos') aria-current="page" @endif>Contáctenos</a></li>
             </ul>

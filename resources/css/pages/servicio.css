@@ -53,7 +53,7 @@
   border: 1px solid var(--border);
   border-radius: 16px 16px 16px 4px;
   background: var(--surface-2);
-  font-size: .78rem;
+  font-size: var(--fs-xs);
   line-height: 1.4;
   overflow-wrap: anywhere;
   animation: mensaje-entrada .7s var(--ease) both;
@@ -81,7 +81,7 @@
 
 /* ---------- Secciones ---------- */
 .servicio-seccion { padding-block: var(--section-py); }
-.servicio-seccion .feature-heading p { font-size: clamp(1rem, .97rem + .2vw, 1.12rem); }
+.servicio-seccion .feature-heading p { font-size: var(--fs-base); }
 .servicio-banda { padding-block: var(--section-py); background: var(--surface); border-block: 1px solid var(--border); }
 
 /* Ventajas */
@@ -101,7 +101,7 @@
 .feature-card:hover::before { transform: scaleY(1); }
 .feature-card:hover .feature-icon { transform: rotate(-6deg) scale(1.06); }
 .feature-card h3 { margin: .15rem 0 .55rem; color: var(--heading); font-size: var(--fs-h3); }
-.feature-card p { margin: 0; color: var(--text-muted); font-size: .97rem; line-height: 1.7; }
+.feature-card p { margin: 0; color: var(--text-muted); font-size: var(--fs-base); line-height: 1.7; }
 
 /* Cómo llega el mensaje: pasos unidos por una flecha */
 .servicio-flujo { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 2.5rem; margin: 0; padding: 0; list-style: none; counter-reset: paso; }
@@ -123,12 +123,12 @@
   top: 50%;
   right: -1.85rem;
   color: var(--accent);
-  font-size: 1.3rem;
+  font-size: var(--fs-lg);
   font-weight: var(--fw-bold);
   transform: translateY(-50%);
 }
 .servicio-paso strong { color: var(--heading); }
-.servicio-paso > span:last-child { color: var(--text-muted); font-size: .9rem; line-height: 1.5; }
+.servicio-paso > span:last-child { color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.5; }
 .servicio-paso-icono { display: grid; place-items: center; width: 46px; height: 46px; margin-bottom: .35rem; border-radius: 14px; background: var(--icon-tile); color: var(--icon-color); }
 .servicio-paso.is-marca { border-color: transparent; background: var(--cf-azul); }
 .servicio-paso.is-marca strong, .servicio-paso.is-marca > span:last-child { color: var(--cf-blanco); }
@@ -163,7 +163,7 @@
 .faq-accordion .accordion-button { gap: .85rem; padding: 1.1rem 1.25rem; font-weight: var(--fw-bold); line-height: 1.45; box-shadow: none; }
 .faq-accordion .accordion-button:focus-visible { outline-offset: -3px; }
 .faq-accordion .accordion-button::after { width: 1.1rem; height: 1.1rem; background-size: 1.1rem; }
-.faq-numero { display: inline-grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px; border-radius: 50%; color: var(--cf-blanco); background: var(--cf-azul); font-size: .82rem; font-weight: var(--fw-bold); }
+.faq-numero { display: inline-grid; place-items: center; flex: 0 0 38px; width: 38px; height: 38px; border-radius: 50%; color: var(--cf-blanco); background: var(--cf-azul); font-size: var(--fs-sm); font-weight: var(--fw-bold); }
 .accordion-button:not(.collapsed) .faq-numero { background: var(--primary-hover); }
 .faq-accordion .accordion-body { padding: 1.1rem 1.5rem 1.4rem; color: var(--text-muted); line-height: 1.8; }
 .faq-accordion .accordion-body p { margin: 0; }
@@ -214,20 +214,20 @@
 /* ---------- Móvil ---------- */
 @media (max-width: 767.98px) {
   .pagina-hero .pagina-kicker { display: none; }
-  .pagina-hero p { font-size: 1rem; line-height: 1.65; }
+  .pagina-hero p { font-size: var(--fs-base); line-height: 1.65; }
   .pagina-hero .btn { flex: 1 1 100%; }
-  .feature-heading h2, .feature-cta h2 { font-size: clamp(1.45rem, 6.2vw, 1.75rem); }
+  .feature-heading h2, .feature-cta h2 { font-size: var(--fs-xl); }
   .feature-card { gap: .85rem; padding: 1rem; border-radius: var(--radius-sm); }
   .feature-card .feature-icon { width: 40px; height: 40px; border-radius: 12px; }
   .feature-card .feature-icon svg { width: 21px; height: 21px; }
-  .feature-card h3 { margin: 0 0 .25rem; font-size: 1rem; }
+  .feature-card h3 { margin: 0 0 .25rem; font-size: var(--fs-base); }
   .servicio-flujo, .servicio-cuando { grid-template-columns: 1fr; }
   .servicio-paso { flex-direction: row; text-align: left; flex-wrap: wrap; column-gap: .85rem; }
   .servicio-paso-icono { margin-bottom: 0; }
   .servicio-paso > span:last-child { flex-basis: 100%; }
-  .faq-accordion .accordion-button { padding: .95rem 1rem; font-size: .95rem; }
-  .faq-numero { flex-basis: 32px; width: 32px; height: 32px; font-size: .75rem; }
-  .faq-accordion .accordion-body { padding: 1rem 1.1rem 1.2rem; font-size: .95rem; }
+  .faq-accordion .accordion-button { padding: .95rem 1rem; font-size: var(--fs-base); }
+  .faq-numero { flex-basis: 32px; width: 32px; height: 32px; font-size: var(--fs-xs); }
+  .faq-accordion .accordion-body { padding: 1rem 1.1rem 1.2rem; font-size: var(--fs-base); }
   .feature-cta { padding: 1.5rem 1.25rem; }
   .feature-cta .btn { width: 100%; }
 }

@@ -51,7 +51,7 @@ class ContactRequest extends FormRequest
                 }
             }],
             'tema' => ['required', Rule::in(self::TEMAS)],
-            'medio' => $medios === [] ? ['nullable', 'string', 'max:120'] : ['required', Rule::in($medios)],
+            'medio' => $medios === [] ? ['nullable', 'string', 'max:120'] : ['nullable', Rule::in($medios)],
             'otro' => ['required_if:medio,Otro', 'nullable', 'string', 'max:120'],
             'mensaje' => ['required', 'string', 'max:5000'],
             'recaptcha_token' => ['nullable', 'string'],

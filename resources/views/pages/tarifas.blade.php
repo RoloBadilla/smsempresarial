@@ -1,9 +1,9 @@
 @extends('layouts.app', [
     'pageKey' => 'tarifas',
     'footerVariant' => 'tarifas',
-    'title' => 'Rutas y tarifas de SMS | SMS Empresarial Costa Rica',
+    'title' => 'Tarifas de SMS | SMS Empresarial Costa Rica',
     'description' => 'Consulta las tarifas por SMS de SMS Empresarial en Costa Rica y otros destinos. Solicita una cotización para WhatsApp Business.',
-    'breadcrumb' => 'Rutas y tarifas',
+    'breadcrumb' => 'Tarifas',
     // Datos estructurados: el servicio y su precio por destino (sale de config/tarifas.php).
     'schema' => [[
         '@type' => 'Service',
@@ -33,7 +33,7 @@
     <main id="contenido">
         <header class="rates-hero page-hero">
             <div class="container">
-                <x-breadcrumbs current="Rutas y tarifas" />
+                <x-breadcrumbs current="Tarifas" />
                 <span class="eyebrow mb-3">Mensajería sin fronteras</span>
                 <h1 class="mb-3">Tarifas de SMS en Costa Rica y más destinos.</h1>
                 <p class="mb-0">Consulta nuestras tarifas de SMS por destino y elige cómo conectar con tus clientes. Precios
@@ -61,7 +61,7 @@
                 <div class="d-flex flex-column flex-lg-row align-items-lg-end justify-content-between gap-3 mb-4">
                     <div>
                         <span class="section-kicker">Tarifas SMS</span>
-                        <h2 class="section-title mt-2 mb-2" id="sms-title">Rutas disponibles</h2>
+                        <h2 class="section-title mt-2 mb-2" id="sms-title">Tarifas por país</h2>
                         <p class="section-copy mb-0">Precios por mensaje enviado. Busca un país o navega la lista completa.</p>
                     </div>
                     <label class="searchbox" aria-label="Buscar país"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
@@ -113,7 +113,7 @@
                                 </svg></span>
                                 <div>
                                     <span class="section-kicker kicker-wa">También disponible</span>
-                                    <h2 class="section-title mb-0">Rutas y tarifas WhatsApp</h2>
+                                    <h2 class="section-title mb-0">Tarifas de WhatsApp</h2>
                                 </div>
                             </div>
                             <p class="section-copy mb-0">WhatsApp Business requiere un número exclusivo para trabajar con las tarifas de WhatsApp y

@@ -30,7 +30,7 @@
 .feature-card:hover::before { transform: scaleY(1); }
 .feature-card:hover .feature-icon { transform: rotate(-6deg) scale(1.06); }
 .feature-card h3 { margin: .15rem 0 .55rem; color: var(--heading); font-size: var(--fs-h3); }
-.feature-card p { margin: 0; color: var(--text-muted); font-size: .97rem; line-height: 1.7; }
+.feature-card p { margin: 0; color: var(--text-muted); font-size: var(--fs-base); line-height: 1.7; }
 
 .feature-note {
   display: inline-flex;
@@ -63,19 +63,19 @@
   /* Sin la etiqueta "Plataforma de mensajería empresarial": el título ya lo dice */
   .pagina-hero .pagina-kicker { display: none; }
   .pagina-hero h1 { margin-bottom: .75rem !important; }
-  .pagina-hero p { font-size: 1rem; line-height: 1.65; }
+  .pagina-hero p { font-size: var(--fs-base); line-height: 1.65; }
 
-  .feature-heading h2, .feature-cta h2 { font-size: clamp(1.45rem, 6.2vw, 1.75rem); }
-  .feature-heading p { font-size: .95rem; line-height: 1.6; }
+  .feature-heading h2, .feature-cta h2 { font-size: var(--fs-xl); }
+  .feature-heading p { font-size: var(--fs-base); line-height: 1.6; }
 
   /* Tarjetas horizontales: ícono pequeño a la izquierda, texto a la derecha */
   .feature-card { gap: .85rem; padding: 1rem; border-radius: var(--radius-sm); }
   .feature-card .feature-icon { width: 40px; height: 40px; border-radius: 12px; }
   .feature-card .feature-icon svg { width: 21px; height: 21px; }
-  .feature-card h3 { margin: 0 0 .25rem; font-size: 1rem; }
-  .feature-card p { font-size: .92rem; line-height: 1.55; }
+  .feature-card h3 { margin: 0 0 .25rem; font-size: var(--fs-base); }
+  .feature-card p { font-size: var(--fs-sm); line-height: 1.55; }
 
-  .feature-note { font-size: .9rem; padding: .6rem 1rem; border-radius: var(--radius-sm); }
+  .feature-note { font-size: var(--fs-sm); padding: .6rem 1rem; border-radius: var(--radius-sm); }
   .feature-cta { padding: 1.5rem 1.25rem; }
   .feature-cta .btn { width: 100%; }
 }
@@ -136,7 +136,7 @@
   transform-origin: center;
   animation: orbita-llegada 6.8s linear infinite;
 }
-.ruta__codigo { fill: var(--orbita-rotulo); font-family: var(--font-brand); font-size: .9375rem; font-weight: var(--fw-bold); animation: orbita-rotulo 6.8s linear infinite; }
+.ruta__codigo { fill: var(--orbita-rotulo); font-family: var(--font-brand); font-size: var(--fs-base); font-weight: var(--fw-bold); animation: orbita-rotulo 6.8s linear infinite; }
 
 /* Cada ruta sale 0.4 s después de la anterior */
 .ruta:nth-of-type(2) > * { animation-delay: .4s; }
@@ -158,7 +158,7 @@
 
 .orbita__centro { fill: var(--orbita-celeste); }
 .orbita__centro-halo { fill: none; stroke: var(--orbita-celeste); stroke-width: 1.5; transform-origin: 300px 300px; animation: orbita-latido 2.4s ease-out infinite; }
-.orbita__centro-texto { fill: var(--orbita-fondo); font-family: var(--font-brand); font-size: 1.125rem; font-weight: var(--fw-bold); }
+.orbita__centro-texto { fill: var(--orbita-fondo); font-family: var(--font-brand); font-size: var(--fs-lg); font-weight: var(--fw-bold); }
 
 @keyframes orbita-girar { to { transform: rotate(360deg); } }
 @keyframes orbita-pulso {
@@ -183,7 +183,7 @@
   .ruta__pulso, .orbita__centro-halo { display: none; }
 }
 @media (max-width: 575.98px) {
-  .ruta__codigo { font-size: 1.25rem; }
+  .ruta__codigo { font-size: var(--fs-lg); }
 }
 
 /* ---------- Ilustración de gestión de contactos ---------- */
@@ -211,8 +211,8 @@
 .ilu-enviar { fill: var(--cf-azul); }
 .ilu-enviar-flecha, .ilu-check-marca { fill: none; stroke: var(--cf-blanco); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .ilu-grupo { fill: var(--surface); stroke: var(--border); }
-.ilu-texto { fill: var(--heading); font-family: var(--font-brand); font-size: 13px; font-weight: var(--fw-bold); }
-.ilu-mas { fill: var(--text-muted); font-family: var(--font-brand); font-size: 12px; font-weight: var(--fw-bold); }
+.ilu-texto { fill: var(--heading); font-family: var(--font-brand); font-size: var(--fs-sm); font-weight: var(--fw-bold); }
+.ilu-mas { fill: var(--text-muted); font-family: var(--font-brand); font-size: var(--fs-xs); font-weight: var(--fw-bold); }
 .ilu-avatar { stroke: var(--surface); stroke-width: 3; }
 .ilu-avatar--azul { fill: var(--cf-azul); }
 .ilu-avatar--celeste { fill: color-mix(in srgb, var(--cf-celeste) 85%, var(--cf-azul)); }

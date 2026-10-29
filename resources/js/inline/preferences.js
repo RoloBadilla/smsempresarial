@@ -40,6 +40,9 @@
   applyTheme(storedTheme() || systemTheme());
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('motion-ok');
 
+  // Pantalla esqueleto mientras carga (la arma y la quita js/inline/esqueleto.js). Sin JS no se activa.
+  root.classList.add('cargando');
+
   if (initialLanguage() === 'en') {
     root.lang = 'en';
     // Oculta la página mientras llega la traducción; nunca más de 2 s.

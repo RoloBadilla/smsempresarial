@@ -21,7 +21,7 @@
   border-radius: 14px;
   background: color-mix(in srgb, var(--cf-blanco) 8%, transparent);
   color: var(--hero-text);
-  font-size: .88rem;
+  font-size: var(--fs-sm);
   font-weight: var(--fw-bold);
   -webkit-backdrop-filter: blur(6px);
   backdrop-filter: blur(6px);
@@ -36,7 +36,7 @@ main { background: linear-gradient(var(--surface) 0, var(--bg) 380px); }
 
 /* Buscador */
 .searchbox { position: relative; min-width: min(100%, 320px); }
-.searchbox input { width: 100%; padding: .85rem 1rem .85rem 2.8rem; border: 1px solid var(--field-border); border-radius: var(--radius-sm); background: var(--field-bg); color: var(--text); font: inherit; font-size: .95rem; transition: border-color var(--dur) ease, box-shadow var(--dur) ease; }
+.searchbox input { width: 100%; padding: .85rem 1rem .85rem 2.8rem; border: 1px solid var(--field-border); border-radius: var(--radius-sm); background: var(--field-bg); color: var(--text); font: inherit; font-size: var(--fs-base); transition: border-color var(--dur) ease, box-shadow var(--dur) ease; }
 .searchbox input::placeholder { color: var(--text-muted); opacity: 1; }
 .searchbox input:hover { border-color: var(--accent); }
 .searchbox input:focus { border-color: var(--focus); box-shadow: 0 0 0 4px color-mix(in srgb, var(--focus) 25%, transparent); }
@@ -54,16 +54,16 @@ main { background: linear-gradient(var(--surface) 0, var(--bg) 380px); }
   min-width: 520px;
   margin: 0;
 }
-.table thead th { position: sticky; top: 0; padding: 1rem; background: var(--surface-2); color: var(--heading); font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+.table thead th { position: sticky; top: 0; padding: 1rem; background: var(--surface-2); color: var(--heading); font-size: var(--fs-xs); letter-spacing: .08em; text-transform: uppercase; }
 .table tbody tr { transition: background-color var(--dur) ease; }
 .table tbody tr:hover > * { --bs-table-bg-state: var(--icon-tile); }
-.table tbody td { padding: .9rem 1rem; vertical-align: middle; font-size: .92rem; }
+.table tbody td { padding: .9rem 1rem; vertical-align: middle; font-size: var(--fs-sm); }
 .country { display: flex; align-items: center; gap: .6rem; color: var(--heading); font-weight: var(--fw-bold); }
 .flag { display: block; flex: 0 0 22px; width: 22px; height: 16px; object-fit: cover; border-radius: 3px; box-shadow: 0 0 0 1px var(--border); }
 .dial { color: var(--text-muted); font-weight: var(--fw-regular); }
 .price { color: var(--heading); font-weight: var(--fw-bold); white-space: nowrap; }
-.badge-route { display: inline-block; padding: .3rem .65rem; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--icon-tile); color: var(--accent); font-size: .74rem; font-weight: var(--fw-bold); }
-.table-note { color: var(--text-muted); font-size: .82rem; }
+.badge-route { display: inline-block; padding: .3rem .65rem; border: 1px solid var(--border-strong); border-radius: 999px; background: var(--icon-tile); color: var(--accent); font-size: var(--fs-xs); font-weight: var(--fw-bold); }
+.table-note { color: var(--text-muted); font-size: var(--fs-sm); }
 
 /* WhatsApp */
 .wa-section { padding-block: var(--section-py); }
@@ -77,12 +77,36 @@ main { background: linear-gradient(var(--surface) 0, var(--bg) 380px); }
 .wa-icon { display: grid; place-items: center; flex: 0 0 auto; width: 58px; height: 58px; border-radius: 18px; background: color-mix(in srgb, var(--cf-verde) 16%, transparent); color: var(--success); }
 .wa-icon svg { width: 30px; }
 .kicker-wa { color: var(--success); }
-.wa-note { padding: 1.2rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg); color: var(--text-muted); font-size: .92rem; line-height: 1.7; }
+.wa-note { padding: 1.2rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg); color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.7; }
 .wa-note strong { color: var(--heading); }
 
 @media (max-width: 767.98px) {
   .rates-wrap { margin-top: -2rem; }
   .panel { border-radius: 20px; }
+
+  /* En celular la tabla se muestra como tarjetas, una por país:
+     país y ruta arriba, precio completo abajo. El buscador sigue funcionando igual. */
+  .table-shell { overflow: visible; border: 0; border-radius: 0; }
+  .table, .table tbody { display: block; min-width: 0; margin: 0; }
+  .table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .table tbody { display: grid; gap: .75rem; }
+  .table tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: .5rem 1rem;
+    padding: 1rem 1.1rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    background: var(--surface-2);
+  }
+  .table tbody tr[hidden] { display: none; }
+  .table tbody td { display: block; padding: 0; border: 0; box-shadow: none !important; background: none; }
+  .table tbody td:nth-child(3) { grid-row: 1; grid-column: 2; }
+  .table tbody td.price { grid-column: 1 / -1; white-space: normal; font-size: var(--fs-lg); }
+  .table tbody td.price span { font-size: var(--fs-sm); }
+  .country { flex-wrap: wrap; row-gap: .15rem; }
+  .dial { white-space: nowrap; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero-stat:hover { transform: none; }

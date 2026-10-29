@@ -89,7 +89,8 @@ test('con "Otro" se envía lo que escribió la persona', function () {
 test('valida los campos obligatorios', function () {
     fakeServicios();
     $this->post('/contacto', [])
-        ->assertSessionHasErrors(['nombre', 'correo', 'telefono', 'tema', 'medio', 'mensaje']);
+        ->assertSessionHasErrors(['nombre', 'correo', 'telefono', 'tema', 'mensaje'])
+        ->assertSessionDoesntHaveErrors('medio');
 
     Http::assertNotSent(fn (Request $request) => str_contains($request->url(), 'addleads'));
 });
@@ -149,4 +150,11 @@ test('rechaza un token de reCAPTCHA con puntaje bajo', function () {
     config(['services.recaptcha.site_key' => 'site', 'services.recaptcha.secret_key' => 'secret']);
 
     $this->post('/contacto', datosContacto(['recaptcha_token' => 'bot']))->assertSessionHasErrors('recaptcha');
+});
+
+test('"¿Cómo te enteraste de nosotros?" es opcional aunque el servicio de medios responda', function () {
+    fakeServicios();
+
+    $this->get('/contactanos')->assertSee('<span class="campo-opcional">(opcional)</span>', false);
+    $this->post('/contacto', datosContacto(['medio' => null]))->assertSessionHas('contact_sent');
 });

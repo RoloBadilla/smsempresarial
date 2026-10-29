@@ -170,7 +170,7 @@
                     mensaje.</p>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="{{ config('services.plataforma.registro') }}" class="btn btn-celeste btn-lg rounded-pill px-4">Abrir una cuenta</a>
-                    <a href="{{ route('tarifas') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Consultar tarifas</a>
+                    <a href="{{ route('tarifas') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Ver tarifas</a>
                 </div>
             </div>
         </section>
