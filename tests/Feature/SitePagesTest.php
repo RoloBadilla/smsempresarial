@@ -223,5 +223,15 @@ test('la página Nosotros está en el sitemap y enlaza a las páginas de servici
 
     $this->get('/nosotros')->assertOk()
         ->assertSee('Detrás de cada mensaje hay una empresa local')
-        ->assertSee('href="'.route('servicio', 'codigos-otp-por-sms').'"', false);
+        ->assertSee('href="'.route('servicio', ['servicio' => 'codigos-otp-por-sms', 'desde' => 'nosotros']).'"', false);
+});
+
+test('al entrar desde Nosotros la ruta de navegación incluye Nosotros', function () {
+    $this->get('/nosotros')->assertSee(route('servicio', ['servicio' => 'codigos-otp-por-sms', 'desde' => 'nosotros']), false);
+
+    $this->get('/codigos-otp-por-sms?desde=nosotros')
+        ->assertSee('<a href="'.route('nosotros').'">Nosotros</a>', false)
+        ->assertSee('<link rel="canonical" href="https://smsempresarial.com/codigos-otp-por-sms">', false);
+
+    $this->get('/codigos-otp-por-sms')->assertDontSee('<a href="'.route('nosotros').'">Nosotros</a><span', false);
 });

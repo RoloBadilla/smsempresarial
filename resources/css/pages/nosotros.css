@@ -33,7 +33,49 @@
 /* ---------- 01 Qué hacemos ---------- */
 .nosotros-manifiesto { display: grid; grid-template-columns: minmax(0, .28fr) minmax(0, 1fr); gap: clamp(1.5rem, 5vw, 4rem); align-items: start; }
 .nosotros-frase { margin: 0 0 1.25rem; color: var(--heading) !important; font-family: var(--font-brand); font-size: clamp(1.5rem, 1.05rem + 2vw, 2.45rem); font-weight: var(--fw-bold); line-height: 1.25 !important; text-wrap: pretty; }
-.nosotros-frase mark { padding: 0 .15em; border-radius: .2em; background: linear-gradient(transparent 58%, color-mix(in srgb, var(--cf-celeste) 45%, transparent) 58%); color: inherit; }
+/* "su celular": texto con degradado de marca y dos trazos de bolígrafo que se dibujan uno tras otro. */
+.nosotros-celular {
+  --celular-a: var(--cf-celeste);
+  --celular-b: var(--cf-cian);
+  position: relative;
+  display: inline-block;
+  padding: 0;
+  background: none;
+  color: inherit;
+  white-space: nowrap;
+}
+:root[data-theme="light"] .nosotros-celular { --celular-a: var(--cf-cian); --celular-b: var(--cf-azul); }
+.nosotros-celular > span {
+  background: linear-gradient(100deg, var(--celular-a), var(--celular-b));
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.nosotros-celular svg {
+  position: absolute;
+  left: -.1em;
+  right: -.1em;
+  top: 82%;
+  width: calc(100% + .2em);
+  height: .5em;
+  overflow: visible;
+  pointer-events: none;
+}
+.nosotros-celular .trazo-a { stop-color: var(--celular-a); }
+.nosotros-celular .trazo-b { stop-color: var(--celular-b); }
+.nosotros-celular path {
+  fill: none;
+  stroke: url(#trazo-celular);
+  stroke-linecap: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: nosotros-trazo .7s cubic-bezier(.6, 0, .3, 1) forwards;
+}
+.nosotros-celular .trazo-1 { stroke-width: .16em; animation-delay: .4s; }
+.nosotros-celular .trazo-2 { stroke-width: .1em; opacity: .7; animation-delay: .95s; }
+@keyframes nosotros-trazo { to { stroke-dashoffset: 0; } }
+@media (prefers-reduced-motion: reduce) { .nosotros-celular path { animation: none; stroke-dashoffset: 0; } }
 .nosotros-apoyo { max-width: 46rem; margin: 0; font-size: clamp(1.02rem, .98rem + .25vw, 1.15rem); }
 
 /* ---------- 02 Respaldo de Cyberfuel ---------- */

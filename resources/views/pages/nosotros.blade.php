@@ -2,18 +2,18 @@
 @php
     // Mosaico de usos: el primero es la tarjeta grande. Cada uno lleva a la página que lo explica.
     $usos = [
-        ['campanas', 'Campañas y promociones', 'Envíos masivos personalizados de SMS y WhatsApp.', route('servicio', 'campanas-de-sms-masivos')],
-        ['recordatorios', 'Recordatorios y avisos', 'Citas, cobros, vencimientos y comunicados.', route('servicio', 'recordatorios-por-sms')],
-        ['otp', 'Seguridad', 'Códigos OTP y segundo factor de autenticación (2FA) para validar a tus usuarios.', route('servicio', 'codigos-otp-por-sms')],
-        ['dos-vias', 'Cobros con SINPE Móvil', 'Comunicación en ambas vías con tus clientes.', route('servicio', 'sms-dos-vias-sinpe-movil')],
-        ['api', 'Integración por API', 'Conecta tu sistema para enviar y recibir mensajes de forma automática.', route('caracteristicas')],
+        ['campanas', 'Campañas y promociones', 'Envíos masivos personalizados de SMS y WhatsApp.', route('servicio', ['servicio' => 'campanas-de-sms-masivos', 'desde' => 'nosotros'])],
+        ['recordatorios', 'Recordatorios y avisos', 'Citas, cobros, vencimientos y comunicados.', route('servicio', ['servicio' => 'recordatorios-por-sms', 'desde' => 'nosotros'])],
+        ['otp', 'Seguridad', 'Códigos OTP y segundo factor de autenticación (2FA) para validar a tus usuarios.', route('servicio', ['servicio' => 'codigos-otp-por-sms', 'desde' => 'nosotros'])],
+        ['dos-vias', 'Cobros con SINPE Móvil', 'Comunicación en ambas vías con tus clientes.', route('servicio', ['servicio' => 'sms-dos-vias-sinpe-movil', 'desde' => 'nosotros'])],
+        ['api', 'Integración por API', 'Conecta tu sistema para enviar y recibir mensajes de forma automática.', route('caracteristicas', ['desde' => 'nosotros'])],
     ];
 @endphp
 
 @extends('layouts.app', [
     'pageKey' => 'nosotros',
     'footerVariant' => 'marketing',
-    'title' => 'Nosotros | SMS Empresarial, un servicio de Cyberfuel en Costa Rica',
+    'title' => 'Nosotros | SMS Empresarial, servicio de Cyberfuel',
     'description' => 'SMS Empresarial es un servicio de Cyberfuel, empresa 100 % costarricense. Envía SMS y WhatsApp masivos desde una sola plataforma, con soporte 24/7.',
     'breadcrumb' => 'Nosotros',
     'schema' => [
@@ -52,7 +52,7 @@
                 <span class="nosotros-numero"><b>01</b>Qué hacemos</span>
                 <div>
                     <p class="nosotros-frase">Ayudamos a las empresas costarricenses a comunicarse con sus clientes por el
-                        canal que nunca dejan de revisar: <mark>su celular</mark>.</p>
+                        canal que nunca dejan de revisar: <mark class="nosotros-celular"><span>su celular</span><svg viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true" focusable="false"><defs><linearGradient id="trazo-celular" x1="0" x2="1"><stop offset="0" class="trazo-a"/><stop offset="1" class="trazo-b"/></linearGradient></defs><path class="trazo-1" pathLength="1" d="M6 22 C 70 10, 170 6, 294 14"/><path class="trazo-2" pathLength="1" d="M40 32 C 110 23, 200 21, 262 26"/></svg></mark>.</p>
                     <p class="nosotros-apoyo">Con SMS Empresarial envías mensajes de texto y WhatsApp masivos desde una sola
                         plataforma, de forma segura y sin complicaciones.</p>
                 </div>
@@ -91,8 +91,7 @@
                 <div class="nosotros-plataforma">
                     <a class="nosotros-destacado" href="{{ $destacado[3] }}">
                         <span class="feature-icon"><x-icono :nombre="$destacado[0]" /></span>
-                        <h3>{{ $destacado[1] }}</h3>
-                        <p>{{ $destacado[2] }}</p>
+                        <h3>{{ $destacado[2] }}</h3>
                         <span class="nosotros-burbujas" aria-hidden="true">
                             <span class="is-sms"><b>SMS</b>¡20 % de descuento este fin de semana!</span>
                             <span class="is-wa"><b>WhatsApp</b>Hola Ana, tu pedido ya va en camino.</span>
