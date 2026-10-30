@@ -17,7 +17,7 @@
 .iln-msj--wa { fill: #46AD4A; }
 .iln-msj-gris { fill: color-mix(in srgb, var(--cf-azul) 22%, var(--cf-blanco)); }
 .iln-rotulo { fill: color-mix(in srgb, var(--cf-blanco) 12%, transparent); stroke: color-mix(in srgb, var(--cf-blanco) 35%, transparent); }
-.iln-texto { fill: var(--cf-blanco); font-family: var(--font-brand); font-size: var(--fs-base); font-weight: var(--fw-bold); }
+.iln-texto { fill: var(--cf-blanco); font-family: var(--font-text); font-size: var(--fs-base); font-weight: var(--fw-bold); }
 .iln-verde { fill: #46AD4A; }
 @keyframes iln-senal { to { stroke-dashoffset: -26; } }
 
@@ -98,11 +98,12 @@
 .nosotros-logos img { width: auto; height: 48px; filter: grayscale(1) brightness(0) invert(1); opacity: .75; }
 :root[data-theme="light"] .nosotros-logos img { filter: none; opacity: 1; }
 .nosotros-datos { position: relative; z-index: 1; display: grid; gap: .85rem; margin: 0; padding: 0; list-style: none; }
-.nosotros-datos li { display: grid; grid-template-columns: auto auto 1fr; align-items: center; gap: .35rem 1rem; padding: 1rem 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); transition: transform var(--dur) var(--ease), border-color var(--dur) ease; }
+/* Ícono a la izquierda; la cifra arriba y su texto debajo, para que no se apriete en celular */
+.nosotros-datos li { display: grid; grid-template-columns: auto 1fr; align-items: center; gap: .2rem 1rem; padding: 1rem 1.25rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg); transition: transform var(--dur) var(--ease), border-color var(--dur) ease; }
 .nosotros-datos li:hover { transform: translateX(-4px); border-color: var(--border-strong); }
-.nosotros-dato-icono { display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: color-mix(in srgb, var(--cf-azul) 18%, transparent); color: var(--icon-color); }
-.nosotros-datos strong { color: var(--heading); font-family: var(--font-brand); font-size: var(--fs-xl); line-height: 1; }
-.nosotros-datos li > span:last-child { color: var(--text-muted); font-size: var(--fs-base); }
+.nosotros-dato-icono { grid-row: span 2; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 14px; background: color-mix(in srgb, var(--cf-azul) 18%, transparent); color: var(--icon-color); }
+.nosotros-datos strong { color: var(--heading); font-family: var(--font-brand); font-size: var(--fs-xl); line-height: 1; white-space: nowrap; }
+.nosotros-datos li > span:last-child { grid-column: 2; color: var(--text-muted); font-size: var(--fs-base); line-height: 1.4; }
 
 /* ---------- 03 La plataforma ---------- */
 .nosotros-banda { padding-block: clamp(3rem, 7vw, 5.5rem); background: var(--surface); border-block: 1px solid var(--border); }
@@ -171,7 +172,7 @@
 .nosotros-cobertura-texto strong { display: block; font-family: var(--font-brand); font-size: var(--fs-lg); line-height: 1.2; }
 .nosotros-cobertura-texto span:not(.nosotros-cobertura-icono) { color: color-mix(in srgb, var(--cf-blanco) 88%, var(--cf-azul)); font-size: var(--fs-base); }
 .nosotros-operadores { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; padding: 0; list-style: none; }
-.nosotros-operadores li { padding: .55rem 1.25rem; border-radius: 999px; background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 60%, var(--cf-negro)); font-family: var(--font-brand); font-size: var(--fs-base); font-weight: var(--fw-bold); box-shadow: 0 6px 16px color-mix(in srgb, var(--cf-negro) 18%, transparent); }
+.nosotros-operadores li { padding: .55rem 1.25rem; border-radius: 999px; background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 60%, var(--cf-negro)); font-family: var(--font-text); font-size: var(--fs-base); font-weight: var(--fw-bold); box-shadow: 0 6px 16px color-mix(in srgb, var(--cf-negro) 18%, transparent); }
 .nosotros-cobertura-btn { position: relative; z-index: 1; border: 1px solid color-mix(in srgb, var(--cf-blanco) 70%, transparent); color: var(--cf-blanco); font-weight: var(--fw-bold); }
 .nosotros-cobertura-btn:hover, .nosotros-cobertura-btn:focus-visible { background: var(--cf-blanco); color: var(--cf-azul); transform: translateY(-2px); }
 

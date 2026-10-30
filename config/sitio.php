@@ -30,6 +30,7 @@ return [
     'empresa_matriz' => [
         'nombre' => 'Cyberfuel',
         'url' => 'https://www.cyberfuel.com/',
+        'fundacion' => 1997, // de aquí salen los años de experiencia en Nosotros (se actualizan solos cada año)
     ],
 
     // Perfiles oficiales: le dicen a Google y a la IA que estas cuentas son de la misma empresa.

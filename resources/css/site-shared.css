@@ -1,3 +1,7 @@
+/* Noto Sans (incluida en el proyecto, sin depender de Google Fonts): textos, botones y etiquetas */
+@import "@fontsource/noto-sans/latin-400.css";
+@import "@fontsource/noto-sans/latin-700.css";
+
 /* =====================================================================
    SMS Empresarial: tokens de diseño y estilos base compartidos.
    Marca: libro de marca de Cyberfuel (https://cyberfuel.com/libro-de-marca)
@@ -17,18 +21,20 @@
   --cf-celeste: #7EC8E3;       /* Pantone 2905C */
   --cf-cian: #2B9ED9;
 
-  /* Tipografía de marca: Tahoma Bold (titulares) y Tahoma Regular (texto) */
+  /* Tipografía: Tahoma Bold (marca) en los títulos. Los textos, botones y etiquetas usan Noto Sans,
+     muy parecida a Tahoma pero sin remates en la "I" ni un "¡" que parezca "i", e igual en todos los dispositivos. */
   --font-brand: Tahoma, Verdana, "Segoe UI", Geneva, sans-serif;
+  --font-text: "Noto Sans", Tahoma, Verdana, "Segoe UI", sans-serif;
   --fw-regular: 400;
   --fw-bold: 700;
 
   /* Escala tipográfica: 6 tamaños para todo el sitio. Ningún font-size usa valores sueltos.
      Los dos más grandes crecen con la pantalla (celular → computadora). */
-  --fs-xs: .75rem;                                    /* 12 px  etiquetas en mayúsculas, insignias */
-  --fs-sm: .875rem;                                   /* 14 px  textos secundarios, notas, pie */
-  --fs-base: 1rem;                                    /* 16 px  texto normal */
-  --fs-lg: clamp(1.125rem, 1.05rem + .3vw, 1.25rem);  /* 18–20 px  títulos de tarjeta, textos destacados */
-  --fs-xl: clamp(1.75rem, 1.3rem + 1.6vw, 2.5rem);    /* 28–40 px  títulos de sección */
+  --fs-xs: .875rem;                                   /* 14 px  etiquetas en mayúsculas, insignias */
+  --fs-sm: 1rem;                                      /* 16 px  textos secundarios, notas, pie */
+  --fs-base: 1.125rem;                                /* 18 px  texto normal */
+  --fs-lg: clamp(1.25rem, 1.15rem + .4vw, 1.375rem);  /* 20–22 px  títulos de tarjeta, textos destacados */
+  --fs-xl: clamp(1.875rem, 1.4rem + 1.6vw, 2.625rem); /* 30–42 px  títulos de sección */
   --fs-2xl: clamp(2.25rem, 1.5rem + 3.2vw, 3.75rem);  /* 36–60 px  título de cada página */
   --fs-numero: clamp(3.25rem, 2.5rem + 5vw, 6rem);    /* única excepción: cifras grandes decorativas (99 %) */
 
@@ -64,7 +70,7 @@
   --border-strong: color-mix(in srgb, var(--cf-azul) 70%, var(--cf-blanco));
   --text: var(--cf-blanco);
   --heading: var(--cf-blanco);
-  --text-muted: color-mix(in srgb, var(--cf-blanco) 78%, var(--cf-azul));
+  --text-muted: color-mix(in srgb, var(--cf-blanco) 88%, var(--cf-azul));
   --accent: var(--cf-celeste);
   --success: var(--cf-verde);
   --primary: var(--cf-azul);
@@ -107,7 +113,7 @@
   --border-strong: color-mix(in srgb, var(--cf-azul) 40%, var(--cf-blanco));
   --text: color-mix(in srgb, var(--cf-azul) 30%, var(--cf-negro));
   --heading: color-mix(in srgb, var(--cf-azul) 55%, var(--cf-negro));
-  --text-muted: var(--cf-gris-oscuro);
+  --text-muted: color-mix(in srgb, var(--cf-gris-oscuro) 75%, var(--cf-negro));
   --accent: var(--cf-azul);
   --success: var(--cf-verde-oscuro);
   --focus: var(--cf-azul);
@@ -136,7 +142,7 @@
 
 /* ---------- 4. Puente con Bootstrap (usa los mismos tokens) ---------- */
 :root, :root[data-theme] {
-  --bs-body-font-family: var(--font-brand);
+  --bs-body-font-family: var(--font-text);
   --bs-body-bg: var(--bg);
   --bs-body-color: var(--text);
   --bs-emphasis-color: var(--heading);
@@ -154,7 +160,7 @@ body {
   min-width: 0;
   width: 100%;
   overflow-x: clip;
-  font-family: var(--font-brand);
+  font-family: var(--font-text);
   font-weight: var(--fw-regular);
   line-height: 1.65;
   background: var(--bg);
@@ -315,7 +321,7 @@ html[lang="en"] .lang-bandera .bandera-us { display: block; }
 }
 
 /* ---------- 7. Botones ---------- */
-.btn { font-family: var(--font-brand); font-weight: var(--fw-bold); border-radius: 999px; transition: transform var(--dur) var(--ease), box-shadow var(--dur) ease, background-color var(--dur) ease, color var(--dur) ease, border-color var(--dur) ease; }
+.btn { font-family: var(--font-text); font-weight: var(--fw-bold); border-radius: 999px; transition: transform var(--dur) var(--ease), box-shadow var(--dur) ease, background-color var(--dur) ease, color var(--dur) ease, border-color var(--dur) ease; }
 .btn-azul, .btn-brand { background: var(--primary); color: var(--on-primary); border: 1px solid transparent; }
 .btn-azul:hover, .btn-brand:hover, .btn-azul:focus-visible, .btn-brand:focus-visible { background: var(--primary-hover); color: var(--on-primary); transform: translateY(-2px); box-shadow: 0 12px 30px var(--glow); }
 .btn-celeste { background: var(--cf-celeste); color: color-mix(in srgb, var(--cf-azul) 30%, var(--cf-negro)); border: 1px solid transparent; }

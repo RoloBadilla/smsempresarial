@@ -136,7 +136,7 @@
   transform-origin: center;
   animation: orbita-llegada 6.8s linear infinite;
 }
-.ruta__codigo { fill: var(--orbita-rotulo); font-family: var(--font-brand); font-size: var(--fs-base); font-weight: var(--fw-bold); animation: orbita-rotulo 6.8s linear infinite; }
+.ruta__codigo { fill: var(--orbita-rotulo); font-family: var(--font-text); font-size: var(--fs-base); font-weight: var(--fw-bold); animation: orbita-rotulo 6.8s linear infinite; }
 
 /* Cada ruta sale 0.4 s después de la anterior */
 .ruta:nth-of-type(2) > * { animation-delay: .4s; }
@@ -158,7 +158,7 @@
 
 .orbita__centro { fill: var(--orbita-celeste); }
 .orbita__centro-halo { fill: none; stroke: var(--orbita-celeste); stroke-width: 1.5; transform-origin: 300px 300px; animation: orbita-latido 2.4s ease-out infinite; }
-.orbita__centro-texto { fill: var(--orbita-fondo); font-family: var(--font-brand); font-size: var(--fs-lg); font-weight: var(--fw-bold); }
+.orbita__centro-texto { fill: var(--orbita-fondo); font-family: var(--font-text); font-size: var(--fs-lg); font-weight: var(--fw-bold); }
 
 @keyframes orbita-girar { to { transform: rotate(360deg); } }
 @keyframes orbita-pulso {
@@ -211,8 +211,8 @@
 .ilu-enviar { fill: var(--cf-azul); }
 .ilu-enviar-flecha, .ilu-check-marca { fill: none; stroke: var(--cf-blanco); stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 .ilu-grupo { fill: var(--surface); stroke: var(--border); }
-.ilu-texto { fill: var(--heading); font-family: var(--font-brand); font-size: var(--fs-sm); font-weight: var(--fw-bold); }
-.ilu-mas { fill: var(--text-muted); font-family: var(--font-brand); font-size: var(--fs-xs); font-weight: var(--fw-bold); }
+.ilu-texto { fill: var(--heading); font-family: var(--font-text); font-size: var(--fs-sm); font-weight: var(--fw-bold); }
+.ilu-mas { fill: var(--text-muted); font-family: var(--font-text); font-size: var(--fs-xs); font-weight: var(--fw-bold); }
 .ilu-avatar { stroke: var(--surface); stroke-width: 3; }
 .ilu-avatar--azul { fill: var(--cf-azul); }
 .ilu-avatar--celeste { fill: color-mix(in srgb, var(--cf-celeste) 85%, var(--cf-azul)); }

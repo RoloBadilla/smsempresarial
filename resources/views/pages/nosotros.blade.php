@@ -65,9 +65,12 @@
                 <div class="nosotros-respaldo-texto">
                     <span class="nosotros-numero"><b>02</b>Respaldo</span>
                     <h2>Detrás de cada mensaje hay una empresa local</h2>
-                    <p>SMS Empresarial es un servicio de Cyberfuel, empresa 100 % costarricense con años de experiencia en
-                        tecnología en la nube, hospedaje web y dominios. La misma empresa respalda Factura Profesional y
-                        otras soluciones que usan negocios en todo el país.</p>
+                    {{-- Los años se calculan desde config/sitio.php (fundación de Cyberfuel). El número va en su propio
+                         <span> para que la traducción al inglés no dependa del año. --}}
+                    <p>SMS Empresarial es un servicio de Cyberfuel, empresa 100 % costarricense con
+                        <span>{{ date('Y') - config('sitio.empresa_matriz.fundacion') }}</span>
+                        años de experiencia en tecnología en la nube, hospedaje web y dominios. La misma empresa respalda
+                        Factura Profesional y otras soluciones que usan negocios en todo el país.</p>
                     <div class="nosotros-logos">
                         <img src="{{ versioned_asset('images/logos/cyberfuel.svg') }}" alt="Cyberfuel" width="150" height="38" loading="lazy">
                     </div>
@@ -75,7 +78,7 @@
                 <ul class="nosotros-datos">
                     <li><span class="nosotros-dato-icono"><x-icono nombre="bandera" size="26" /></span><strong>100 %</strong><span>costarricense</span></li>
                     <li><span class="nosotros-dato-icono"><x-icono nombre="soporte" size="26" /></span><strong>24/7</strong><span>soporte técnico</span></li>
-                    <li><span class="nosotros-dato-icono"><x-icono nombre="ubicacion" size="26" /></span><strong>Forum 1</strong><span>Santa Ana, San José</span></li>
+                    <li><span class="nosotros-dato-icono"><x-icono nombre="ubicacion" size="26" /></span><strong>Forum 1</strong><span>Santa Ana, San&nbsp;José</span></li>
                 </ul>
             </div>
         </section>

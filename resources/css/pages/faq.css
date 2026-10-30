@@ -144,6 +144,9 @@
 }
 @media (max-width: 575.98px) {
   .faq-hero-copy h1 { font-size: var(--fs-2xl); }
+  /* El "10 respuestas frecuentes" y la frase de al lado no caben juntos: la frase pasa abajo */
+  .faq-card-summary { flex-wrap: wrap; gap: .6rem; }
+  .faq-card-hint { max-width: none; text-align: left; }
   .faq-search-panel { grid-template-columns: 1fr; padding: 1rem; }
   .faq-search-count { white-space: normal; }
   .faq-accordion .accordion-button { padding: .9rem; gap: .65rem; }
