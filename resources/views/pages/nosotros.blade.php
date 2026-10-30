@@ -33,7 +33,7 @@
                     <div>
                         <x-breadcrumbs current="Nosotros" />
                         <span class="pagina-kicker mb-3">Nosotros</span>
-                        <h1 class="mb-3">Una empresa costarricense pruebajddgh detrás de cada mensaje</h1>
+                        <h1 class="mb-3">Una empresa costarricense detrás de cada mensaje</h1>
                         <p class="mb-4">Somos SMS Empresarial, un servicio de Cyberfuel. Conectamos a las empresas con sus
                             clientes por SMS y WhatsApp, con tecnología y soporte de aquí.</p>
                         <div class="d-flex flex-wrap gap-3">
