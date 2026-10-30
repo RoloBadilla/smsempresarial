@@ -1,8 +1,16 @@
+@php
+    // Precio de un SMS a Costa Rica sin ceros de más (0.0120 → 0.012). Sale de config/tarifas.php.
+    // Va en su propio <span> para que la traducción al inglés no dependa del precio.
+    $precioLocal = rtrim(rtrim(collect(config('tarifas.sms'))->firstWhere('pais', 'Costa Rica')['precio'], '0'), '.');
+    $paises = count(config('tarifas.sms'));
+@endphp
+
 @extends('layouts.app', [
     'pageKey' => 'tarifas',
     'footerVariant' => 'tarifas',
-    'title' => 'Tarifas de SMS | SMS Empresarial Costa Rica',
-    'description' => 'Consulta las tarifas por SMS de SMS Empresarial en Costa Rica y otros destinos. Solicita una cotización para WhatsApp Business.',
+    'title' => 'Precio de SMS y WhatsApp en Costa Rica | SMS Empresarial',
+    // Si cambia el precio o la cantidad de países, actualizar también esta frase en public/lang/en.json.
+    'description' => 'SMS a Costa Rica desde US$'.$precioLocal.' + IVA y WhatsApp desde US$0.01 por mensaje. Tarifas para '.$paises.' países, prepago desde US$30 o pospago.',
     'breadcrumb' => 'Tarifas',
     // Datos estructurados: el servicio y su precio por destino (sale de config/tarifas.php).
     'schema' => [[
@@ -34,11 +42,11 @@
         <header class="rates-hero page-hero">
             <div class="container">
                 <x-breadcrumbs current="Tarifas" />
-                <span class="eyebrow mb-3">Mensajería sin fronteras</span>
-                <h1 class="mb-3">Tarifas de SMS en Costa Rica y más destinos.</h1>
-                <p class="mb-0">Consulta nuestras tarifas de SMS por destino y elige cómo conectar con tus clientes. Precios
-                    transparentes para planear tus campañas con confianza. La tabla presenta el costo por mensaje enviado
-                    seg&uacute;n el destino; las tarifas se muestran en d&oacute;lares estadounidenses.</p>
+                <span class="eyebrow mb-3">Tarifas de SMS y WhatsApp</span>
+                <h1 class="mb-3">Desde <span>US${{ $precioLocal }}</span> por SMS en Costa Rica.</h1>
+                <p class="mb-0">Pagas solo por mensaje enviado. Abres tu cuenta con una recarga desde US$30 y el saldo dura
+                    12 meses. Si envías todos los meses, puedes pasar a pospago con contrato y recibir una factura mensual.
+                    Las tarifas están en dólares estadounidenses.</p>
                 <div class="hero-stats">
                     <span class="hero-stat"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
                         <circle cx="12" cy="12" r="9"/>
@@ -91,7 +99,8 @@
                         </tbody>
                     </table>
                 </div>
-                <p class="table-note mt-3 mb-0">* El IVA se cobra únicamente a clientes de Costa Rica. Tarifas expresadas en dólares estadounidenses.</p>
+                <p class="table-note mt-3 mb-0">* El IVA se cobra únicamente a clientes de Costa Rica. Tarifas en dólares estadounidenses.
+                    Si envías un volumen alto de mensajes, podemos mejorar tu tarifa.</p>
 
                 <x-empty-state
                     id="empty-results"
@@ -116,8 +125,22 @@
                                     <h2 class="section-title mb-0">Tarifas de WhatsApp</h2>
                                 </div>
                             </div>
-                            <p class="section-copy mb-0">WhatsApp Business requiere un número exclusivo para trabajar con las tarifas de WhatsApp y
-                                SMS Empresarial. Cada conversación se cotiza según el país y el tipo de servicio.</p>
+                            <p class="section-copy">Elige cómo usar WhatsApp. Con WhatsApp Business Web, cada mensaje
+                                cuesta US$0.01. Con la API oficial de WhatsApp Business, Meta cobra según el tipo de
+                                plantilla y el país del número. Estos son los precios para Costa Rica:</p>
+                            {{-- Los precios se editan en config/tarifas.php --}}
+                            <div class="wa-precios">
+                                <div class="wa-precios-encabezado"><span>Mensaje de WhatsApp Business API</span><span>Precio por mensaje + IVA</span></div>
+                                <ul>
+                                    @foreach (config('tarifas.whatsapp') as $mensaje)
+                                        <li><span>{{ $mensaje['tipo'] }}</span><strong>${{ $mensaje['precio'] }}</strong></li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <p class="table-note mt-3 mb-0">Si no tienes un número, te damos uno exclusivo por US$106 al mes.
+                                Si tu empresa quiere la insignia de cuenta verificada, la valida desde su cuenta de Meta
+                                Business, paga los mensajes directamente a Meta y SMS Empresarial cobra US$0.01 por mensaje.
+                                Según el volumen, las tarifas pueden mejorar.</p>
                         </div>
                         <div class="col-lg-4">
                             <div class="wa-note">

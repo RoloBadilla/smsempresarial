@@ -13,9 +13,8 @@
                 <x-breadcrumbs current="Contáctanos" />
                 <span class="pill mb-3">Estamos para ayudarte</span>
                 <h1 class="mb-3">Hablemos de tu próximo mensaje.</h1>
-                <p class="mb-0">Cuéntanos qué necesitas comunicar. Nuestro equipo puede orientarte sobre SMS, WhatsApp
-                    Business, tarifas e integración con tus sistemas. Atendemos consultas de empresas sobre env&iacute;os de
-                    SMS, WhatsApp Business, tarifas e integraci&oacute;n con sistemas.</p>
+                <p class="mb-0">Cuéntanos qué necesitas comunicar. Te orientamos sobre SMS, WhatsApp Business, tarifas,
+                    SINPE Móvil e integración con tus sistemas, y te atendemos 24/7.</p>
             </div>
         </header>
 

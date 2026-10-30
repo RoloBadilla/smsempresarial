@@ -1,6 +1,6 @@
 <?php
 
-// Páginas de cada uso de la plataforma (las tarjetas de "Con nuestra plataforma puedes" en el inicio).
+// Páginas de cada uso de la plataforma (las tarjetas de "Usos de los SMS y WhatsApp para empresas" en el inicio).
 // La clave es la URL: /envio-de-comunicados, /recordatorios-por-sms, etc. Todas usan pages/servicio.blade.php.
 // Para agregar una página, se copia un bloque y se agrega su traducción en public/lang/en.json.
 //
@@ -16,8 +16,11 @@ $enviar = [
 
 $precio = [
     'pregunta' => '¿Cuánto cuesta cada mensaje?',
-    'respuesta' => 'Pagas por mensaje enviado, con saldo prepago. Un SMS a Costa Rica cuesta $:precio + IVA; los demás países están en Tarifas. WhatsApp se cotiza según el país y el tipo de servicio.',
+    'respuesta' => 'Pagas por mensaje enviado, con saldo prepago. Un SMS a Costa Rica cuesta $:precio + IVA y un mensaje de WhatsApp, desde US$0.01. Los precios de otros países y de cada tipo de mensaje están en Tarifas.',
 ];
+
+// Respuesta sobre WhatsApp (se repite en Campañas y en Dos vías). Igual que en pages/faq.blade.php.
+$whatsapp = 'Sí, de dos formas. Con WhatsApp Business Web usas el número de un celular de tu empresa, que debe estar encendido, y cada mensaje cuesta US$0.01. Con la API oficial de WhatsApp Business (Meta), tu empresa tiene un número propio que no depende de un celular, envía plantillas aprobadas por Meta y no corre riesgo de bloqueo. Puedes enviar y recibir mensajes desde la plataforma o conectarla a tu sistema por API.';
 
 return [
     'envio-de-comunicados' => [
@@ -113,7 +116,7 @@ return [
             'Hacer campañas publicitarias o de mercadeo.',
         ],
         'faq' => [
-            ['pregunta' => '¿Puedo enviar campañas por WhatsApp?', 'respuesta' => 'Sí. SMS Empresarial envía y recibe mensajes de WhatsApp Business por medio de su Web Service (API). WhatsApp necesita un número exclusivo para tu empresa; para activarlo, escríbele al equipo de ventas.'],
+            ['pregunta' => '¿Puedo enviar campañas por WhatsApp?', 'respuesta' => $whatsapp],
             ['pregunta' => '¿Qué pasa si alguien ya no quiere recibir mensajes?', 'respuesta' => 'Agrega su número a la lista de bloqueos o gestiona su baja con el sistema de suscripción. Cada empresa es responsable de contar con la autorización de sus destinatarios.'],
             $precio,
         ],
@@ -134,8 +137,8 @@ return [
             ['canal' => 'SMS', 'texto' => 'Alerta: detectamos un acceso nuevo a tu cuenta.'],
         ],
         'ventajas' => [
-            ['icono' => 'api', 'titulo' => 'Integración por API', 'texto' => 'Conecta tus sistemas por API REST (GET o POST) o Web Service SOAP.'],
-            ['icono' => 'correo', 'titulo' => 'De correo a mensaje', 'texto' => 'Envía el contenido de un correo como mensaje de texto y usa su encabezado para identificarlo.'],
+            ['icono' => 'api', 'titulo' => 'Integración por API', 'texto' => 'Conecta tus sistemas por API REST (GET o POST) o Web Service SOAP, con autenticación OAuth 2.0.'],
+            ['icono' => 'correo', 'titulo' => 'De correo a mensaje', 'texto' => 'Escribe un correo con el número de teléfono en el asunto y el mensaje en el cuerpo, y SMS Empresarial lo envía como SMS.'],
             ['icono' => 'reportes', 'titulo' => 'Historial y reportes', 'texto' => 'Consulta el historial de mensajes enviados y recibidos con filtros de búsqueda.'],
         ],
         'flujo' => [
@@ -195,16 +198,16 @@ return [
     'sms-dos-vias-sinpe-movil' => [
         'icono' => 'dos-vias',
         'titulo' => 'Comunicación en dos vías y SINPE Móvil',
-        'resumen' => 'Recibe las respuestas de tus clientes, por ejemplo confirmaciones de pago por SINPE Móvil. Consúltalas en la plataforma, recíbelas por correo o procésalas en tu sistema por Web Service.',
+        'resumen' => 'Recibe las respuestas de tus clientes y consúltalas en la plataforma, por correo o en tu sistema por Web Service. Los bancos y cooperativas conectan SINPE Móvil por SMS o WhatsApp con su core bancario.',
         'seo_title' => 'SMS en dos vías y SINPE Móvil | SMS Empresarial',
-        'seo_description' => 'Recibe las respuestas de tus clientes por SMS, como confirmaciones de pago por SINPE Móvil. Consúltalas en la plataforma, por correo o en tu sistema.',
-        'h1' => 'SMS en dos vías: recibe respuestas y pagos por SINPE Móvil',
-        'intro' => 'Tus clientes también te pueden escribir: recibe sus respuestas y confirmaciones de pago en un solo lugar.',
-        'que_es' => 'Con las rutas de recepción, los mensajes que te envían tus clientes llegan a SMS Empresarial. Puedes consultarlos en la plataforma, recibirlos por correo o procesarlos en tu sistema por medio de un Web Service, por ejemplo para registrar una confirmación de pago por SINPE Móvil.',
+        'seo_description' => 'Recibe las respuestas de tus clientes por SMS y conecta SINPE Móvil por SMS o WhatsApp con el core de tu banco o cooperativa en Costa Rica.',
+        'h1' => 'SMS en dos vías y SINPE Móvil para bancos y cooperativas',
+        'intro' => 'Tus clientes también te pueden escribir: recibe sus respuestas en un solo lugar o llévalas al sistema de tu banco o cooperativa.',
+        'que_es' => 'Con las rutas de recepción, los mensajes que te envían tus clientes llegan a SMS Empresarial. Puedes consultarlos en la plataforma, recibirlos por correo o procesarlos en tu sistema por Web Service. Los bancos, cooperativas y financieras lo usan para SINPE Móvil: el mensaje del cliente llega a su core bancario y la respuesta vuelve al celular por SMS o WhatsApp, por una ruta crítica para Costa Rica.',
         'mensajes' => [
-            ['canal' => 'SMS', 'texto' => 'Su factura está lista. Puede pagar por SINPE Móvil.'],
-            ['canal' => 'SMS', 'texto' => 'Listo, ya hice el SINPE.'],
-            ['canal' => 'SMS', 'texto' => 'Recibimos su pago. ¡Gracias!'],
+            ['canal' => 'SMS', 'texto' => 'Transferencia de ₡5 000 a Ana Mora realizada. Comprobante 48213.'],
+            ['canal' => 'SMS', 'texto' => '¿Confirma su cita del jueves? Responda SÍ o NO.'],
+            ['canal' => 'SMS', 'texto' => 'SÍ'],
         ],
         'ventajas' => [
             ['icono' => 'bandeja', 'titulo' => 'Rutas de recepción', 'texto' => 'Configura rutas para recibir los mensajes que te envían tus clientes.'],
@@ -218,7 +221,7 @@ return [
             ['icono' => 'bandeja', 'titulo' => 'Tú', 'texto' => 'La ves en la plataforma, por correo o en tu sistema'],
         ],
         'cuando' => [
-            'Recibir confirmaciones de pago por SINPE Móvil.',
+            'Conectar SINPE Móvil por SMS o WhatsApp con el core de tu banco o cooperativa.',
             'Confirmar o cancelar una cita respondiendo el mensaje.',
             'Recibir consultas de tus clientes.',
             'Hacer encuestas cortas de satisfacción.',
@@ -226,7 +229,8 @@ return [
         'faq' => [
             ['pregunta' => '¿Dónde veo las respuestas de mis clientes?', 'respuesta' => 'En la plataforma, en tu correo o en tu propio sistema. Lo defines al configurar la ruta de recepción.'],
             ['pregunta' => '¿Puedo conectar las respuestas a mi sistema?', 'respuesta' => 'Sí. Las rutas de recepción pueden enviar cada mensaje a tu sistema por medio de un Web Service, para procesarlo automáticamente.'],
-            ['pregunta' => '¿También puedo recibir mensajes por WhatsApp?', 'respuesta' => 'Sí. SMS Empresarial envía y recibe mensajes de WhatsApp Business por medio de su Web Service (API). WhatsApp necesita un número exclusivo para tu empresa; para activarlo, escríbele al equipo de ventas.'],
+            ['pregunta' => '¿Sirve para SINPE Móvil de un banco o cooperativa?', 'respuesta' => 'Sí. SMS Empresarial tiene un módulo para entidades financieras que lleva el mensaje del cliente a su core bancario y le devuelve la respuesta, por SMS o WhatsApp. Usa números de 8 dígitos que reciben mensajes de cualquier operador y una ruta crítica para Costa Rica. Se puede conectar por VPN.'],
+            ['pregunta' => '¿También puedo recibir mensajes por WhatsApp?', 'respuesta' => $whatsapp],
         ],
     ],
 ];

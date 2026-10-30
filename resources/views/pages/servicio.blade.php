@@ -166,8 +166,8 @@
         <section class="container pb-5">
             <div class="feature-cta">
                 <h2 class="mb-3">Empieza hoy mismo</h2>
-                <p class="mb-4">Regístrate, compra el monto inicial y, cuando se apruebe el pago, ya puedes enviar tu primer
-                    mensaje.</p>
+                <p class="mb-4">Regístrate, haz una recarga inicial de US$30 y, cuando se apruebe el pago, ya puedes enviar tu
+                    primer mensaje.</p>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="{{ config('services.plataforma.registro') }}" class="btn btn-celeste btn-lg rounded-pill px-4">Abrir una cuenta</a>
                     <a href="{{ route('tarifas') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Ver tarifas</a>

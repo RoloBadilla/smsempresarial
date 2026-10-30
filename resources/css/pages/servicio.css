@@ -15,8 +15,6 @@
 .servicio-hero-grid { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); align-items: center; gap: clamp(2rem, 5vw, 4rem); }
 .servicio-hero-grid h1 { max-width: 18ch; }
 
-.btn-hero-borde { border: 1px solid color-mix(in srgb, var(--cf-blanco) 55%, transparent); color: var(--hero-text); font-weight: var(--fw-bold); }
-.btn-hero-borde:hover, .btn-hero-borde:focus-visible { border-color: var(--cf-blanco); background: color-mix(in srgb, var(--cf-blanco) 12%, transparent); color: var(--hero-text); transform: translateY(-2px); }
 
 /* Celular con mensajes de ejemplo */
 .servicio-visual { position: relative; display: grid; place-items: center; }

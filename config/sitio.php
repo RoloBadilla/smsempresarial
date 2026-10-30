@@ -8,7 +8,7 @@ return [
     // Dominio público. El canonical y los datos para Google siempre apuntan aquí,
     // aunque el sitio se abra en la copia de prueba (smsempresarial.test).
     'url' => 'https://smsempresarial.com',
-    'descripcion' => 'Plataforma de Cyberfuel para enviar SMS masivos y mensajes de WhatsApp desde Costa Rica: campañas, recordatorios, notificaciones y códigos OTP desde la web o por API.',
+    'descripcion' => 'Plataforma de Cyberfuel para enviar SMS masivos y WhatsApp desde Costa Rica: campañas, recordatorios, notificaciones, códigos OTP y SINPE Móvil, desde la web o por API, con soporte 24/7.',
     'telefono' => '+506 2204 9494',
     'correo' => 'info@cyberfuel.com',
     'pais' => 'Costa Rica',

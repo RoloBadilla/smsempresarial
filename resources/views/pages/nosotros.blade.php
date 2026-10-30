@@ -78,6 +78,7 @@
                 <ul class="nosotros-datos">
                     <li><span class="nosotros-dato-icono"><x-icono nombre="bandera" size="26" /></span><strong>100 %</strong><span>costarricense</span></li>
                     <li><span class="nosotros-dato-icono"><x-icono nombre="soporte" size="26" /></span><strong>24/7</strong><span>soporte técnico</span></li>
+                    <li><span class="nosotros-dato-icono"><x-icono nombre="mensaje" size="26" /></span><strong>100&nbsp;000</strong><span>SMS por hora</span></li>
                     <li><span class="nosotros-dato-icono"><x-icono nombre="ubicacion" size="26" /></span><strong>Forum 1</strong><span>Santa Ana, San&nbsp;José</span></li>
                 </ul>
             </div>

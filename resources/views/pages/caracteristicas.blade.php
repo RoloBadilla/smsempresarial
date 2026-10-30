@@ -14,7 +14,7 @@
                     <div>
                         <x-breadcrumbs current="Características" />
                         <span class="pagina-kicker mb-3">Plataforma de mensajería empresarial</span>
-                        <h1 class="mb-3">Todo lo que necesitas para comunicarte mejor</h1>
+                        <h1 class="mb-3">Plataforma de SMS y WhatsApp para empresas</h1>
                         <p class="mb-0">Envía mensajes, organiza tus contactos, recibe respuestas y revisa resultados desde
                             una sola plataforma para SMS y WhatsApp.</p>
                     </div>
@@ -40,7 +40,8 @@
                             </svg></span>
                         <div>
                             <h3>Mensajes individuales y grupales</h3>
-                            <p>Envía uno o varios mensajes en el momento o prográmalos para una fecha determinada.</p>
+                            <p>Envía uno o varios mensajes en el momento o prográmalos para una fecha determinada. Si el
+                                mensaje pasa de 160 caracteres, se envía en partes y el celular lo muestra como uno solo.</p>
                         </div>
                     </article>
                 </div>
@@ -54,8 +55,8 @@
                             </svg></span>
                         <div>
                             <h3>Campañas masivas personalizadas</h3>
-                            <p>Carga contactos desde Excel, personaliza cada mensaje con los datos de tu lista y programa el
-                                envío.</p>
+                            <p>Carga tus contactos desde Excel, CSV, XML o TXT, quita los números repetidos, personaliza cada
+                                mensaje con los datos de tu lista y programa el envío.</p>
                         </div>
                     </article>
                 </div>
@@ -69,8 +70,9 @@
                             </svg></span>
                         <div>
                             <h3>Convierte correos en mensajes</h3>
-                            <p>Envía el contenido de un correo como mensaje de texto y usa su encabezado para identificarlo.
-                            </p>
+                            <p>Escribe un correo con el número de teléfono en el asunto y el mensaje en el cuerpo, y SMS
+                                Empresarial lo envía como SMS. Así tus sistemas de alertas mandan mensajes sin programar
+                                nada.</p>
                         </div>
                     </article>
                 </div>
@@ -82,12 +84,48 @@
                             </svg></span>
                         <div>
                             <h3>Integración Web Service / API</h3>
-                            <p>Conecta tus sistemas mediante API REST (GET o POST) o Web Service SOAP para enviar SMS y
-                                WhatsApp.</p>
+                            <p>Conecta tus sistemas por API REST (GET o POST) o Web Service SOAP, con autenticación OAuth 2.0,
+                                para enviar y recibir SMS y WhatsApp. Si tu empresa lo necesita, la conexión puede ir por
+                                VPN.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="feature-card">
+                        <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="7" y="2" width="10" height="20" rx="2" />
+                                <path d="M11 18h2" />
+                                <path d="M10 7h4M10 10.5h4" />
+                            </svg></span>
+                        <div>
+                            <h3>Número exclusivo en Costa Rica</h3>
+                            <p>Ten un número de 8 dígitos solo para tu empresa. Tus mensajes no esperan en la cola de otros
+                                usuarios y todas las respuestas llegan a tu cuenta.</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col">
+                    <article class="feature-card">
+                        <span class="feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 21h18" />
+                                <path d="M5 21V7l7-4 7 4v14" />
+                                <path d="M9 10h.01M15 10h.01M9 14h.01M15 14h.01M10 21v-3h4v3" />
+                            </svg></span>
+                        <div>
+                            <h3>Varias empresas, un solo usuario</h3>
+                            <p>Maneja varias empresas o departamentos y cambia de cuenta sin cerrar sesión. Asigna usuarios
+                                con distintos roles y revisa en la bitácora lo que hace cada uno.</p>
                         </div>
                     </article>
                 </div>
             </div>
+            <div class="feature-note mt-4"><svg viewBox="0 0 24 24" width="18" height="18" fill="none"
+                    stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"
+                    aria-hidden="true" focusable="false">
+                    <path d="m5 12 5 5 9-10" />
+                </svg> Más de 100&nbsp;000 SMS por hora, sin límite de envíos desde el primer día.</div>
         </section>
 
         <section class="feature-band py-5" id="recepcion">
@@ -206,7 +244,10 @@
                 <h2 class="mb-3">Conoce una forma más directa de comunicarte</h2>
                 <p class="mb-4">Explora cómo combinar SMS, WhatsApp y automatización para mantener informados a tus
                     clientes.</p>
-                <a href="{{ route('home') }}" class="btn btn-celeste btn-lg rounded-pill px-4">Volver al inicio</a>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{{ config('services.plataforma.registro') }}" class="btn btn-celeste btn-lg rounded-pill px-4">Crear mi cuenta</a>
+                    <a href="{{ route('contactanos') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Hablar con un asesor</a>
+                </div>
             </div>
         </section>
     </main>
