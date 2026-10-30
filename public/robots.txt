@@ -1,11 +1,5 @@
 ﻿User-agent: *
 Allow: /
-
-# Páginas del sitio anterior: que no salgan en los buscadores
 Disallow: /Jaing.htm
-Disallow: /faqs.php
-Disallow: /contactanos.php
-Disallow: /caracteristicas.php
-Disallow: /tarifas.php
 
 Sitemap: https://smsempresarial.com/sitemap.xml
