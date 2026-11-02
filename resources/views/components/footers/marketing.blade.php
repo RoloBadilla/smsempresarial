@@ -5,12 +5,7 @@
         <div class="col-md-6 col-lg-4">
           <h2 class="footer-title">Síguenos</h2>
           <p class="mb-3">Conéctate con nosotros en redes sociales:</p>
-          <div class="footer-social" aria-label="Redes sociales">
-            <a href="https://www.facebook.com/cyberfuelcom" target="_blank" rel="noopener noreferrer" aria-label="Facebook" title="Facebook"><svg viewBox="0 0 24 24" width="23" height="23" fill="currentColor" aria-hidden="true"><path d="M13.4 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5h1.7V3.6c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.5-4 4.2v2.3H7.7V13h2.6v8h3.1z"/></svg></a>
-            <a href="https://www.instagram.com/cyberfuel_sa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" title="Instagram"><svg viewBox="0 0 24 24" width="23" height="23" fill="none" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" stroke="currentColor" stroke-width="2.2"/><circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2.2"/><circle cx="17.5" cy="6.5" r="1.25" fill="currentColor"/></svg></a>
-            <a href="https://www.tiktok.com/@cyberfuel.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok" title="TikTok"><svg viewBox="0 0 24 24" width="23" height="23" fill="currentColor" aria-hidden="true" focusable="false"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.57v13.67a2.9 2.9 0 1 1-2.9-2.9 2.9 2.9 0 0 1 2.9 2.9V12a6.48 6.48 0 1 0 3.57 5.79V10.4a8.35 8.35 0 0 0 4.9 1.58V8.41a4.85 4.85 0 0 1-1.13-.13Z"/></svg></a>
-            <a href="https://www.linkedin.com/company/1017615" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24" width="23" height="23" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.44-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.26 2.37 4.26 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></a>
-          </div>
+          @include('components.footers.social')
         </div>
       </div>
     </div>

@@ -4,48 +4,48 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="color-scheme" content="dark light">
-    <title>@yield('title')</title>
-    @yield('seo')
-    @if (app()->environment('local', 'testing'))
-        <meta name="robots" content="noindex, nofollow">
-    @endif
-    {{-- Tema antes de pintar: elección guardada, si no la del sistema (oscuro si no hay preferencia clara). --}}
-    <script>
-        (function () {
-            var root = document.documentElement, theme = null;
-            try { theme = localStorage.getItem('tema'); } catch (e) {}
-            if (theme !== 'light' && theme !== 'dark') {
-                theme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
-            }
-            root.setAttribute('data-theme', theme);
-            root.setAttribute('data-bs-theme', theme);
-            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) root.classList.add('motion-ok');
-        })();
-    </script>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <title>{{ $title }}</title>
+    <x-seo :title="$title" :description="$description" :breadcrumb="$breadcrumb ?? null" :schema="$schema ?? []" />
+    {{-- Tema e idioma antes de pintar (evita parpadeo). La lógica vive en un solo archivo, compartido con site.js. --}}
+    <script>{!! file_get_contents(resource_path('js/inline/preferences.js')) !!}</script>
+    <style>.traduciendo body { visibility: hidden; }</style>
+    <meta name="diccionario-en" content="{{ versioned_asset('lang/en.json') }}">
     @php
         $pageStyles = [
             'home' => 'resources/css/pages/home.css',
-            'caracteristicas' => 'resources/css/pages/features.css',
+            'caracteristicas' => 'resources/css/pages/caracteristicas.css',
             'faq' => 'resources/css/pages/faq.css',
-            'contactanos' => 'resources/css/pages/contact.css',
-            'rutasytarifas' => 'resources/css/pages/rates.css',
+            'contactanos' => 'resources/css/pages/contactanos.css',
+            'tarifas' => 'resources/css/pages/tarifas.css',
+            'servicio' => 'resources/css/pages/servicio.css',
+            'nosotros' => 'resources/css/pages/nosotros.css',
+        ];
+        $pageScripts = [
+            'faq' => 'resources/js/pages/faq.js',
+            'contactanos' => 'resources/js/pages/contactanos.js',
+            'tarifas' => 'resources/js/pages/tarifas.js',
         ];
     @endphp
-    @vite(['resources/css/site-shared.css', $pageStyles[$pageKey]])
+    {{-- Un solo @vite en el head: todo el CSS (también el que importa el JS) llega antes de pintar.
+         Los scripts son type="module", que esperan solos a que cargue la página: no bloquean. --}}
+    @vite(array_filter([
+        'resources/css/bootstrap.scss',
+        'resources/css/site-shared.css',
+        $pageStyles[$pageKey],
+        'resources/css/esqueleto.css',
+        'resources/js/site.js',
+        $pageScripts[$pageKey] ?? null,
+    ]))
 </head>
 <body>
     <x-header :page="$pageKey" />
     @yield('content')
     <x-footer :variant="$footerVariant" />
-    <x-whatsapp-button />
-    @vite('resources/js/site.js')
-    @if ($pageKey === 'faq')
-        @vite('resources/js/pages/faq.js')
-    @elseif ($pageKey === 'rutasytarifas')
-        @vite('resources/js/pages/rates.js')
+    @if ($pageKey !== 'contactanos')
+        <x-lo-quiero-button />
     @endif
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <x-whatsapp-button />
+    {{-- Pantalla esqueleto: va al final para encontrar todo el contenido, y corre antes de pintar. --}}
+    <script>{!! file_get_contents(resource_path('js/inline/esqueleto.js')) !!}</script>
 </body>
 </html>

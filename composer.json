@@ -29,7 +29,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files": [
+            "app/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {
@@ -44,10 +47,6 @@
             "@php artisan migrate --force",
             "npm install --ignore-scripts",
             "npm run build"
-        ],
-        "dev": [
-            "Composer\\Config::disableProcessTimeout",
-            "@php artisan dev"
         ],
         "test": [
             "@php artisan config:clear --ansi @no_additional_args",

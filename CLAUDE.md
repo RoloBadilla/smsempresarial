@@ -46,19 +46,67 @@ php artisan boost:install
 Boost replaces these bootstrap instructions with guidelines tailored to the application. After installation, read `AGENTS.md` again and continue with the user's original request using the generated guidelines.
 </laravel-boost-guidelines>
 
+## Idioma
+
+- Responder SIEMPRE en español: cada mensaje, actualización y resumen final, también después de usar
+  herramientas o en sesiones largas, aunque el código, los resultados o los avisos estén en inglés.
+
 ## Entorno y flujo de trabajo
 
 - Se sirve con Laragon desde `C:\laragon\www\smsempresarial`.
-- Ramas: `Rolo` (principal) y `rediseno-V2` (rediseño con modo claro/oscuro).
+- Ramas: se trabaja en `rediseno-V2` y `calidad-textos`.
+  `Rolo` queda reservada para la página final: no se toca (ni commits ni merges).
 - `public/build` NO está en Git (lo genera Vite desde `resources/css` y `resources/js`).
   Al cambiar de rama o hacer pull, siempre correr:
 
   ```sh
+  composer install
+  npm install
   npm run build
+  php artisan migrate
   php artisan optimize:clear
   ```
 
   Si no, el sitio mezcla las vistas de una rama con el CSS compilado de otra.
+- Mientras se edita CSS o JS: `npm run dev` (los cambios se ven al instante).
+  Cerrarlo siempre con `Ctrl+C`: si se cierra de golpe deja `public/hot` y el sitio
+  carga sin estilos (se arregla borrándolo o con `npm run build`).
+- Al terminar, después de un pull o cambio de rama, y siempre para producción:
+  `npm run build`. Producción nunca usa `npm run dev`.
+- `APP_URL` en `.env` debe ser `http://smsempresarial.test` en ambas computadoras.
 - Se trabaja en dos computadoras: el proyecto debe estar en la misma ruta en ambas
-  y los cambios se pasan con commit/push y pull.
-- Los cambios a este `CLAUDE.md` se hacen en `Rolo` y luego se mergean a `rediseno-V2`.
+  y los cambios se pasan con commit/push y pull. El `.env` no va por Git: las
+  credenciales (Cyberfuel, reCAPTCHA, Google) se copian a mano.
+
+## Estructura de `public/`
+
+```
+public/
+├── build/            CSS y JS compilados por Vite (no se edita ni se sube a Git)
+├── images/logos/     logos de SMS Empresarial, Cyberfuel y marcas del grupo
+├── images/sellos/    sellos de seguridad (Sectigo)
+├── images/compartir/ imagen 1200×630 que se ve al compartir el link (og:image, se define en config/sitio.php)
+├── lang/en.json      traducción al inglés
+└── favicon.ico, robots.txt, sitemap.xml, index.php, .htaccess   (deben quedar en la raíz)
+```
+
+- El CSS y el JS se escriben en `resources/css` y `resources/js`, nunca en `public/css` o `public/js`.
+- Las imágenes y archivos de `public/` se enlazan con `versioned_asset('images/...')`, no con `asset()`,
+  para que el navegador no use una copia vieja al reemplazarlos.
+
+## Guardar y subir cambios a Git
+
+Siempre en este orden (también disponible con el comando `/orden`):
+
+```sh
+git status                      # 1. ¿rama correcta? ¿qué cambió?
+git pull                        # 2. traer lo último
+git add .                       # 3. preparar
+git commit -m "mensaje claro"   # 4. guardar
+git push                        # 5. subir
+```
+
+- Antes del commit, confirmar en qué rama se va a guardar.
+- Antes del commit, correr `npm run build` y `php artisan test` para no subir algo roto.
+- Preguntar siempre al usuario el mensaje del commit antes de hacerlo.
+- Hacer push antes de cambiar de computadora.

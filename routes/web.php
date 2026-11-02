@@ -1,11 +1,38 @@
 <?php
 
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [SiteController::class, 'home'])->name('home');
-Route::get('/index.html', [SiteController::class, 'home'])->name('home.legacy');
-Route::get('/{page}.html', [SiteController::class, 'show'])
-    ->where('page', 'caracteristicas|faq|rutasytarifas|contactanos')
-    ->name('site.page');
-Route::post('/contacto', [SiteController::class, 'contact'])->name('contact.submit');
+Route::controller(SiteController::class)->group(function () {
+    Route::get('/', 'home')->name('home');
+    Route::get('/caracteristicas', 'caracteristicas')->name('caracteristicas');
+    Route::get('/preguntas-frecuentes', 'faq')->name('faq');
+    Route::get('/tarifas', 'tarifas')->name('tarifas');
+    Route::get('/contactanos', 'contactanos')->name('contactanos');
+    Route::get('/nosotros', 'nosotros')->name('nosotros');
+
+    // Una página por cada uso de la plataforma (config/servicios.php): /envio-de-comunicados, /codigos-otp-por-sms...
+    Route::get('/{servicio}', 'servicio')
+        ->whereIn('servicio', array_keys(config('servicios')))
+        ->name('servicio');
+});
+
+Route::post('/contacto', [ContactController::class, 'store'])
+    ->middleware('throttle:5,1')
+    ->name('contact.submit');
+
+// Direcciones anteriores: redirección permanente (301) para no perder links ni posicionamiento.
+Route::permanentRedirect('/index.html', '/');
+Route::permanentRedirect('/caracteristicas.html', '/caracteristicas');
+Route::permanentRedirect('/faq.html', '/preguntas-frecuentes');
+Route::permanentRedirect('/faq', '/preguntas-frecuentes');
+Route::permanentRedirect('/rutasytarifas.html', '/tarifas');
+Route::permanentRedirect('/rutasytarifas', '/tarifas');
+Route::permanentRedirect('/contactanos.html', '/contactanos');
+
+// Páginas .php del sitio anterior. No van en robots.txt: Google tiene que poder entrar para ver la redirección.
+Route::permanentRedirect('/faqs.php', '/preguntas-frecuentes');
+Route::permanentRedirect('/contactanos.php', '/contactanos');
+Route::permanentRedirect('/caracteristicas.php', '/caracteristicas');
+Route::permanentRedirect('/tarifas.php', '/tarifas');

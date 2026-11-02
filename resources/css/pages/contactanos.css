@@ -1,0 +1,113 @@
+/* Contáctanos. Cabecera, paneles, botones y pie vienen de site-shared.css. */
+
+.contact-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--texture-dots) 0 0 / 26px 26px;
+  -webkit-mask-image: radial-gradient(60% 80% at 15% 30%, var(--cf-negro), transparent 75%);
+  mask-image: radial-gradient(60% 80% at 15% 30%, var(--cf-negro), transparent 75%);
+  opacity: .6;
+}
+.contact-hero h1 { max-width: 14ch; }
+
+.main { padding-bottom: var(--section-py); background: linear-gradient(var(--surface) 0, var(--bg) 360px); }
+.contact-wrap { position: relative; z-index: 1; margin-top: -3rem; }
+
+/* Formulario */
+.form-label { color: var(--heading); font-size: var(--fs-sm); font-weight: var(--fw-bold); }
+.form-control, .form-select {
+  padding: .85rem .95rem;
+  border: 1px solid var(--field-border);
+  border-radius: var(--radius-sm);
+  background-color: var(--field-bg);
+  color: var(--text);
+  font: inherit;
+  font-size: var(--fs-base);
+  transition: border-color var(--dur) ease, box-shadow var(--dur) ease;
+}
+.form-control::placeholder { color: var(--text-muted); opacity: 1; }
+.form-control:hover, .form-select:hover { border-color: var(--accent); }
+.form-control:focus, .form-select:focus { border-color: var(--focus); background-color: var(--field-bg); color: var(--text); box-shadow: 0 0 0 4px color-mix(in srgb, var(--focus) 25%, transparent); }
+.form-select option { background: var(--surface); color: var(--text); }
+.btn-brand { padding: .9rem 1.5rem; }
+.form-control.is-invalid, .form-select.is-invalid { border-color: var(--bs-form-invalid-border-color); }
+.invalid-feedback:not(:empty) { display: block; }
+
+/* Teléfono con país (intl-tel-input): mismos colores que el resto del formulario.
+   Su CSS carga después que este, por eso los selectores llevan un nivel más de especificidad.
+   En el celular la lista se abre fuera del formulario: las variables van en la raíz. */
+html:root { --iti-border-color: var(--border); --iti-dropdown-bg: var(--surface); --iti-hover-color: var(--surface-2); --iti-dialcode-color: var(--text-muted); --iti-arrow-color: var(--text-muted); --iti-search-icon-color: var(--text-muted); }
+.contact-wrap .iti { display: block; width: 100%; }
+body .iti__selected-dial-code { color: var(--text); }
+body .iti__dropdown-content { border-radius: var(--radius-sm); color: var(--text); box-shadow: var(--shadow); }
+body .iti__search-input { padding-block: .6rem; background: var(--surface); color: var(--text); }
+body .iti__country.iti__highlight { background-color: var(--surface-2); }
+
+/* reCAPTCHA v3: la insignia flotante se oculta porque el aviso ya está junto al botón (lo permite Google) */
+.grecaptcha-badge { visibility: hidden; }
+.recaptcha-aviso a { color: var(--accent); }
+
+/* Datos de contacto */
+.contact-item { height: 100%; padding: 1.3rem; border: 1px solid var(--border); border-radius: 18px; background: var(--surface-2); transition: transform var(--dur) var(--ease), border-color var(--dur) ease; }
+.contact-item:hover { transform: translateY(-3px); border-color: var(--border-strong); }
+.contact-item:hover .contact-icon { transform: rotate(-6deg) scale(1.06); }
+.contact-icon { width: 46px; height: 46px; border-radius: 14px; }
+.contact-icon svg { width: 22px; height: 22px; }
+.contact-item h3 { color: var(--heading); font-size: var(--fs-base); }
+.contact-item p { color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.6; }
+.contact-item a { display: block; width: fit-content; color: var(--accent); font-size: var(--fs-sm); font-weight: var(--fw-bold); line-height: 1.9; overflow-wrap: anywhere; }
+.note { padding: .9rem 1rem; border-left: 3px solid var(--accent); border-radius: 0 12px 12px 0; background: var(--surface-2); color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.6; }
+
+@media (max-width: 767.98px) {
+  .contact-wrap { margin-top: -2rem; }
+  .card-panel, .panel { border-radius: 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .contact-item:hover { transform: none; }
+}
+
+/* Marca de campo obligatorio (*) y aviso de campo opcional. El "required" del campo ya lo anuncia a lectores de pantalla. */
+.campo-obligatorio { color: var(--cf-cian); font-weight: var(--fw-bold); }
+.campo-opcional { color: var(--text-muted); font-weight: var(--fw-regular); }
+
+/* Texto de introducción a la izquierda y nota "Campos obligatorios" a la derecha, en la misma línea.
+   En pantallas angostas la nota baja debajo del texto. */
+.form-intro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.nota-obligatorios {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  flex: 0 0 auto;
+  padding: .25rem .7rem .25rem .3rem;
+  border: 1px solid color-mix(in srgb, var(--cf-cian) 30%, var(--border));
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--cf-cian) 8%, transparent);
+  color: var(--text-muted);
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-bold);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+.nota-obligatorios-icono {
+  display: grid;
+  place-items: center;
+  width: 1.15rem;
+  height: 1.15rem;
+  border-radius: 50%;
+  background: var(--cf-cian);
+  color: var(--cf-blanco);
+  font-size: var(--fs-base);
+  font-weight: var(--fw-bold);
+  line-height: 1;
+  padding-top: .3rem;
+}

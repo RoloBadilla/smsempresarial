@@ -1,0 +1,59 @@
+/* Pantalla esqueleto mientras carga la página (la activa js/inline/preferences.js y la arma js/inline/esqueleto.js).
+   Textos, imágenes, íconos y botones se ven como bloques con su forma real; tarjetas y fondos se mantienen.
+   El bloque toma el color del texto de su zona (currentColor), así se ve igual sobre fondo blanco, oscuro o azul. */
+
+:root { --esqueleto-fuerza: 16%; }
+:root[data-theme="light"] { --esqueleto-fuerza: 11%; }
+
+/* Texto: una barra por cada línea, del largo exacto del texto. La letra se oculta sin cambiar su color. */
+esq-l {
+  border-radius: .35em;
+  -webkit-box-decoration-break: clone;
+          box-decoration-break: clone;
+}
+.cargando esq-l {
+  -webkit-text-fill-color: transparent;
+  text-shadow: none;
+  /* La barra cubre el 72 % del alto de la línea: en títulos de interlineado apretado no se encima con la de abajo. */
+  background: linear-gradient(color-mix(in srgb, currentColor var(--esqueleto-fuerza), transparent) 0 0) center / 100% 72% no-repeat;
+}
+
+/* Imágenes e íconos: el bloque ocupa su lugar y el dibujo se esconde. */
+.cargando img {
+  border-radius: .5em;
+  background-color: color-mix(in srgb, currentColor var(--esqueleto-fuerza), transparent);
+  object-position: -200vw 0;
+}
+.cargando svg {
+  border-radius: .45em;
+  background-color: color-mix(in srgb, currentColor var(--esqueleto-fuerza), transparent);
+}
+.cargando svg * { visibility: hidden; }
+
+/* El logo está dentro de un enlace de color azul: su bloque usa el blanco del menú. */
+.cargando .logo { color: #fff; }
+
+/* Botones y campos: un bloque con su tamaño, sin el texto encima. */
+.cargando :is(.btn, button, input, select, textarea) {
+  border-color: transparent !important;
+  background: color-mix(in srgb, currentColor var(--esqueleto-fuerza), transparent) !important;
+  box-shadow: none !important;
+  -webkit-text-fill-color: transparent;
+}
+.cargando :is(.btn, button) :is(esq-l, svg) { background: none; }
+.cargando :is(input, textarea)::placeholder { -webkit-text-fill-color: transparent; }
+
+/* Detalles que no aportan mientras carga: subrayados de enlaces, la bandera del teléfono,
+   el subrayado de "su celular" y su degradado. */
+.cargando a { text-decoration-color: transparent; }
+.cargando :is(.iti__flag, .iti__arrow) { visibility: hidden; }
+.cargando .nosotros-celular svg { visibility: hidden; }
+.cargando .nosotros-celular > span { background: none; }
+
+/* Latido suave, solo si el usuario no pidió reducir animaciones. */
+.motion-ok.cargando :is(esq-l, img, svg, .btn, button, input, select, textarea) {
+  animation: esqueleto-latido 1.4s ease-in-out infinite;
+}
+@keyframes esqueleto-latido {
+  50% { opacity: .55; }
+}
