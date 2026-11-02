@@ -5,7 +5,6 @@
         'pregunta' => $item['pregunta'],
         'respuesta' => str_replace(':precio', $precio, $item['respuesta']),
     ], $servicio['faq']);
-    $otros = collect(config('servicios'))->except($slug);
 @endphp
 
 @extends('layouts.app', [
@@ -149,18 +148,6 @@
                 @endforeach
             </div>
             <p class="servicio-mas-faq"><a href="{{ route('faq') }}">Ver todas las preguntas frecuentes</a></p>
-        </section>
-
-        {{-- Los demás usos: enlaces internos entre las páginas de servicios --}}
-        <section class="container servicio-seccion pt-0">
-            <div class="feature-heading">
-                <h2>Otros usos de la plataforma</h2>
-            </div>
-            <ul class="servicio-otros">
-                @foreach ($otros as $otroSlug => $otro)
-                    <li><a href="{{ route('servicio', $otroSlug) }}"><x-icono :nombre="$otro['icono']" size="22" /><span>{{ $otro['titulo'] }}</span></a></li>
-                @endforeach
-            </ul>
         </section>
 
         <section class="container pb-5">
