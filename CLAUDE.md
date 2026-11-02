@@ -54,8 +54,8 @@ Boost replaces these bootstrap instructions with guidelines tailored to the appl
 ## Entorno y flujo de trabajo
 
 - Se sirve con Laragon desde `C:\laragon\www\smsempresarial`.
-- Ramas: se trabaja en `rediseno-V2` y `calidad-textos`.
-  `Rolo` queda reservada para la página final: no se toca (ni commits ni merges).
+- Ramas: se trabaja en `rediseno-V2`, `calidad-textos` y `rolo-calidad`.
+  `Rolo` es la página final: solo se actualiza uniendo `rolo-calidad` cuando el usuario lo pida.
 - `public/build` NO está en Git (lo genera Vite desde `resources/css` y `resources/js`).
   Al cambiar de rama o hacer pull, siempre correr:
 
