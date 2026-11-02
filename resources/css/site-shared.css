@@ -326,6 +326,9 @@ html[lang="en"] .lang-bandera .bandera-us { display: block; }
 .btn-azul:hover, .btn-brand:hover, .btn-azul:focus-visible, .btn-brand:focus-visible { background: var(--primary-hover); color: var(--on-primary); transform: translateY(-2px); box-shadow: 0 12px 30px var(--glow); }
 .btn-celeste { background: var(--cf-celeste); color: color-mix(in srgb, var(--cf-azul) 30%, var(--cf-negro)); border: 1px solid transparent; }
 .btn-celeste:hover, .btn-celeste:focus-visible { background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 30%, var(--cf-negro)); transform: translateY(-2px); box-shadow: 0 12px 30px color-mix(in srgb, var(--cf-celeste) 35%, transparent); }
+/* Botón con borde blanco sobre fondo azul (cabecera de servicios y llamados finales) */
+.btn-hero-borde { border: 1px solid color-mix(in srgb, var(--cf-blanco) 55%, transparent); color: var(--hero-text); font-weight: var(--fw-bold); }
+.btn-hero-borde:hover, .btn-hero-borde:focus-visible { border-color: var(--cf-blanco); background: color-mix(in srgb, var(--cf-blanco) 12%, transparent); color: var(--hero-text); transform: translateY(-2px); }
 .btn-brand > [aria-hidden="true"] { display: inline-block; transition: transform var(--dur) var(--ease); }
 .btn-brand:hover > [aria-hidden="true"] { transform: translateX(4px); }
 

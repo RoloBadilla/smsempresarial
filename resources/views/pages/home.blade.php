@@ -1,8 +1,8 @@
 @extends('layouts.app', [
     'pageKey' => 'home',
     'footerVariant' => 'marketing',
-    'title' => 'SMS empresarial en Costa Rica | SMS masivos y WhatsApp',
-    'description' => 'Envía SMS masivos y mensajes por WhatsApp en Costa Rica. Automatiza campañas, recordatorios y códigos OTP desde una plataforma web o API.',
+    'title' => 'SMS Empresarial | SMS y WhatsApp masivos en Costa Rica',
+    'description' => 'Envía SMS y WhatsApp masivos en Costa Rica a clientes de kölbi, Claro y Liberty. Campañas, recordatorios, códigos OTP y SINPE Móvil, con soporte 24/7.',
 ])
 
 @section('content')
@@ -27,10 +27,11 @@
                 <div class="row align-items-center g-5">
                     <div class="col-lg-7">
                         <h1 class="mb-4">SMS masivos y WhatsApp empresarial en Costa Rica</h1>
-                        <p class="lead mb-4">Ponemos a tu disposici&oacute;n el env&iacute;o de mensajes de texto (SMS) y
-                            WhatsApp desde tu computadora a tel&eacute;fonos celulares en distintos pa&iacute;ses. La
-                            plataforma permite planificar campa&ntilde;as, enviar notificaciones y conectar tus sistemas
-                            mediante una API de mensajer&iacute;a.</p>
+                        {{-- Los países salen de config/tarifas.php (todos menos Costa Rica), en su propio <span> para la traducción --}}
+                        <p class="lead mb-4">Envía mensajes de texto (SMS) y WhatsApp a tus clientes desde el navegador o desde tu
+                            sistema por API. Llegan a los celulares de kölbi, Claro y Liberty y a otros
+                            <span>{{ count(config('tarifas.sms')) - 1 }}</span> países, con
+                            capacidad para más de 100&nbsp;000 SMS por hora y soporte técnico 24/7 en Costa Rica.</p>
                         <div class="d-flex flex-wrap gap-3">
                             <a href="{{ route('contactanos') }}" class="btn btn-azul btn-lg rounded-pill fw-bold btn-hero btn-hero-primario">¡Lo quiero!</a>
                             <a href="{{ route('tarifas') }}" class="btn btn-lg rounded-pill fw-bold btn-hero btn-hero-secundario">Ver tarifas</a>
@@ -56,7 +57,7 @@
         <!-- ===== USOS ===== -->
         <section class="usos container">
             <div class="section-heading">
-                <h2 class="mb-3">Con nuestra plataforma puedes</h2>
+                <h2 class="mb-3">Usos de los SMS y WhatsApp para empresas</h2>
                 <p class="section-lead mb-0">Desde SMSEmpresarial.com envías mensajes de texto (SMS) y mensajes de WhatsApp
                     a tus clientes, tu equipo o tus proveedores para:</p>
             </div>
@@ -70,13 +71,13 @@
             </div>
         </section>
 
-        <!-- ===== BANDA 99% ===== -->
+        <!-- ===== BANDA 99 % ===== -->
         <section class="banda">
             <div class="container py-3">
                 <div class="row align-items-center g-4">
                     <div class="col-md-auto banda-cifra">
-                        <div class="numero">99%</div><span class="banda-etiqueta">de los mensajes de texto son
-                            leídos</span>
+                        <div class="numero">99&nbsp;%</div><span class="banda-etiqueta">de los mensajes de texto se
+                            abren</span>
                     </div>
                     <div class="col-md banda-texto">
                         <div class="banda-mensaje">
@@ -91,8 +92,8 @@
                             </span>
                             <h2 class="fw-bold mb-0">Tus mensajes sí se leen.</h2>
                         </div>
-                        <p class="banda-descripcion mb-4">Usa SMS para enviar avisos, promociones y recordatorios a tus
-                            clientes.</p>
+                        <p class="banda-descripcion mb-4">Usa SMS y WhatsApp para enviar avisos, promociones y
+                            recordatorios a tus clientes.</p>
                         <a href="{{ route('tarifas') }}" class="btn btn-banda btn-lg rounded-pill fw-bold px-4">Ver tarifas</a>
                     </div>
                 </div>

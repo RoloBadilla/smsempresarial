@@ -10,7 +10,7 @@ test('todas las páginas cargan', function (string $url) {
     $this->get($url)->assertOk();
 })->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
 
-test('las direcciones viejas con .html redirigen de forma permanente', function (string $vieja, string $nueva) {
+test('las direcciones viejas con .html o .php redirigen de forma permanente', function (string $vieja, string $nueva) {
     $this->get($vieja)->assertStatus(301)->assertRedirect($nueva);
 })->with([
     ['/index.html', '/'],
@@ -20,6 +20,10 @@ test('las direcciones viejas con .html redirigen de forma permanente', function 
     ['/rutasytarifas.html', '/tarifas'],
     ['/rutasytarifas', '/tarifas'],
     ['/contactanos.html', '/contactanos'],
+    ['/faqs.php', '/preguntas-frecuentes'],
+    ['/contactanos.php', '/contactanos'],
+    ['/caracteristicas.php', '/caracteristicas'],
+    ['/tarifas.php', '/tarifas'],
 ]);
 
 test('una página que no existe da 404', function () {

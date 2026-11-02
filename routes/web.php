@@ -30,3 +30,9 @@ Route::permanentRedirect('/faq', '/preguntas-frecuentes');
 Route::permanentRedirect('/rutasytarifas.html', '/tarifas');
 Route::permanentRedirect('/rutasytarifas', '/tarifas');
 Route::permanentRedirect('/contactanos.html', '/contactanos');
+
+// Páginas .php del sitio anterior. No van en robots.txt: Google tiene que poder entrar para ver la redirección.
+Route::permanentRedirect('/faqs.php', '/preguntas-frecuentes');
+Route::permanentRedirect('/contactanos.php', '/contactanos');
+Route::permanentRedirect('/caracteristicas.php', '/caracteristicas');
+Route::permanentRedirect('/tarifas.php', '/tarifas');

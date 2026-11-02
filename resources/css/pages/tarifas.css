@@ -79,6 +79,15 @@ main { background: linear-gradient(var(--surface) 0, var(--bg) 380px); }
 .kicker-wa { color: var(--success); }
 .wa-note { padding: 1.2rem; border: 1px solid var(--border); border-radius: 16px; background: var(--bg); color: var(--text-muted); font-size: var(--fs-sm); line-height: 1.7; }
 .wa-note strong { color: var(--heading); }
+/* Precios de WhatsApp Business API: tipo de mensaje a la izquierda, precio a la derecha */
+.wa-precios { overflow: hidden; border: 1px solid var(--border); border-radius: 16px; background: var(--bg); }
+.wa-precios-encabezado,
+.wa-precios li { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; padding: .8rem 1rem; }
+.wa-precios-encabezado { background: var(--surface-2); color: var(--heading); font-size: var(--fs-xs); font-weight: var(--fw-bold); letter-spacing: .08em; text-transform: uppercase; }
+.wa-precios-encabezado span:last-child { text-align: right; }
+.wa-precios ul { margin: 0; padding: 0; list-style: none; }
+.wa-precios li { border-top: 1px solid var(--border); color: var(--text); font-size: var(--fs-sm); }
+.wa-precios li strong { color: var(--heading); white-space: nowrap; }
 
 @media (max-width: 767.98px) {
   .rates-wrap { margin-top: -2rem; }

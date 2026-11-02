@@ -26,4 +26,16 @@ return [
         ['pais' => 'República Dominicana', 'bandera' => 'do', 'marcacion' => '+1 849', 'precio' => '0.3000', 'ruta' => 'Internacional', 'buscar' => 'republica dominicana república dominicana +1849'],
         ['pais' => 'Trinidad & Tobago', 'bandera' => 'tt', 'marcacion' => '+1 868', 'precio' => '0.3000', 'ruta' => 'Internacional', 'buscar' => 'trinidad tobago +1868'],
     ],
+
+    // WhatsApp Business API: precio por mensaje en Costa Rica (US$ + IVA), según el tipo de plantilla de Meta.
+    // Fuente: Ficha Técnica (julio 2026). Meta cambia estos precios según el país y la fecha.
+    // El precio de WhatsApp Business Web (US$0.01) y el número exclusivo (US$106 al mes) también aparecen en los
+    // textos de pages/tarifas.blade.php, pages/faq.blade.php y config/servicios.php.
+    'whatsapp' => [
+        ['tipo' => 'Marketing (ofertas, promociones)', 'precio' => '0.13'],
+        ['tipo' => 'Utilidad (pedidos, pagos, entregas)', 'precio' => '0.03'],
+        ['tipo' => 'Autenticación (códigos OTP)', 'precio' => '0.03'],
+        ['tipo' => 'Servicio (respuestas a consultas)', 'precio' => '0.01'],
+        ['tipo' => 'Mensaje recibido', 'precio' => '0.01'],
+    ],
 ];

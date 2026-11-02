@@ -48,23 +48,36 @@
         ],
         [
             'pregunta' => '¿Puedo enviar mensajes de WhatsApp?',
-            'respuesta' => '<p>Sí. SMSEmpresarial.com envía y recibe mensajes de WhatsApp Business por medio de su Web
-                Service (API). WhatsApp necesita un número exclusivo para tu empresa; para activarlo,
-                <a href="'.route('contactanos').'">escríbele al equipo de ventas</a>.</p>',
+            'respuesta' => '<p>Sí, de dos formas. Con WhatsApp Business Web usas el número de un celular de tu empresa,
+                que debe estar encendido, y cada mensaje cuesta US$0.01. Con la API oficial de WhatsApp Business (Meta),
+                tu empresa tiene un número propio que no depende de un celular, envía plantillas aprobadas por Meta y no
+                corre riesgo de bloqueo. Puedes enviar y recibir mensajes desde la plataforma o conectarla a tu sistema
+                por API.</p>
+                <p>Los precios de cada tipo de mensaje están en <a href="'.route('tarifas').'">Tarifas</a>.</p>',
         ],
         [
             'pregunta' => '¿En qué países funciona y cuánto cuesta?',
             'respuesta' => '<p>Puedes enviar SMS a Costa Rica y a <strong>'.$internacionales->count().'</strong> destinos
                 internacionales. Un SMS a Costa Rica cuesta <strong>$'.e($local['precio']).'</strong> + IVA; a otros
                 países, desde <strong>$'.e($desde['precio']).'</strong> por mensaje.</p>
-                <p>Las tarifas están en dólares estadounidenses y el IVA se cobra solo a clientes de Costa Rica. WhatsApp
-                se cotiza según el país y el tipo de servicio.</p>
+                <p>Las tarifas están en dólares estadounidenses y el IVA se cobra solo a clientes de Costa Rica. Un
+                mensaje de WhatsApp cuesta desde US$0.01.</p>
                 <p>Consulta todos los países y precios en <a href="'.route('tarifas').'">Tarifas</a>.</p>',
         ],
         [
             'pregunta' => '¿Cuánto dura el saldo adquirido?',
             'respuesta' => '<p>Cada recarga extiende la vigencia del nuevo saldo por 12 meses. Si no haces otra recarga antes
                 de que pasen esos 12 meses, pierdes el saldo adquirido.</p>',
+        ],
+        [
+            'pregunta' => '¿Puedo pagar con factura mensual?',
+            'respuesta' => '<p>Sí. Después de abrir tu cuenta puedes firmar un contrato pospago: al inicio de cada mes
+                recibes una factura con lo que usaste. Sin número exclusivo, el consumo mínimo es de US$10 al mes.</p>',
+        ],
+        [
+            'pregunta' => '¿Recibo las respuestas si no tengo número exclusivo?',
+            'respuesta' => '<p>Sí. Con un número compartido, cada respuesta se asigna a tu último mensaje enviado a ese
+                celular durante 48 horas. Con un número exclusivo, todas las respuestas llegan a tu cuenta.</p>',
         ],
         [
             'pregunta' => '¿Cómo puedo dejar de recibir mensajes de los clientes de SMSEmpresarial?',
@@ -75,24 +88,23 @@
         [
             'pregunta' => '¿Cómo puedo comprar saldo y empezar a utilizar el servicio?',
             'respuesta' => '<p>El sistema acepta tarjetas de crédito Visa, MasterCard y American Express. Para empezar,
-                <a href="'.$registro.'">regístrate</a> y compra el monto inicial.</p>
+                <a href="'.$registro.'">regístrate</a> y haz una recarga inicial de US$30.</p>
                 <p>Cuando el pago se aprueba, recibes una confirmación por correo electrónico y puedes empezar a usar
                 SMSEmpresarial.com de inmediato.</p>',
         ],
         [
             'pregunta' => '¿Cuál es el largo de un mensaje de texto SMS?',
-            'respuesta' => '<p>Un mensaje SMS tiene hasta 160 caracteres en formato UTF-8 (UCS Transformation Format 8).
-                Si la ruta seleccionada admite caracteres especiales, el límite puede reducirse según los caracteres
-                utilizados.</p>
-                <p>Si la ruta permite mensajes largos, también se reduce la cantidad disponible por mensaje: el protocolo
-                utiliza 20 caracteres para identificar los mensajes anteriores y siguientes, de manera que el dispositivo
-                pueda ordenarlos correctamente.</p>',
+            'respuesta' => '<p>Un SMS tiene hasta 160 caracteres con letras y signos básicos. Si lleva caracteres
+                especiales que la ruta no admite en el alfabeto básico, el límite baja a 70.</p>
+                <p>Los mensajes más largos se envían en partes de hasta 153 caracteres (67 con caracteres especiales), y
+                el celular las une en un solo mensaje. Algunas rutas aceptan tildes y ñ sin reducir el límite.</p>',
         ],
         [
             'pregunta' => '¿Cuáles son los caracteres especiales?',
-            'respuesta' => '<p>Los mensajes de texto utilizan el formato UTF-8 (UCS Transformation Format 8). Algunos
-                caracteres latinos, como Á, É, Í, Ó, Ú, Ñ, á, é, í, ó, ú, ñ, ä, ë, ï, ö, ü y ¿, pueden ocupar más
-                espacio que un carácter básico y reducir la longitud disponible del mensaje.</p>',
+            'respuesta' => '<p>Son los que no forman parte del alfabeto básico de los SMS, como algunas vocales con tilde
+                (á, í, ó, ú) y ciertos símbolos. Si el mensaje lleva uno de ellos y la ruta no lo admite en el alfabeto
+                básico, el límite baja de 160 a 70 caracteres. Algunas rutas aceptan tildes y ñ sin reducir el
+                límite.</p>',
         ],
     ];
 

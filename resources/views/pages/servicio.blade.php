@@ -5,7 +5,6 @@
         'pregunta' => $item['pregunta'],
         'respuesta' => str_replace(':precio', $precio, $item['respuesta']),
     ], $servicio['faq']);
-    $otros = collect(config('servicios'))->except($slug);
 @endphp
 
 @extends('layouts.app', [
@@ -151,23 +150,11 @@
             <p class="servicio-mas-faq"><a href="{{ route('faq') }}">Ver todas las preguntas frecuentes</a></p>
         </section>
 
-        {{-- Los demás usos: enlaces internos entre las páginas de servicios --}}
-        <section class="container servicio-seccion pt-0">
-            <div class="feature-heading">
-                <h2>Otros usos de la plataforma</h2>
-            </div>
-            <ul class="servicio-otros">
-                @foreach ($otros as $otroSlug => $otro)
-                    <li><a href="{{ route('servicio', $otroSlug) }}"><x-icono :nombre="$otro['icono']" size="22" /><span>{{ $otro['titulo'] }}</span></a></li>
-                @endforeach
-            </ul>
-        </section>
-
         <section class="container pb-5">
             <div class="feature-cta">
                 <h2 class="mb-3">Empieza hoy mismo</h2>
-                <p class="mb-4">Regístrate, compra el monto inicial y, cuando se apruebe el pago, ya puedes enviar tu primer
-                    mensaje.</p>
+                <p class="mb-4">Regístrate, haz una recarga inicial de US$30 y, cuando se apruebe el pago, ya puedes enviar tu
+                    primer mensaje.</p>
                 <div class="d-flex flex-wrap gap-3">
                     <a href="{{ config('services.plataforma.registro') }}" class="btn btn-celeste btn-lg rounded-pill px-4">Abrir una cuenta</a>
                     <a href="{{ route('tarifas') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Ver tarifas</a>

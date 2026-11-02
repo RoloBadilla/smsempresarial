@@ -221,7 +221,8 @@
 }
 @media (max-width: 767.98px) {
   .nosotros-manifiesto { grid-template-columns: 1fr; gap: .5rem; }
-  .nosotros-lista a { padding: 1rem .75rem; gap: .85rem; }
+  /* En celular solo queda la tarjeta de Campañas: la lista de los demás usos sobra (ya están en Inicio). */
+  .nosotros-lista { display: none; }
   .nosotros-cobertura-btn { width: 100%; }
   .nosotros-equipo-visual { min-height: 280px; }
   .nosotros-especialidad { font-size: var(--fs-xs); }
