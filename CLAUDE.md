@@ -54,8 +54,8 @@ Boost replaces these bootstrap instructions with guidelines tailored to the appl
 ## Entorno y flujo de trabajo
 
 - Se sirve con Laragon desde `C:\laragon\www\smsempresarial`.
-- Ramas: todo el trabajo se hace en `rediseno-V2` (rediseño con modo claro/oscuro).
-  `Rolo` queda reservada para la página final: no se toca (ni commits ni merges).
+- Ramas: se trabaja en `rediseno-V2`, `calidad-textos` y `rolo-calidad`.
+  `Rolo` es la página final: solo se actualiza uniendo `rolo-calidad` cuando el usuario lo pida.
 - `public/build` NO está en Git (lo genera Vite desde `resources/css` y `resources/js`).
   Al cambiar de rama o hacer pull, siempre correr:
 
@@ -77,7 +77,6 @@ Boost replaces these bootstrap instructions with guidelines tailored to the appl
 - Se trabaja en dos computadoras: el proyecto debe estar en la misma ruta en ambas
   y los cambios se pasan con commit/push y pull. El `.env` no va por Git: se
   copia a mano.
-- Los cambios a este `CLAUDE.md` se hacen directamente en `rediseno-V2`.
 
 ## Estructura de `public/`
 
@@ -107,7 +106,7 @@ git commit -m "mensaje claro"   # 4. guardar
 git push                        # 5. subir
 ```
 
-- La rama debe ser `rediseno-V2`. Si `git status` muestra `Rolo`, detenerse.
+- Antes del commit, confirmar en qué rama se va a guardar.
 - Antes del commit, correr `npm run build` y `php artisan test` para no subir algo roto.
 - Preguntar siempre al usuario el mensaje del commit antes de hacerlo.
 - Hacer push antes de cambiar de computadora.
