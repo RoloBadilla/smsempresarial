@@ -33,21 +33,6 @@
 .form-select option { background: var(--surface); color: var(--text); }
 .btn-brand { padding: .9rem 1.5rem; }
 .form-control.is-invalid, .form-select.is-invalid { border-color: var(--bs-form-invalid-border-color); }
-.invalid-feedback:not(:empty) { display: block; }
-
-/* Teléfono con país (intl-tel-input): mismos colores que el resto del formulario.
-   Su CSS carga después que este, por eso los selectores llevan un nivel más de especificidad.
-   En el celular la lista se abre fuera del formulario: las variables van en la raíz. */
-html:root { --iti-border-color: var(--border); --iti-dropdown-bg: var(--surface); --iti-hover-color: var(--surface-2); --iti-dialcode-color: var(--text-muted); --iti-arrow-color: var(--text-muted); --iti-search-icon-color: var(--text-muted); }
-.contact-wrap .iti { display: block; width: 100%; }
-body .iti__selected-dial-code { color: var(--text); }
-body .iti__dropdown-content { border-radius: var(--radius-sm); color: var(--text); box-shadow: var(--shadow); }
-body .iti__search-input { padding-block: .6rem; background: var(--surface); color: var(--text); }
-body .iti__country.iti__highlight { background-color: var(--surface-2); }
-
-/* reCAPTCHA v3: la insignia flotante se oculta porque el aviso ya está junto al botón (lo permite Google) */
-.grecaptcha-badge { visibility: hidden; }
-.recaptcha-aviso a { color: var(--accent); }
 
 /* Datos de contacto */
 .contact-item { height: 100%; padding: 1.3rem; border: 1px solid var(--border); border-radius: 18px; background: var(--surface-2); transition: transform var(--dur) var(--ease), border-color var(--dur) ease; }
@@ -68,9 +53,8 @@ body .iti__country.iti__highlight { background-color: var(--surface-2); }
   .contact-item:hover { transform: none; }
 }
 
-/* Marca de campo obligatorio (*) y aviso de campo opcional. El "required" del campo ya lo anuncia a lectores de pantalla. */
+/* Marca de campo obligatorio (*). El "required" del campo ya lo anuncia a lectores de pantalla. */
 .campo-obligatorio { color: var(--cf-cian); font-weight: var(--fw-bold); }
-.campo-opcional { color: var(--text-muted); font-weight: var(--fw-regular); }
 
 /* Texto de introducción a la izquierda y nota "Campos obligatorios" a la derecha, en la misma línea.
    En pantallas angostas la nota baja debajo del texto. */

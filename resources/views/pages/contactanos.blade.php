@@ -26,21 +26,9 @@
                         <span class="eyebrow">Escríbenos</span>
                         <h2 class="title mt-2 mb-2">¿Cómo podemos ayudarte?</h2>
                         <div class="form-intro mb-4">
-                            <p class="copy mb-0">Completa tus datos y un asesor te contactará.</p>
+                            <p class="copy mb-0">Completa tus datos y prepara un mensaje para nuestro equipo.</p>
                             <p class="nota-obligatorios mb-0"><span class="nota-obligatorios-icono" aria-hidden="true">*</span>Campos obligatorios</p>
                         </div>
-
-                        @if (session('contact_sent'))
-                            <div class="alert alert-success" role="status">
-                                <strong>¡Gracias! Recibimos tu mensaje.</strong> Un asesor te contactará pronto.
-                            </div>
-                        @endif
-                        @if (session('contact_error'))
-                            <div class="alert alert-danger" role="alert">
-                                <strong>No pudimos enviar tu mensaje.</strong> Intenta de nuevo o escríbenos a
-                                <a href="mailto:info@cyberfuel.com">info@cyberfuel.com</a>.
-                            </div>
-                        @endif
 
                         <form
                             id="contact-form"
@@ -48,10 +36,8 @@
                             action="{{ route('contact.submit') }}"
                             data-loading-text="Enviando…"
                             data-loading-text-en="Sending…"
-                            @if ($recaptchaKey) data-recaptcha-key="{{ $recaptchaKey }}" @endif
                         >
                             @csrf
-                            <input type="hidden" name="recaptcha_token" value="">
 
                             @if ($errors->any())
                                 <div class="alert alert-danger" role="alert">
@@ -81,14 +67,6 @@
                                         type="email" value="{{ old('correo') }}" autocomplete="email" maxlength="255" required>
                                 </div>
                                 <div class="col-md-6">
-                                    <label class="form-label" for="telefono">Teléfono <span class="campo-obligatorio" aria-hidden="true">*</span></label>
-                                    <input type="hidden" id="country_code" name="country_code" value="{{ old('country_code', '506') }}">
-                                    <input class="form-control @error('telefono') is-invalid @enderror" id="telefono" name="telefono"
-                                        type="tel" value="{{ old('telefono') }}" autocomplete="tel-national" inputmode="tel" required>
-                                    {{-- Sin espacios adentro: el CSS solo muestra esta caja si no está vacía (:empty). --}}
-                                    <div class="invalid-feedback" id="telefono-error">@error('telefono'){{ $message }}@enderror</div>
-                                </div>
-                                <div class="col-md-6">
                                     <label class="form-label" for="tema">¿Sobre qué quieres conversar?</label>
                                     <select class="form-select @error('tema') is-invalid @enderror" id="tema" name="tema">
                                         @foreach ($temas as $tema)
@@ -97,36 +75,14 @@
                                     </select>
                                 </div>
 
-                                @if ($medios)
-                                    <div class="col-md-6">
-                                        <label class="form-label" for="medio">¿Cómo te enteraste de nosotros? <span class="campo-opcional">(opcional)</span></label>
-                                        <select class="form-select @error('medio') is-invalid @enderror" id="medio" name="medio">
-                                            <option value="">Selecciona una opción</option>
-                                            @foreach ($medios as $medio)
-                                                <option value="{{ $medio }}" @selected(old('medio') === $medio)>{{ $medio }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                    <div class="col-12" id="otro-grupo" @if (old('medio') !== 'Otro') hidden @endif>
-                                        <label class="form-label" for="otro">¿Cuál otro?</label>
-                                        <input class="form-control @error('otro') is-invalid @enderror" id="otro" name="otro"
-                                            value="{{ old('otro') }}" maxlength="120">
-                                    </div>
-                                @endif
-
                                 <div class="col-12">
                                     <label class="form-label" for="mensaje">Mensaje <span class="campo-obligatorio" aria-hidden="true">*</span></label>
                                     <textarea class="form-control @error('mensaje') is-invalid @enderror" id="mensaje" name="mensaje" rows="5"
                                         maxlength="5000" required placeholder="Cuéntanos un poco sobre lo que necesitas…">{{ old('mensaje') }}</textarea>
                                 </div>
                                 <div class="col-12 d-flex flex-column flex-sm-row align-items-sm-center gap-3">
-                                    <button class="btn btn-brand" type="submit">Enviar mensaje <span aria-hidden="true">→</span></button>
-                                    @if ($recaptchaKey)
-                                        <span class="small text-secondary recaptcha-aviso">Protegido por reCAPTCHA. Aplican la
-                                            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Privacidad</a>
-                                            y los <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Términos</a>
-                                            de Google.</span>
-                                    @endif
+                                    <button class="btn btn-brand" type="submit">Preparar mi mensaje <span aria-hidden="true">→</span></button>
+                                    <span class="small text-secondary">Se abrirá tu aplicación de correo para enviarlo.</span>
                                 </div>
                             </div>
                         </form>
@@ -167,8 +123,8 @@
                                 </article>
                             </div>
                         </div>
-                        <p class="note mt-3 mb-0">Tus datos se usan solo para responder tu consulta. Si prefieres, también
-                            puedes escribirnos directamente por correo o WhatsApp.</p>
+                        <p class="note mt-3 mb-0">Al enviar tu consulta, tu aplicación de correo se abrirá con los datos que ingresaste para que
+                            puedas revisar y enviar el mensaje.</p>
                     </aside>
                 </div>
             </div>

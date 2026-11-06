@@ -75,8 +75,8 @@ Boost replaces these bootstrap instructions with guidelines tailored to the appl
   `npm run build`. Producción nunca usa `npm run dev`.
 - `APP_URL` en `.env` debe ser `http://smsempresarial.test` en ambas computadoras.
 - Se trabaja en dos computadoras: el proyecto debe estar en la misma ruta en ambas
-  y los cambios se pasan con commit/push y pull. El `.env` no va por Git: las
-  credenciales (Cyberfuel, reCAPTCHA, Google) se copian a mano.
+  y los cambios se pasan con commit/push y pull. El `.env` no va por Git: se
+  copia a mano.
 - Los cambios a este `CLAUDE.md` se hacen directamente en `rediseno-V2`.
 
 ## Estructura de `public/`

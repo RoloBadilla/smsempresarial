@@ -22,7 +22,6 @@
         ];
         $pageScripts = [
             'faq' => 'resources/js/pages/faq.js',
-            'contactanos' => 'resources/js/pages/contactanos.js',
             'tarifas' => 'resources/js/pages/tarifas.js',
         ];
     @endphp

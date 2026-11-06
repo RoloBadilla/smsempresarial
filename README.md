@@ -24,8 +24,6 @@ php artisan migrate
 npm run build
 ```
 
-Luego completar en `.env` las credenciales (no van en Git): Cyberfuel (leads y medios comerciales), reCAPTCHA y Google (reseñas). Sin reCAPTCHA el formulario funciona igual en local.
-
 ## Después de un pull o cambio de rama
 
 ```sh
@@ -55,7 +53,6 @@ php artisan optimize:clear
 | Tarifas de SMS por país | `config/tarifas.php` |
 | Datos de la empresa para SEO | `config/sitio.php` |
 | Formulario de contacto | `app/Http/Controllers/ContactController.php` y `app/Http/Requests/ContactRequest.php` |
-| Conexión con Cyberfuel, reCAPTCHA y reseñas de Google | `app/Services/` |
 | Imágenes | `public/images/` |
 | Traducción al inglés | `public/lang/en.json` |
 

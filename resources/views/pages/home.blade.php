@@ -108,41 +108,13 @@
 
                 <div class="reviews-card d-flex align-items-center gap-3 px-4 py-3">
                     <span class="fw-bold">Google Reviews</span>
-                    <span
-                        class="reviews-score fw-bold lh-1">{{ $reviews ? number_format($reviews['average'], 1) : '4.8' }}</span>
+                    <span class="reviews-score fw-bold lh-1">4.8</span>
                     <span>
                         <span class="reviews-stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span><br>
-                        <small class="text-secondary">{{ $reviews ? $reviews['total'] : 34 }} reviews</small>
+                        <small class="text-secondary">34 reviews</small>
                     </span>
                 </div>
             </div>
-            @if ($reviews && $reviews['reviews'])
-                <div class="row g-3 mt-4 text-start">
-                    @foreach ($reviews['reviews'] as $review)
-                        <div class="col-md-6 col-lg-4">
-                            <article class="review-item">
-                                <div class="d-flex align-items-center gap-3 mb-2">
-                                    @if ($review['photo'])
-                                        <img class="review-foto" src="{{ $review['photo'] }}" alt=""
-                                            width="40" height="40" loading="lazy" referrerpolicy="no-referrer">
-                                    @else
-                                        <span class="review-foto review-inicial"
-                                            aria-hidden="true">{{ mb_substr($review['author'], 0, 1) }}</span>
-                                    @endif
-                                    <div>
-                                        <h3 class="review-autor mb-0">{{ $review['author'] }}</h3>
-                                        <span class="reviews-stars small" role="img"
-                                            aria-label="{{ $review['rating'] }} de 5 estrellas">{{ str_repeat('★', $review['rating']) }}<span
-                                                class="review-vacia">{{ str_repeat('★', 5 - $review['rating']) }}</span></span>
-                                    </div>
-                                </div>
-                                <p class="review-texto mb-0">{{ \Illuminate\Support\Str::limit($review['comment'], 220) }}
-                                </p>
-                            </article>
-                        </div>
-                    @endforeach
-                </div>
-            @endif
         </section>
         <!-- ===== MARCAS QUE ROTAN ===== -->
     </main>

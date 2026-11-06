@@ -142,47 +142,8 @@ test('ninguna vista tiene links internos escritos a mano', function () {
     expect($files)->toBe([]);
 });
 
-test('sin credenciales de Google la portada muestra las reseñas fijas', function () {
+test('la portada muestra las reseñas de Google', function () {
     $this->get('/')->assertOk()->assertSee('4.8')->assertSee('34 reviews');
-});
-
-test('con credenciales de Google la portada muestra las reseñas reales', function () {
-    config(['services.google_reviews' => [
-        'client_id' => 'id', 'client_secret' => 'secret', 'refresh_token' => 'refresh',
-        'account_id' => '123', 'location_id' => '456',
-    ]]);
-
-    Http::fake([
-        'oauth2.googleapis.com/*' => Http::response(['access_token' => 'token', 'expires_in' => 3600]),
-        'mybusiness.googleapis.com/*' => Http::response([
-            'averageRating' => 4.9,
-            'totalReviewCount' => 40,
-            'reviews' => [
-                ['reviewer' => ['displayName' => 'Ana Mora'], 'starRating' => 'FIVE', 'comment' => 'Excelente servicio (Translated by Google) Excellent service', 'createTime' => '2026-09-01T10:00:00Z'],
-                ['reviewer' => ['displayName' => 'Sin comentario'], 'starRating' => 'FOUR', 'createTime' => '2026-08-01T10:00:00Z'],
-            ],
-        ]),
-    ]);
-
-    $this->get('/')
-        ->assertOk()
-        ->assertSee('4.9')
-        ->assertSee('40 reviews')
-        ->assertSee('Ana Mora')
-        ->assertSee('Excelente servicio')
-        ->assertDontSee('Translated by Google')
-        ->assertDontSee('Sin comentario');
-});
-
-test('si Google falla la portada sigue cargando', function () {
-    config(['services.google_reviews' => [
-        'client_id' => 'id', 'client_secret' => 'secret', 'refresh_token' => 'refresh',
-        'account_id' => '123', 'location_id' => '456',
-    ]]);
-
-    Http::fake(['*' => Http::response('error', 500)]);
-
-    $this->get('/')->assertOk()->assertSee('34 reviews');
 });
 
 test('cada tarjeta del inicio lleva a la página de su servicio', function () {

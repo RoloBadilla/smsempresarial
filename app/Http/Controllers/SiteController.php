@@ -3,18 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ContactRequest;
-use App\Services\CyberfuelLeads;
-use App\Services\GoogleReviews;
-use App\Services\Recaptcha;
 use Illuminate\View\View;
 
 class SiteController extends Controller
 {
-    public function home(GoogleReviews $reviews): View
+    public function home(): View
     {
-        return view('pages.home', [
-            'reviews' => $reviews->summary(),
-        ]);
+        return view('pages.home');
     }
 
     public function caracteristicas(): View
@@ -45,12 +40,10 @@ class SiteController extends Controller
         return view('pages.tarifas');
     }
 
-    public function contactanos(CyberfuelLeads $leads, Recaptcha $recaptcha): View
+    public function contactanos(): View
     {
         return view('pages.contactanos', [
             'temas' => ContactRequest::TEMAS,
-            'medios' => $leads->mediosComerciales(),
-            'recaptchaKey' => $recaptcha->siteKey(),
         ]);
     }
 }

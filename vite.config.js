@@ -18,7 +18,6 @@ export default defineConfig({
                 'resources/js/site.js',
                 'resources/js/pages/faq.js',
                 'resources/js/pages/tarifas.js',
-                'resources/js/pages/contactanos.js',
             ],
             refresh: true,
         }),
