@@ -152,7 +152,9 @@
                                     @endforeach
                                 </ul>
                             </div>
-                            <p class="table-note mt-3 mb-0">Si no tienes un número, te damos uno exclusivo por US$106 al mes.
+                            {{-- En celular esta nota se pliega detrás del botón (ver tarifas.css y tarifas.js) --}}
+                            <button type="button" class="pt-boton wa-nota-boton" aria-expanded="false" aria-controls="wa-nota"><span class="pt-abrir">Más información</span><span class="pt-cerrar">Ver menos</span></button>
+                            <p class="table-note wa-nota mt-3 mb-0" id="wa-nota">Si no tienes un número, te damos uno exclusivo por US$106 al mes.
                                 Si tu empresa quiere la insignia de cuenta verificada, la valida desde su cuenta de Meta
                                 Business, paga los mensajes directamente a Meta y SMS Empresarial cobra US$0.01 por mensaje.
                                 Según el volumen, las tarifas pueden mejorar.</p>

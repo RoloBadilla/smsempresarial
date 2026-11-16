@@ -288,6 +288,27 @@ main { background: linear-gradient(var(--surface) 0, var(--bg) 380px); }
   .wa-calc { padding: 1.1rem; }
   .wa-escena { min-height: 0; }
 }
+/* WhatsApp en celular: menos texto a la vista y la calculadora sin caja dentro de otra caja */
+.wa-nota-boton { display: none; }
+@media (max-width: 767.98px) {
+  .wa-card { border-radius: 20px; }
+  .wa-icon { width: 46px; height: 46px; border-radius: 14px; }
+  .wa-icon svg { width: 24px; }
+  .wa-card .section-copy { font-size: var(--fs-sm); line-height: 1.6; }
+  .wa-precios-encabezado { display: none; }
+  .wa-precios li { padding: .6rem .85rem; font-size: var(--fs-xs); }
+  .wa-precios li:first-child { border-top: 0; }
+  .wa-nota-boton { display: inline-block; margin-top: .85rem; }
+  .wa-nota { display: none; }
+  .wa-nota.abierta { display: block; margin-top: .6rem !important; font-size: var(--fs-xs); }
+  .wa-calc { margin-top: .5rem; padding: 1.25rem 0 0; border: 0; border-top: 1px solid var(--border); border-radius: 0; background: none; box-shadow: none; }
+  .wa-calc-pais { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+  .wa-calc-pais .wa-calc-etiqueta { margin: 0; }
+  .wa-calc-pais-valor { padding: .4rem .7rem; font-size: var(--fs-xs); }
+  .wa-calc-total strong { font-size: 2rem; }
+  .wa-calc-grupo summary { font-size: var(--fs-xs); }
+}
+
 /* Tipos de mensaje en celular y tablet: cada tipo es una tarjeta y el teléfono aparece dentro del tipo abierto
    (tarifas.js lo mueve ahí). La columna de la derecha queda vacía y se oculta. */
 @media (max-width: 991.98px) {

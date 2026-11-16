@@ -73,6 +73,15 @@ document.querySelectorAll('.pt-boton').forEach((button) => {
   });
 });
 
+// WhatsApp en celular: "Más información" muestra la nota del número exclusivo y la cuenta verificada.
+document.querySelectorAll('.wa-nota-boton').forEach((button) => {
+  button.addEventListener('click', () => {
+    const open = button.getAttribute('aria-expanded') !== 'true';
+    button.setAttribute('aria-expanded', String(open));
+    document.getElementById(button.getAttribute('aria-controls')).classList.toggle('abierta', open);
+  });
+});
+
 // Acordeón de tipos de mensaje: se abre uno a la vez y se cierra tocándolo otra vez.
 // El teléfono muestra el chat de ejemplo del tipo abierto: en escritorio va a la derecha y en celular
 // se mueve dentro del tipo abierto, para que el ejemplo se vea junto a su texto.
