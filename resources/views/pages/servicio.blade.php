@@ -1,6 +1,7 @@
 {{-- Página de un uso de la plataforma. El contenido sale de config/servicios.php (ver SiteController::servicio). --}}
 @php
-    $precio = collect(config('tarifas.sms'))->firstWhere('pais', 'Costa Rica')['precio'];
+    // VERSIÓN ANTERIOR: $precio = collect(config('tarifas.sms'))->firstWhere('pais', 'Costa Rica')['precio'];
+    $precio = \App\Support\PaquetesSms::precioDesde();
     $faq = array_map(fn ($item) => [
         'pregunta' => $item['pregunta'],
         'respuesta' => str_replace(':precio', $precio, $item['respuesta']),

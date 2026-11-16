@@ -121,7 +121,8 @@
                         <span class="nosotros-cobertura-icono"><x-icono nombre="operador" size="30" /></span>
                         <div>
                             <strong>Tus mensajes llegan a todo Costa Rica</strong>
-                            <span>A los clientes de los tres operadores del país, y también a otros países.</span>
+                            {{-- VERSIÓN ANTERIOR: <span>A los clientes de los tres operadores del país, y también a otros países.</span> --}}
+                            <span>A los clientes de los tres operadores del país, en las siete provincias.</span>
                         </div>
                     </div>
                     <ul class="nosotros-operadores">

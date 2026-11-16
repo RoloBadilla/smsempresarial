@@ -27,10 +27,15 @@
                 <div class="row align-items-center g-5">
                     <div class="col-lg-7">
                         <h1 class="mb-4">SMS masivos y WhatsApp empresarial en Costa Rica</h1>
-                        {{-- Los países salen de config/tarifas.php (todos menos Costa Rica), en su propio <span> para la traducción --}}
+                        {{-- VERSIÓN ANTERIOR:
+                        <!-- Los países salen de config/tarifas.php (todos menos Costa Rica), en su propio <span> para la traducción -->
                         <p class="lead mb-4">Envía mensajes de texto (SMS) y WhatsApp a tus clientes desde el navegador o desde tu
                             sistema por API. Llegan a los celulares de kölbi, Claro y Liberty y a otros
                             <span>{{ count(config('tarifas.sms')) - 1 }}</span> países, con
+                            capacidad para más de 100&nbsp;000 SMS por hora y soporte técnico 24/7 en Costa Rica.</p>
+--}}
+                        <p class="lead mb-4">Envía mensajes de texto (SMS) y WhatsApp a tus clientes desde el navegador o desde tu
+                            sistema por API. Llegan a los celulares de kölbi, Claro y Liberty en todo el país, con
                             capacidad para más de 100&nbsp;000 SMS por hora y soporte técnico 24/7 en Costa Rica.</p>
                         <div class="d-flex flex-wrap gap-3">
                             <a href="{{ route('contactanos') }}" class="btn btn-azul btn-lg rounded-pill fw-bold btn-hero btn-hero-primario">¡Lo quiero!</a>

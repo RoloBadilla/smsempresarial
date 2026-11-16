@@ -136,25 +136,15 @@
   transform-origin: center;
   animation: orbita-llegada 6.8s linear infinite;
 }
-.ruta__codigo { fill: var(--orbita-rotulo); font-family: var(--font-text); font-size: var(--fs-base); font-weight: var(--fw-bold); animation: orbita-rotulo 6.8s linear infinite; }
+.ruta__codigo { fill: var(--orbita-rotulo); font-family: var(--font-text); font-size: 22px; font-weight: var(--fw-bold); animation: orbita-rotulo 6.8s linear infinite; }
 
-/* Cada ruta sale 0.4 s después de la anterior */
-.ruta:nth-of-type(2) > * { animation-delay: .4s; }
-.ruta:nth-of-type(3) > * { animation-delay: .8s; }
-.ruta:nth-of-type(4) > * { animation-delay: 1.2s; }
-.ruta:nth-of-type(5) > * { animation-delay: 1.6s; }
-.ruta:nth-of-type(6) > * { animation-delay: 2s; }
-.ruta:nth-of-type(7) > * { animation-delay: 2.4s; }
-.ruta:nth-of-type(8) > * { animation-delay: 2.8s; }
-.ruta:nth-of-type(9) > * { animation-delay: 3.2s; }
-.ruta:nth-of-type(10) > * { animation-delay: 3.6s; }
-.ruta:nth-of-type(11) > * { animation-delay: 4s; }
-.ruta:nth-of-type(12) > * { animation-delay: 4.4s; }
-.ruta:nth-of-type(13) > * { animation-delay: 4.8s; }
-.ruta:nth-of-type(14) > * { animation-delay: 5.2s; }
-.ruta:nth-of-type(15) > * { animation-delay: 5.6s; }
-.ruta:nth-of-type(16) > * { animation-delay: 6s; }
-.ruta:nth-of-type(17) > * { animation-delay: 6.4s; }
+/* Cada ruta sale 0.97 s después de la anterior (7 provincias en un ciclo de 6.8 s) */
+.ruta:nth-of-type(2) > * { animation-delay: .97s; }
+.ruta:nth-of-type(3) > * { animation-delay: 1.94s; }
+.ruta:nth-of-type(4) > * { animation-delay: 2.91s; }
+.ruta:nth-of-type(5) > * { animation-delay: 3.88s; }
+.ruta:nth-of-type(6) > * { animation-delay: 4.85s; }
+.ruta:nth-of-type(7) > * { animation-delay: 5.82s; }
 
 .orbita__centro { fill: var(--orbita-celeste); }
 .orbita__centro-halo { fill: none; stroke: var(--orbita-celeste); stroke-width: 1.5; transform-origin: 300px 300px; animation: orbita-latido 2.4s ease-out infinite; }
@@ -183,7 +173,7 @@
   .ruta__pulso, .orbita__centro-halo { display: none; }
 }
 @media (max-width: 575.98px) {
-  .ruta__codigo { font-size: var(--fs-lg); }
+  .ruta__codigo { font-size: 26px; }
 }
 
 /* ---------- Ilustración de gestión de contactos ---------- */
@@ -225,3 +215,27 @@
 @keyframes ilu-flujo { to { stroke-dashoffset: -22; } }
 @media (prefers-reduced-motion: reduce) { .ilu-linea { animation: none; } }
 @media (max-width: 991.98px) { .ilustracion-contactos svg { max-width: 400px; } }
+
+/*
+VERSIÓN ANTERIOR (hasta noviembre 2026): SMS a Costa Rica y a otros países, con tabla de tarifas por destino. Se deja comentada por si hay que volver a ella.
+Órbita con los 17 códigos de país (va con la versión anterior de components/orbita-rutas.blade.php):
+retrasos de cada ruta y tamaño del rótulo (antes .ruta__codigo usaba font-size: var(--fs-base), y en celular var(--fs-lg)).
+
+/* Cada ruta sale 0.4 s después de la anterior * /
+.ruta:nth-of-type(2) > * { animation-delay: .4s; }
+.ruta:nth-of-type(3) > * { animation-delay: .8s; }
+.ruta:nth-of-type(4) > * { animation-delay: 1.2s; }
+.ruta:nth-of-type(5) > * { animation-delay: 1.6s; }
+.ruta:nth-of-type(6) > * { animation-delay: 2s; }
+.ruta:nth-of-type(7) > * { animation-delay: 2.4s; }
+.ruta:nth-of-type(8) > * { animation-delay: 2.8s; }
+.ruta:nth-of-type(9) > * { animation-delay: 3.2s; }
+.ruta:nth-of-type(10) > * { animation-delay: 3.6s; }
+.ruta:nth-of-type(11) > * { animation-delay: 4s; }
+.ruta:nth-of-type(12) > * { animation-delay: 4.4s; }
+.ruta:nth-of-type(13) > * { animation-delay: 4.8s; }
+.ruta:nth-of-type(14) > * { animation-delay: 5.2s; }
+.ruta:nth-of-type(15) > * { animation-delay: 5.6s; }
+.ruta:nth-of-type(16) > * { animation-delay: 6s; }
+.ruta:nth-of-type(17) > * { animation-delay: 6.4s; }
+*/
