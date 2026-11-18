@@ -8,7 +8,7 @@ beforeEach(function () {
 
 test('todas las páginas cargan', function (string $url) {
     $this->get($url)->assertOk();
-})->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
+})->with(['/', '/caracteristicas', '/beneficios-y-ventajas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
 
 test('las direcciones viejas con .html o .php redirigen de forma permanente', function (string $vieja, string $nueva) {
     $this->get($vieja)->assertStatus(301)->assertRedirect($nueva);
@@ -70,7 +70,7 @@ test('cada página tiene datos estructurados válidos con los datos de la empres
         ->and($empresa['sameAs'])->toBe(config('sitio.redes'))
         ->and($graph->firstWhere('@type', 'WebPage'))->not->toBeNull()
         ->and($html)->toContain('<meta property="og:image" content="'.rtrim(config('sitio.url'), '/').'/'.config('sitio.imagen_compartir').'">');
-})->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
+})->with(['/', '/caracteristicas', '/beneficios-y-ventajas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
 
 test('la imagen para compartir y el logo de los datos estructurados existen', function () {
     expect(public_path(config('sitio.imagen_compartir')))->toBeFile()
@@ -141,7 +141,7 @@ test('los textos nuevos de tarifas tienen traducción al inglés', function () {
 
 test('el sitio solo ofrece envíos a Costa Rica', function (string $url) {
     $this->get($url)->assertOk()->assertDontSee('otros países')->assertDontSee('destinos internacionales');
-})->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/nosotros', '/envio-de-comunicados', '/notificaciones-y-alertas', '/codigos-otp-por-sms']);
+})->with(['/', '/caracteristicas', '/beneficios-y-ventajas', '/preguntas-frecuentes', '/tarifas', '/beneficios-y-ventajas', '/nosotros', '/envio-de-comunicados', '/notificaciones-y-alertas', '/codigos-otp-por-sms']);
 
 test('las páginas de servicio usan el precio por SMS más bajo de los paquetes', function () {
     $this->get('/envio-de-comunicados')->assertOk()

@@ -307,10 +307,16 @@ html[lang="en"] .lang-bandera .bandera-us { display: block; }
 .theme-toggle[aria-pressed="true"] .icon-sun { display: block; }
 .theme-toggle[aria-pressed="true"] .icon-moon { display: none; }
 
-/* Pantallas de 1200 a 1399px: el menú se compacta para que las 6 opciones quepan en una línea */
+/* Pantallas de 1200 a 1399px: el menú se compacta para que las 7 opciones quepan en una línea */
+@media (min-width: 1200px) {
+  .navbar-nav { flex-wrap: nowrap; }
+  .site-nav .nav-link { white-space: nowrap; }
+}
 @media (min-width: 1200px) and (max-width: 1399.98px) {
-  .site-nav .navbar-nav { gap: .35rem !important; margin-left: 1rem !important; }
-  .site-nav .nav-link { font-size: var(--fs-xs); letter-spacing: .02em; }
+  .site-nav .navbar-nav { gap: 0 !important; margin-left: .5rem !important; }
+  .site-nav .nav-link { padding-inline: .4rem; font-size: .72rem; letter-spacing: .01em; }
+  .site-nav .nav-link::after { left: .4rem; right: .4rem; }
+  .logo img { --logo-ancho: 130px; }
 }
 
 @media (max-width: 1199.98px) {

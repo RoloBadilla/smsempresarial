@@ -22,6 +22,11 @@ class SiteController extends Controller
         return view('pages.caracteristicas');
     }
 
+    public function beneficios(): View
+    {
+        return view('pages.beneficios');
+    }
+
     public function nosotros(): View
     {
         return view('pages.nosotros');

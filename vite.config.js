@@ -9,6 +9,7 @@ export default defineConfig({
                 'resources/css/site-shared.css',
                 'resources/css/pages/home.css',
                 'resources/css/pages/caracteristicas.css',
+                'resources/css/pages/beneficios.css',
                 'resources/css/pages/faq.css',
                 'resources/css/pages/contactanos.css',
                 'resources/css/pages/tarifas.css',
