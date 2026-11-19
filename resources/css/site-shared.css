@@ -318,6 +318,11 @@ html[lang="en"] .lang-bandera .bandera-us { display: block; }
   .site-nav .nav-link::after { left: .4rem; right: .4rem; }
   .logo img { --logo-ancho: 130px; }
 }
+/* Pantallas de 1400px o más: con 7 opciones la letra de 16px no cabe junto al logo y los botones */
+@media (min-width: 1400px) {
+  .site-nav .navbar-nav { gap: .5rem !important; }
+  .site-nav .nav-link { font-size: .85rem; letter-spacing: .03em; }
+}
 
 @media (max-width: 1199.98px) {
   .navbar-collapse { padding: .5rem 0 1rem; }
