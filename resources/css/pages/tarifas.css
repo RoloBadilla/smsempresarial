@@ -458,3 +458,15 @@ main { background: linear-gradient(var(--surface) 0, var(--bg) 380px); }
   .hero-stat:hover { transform: none; }
 }
 */
+
+/* ---------- Tarjeta de precios de la portada (solo computadora) ---------- */
+.tarifa-ticket-etiqueta { display: block; color: var(--text-muted); font-size: var(--fs-xs); font-weight: var(--fw-bold); letter-spacing: .1em; text-transform: uppercase; }
+/* Una barra por paquete: su alto es el precio por SMS, así se ve cómo baja al comprar más */
+.tarifa-barras { display: flex; align-items: flex-end; gap: 6px; height: 110px; margin-top: 1.1rem; }
+.tarifa-barras span { flex: 1; height: var(--alto); border-radius: 6px 6px 2px 2px; background: linear-gradient(var(--cf-celeste), var(--cf-azul)); }
+.tarifa-barras span:last-child { background: var(--cf-verde); }
+.tarifa-ejes { display: flex; justify-content: space-between; margin-top: .45rem; color: var(--text-muted); font-size: .75rem; }
+.tarifa-precios { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin: 1.25rem 0 0; padding-top: 1.1rem; border-top: 1px solid var(--border); }
+.tarifa-precios dt { color: var(--text-muted); font-size: var(--fs-xs); font-weight: var(--fw-regular); }
+.tarifa-precios dd { margin: .15rem 0 0; color: var(--heading); font-family: var(--font-brand); font-size: 1.45rem; font-weight: var(--fw-bold); line-height: 1.1; }
+.tarifa-ticket-nota { margin: .75rem 0 0; color: var(--text-muted) !important; font-size: var(--fs-xs) !important; line-height: 1.4 !important; }

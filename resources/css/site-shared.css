@@ -357,6 +357,35 @@ html[lang="en"] .lang-bandera .bandera-us { display: block; }
   background: var(--hero-bg);
 }
 .page-hero > .container { width: 100%; }
+/* Computadora: el texto de la portada arranca siempre a la misma altura (la ruta "Inicio › …" no salta
+   de una página a otra). El dibujo de la derecha sigue centrado. */
+@media (min-width: 992px) {
+  .page-hero { align-items: flex-start; }
+  .page-hero :is(.servicio-hero-grid, .beneficios-hero-grid, .caracteristicas-hero-grid, .faq-hero-grid, .hero-con-visual) > :first-child { align-self: start; }
+}
+/* Portada con dibujo a la derecha (Tarifas y Contáctenos) */
+.hero-con-visual { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 992px) {
+  .hero-con-visual { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(2rem, 5vw, 4rem); }
+}
+@media (max-width: 991.98px) {
+  .hero-visual-opcional { display: none; }
+}
+/* Tarjeta clara sobre la portada azul (mismo estilo que la de Preguntas frecuentes) */
+.hero-tarjeta {
+  width: 100%;
+  max-width: 400px;
+  justify-self: end;
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  color: var(--text);
+  box-shadow: 0 28px 80px color-mix(in srgb, var(--cf-negro) 35%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
 .page-hero::after {
   content: "";
   position: absolute;
@@ -576,8 +605,9 @@ main .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
   92% { transform: translateY(0); }
   95% { transform: translateY(-3px); }
 }
-@media (max-width: 575.98px) {
-  .lo-quiero-flotante { right: 1rem; bottom: calc(1.25rem + 54px + .7rem + env(safe-area-inset-bottom)); padding: .7rem 1.2rem; font-size: var(--fs-sm); }
+/* Celular y tableta: solo queda el botón de WhatsApp, para no tapar el contenido */
+@media (max-width: 767.98px) {
+  .lo-quiero-flotante { display: none; }
 }
 
 /* ---------- Estados vacíos (buscadores sin resultados) ---------- */

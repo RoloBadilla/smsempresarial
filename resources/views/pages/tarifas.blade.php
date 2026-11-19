@@ -64,7 +64,8 @@
 @section('content')
     <main id="contenido">
         <header class="rates-hero page-hero">
-            <div class="container">
+            <div class="container hero-con-visual">
+                <div>
                 <x-breadcrumbs current="Tarifas" />
                 <span class="eyebrow mb-3">Tarifas para Costa Rica</span>
                 <h1 class="mb-3">SMS desde <span>US${{ $precioMinimo }}</span> por mensaje.</h1>
@@ -79,6 +80,28 @@
                         <path d="M20.52 3.48A11.86 11.86 0 0 0 12.07 0C5.5 0 .16 5.34.16 11.91c0 2.1.55 4.16 1.6 5.97L.06 24l6.27-1.64a11.9 11.9 0 0 0 5.74 1.46h.01c6.57 0 11.91-5.34 11.91-11.91 0-3.18-1.24-6.17-3.47-8.43ZM12.08 21.8a9.9 9.9 0 0 1-5.05-1.38l-.36-.21-3.73.98 1-3.64-.23-.37a9.86 9.86 0 0 1-1.51-5.27c0-5.46 4.44-9.9 9.9-9.9 2.65 0 5.13 1.03 7 2.9a9.84 9.84 0 0 1 2.9 7c0 5.46-4.44 9.9-9.91 9.9Z"/>
                     </svg>WhatsApp</a>
                 </nav>
+                </div>
+
+                {{-- Tarjeta de precios: barras con el precio por SMS de cada paquete (de config/tarifas.php),
+                     del más pequeño al más grande. Solo en computadora. --}}
+                @php $precioMaximo = (float) $paquetes->max('precio_sms'); @endphp
+                <aside class="hero-tarjeta tarifa-ticket hero-visual-opcional" aria-label="Resumen de precios">
+                    <span class="tarifa-ticket-etiqueta">Precio por SMS según el paquete</span>
+                    <div class="tarifa-barras" aria-hidden="true">
+                        @foreach ($paquetes as $paquete)
+                            <span style="--alto: {{ round((float) $paquete['precio_sms'] / $precioMaximo * 100) }}%"></span>
+                        @endforeach
+                    </div>
+                    <div class="tarifa-ejes" aria-hidden="true">
+                        <span>{{ $miles($paquetes->first()['cantidad']) }} SMS</span>
+                        <span>{{ $miles($paquetes->last()['cantidad']) }} SMS</span>
+                    </div>
+                    <dl class="tarifa-precios">
+                        <div><dt>SMS desde</dt><dd>US${{ $precioMinimo }}</dd></div>
+                        <div><dt>WhatsApp desde</dt><dd>US${{ config('tarifas.whatsapp_web') }}</dd></div>
+                    </dl>
+                    <p class="tarifa-ticket-nota">Por mensaje, más IVA.</p>
+                </aside>
             </div>
         </header>
 

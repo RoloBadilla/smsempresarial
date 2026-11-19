@@ -156,7 +156,7 @@
 @section('content')
     <main id="contenido">
         <header class="faq-hero page-hero">
-            <div class="container pagina-hero-inner py-lg-4">
+            <div class="container pagina-hero-inner">
                 <div class="faq-hero-grid">
                     <div class="faq-hero-copy">
                         <x-breadcrumbs current="Preguntas frecuentes" />
