@@ -27,14 +27,19 @@
                 <div class="row align-items-center g-5">
                     <div class="col-lg-7">
                         <h1 class="mb-4">SMS masivos y WhatsApp empresarial en Costa Rica</h1>
-                        {{-- Los países salen de config/tarifas.php (todos menos Costa Rica), en su propio <span> para la traducción --}}
+                        {{-- VERSIÓN ANTERIOR:
+                        <!-- Los países salen de config/tarifas.php (todos menos Costa Rica), en su propio <span> para la traducción -->
                         <p class="lead mb-4">Envía mensajes de texto (SMS) y WhatsApp a tus clientes desde el navegador o desde tu
                             sistema por API. Llegan a los celulares de kölbi, Claro y Liberty y a otros
                             <span>{{ count(config('tarifas.sms')) - 1 }}</span> países, con
                             capacidad para más de 100&nbsp;000 SMS por hora y soporte técnico 24/7 en Costa Rica.</p>
+--}}
+                        <p class="lead mb-4">Envía mensajes de texto (SMS) y WhatsApp a tus clientes desde el navegador o desde tu
+                            sistema por API. Llegan a los celulares de kölbi, Claro y Liberty en todo el país, con
+                            capacidad para más de 100&nbsp;000 SMS por hora y soporte técnico 24/7 en Costa Rica.</p>
                         <div class="d-flex flex-wrap gap-3">
-                            <a href="{{ route('contactanos') }}" class="btn btn-azul btn-lg rounded-pill fw-bold btn-hero btn-hero-primario">¡Lo quiero!</a>
-                            <a href="{{ route('tarifas') }}" class="btn btn-lg rounded-pill fw-bold btn-hero btn-hero-secundario">Ver tarifas</a>
+                            <a href="{{ route('contactanos') }}" class="btn btn-blanco btn-lg rounded-pill fw-bold btn-hero btn-hero-primario">¡Lo quiero!</a>
+                            <a href="{{ route('tarifas') }}" class="btn btn-hero-borde btn-lg rounded-pill fw-bold btn-hero">Ver tarifas</a>
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -94,7 +99,7 @@
                         </div>
                         <p class="banda-descripcion mb-4">Usa SMS y WhatsApp para enviar avisos, promociones y
                             recordatorios a tus clientes.</p>
-                        <a href="{{ route('tarifas') }}" class="btn btn-banda btn-lg rounded-pill fw-bold px-4">Ver tarifas</a>
+                        <a href="{{ route('tarifas') }}" class="btn btn-blanco btn-banda btn-lg rounded-pill fw-bold px-4">Ver tarifas</a>
                     </div>
                 </div>
             </div>
@@ -144,6 +149,19 @@
                     @endforeach
                 </div>
             @endif
+        </section>
+
+        <!-- ===== LLAMADO FINAL (el mismo de Beneficios) ===== -->
+        <section class="container pb-5">
+            <div class="feature-cta">
+                <h2 class="mb-3">Tus mensajes. Tus clientes. Tu empresa siempre conectada.</h2>
+                <p class="mb-4">SMS y WhatsApp empresarial para comunicar, automatizar y conectar tus sistemas con tus
+                    clientes.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{{ route('contactanos') }}" class="btn btn-blanco btn-lg rounded-pill px-4">Quiero más información</a>
+                    <a href="{{ route('tarifas') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Ver tarifas</a>
+                </div>
+            </div>
         </section>
         <!-- ===== MARCAS QUE ROTAN ===== -->
     </main>

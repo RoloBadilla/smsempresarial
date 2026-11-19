@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 Route::controller(SiteController::class)->group(function () {
     Route::get('/', 'home')->name('home');
     Route::get('/caracteristicas', 'caracteristicas')->name('caracteristicas');
+    Route::get('/beneficios-y-ventajas', 'beneficios')->name('beneficios');
     Route::get('/preguntas-frecuentes', 'faq')->name('faq');
     Route::get('/tarifas', 'tarifas')->name('tarifas');
     Route::get('/contactanos', 'contactanos')->name('contactanos');

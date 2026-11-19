@@ -9,12 +9,25 @@
 @section('content')
     <main id="contenido" class="main">
         <header class="contact-hero page-hero">
-            <div class="container">
-                <x-breadcrumbs current="Contáctanos" />
-                <span class="pill mb-3">Estamos para ayudarte</span>
-                <h1 class="mb-3">Hablemos de tu próximo mensaje.</h1>
-                <p class="mb-0">Cuéntanos qué necesitas comunicar. Te orientamos sobre SMS, WhatsApp Business, tarifas,
-                    SINPE Móvil e integración con tus sistemas, y te atendemos 24/7.</p>
+            <div class="container hero-con-visual">
+                <div>
+                    <x-breadcrumbs current="Contáctanos" />
+                    <span class="pill mb-3">Estamos para ayudarte</span>
+                    <h1 class="mb-3">Hablemos de tu próximo mensaje.</h1>
+                    <p class="mb-0">Cuéntanos qué necesitas comunicar. Te orientamos sobre SMS, WhatsApp Business, tarifas,
+                        SINPE Móvil e integración con tus sistemas, y te atendemos 24/7.</p>
+                </div>
+
+                {{-- Conversación de ejemplo con un asesor (decorativa, solo en computadora). --}}
+                <figure class="hero-tarjeta contacto-chat hero-visual-opcional" aria-hidden="true">
+                    <div class="contacto-chat-cabecera">
+                        <span class="contacto-chat-avatar">SMS</span>
+                        <span><strong>SMS Empresarial</strong><small>Soporte 24/7</small></span>
+                    </div>
+                    <p class="contacto-chat-burbuja contacto-chat-burbuja--cliente">Hola, quiero enviar recordatorios a mis clientes.</p>
+                    <p class="contacto-chat-burbuja contacto-chat-burbuja--asesor">¡Con gusto! Te ayudamos a escoger entre SMS y WhatsApp.</p>
+                    <span class="contacto-chat-escribiendo"><i></i><i></i><i></i></span>
+                </figure>
             </div>
         </header>
 

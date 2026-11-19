@@ -14,6 +14,7 @@
         $pageStyles = [
             'home' => 'resources/css/pages/home.css',
             'caracteristicas' => 'resources/css/pages/caracteristicas.css',
+            'beneficios' => 'resources/css/pages/beneficios.css',
             'faq' => 'resources/css/pages/faq.css',
             'contactanos' => 'resources/css/pages/contactanos.css',
             'tarifas' => 'resources/css/pages/tarifas.css',

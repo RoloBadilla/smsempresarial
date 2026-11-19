@@ -173,8 +173,7 @@
 .nosotros-cobertura-texto span:not(.nosotros-cobertura-icono) { color: color-mix(in srgb, var(--cf-blanco) 88%, var(--cf-azul)); font-size: var(--fs-base); }
 .nosotros-operadores { position: relative; z-index: 1; display: flex; flex-wrap: wrap; gap: .6rem; margin: 0; padding: 0; list-style: none; }
 .nosotros-operadores li { padding: .55rem 1.25rem; border-radius: 999px; background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 60%, var(--cf-negro)); font-family: var(--font-text); font-size: var(--fs-base); font-weight: var(--fw-bold); box-shadow: 0 6px 16px color-mix(in srgb, var(--cf-negro) 18%, transparent); }
-.nosotros-cobertura-btn { position: relative; z-index: 1; border: 1px solid color-mix(in srgb, var(--cf-blanco) 70%, transparent); color: var(--cf-blanco); font-weight: var(--fw-bold); }
-.nosotros-cobertura-btn:hover, .nosotros-cobertura-btn:focus-visible { background: var(--cf-blanco); color: var(--cf-azul); transform: translateY(-2px); }
+.nosotros-cobertura-btn { position: relative; z-index: 1; }
 
 /* ---------- 04 y 05: texto e imagen alternados ---------- */
 .nosotros-zigzag { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(2rem, 6vw, 5rem); align-items: center; }

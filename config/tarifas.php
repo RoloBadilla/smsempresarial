@@ -1,5 +1,52 @@
 <?php
 
+// Tarifas de SMS Empresarial (solo Costa Rica). La página /tarifas se arma sola con estos datos.
+
+return [
+    // Paquetes de SMS para Costa Rica, en dólares (+ IVA).
+    // Fuente: Documentos/20230905_Calculo-SMS-PlanesLiberty.xlsx, hoja "PRECIOS AL PUBLICO" (tipo de cambio ₡500).
+    // precio_sms: precio de cada SMS del paquete. El precio del paquete lo calcula App\Support\PaquetesSms (cantidad × precio_sms).
+    // adicional:  precio de cada SMS que se envía después de agotar el paquete.
+    'paquetes' => [
+        ['nombre' => 'SS0', 'cantidad' => 12000, 'precio_sms' => '0.00884', 'adicional' => '0.0124'],
+        ['nombre' => 'SS1', 'cantidad' => 25000, 'precio_sms' => '0.00848', 'adicional' => '0.0124'],
+        ['nombre' => 'SS2', 'cantidad' => 35870, 'precio_sms' => '0.00816', 'adicional' => '0.01204'],
+        ['nombre' => 'SS3', 'cantidad' => 62500, 'precio_sms' => '0.0078', 'adicional' => '0.01204'],
+        ['nombre' => 'SS4', 'cantidad' => 119048, 'precio_sms' => '0.00744', 'adicional' => '0.01168'],
+        ['nombre' => 'SS5', 'cantidad' => 250000, 'precio_sms' => '0.00708', 'adicional' => '0.01168'],
+        ['nombre' => 'SS6', 'cantidad' => 355263, 'precio_sms' => '0.00672', 'adicional' => '0.01132'],
+        ['nombre' => 'SS7', 'cantidad' => 500000, 'precio_sms' => '0.00636', 'adicional' => '0.01132'],
+        ['nombre' => 'SS8', 'cantidad' => 705882, 'precio_sms' => '0.006', 'adicional' => '0.01096'],
+        ['nombre' => 'SS9', 'cantidad' => 1000000, 'precio_sms' => '0.00568', 'adicional' => '0.01096'],
+        ['nombre' => 'SS10', 'cantidad' => 1000000, 'precio_sms' => '0.00532', 'adicional' => '0.0106'],
+    ],
+
+    // IVA de Costa Rica (%), para la calculadora de WhatsApp.
+    'iva' => 13,
+
+    // WhatsApp Business API: precio por mensaje en Costa Rica (US$ + IVA), según el tipo de plantilla de Meta.
+    // Fuente: Ficha Técnica (julio 2026). Meta cambia estos precios según el país y la fecha.
+    // El precio de WhatsApp Business Web y el del número exclusivo están al final de este archivo (los usa la
+    // calculadora de /tarifas); también aparecen escritos en los textos de pages/tarifas.blade.php,
+    // pages/faq.blade.php y config/servicios.php.
+    'whatsapp' => [
+        ['clave' => 'marketing', 'tipo' => 'Marketing (ofertas, promociones)', 'precio' => '0.13'],
+        ['clave' => 'utilidad', 'tipo' => 'Utilidad (pedidos, pagos, entregas)', 'precio' => '0.03'],
+        ['clave' => 'autenticacion', 'tipo' => 'Autenticación (códigos OTP)', 'precio' => '0.03'],
+        ['clave' => 'servicio', 'tipo' => 'Servicio (respuestas a consultas)', 'precio' => '0.01'],
+        ['clave' => 'recibido', 'tipo' => 'Mensaje recibido', 'precio' => '0.01'],
+    ],
+
+    // WhatsApp Business Web: precio por mensaje. Número exclusivo de WhatsApp: precio al mes. (US$ + IVA)
+    'whatsapp_web' => '0.01',
+    'numero_exclusivo' => '106',
+];
+
+/*
+VERSIÓN ANTERIOR (hasta noviembre 2026): SMS a Costa Rica y a otros países, con tabla de tarifas por destino. Se deja comentada por si hay que volver a ella.
+Para volver a ella: reemplazar todo lo de arriba por lo que sigue (sin la línea <?php).
+Ojo: Perú estaba en 0.0400, pero el sitio publicado dice 0.4000.
+
 // Tarifas de SMS por destino, en dólares por mensaje (+ IVA solo para clientes de Costa Rica).
 // Para cambiar una tarifa o agregar un país, se edita esta lista; la tabla de /tarifas se arma sola.
 //
@@ -39,3 +86,4 @@ return [
         ['tipo' => 'Mensaje recibido', 'precio' => '0.01'],
     ],
 ];
+*/

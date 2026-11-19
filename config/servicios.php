@@ -4,7 +4,8 @@
 // La clave es la URL: /envio-de-comunicados, /recordatorios-por-sms, etc. Todas usan pages/servicio.blade.php.
 // Para agregar una página, se copia un bloque y se agrega su traducción en public/lang/en.json.
 //
-// En las respuestas, :precio se reemplaza por la tarifa de Costa Rica de config/tarifas.php.
+// VERSIÓN ANTERIOR: En las respuestas, :precio se reemplaza por la tarifa de Costa Rica de config/tarifas.php.
+// En las respuestas, :precio se reemplaza por el precio por SMS más bajo de los paquetes (config/tarifas.php).
 // Los mensajes del celular son ejemplos ilustrativos.
 
 $enviar = [
@@ -16,7 +17,8 @@ $enviar = [
 
 $precio = [
     'pregunta' => '¿Cuánto cuesta cada mensaje?',
-    'respuesta' => 'Pagas por mensaje enviado, con saldo prepago. Un SMS a Costa Rica cuesta $:precio + IVA y un mensaje de WhatsApp, desde US$0.01. Los precios de otros países y de cada tipo de mensaje están en Tarifas.',
+    // VERSIÓN ANTERIOR: 'respuesta' => 'Pagas por mensaje enviado, con saldo prepago. Un SMS a Costa Rica cuesta $:precio + IVA y un mensaje de WhatsApp, desde US$0.01. Los precios de otros países y de cada tipo de mensaje están en Tarifas.',
+    'respuesta' => 'Los SMS se compran en paquetes y, entre más grande el paquete, menos cuesta cada mensaje: desde $:precio + IVA. Un mensaje de WhatsApp cuesta desde US$0.01. Los paquetes y el precio de cada tipo de mensaje están en Tarifas.',
 ];
 
 // Respuesta sobre WhatsApp (se repite en Campañas y en Dos vías). Igual que en pages/faq.blade.php.
@@ -26,12 +28,14 @@ return [
     'envio-de-comunicados' => [
         'icono' => 'comunicados',
         'titulo' => 'Enviar comunicados',
-        'resumen' => 'Avisa al instante a clientes, colaboradores o proveedores con un solo envío. Elige una lista de contactos o carga un Excel, y el mensaje llega a cada celular en Costa Rica o en otros países.',
+        // VERSIÓN ANTERIOR: 'resumen' => 'Avisa al instante a clientes, colaboradores o proveedores con un solo envío. Elige una lista de contactos o carga un Excel, y el mensaje llega a cada celular en Costa Rica o en otros países.',
+        'resumen' => 'Avisa al instante a clientes, colaboradores o proveedores con un solo envío. Elige una lista de contactos o carga un Excel, y el mensaje llega a cada celular en Costa Rica.',
         'seo_title' => 'Envío de comunicados por SMS y WhatsApp | SMS Empresarial',
         'seo_description' => 'Envía comunicados por SMS y WhatsApp a clientes, colaboradores o proveedores en Costa Rica: un solo envío, listas de contactos y carga desde Excel.',
         'h1' => 'Envía comunicados por SMS y WhatsApp',
         'intro' => 'Avisa al instante a clientes, colaboradores o proveedores con un solo envío, desde el navegador y sin instalar programas.',
-        'que_es' => 'Es la forma más directa de informar a un grupo de personas: escribes el mensaje una vez, eliges a quién va y SMS Empresarial lo entrega en cada celular. Funciona en Costa Rica y en otros países, por SMS o por WhatsApp Business.',
+        // VERSIÓN ANTERIOR: 'que_es' => 'Es la forma más directa de informar a un grupo de personas: escribes el mensaje una vez, eliges a quién va y SMS Empresarial lo entrega en cada celular. Funciona en Costa Rica y en otros países, por SMS o por WhatsApp Business.',
+        'que_es' => 'Es la forma más directa de informar a un grupo de personas: escribes el mensaje una vez, eliges a quién va y SMS Empresarial lo entrega en cada celular. Funciona en todo Costa Rica, por SMS o por WhatsApp Business.',
         'mensajes' => [
             ['canal' => 'SMS', 'texto' => 'Mañana la oficina abre a las 10:00 a. m.'],
             ['canal' => 'WhatsApp', 'texto' => 'Nuevo horario de atención a partir del lunes.'],
@@ -153,7 +157,8 @@ return [
         ],
         'faq' => [
             ['pregunta' => '¿Cómo conecto mi sistema?', 'respuesta' => 'Por API REST con GET o POST, o por Web Service SOAP. Si tu sistema ya envía correos, también puedes convertir esos correos en mensajes de texto.'],
-            ['pregunta' => '¿Puedo enviar alertas a otros países?', 'respuesta' => 'Sí. Puedes enviar SMS a Costa Rica y a otros países. Consulta los destinos y los precios en Tarifas.'],
+            // VERSIÓN ANTERIOR: ['pregunta' => '¿Puedo enviar alertas a otros países?', 'respuesta' => 'Sí. Puedes enviar SMS a Costa Rica y a otros países. Consulta los destinos y los precios en Tarifas.'],
+            ['pregunta' => '¿A qué celulares llegan las alertas?', 'respuesta' => 'A cualquier celular de Costa Rica, de kölbi, Claro o Liberty. Consulta los paquetes y los precios en Tarifas.'],
             $precio,
         ],
     ],
@@ -190,7 +195,8 @@ return [
         ],
         'faq' => [
             ['pregunta' => '¿Cómo se integra con mi aplicación?', 'respuesta' => 'Tu sistema se conecta por API REST, con GET o POST, o por Web Service SOAP, y envía cada código como un mensaje de texto.'],
-            ['pregunta' => '¿Puedo enviar códigos a usuarios de otros países?', 'respuesta' => 'Sí. Puedes enviar SMS a Costa Rica y a otros países. Consulta los destinos y los precios en Tarifas.'],
+            // VERSIÓN ANTERIOR: ['pregunta' => '¿Puedo enviar códigos a usuarios de otros países?', 'respuesta' => 'Sí. Puedes enviar SMS a Costa Rica y a otros países. Consulta los destinos y los precios en Tarifas.'],
+            ['pregunta' => '¿A qué celulares llegan los códigos?', 'respuesta' => 'A cualquier celular de Costa Rica, de kölbi, Claro o Liberty, por SMS o por WhatsApp. Consulta los paquetes y los precios en Tarifas.'],
             $precio,
         ],
     ],

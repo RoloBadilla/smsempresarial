@@ -8,7 +8,7 @@ beforeEach(function () {
 
 test('todas las páginas cargan', function (string $url) {
     $this->get($url)->assertOk();
-})->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
+})->with(['/', '/caracteristicas', '/beneficios-y-ventajas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
 
 test('las direcciones viejas con .html o .php redirigen de forma permanente', function (string $vieja, string $nueva) {
     $this->get($vieja)->assertStatus(301)->assertRedirect($nueva);
@@ -70,7 +70,7 @@ test('cada página tiene datos estructurados válidos con los datos de la empres
         ->and($empresa['sameAs'])->toBe(config('sitio.redes'))
         ->and($graph->firstWhere('@type', 'WebPage'))->not->toBeNull()
         ->and($html)->toContain('<meta property="og:image" content="'.rtrim(config('sitio.url'), '/').'/'.config('sitio.imagen_compartir').'">');
-})->with(['/', '/caracteristicas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
+})->with(['/', '/caracteristicas', '/beneficios-y-ventajas', '/preguntas-frecuentes', '/tarifas', '/contactanos', '/nosotros']);
 
 test('la imagen para compartir y el logo de los datos estructurados existen', function () {
     expect(public_path(config('sitio.imagen_compartir')))->toBeFile()
@@ -91,14 +91,20 @@ test('las preguntas frecuentes generan FAQPage con las mismas preguntas del acor
     }
 });
 
-test('las tarifas generan un Service con una oferta por destino', function () {
+test('las tarifas generan un Service con una oferta por paquete de SMS', function () {
     $html = $this->get('/tarifas')->assertOk()->getContent();
 
     preg_match('#<script type="application/ld\+json">(.*?)</script>#s', $html, $match);
     $servicio = collect(json_decode($match[1], true, flags: JSON_THROW_ON_ERROR)['@graph'])->firstWhere('@type', 'Service');
 
-    expect($servicio['offers'])->toHaveCount(count(config('tarifas.sms')))
-        ->and(collect($servicio['offers'])->pluck('price')->all())->toBe(array_column(config('tarifas.sms'), 'precio'));
+    $precios = array_map(
+        fn ($paquete) => number_format($paquete['cantidad'] * (float) $paquete['precio_sms'], 2, '.', ''),
+        config('tarifas.paquetes'),
+    );
+
+    expect($servicio['offers'])->toHaveCount(count(config('tarifas.paquetes')))
+        ->and(collect($servicio['offers'])->pluck('price')->all())->toBe($precios)
+        ->and($servicio['areaServed']['name'])->toBe('Costa Rica');
 });
 
 test('solo producción permite que Google indexe el sitio', function () {
@@ -108,15 +114,38 @@ test('solo producción permite que Google indexe el sitio', function () {
     $this->get('/')->assertSee('<meta name="robots" content="index,follow,max-image-preview:large">', false);
 });
 
-test('la tabla de tarifas muestra cada destino de la configuración con su bandera local', function () {
+test('las tarifas muestran cada paquete de SMS y la calculadora de WhatsApp con los precios de la configuración', function () {
     $response = $this->get('/tarifas')->assertOk();
 
-    foreach (config('tarifas.sms') as $tarifa) {
-        expect(public_path("images/banderas/{$tarifa['bandera']}.png"))->toBeFile();
-        $response->assertSee('$'.$tarifa['precio'])->assertSee($tarifa['pais']);
+    foreach (config('tarifas.paquetes') as $paquete) {
+        $response->assertSee(number_format($paquete['cantidad'], 0, '.', ','))
+            ->assertSee('$'.rtrim(rtrim($paquete['precio_sms'], '0'), '.'));
     }
 
-    $response->assertDontSee('flagcdn.com');
+    foreach (config('tarifas.whatsapp') as $mensaje) {
+        $response->assertSee('id="wa-'.$mensaje['clave'].'"', false)
+            ->assertSee('data-precio="'.$mensaje['precio'].'"', false);
+    }
+
+    $response->assertSee('data-iva="'.config('tarifas.iva').'"', false)
+        ->assertDontSee('id="rate-rows"', false);
+});
+
+test('los textos nuevos de tarifas tienen traducción al inglés', function () {
+    $diccionario = json_decode(file_get_contents(public_path('lang/en.json')), true, flags: JSON_THROW_ON_ERROR);
+
+    foreach (['Paquetes de SMS para Costa Rica', 'Calcula tu costo mensual', 'Total mensual estimado', 'Restablecer calculadora', '¿Qué mensaje vas a enviar?', '+ IVA ('.config('tarifas.iva').'%) $'] as $texto) {
+        expect($diccionario)->toHaveKey($texto);
+    }
+});
+
+test('el sitio solo ofrece envíos a Costa Rica', function (string $url) {
+    $this->get($url)->assertOk()->assertDontSee('otros países')->assertDontSee('destinos internacionales');
+})->with(['/', '/caracteristicas', '/beneficios-y-ventajas', '/preguntas-frecuentes', '/tarifas', '/beneficios-y-ventajas', '/nosotros', '/envio-de-comunicados', '/notificaciones-y-alertas', '/codigos-otp-por-sms']);
+
+test('las páginas de servicio usan el precio por SMS más bajo de los paquetes', function () {
+    $this->get('/envio-de-comunicados')->assertOk()
+        ->assertSee('desde $'.\App\Support\PaquetesSms::precioDesde().' + IVA', false);
 });
 
 test('el canonical apunta al dominio real, sin .html, aunque se abra en la copia de prueba', function () {
@@ -239,3 +268,29 @@ test('al entrar desde Nosotros la ruta de navegación incluye Nosotros', functio
 
     $this->get('/codigos-otp-por-sms')->assertDontSee('<a href="'.route('nosotros').'">Nosotros</a><span', false);
 });
+
+/*
+VERSIÓN ANTERIOR (hasta noviembre 2026): SMS a Costa Rica y a otros países, con tabla de tarifas por destino. Se deja comentada por si hay que volver a ella.
+Pruebas de la versión anterior de Tarifas.
+
+test('las tarifas generan un Service con una oferta por destino', function () {
+    $html = $this->get('/tarifas')->assertOk()->getContent();
+
+    preg_match('#<script type="application/ld\+json">(.*?)</script>#s', $html, $match);
+    $servicio = collect(json_decode($match[1], true, flags: JSON_THROW_ON_ERROR)['@graph'])->firstWhere('@type', 'Service');
+
+    expect($servicio['offers'])->toHaveCount(count(config('tarifas.sms')))
+        ->and(collect($servicio['offers'])->pluck('price')->all())->toBe(array_column(config('tarifas.sms'), 'precio'));
+});
+
+test('la tabla de tarifas muestra cada destino de la configuración con su bandera local', function () {
+    $response = $this->get('/tarifas')->assertOk();
+
+    foreach (config('tarifas.sms') as $tarifa) {
+        expect(public_path("images/banderas/{$tarifa['bandera']}.png"))->toBeFile();
+        $response->assertSee('$'.$tarifa['precio'])->assertSee($tarifa['pais']);
+    }
+
+    $response->assertDontSee('flagcdn.com');
+});
+*/

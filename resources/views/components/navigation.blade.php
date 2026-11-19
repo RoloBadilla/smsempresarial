@@ -25,6 +25,7 @@
             <ul class="navbar-nav ms-xl-4 gap-xl-3">
                 <li class="nav-item"><a class="nav-link {{ $page === 'home' ? 'active' : '' }}" href="{{ route('home') }}" @if($page === 'home') aria-current="page" @endif>Inicio</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'nosotros' ? 'active' : '' }}" href="{{ route('nosotros') }}" @if($page === 'nosotros') aria-current="page" @endif>Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link {{ $page === 'beneficios' ? 'active' : '' }}" href="{{ route('beneficios') }}" @if($page === 'beneficios') aria-current="page" @endif>Beneficios</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'caracteristicas' ? 'active' : '' }}" href="{{ route('caracteristicas') }}" @if($page === 'caracteristicas') aria-current="page" @endif>Características</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'faq' ? 'active' : '' }}" href="{{ route('faq') }}" @if($page === 'faq') aria-current="page" @endif>Preguntas frecuentes</a></li>
                 <li class="nav-item"><a class="nav-link {{ $page === 'tarifas' ? 'active' : '' }}" href="{{ route('tarifas') }}" @if($page === 'tarifas') aria-current="page" @endif>Tarifas</a></li>

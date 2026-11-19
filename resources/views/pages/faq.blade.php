@@ -2,16 +2,22 @@
     // Preguntas frecuentes: de esta lista salen el acordeón y los datos estructurados FAQPage
     // (lo que leen Google y los buscadores con IA). Para agregar una pregunta, se agrega aquí.
     // Si se cambia un texto, actualizar también su traducción en public/lang/en.json.
+    /* VERSIÓN ANTERIOR:
     $tarifas = collect(config('tarifas.sms'));
     $local = $tarifas->firstWhere('ruta', 'Local');
     $internacionales = $tarifas->where('ruta', 'Internacional');
     $desde = $internacionales->sortBy(fn ($tarifa) => (float) $tarifa['precio'])->first();
+*/
+    // Precios de los paquetes de SMS (config/tarifas.php).
+    $paquete = \App\Support\PaquetesSms::inicial();
+    $desde = \App\Support\PaquetesSms::precioDesde();
 
     $registro = e(config('services.plataforma.registro'));
 
     $preguntas = [
         [
             'pregunta' => '¿Qué es SMSEmpresarial.com?',
+            /* VERSIÓN ANTERIOR:
             'respuesta' => '<p>SMSEmpresarial.com es una plataforma de Cyberfuel para enviar mensajes de texto SMS y mensajes
                 de WhatsApp desde Internet a tus clientes en Costa Rica y otros países. Funciona desde el navegador o
                 conectada a tus sistemas por API.</p>
@@ -21,6 +27,16 @@
                 <a href="'.$registro.'">regístrate</a> e ingresa a tu cuenta.</p>
                 <p>SMSEmpresarial.com no brinda bases de datos de teléfonos. Cada cliente es responsable de contar con la
                 autorización de la persona que recibe el mensaje, según la legislación de cada país donde se hace el envío.</p>',
+*/
+            'respuesta' => '<p>SMSEmpresarial.com es una plataforma de Cyberfuel para enviar mensajes de texto SMS y mensajes
+                de WhatsApp desde Internet a tus clientes en Costa Rica. Funciona desde el navegador o
+                conectada a tus sistemas por API.</p>
+                <p>No necesitas invertir en equipo, software ni mantenimiento, y puedes hacer varios envíos al mismo
+                tiempo sin esperas largas.</p>
+                <p>Para usarla solo necesitas conexión a Internet: entra a <a href="'.route('home').'">smsempresarial.com</a>,
+                <a href="'.$registro.'">regístrate</a> e ingresa a tu cuenta.</p>
+                <p>SMSEmpresarial.com no brinda bases de datos de teléfonos. Cada cliente es responsable de contar con la
+                autorización de la persona que recibe el mensaje, según la legislación de Costa Rica.</p>',
         ],
         [
             'pregunta' => '¿Quién proporciona la base de datos de contactos?',
@@ -56,6 +72,7 @@
                 <p>Los precios de cada tipo de mensaje están en <a href="'.route('tarifas').'">Tarifas</a>.</p>',
         ],
         [
+            /* VERSIÓN ANTERIOR:
             'pregunta' => '¿En qué países funciona y cuánto cuesta?',
             'respuesta' => '<p>Puedes enviar SMS a Costa Rica y a <strong>'.$internacionales->count().'</strong> destinos
                 internacionales. Un SMS a Costa Rica cuesta <strong>$'.e($local['precio']).'</strong> + IVA; a otros
@@ -63,6 +80,14 @@
                 <p>Las tarifas están en dólares estadounidenses y el IVA se cobra solo a clientes de Costa Rica. Un
                 mensaje de WhatsApp cuesta desde US$0.01.</p>
                 <p>Consulta todos los países y precios en <a href="'.route('tarifas').'">Tarifas</a>.</p>',
+*/
+            'pregunta' => '¿A dónde llegan los mensajes y cuánto cuestan?',
+            'respuesta' => '<p>Los mensajes llegan a cualquier celular de Costa Rica, de kölbi, Claro y Liberty. Los SMS se
+                compran en paquetes: el más pequeño trae <strong>'.\App\Support\PaquetesSms::miles($paquete['cantidad']).'</strong>
+                SMS por <strong>US$'.\App\Support\PaquetesSms::dolares($paquete['precio']).'</strong> + IVA y, entre más
+                grande el paquete, menos cuesta cada SMS: desde <strong>$'.$desde.'</strong>.</p>
+                <p>Las tarifas están en dólares estadounidenses, más IVA. Un mensaje de WhatsApp cuesta desde US$0.01.</p>
+                <p>Consulta todos los paquetes y precios en <a href="'.route('tarifas').'">Tarifas</a>.</p>',
         ],
         [
             'pregunta' => '¿Cuánto dura el saldo adquirido?',
@@ -131,7 +156,7 @@
 @section('content')
     <main id="contenido">
         <header class="faq-hero page-hero">
-            <div class="container pagina-hero-inner py-lg-4">
+            <div class="container pagina-hero-inner">
                 <div class="faq-hero-grid">
                     <div class="faq-hero-copy">
                         <x-breadcrumbs current="Preguntas frecuentes" />
@@ -140,20 +165,32 @@
                         <p class="mb-4">Encuentra respuestas sobre el envío de SMS y WhatsApp, tus contactos, el saldo y
                             las funciones de la plataforma. Consulta c&oacute;mo usar la plataforma, revisar tarifas y
                             conocer las opciones de integraci&oacute;n.</p>
-                        <a class="btn btn-celeste rounded-pill px-4 py-3" href="#preguntas">Explorar preguntas <span
+                        <a class="btn btn-blanco rounded-pill px-4 py-3" href="#preguntas">Explorar preguntas <span
                                 aria-hidden="true">&#8595;</span></a>
                     </div>
                     <aside class="faq-hero-card" aria-label="Temas disponibles en preguntas frecuentes">
                         <div class="faq-card-label"><span class="faq-card-dot" aria-hidden="true"></span> Centro de ayuda
                             SMSEmpresarial</div>
-                        <div class="faq-card-art"><img class="faq-card-logo"
-                                src="{{ versioned_asset('images/logos/sms.svg') }}" alt="Logotipo de SMS Empresarial"
-                                width="205" height="205"></div>
+                        {{-- Accesos directos a tres preguntas de la lista: abren esa respuesta (resources/js/pages/faq.js).
+                             El número se busca por el texto de la pregunta, así no se desordena si cambia la lista. --}}
+                        @php
+                            $atajos = collect([
+                                ['SMS', '¿Cuál es el largo de un mensaje de texto SMS?'],
+                                ['WhatsApp', '¿Puedo enviar mensajes de WhatsApp?'],
+                                ['Cuenta y saldo', '¿Cuánto dura el saldo adquirido?'],
+                            ])->map(fn ($atajo) => [$atajo[0], $atajo[1], collect($preguntas)->search(fn ($p) => $p['pregunta'] === $atajo[1])])
+                              ->filter(fn ($atajo) => $atajo[2] !== false);
+                        @endphp
+                        <span class="faq-card-subtitulo">Preguntas destacadas</span>
+                        <ul class="faq-card-atajos">
+                            @foreach ($atajos as [$tema, $pregunta, $indice])
+                                <li><a href="#faq-heading-{{ $indice + 1 }}" data-faq-abrir="{{ $indice + 1 }}"><small>{{ $tema }}</small><span>{{ $pregunta }}</span></a></li>
+                            @endforeach
+                        </ul>
                         <div class="faq-card-summary">
                             <div class="faq-card-count"><strong>{{ count($preguntas) }}</strong><span>respuestas<br>frecuentes</span></div>
                             <span class="faq-card-hint">Encuentra aquí lo que necesitas</span>
                         </div>
-                        <div class="faq-card-topics"><span>SMS</span><span>WhatsApp</span><span>Cuenta y saldo</span></div>
                     </aside>
                 </div>
             </div>

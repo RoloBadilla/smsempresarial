@@ -64,10 +64,6 @@
 .hero-home .btn-hero-primario { box-shadow: 0 12px 32px var(--glow); }
 .hero-home .btn-hero-primario::after { content: "\2192"; display: inline-block; margin-left: .65rem; transition: transform var(--dur) var(--ease); }
 .hero-home .btn-hero-primario:hover::after { transform: translateX(4px); }
-:root[data-theme="light"] .hero-home .btn-hero-primario { background: var(--cf-blanco); color: var(--cf-azul); }
-:root[data-theme="light"] .hero-home .btn-hero-primario:hover { background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 55%, var(--cf-negro)); }
-.btn-hero-secundario { background: color-mix(in srgb, var(--cf-blanco) 8%, transparent); border: 1px solid color-mix(in srgb, var(--cf-blanco) 45%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); color: var(--cf-blanco); }
-.btn-hero-secundario:hover, .btn-hero-secundario:focus-visible { background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 55%, var(--cf-negro)); transform: translateY(-2px); }
 
 
 /* Celular */
@@ -187,7 +183,7 @@
 .banda-icono { display: grid; place-items: center; flex: 0 0 52px; width: 52px; height: 52px; border: 1px solid color-mix(in srgb, var(--cf-blanco) 30%, transparent); border-radius: 16px; background: color-mix(in srgb, var(--cf-blanco) 14%, transparent); color: var(--cf-blanco); }
 .banda-mensaje h2 { font-size: var(--fs-xl); line-height: 1.1; text-wrap: balance; }
 .banda-descripcion { max-width: 620px; color: color-mix(in srgb, var(--cf-blanco) 90%, var(--cf-azul)); font-size: var(--fs-base); }
-.btn-banda { max-width: 100%; white-space: normal; background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 55%, var(--cf-negro)); border: 1px solid transparent; }
+.btn-banda { max-width: 100%; white-space: normal; }
 
 /* Móvil: todo centrado y sin ícono (solo se muestra en tabletas y computadoras) */
 @media (max-width: 767.98px) {
@@ -204,7 +200,6 @@
 @media (max-width: 400px) {
   .btn-banda { width: 100%; padding-inline: 1rem !important; font-size: var(--fs-base); }
 }
-.btn-banda:hover, .btn-banda:focus-visible { background: var(--cf-blanco); color: var(--cf-azul); transform: translateY(-2px); box-shadow: 0 14px 30px color-mix(in srgb, var(--cf-negro) 30%, transparent); }
 
 /* ---------- Opiniones ---------- */
 .reviews { padding-block: var(--section-py); }
@@ -248,6 +243,8 @@
   .celular, .hero-visual:hover .celular { transform: none !important; }
 }
 
-/* Reseñas: título y nota dentro de la escala tipográfica. */
-.reviews-titulo { font-size: var(--fs-lg); }
-.reviews-score { font-size: var(--fs-xl); }
+/* Reseñas: título de sección y una nota grande, para que se vean como un dato importante. */
+.reviews-titulo { color: var(--heading); font-size: var(--fs-h2); line-height: 1.12; }
+.reviews-card { padding: 1.25rem 1.75rem !important; gap: 1.25rem !important; }
+.reviews-score { font-size: clamp(2.75rem, 2rem + 2.5vw, 3.5rem); }
+.reviews-card .reviews-stars { font-size: 1.25rem; }

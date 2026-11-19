@@ -307,10 +307,21 @@ html[lang="en"] .lang-bandera .bandera-us { display: block; }
 .theme-toggle[aria-pressed="true"] .icon-sun { display: block; }
 .theme-toggle[aria-pressed="true"] .icon-moon { display: none; }
 
-/* Pantallas de 1200 a 1399px: el menú se compacta para que las 6 opciones quepan en una línea */
+/* Pantallas de 1200 a 1399px: el menú se compacta para que las 7 opciones quepan en una línea */
+@media (min-width: 1200px) {
+  .navbar-nav { flex-wrap: nowrap; }
+  .site-nav .nav-link { white-space: nowrap; }
+}
 @media (min-width: 1200px) and (max-width: 1399.98px) {
-  .site-nav .navbar-nav { gap: .35rem !important; margin-left: 1rem !important; }
-  .site-nav .nav-link { font-size: var(--fs-xs); letter-spacing: .02em; }
+  .site-nav .navbar-nav { gap: 0 !important; margin-left: .5rem !important; }
+  .site-nav .nav-link { padding-inline: .4rem; font-size: .72rem; letter-spacing: .01em; }
+  .site-nav .nav-link::after { left: .4rem; right: .4rem; }
+  .logo img { --logo-ancho: 130px; }
+}
+/* Pantallas de 1400px o más: con 7 opciones la letra de 16px no cabe junto al logo y los botones */
+@media (min-width: 1400px) {
+  .site-nav .navbar-nav { gap: .5rem !important; }
+  .site-nav .nav-link { font-size: .85rem; letter-spacing: .03em; }
 }
 
 @media (max-width: 1199.98px) {
@@ -324,9 +335,10 @@ html[lang="en"] .lang-bandera .bandera-us { display: block; }
 .btn { font-family: var(--font-text); font-weight: var(--fw-bold); border-radius: 999px; transition: transform var(--dur) var(--ease), box-shadow var(--dur) ease, background-color var(--dur) ease, color var(--dur) ease, border-color var(--dur) ease; }
 .btn-azul, .btn-brand { background: var(--primary); color: var(--on-primary); border: 1px solid transparent; }
 .btn-azul:hover, .btn-brand:hover, .btn-azul:focus-visible, .btn-brand:focus-visible { background: var(--primary-hover); color: var(--on-primary); transform: translateY(-2px); box-shadow: 0 12px 30px var(--glow); }
-.btn-celeste { background: var(--cf-celeste); color: color-mix(in srgb, var(--cf-azul) 30%, var(--cf-negro)); border: 1px solid transparent; }
-.btn-celeste:hover, .btn-celeste:focus-visible { background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 30%, var(--cf-negro)); transform: translateY(-2px); box-shadow: 0 12px 30px color-mix(in srgb, var(--cf-celeste) 35%, transparent); }
-/* Botón con borde blanco sobre fondo azul (cabecera de servicios y llamados finales) */
+/* Sobre fondo azul (portadas y franjas): principal = .btn-blanco, secundario = .btn-hero-borde.
+   Sobre fondo claro (tarjetas, formularios): principal = .btn-brand. */
+.btn-blanco { background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 55%, var(--cf-negro)); border: 1px solid transparent; }
+.btn-blanco:hover, .btn-blanco:focus-visible { background: var(--cf-blanco); color: var(--cf-azul); transform: translateY(-2px); box-shadow: 0 14px 30px color-mix(in srgb, var(--cf-negro) 30%, transparent); }
 .btn-hero-borde { border: 1px solid color-mix(in srgb, var(--cf-blanco) 55%, transparent); color: var(--hero-text); font-weight: var(--fw-bold); }
 .btn-hero-borde:hover, .btn-hero-borde:focus-visible { border-color: var(--cf-blanco); background: color-mix(in srgb, var(--cf-blanco) 12%, transparent); color: var(--hero-text); transform: translateY(-2px); }
 .btn-brand > [aria-hidden="true"] { display: inline-block; transition: transform var(--dur) var(--ease); }
@@ -345,6 +357,35 @@ html[lang="en"] .lang-bandera .bandera-us { display: block; }
   background: var(--hero-bg);
 }
 .page-hero > .container { width: 100%; }
+/* Computadora: el texto de la portada arranca siempre a la misma altura (la ruta "Inicio › …" no salta
+   de una página a otra). El dibujo de la derecha sigue centrado. */
+@media (min-width: 992px) {
+  .page-hero { align-items: flex-start; }
+  .page-hero :is(.servicio-hero-grid, .beneficios-hero-grid, .caracteristicas-hero-grid, .faq-hero-grid, .hero-con-visual) > :first-child { align-self: start; }
+}
+/* Portada con dibujo a la derecha (Tarifas y Contáctenos) */
+.hero-con-visual { display: grid; gap: 2rem; align-items: center; }
+@media (min-width: 992px) {
+  .hero-con-visual { grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr); gap: clamp(2rem, 5vw, 4rem); }
+}
+@media (max-width: 991.98px) {
+  .hero-visual-opcional { display: none; }
+}
+/* Tarjeta clara sobre la portada azul (mismo estilo que la de Preguntas frecuentes) */
+.hero-tarjeta {
+  width: 100%;
+  max-width: 400px;
+  justify-self: end;
+  margin: 0;
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  color: var(--text);
+  box-shadow: 0 28px 80px color-mix(in srgb, var(--cf-negro) 35%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
 .page-hero::after {
   content: "";
   position: absolute;
@@ -425,6 +466,25 @@ main .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
   transition: transform var(--dur) var(--ease), background-color var(--dur) ease;
 }
 .icon-tile svg, .feature-icon svg, .tarjeta .icono svg, .contact-icon svg { width: 26px; height: 26px; }
+
+/* Llamado final sobre fondo azul (Inicio y Beneficios) */
+.feature-cta {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: var(--radius-lg);
+  background: var(--texture-noise), radial-gradient(60% 120% at 100% 0%, color-mix(in srgb, var(--cf-cian) 25%, transparent), transparent 60%), linear-gradient(135deg, color-mix(in srgb, var(--cf-azul) 62%, var(--cf-negro)), var(--cf-azul));
+  color: var(--cf-blanco);
+}
+.feature-cta::after { content: ""; position: absolute; right: -6rem; bottom: -10rem; width: 22rem; aspect-ratio: 1; border: 1px solid color-mix(in srgb, var(--cf-blanco) 20%, transparent); border-radius: 50%; box-shadow: 0 0 0 2.5rem color-mix(in srgb, var(--cf-blanco) 5%, transparent); pointer-events: none; }
+.feature-cta > * { position: relative; }
+.feature-cta h2 { max-width: 22ch; color: var(--cf-blanco); font-size: var(--fs-h2); }
+.feature-cta p { max-width: 650px; color: var(--cf-blanco); }
+@media (max-width: 767.98px) {
+  .feature-cta { padding: 1.5rem 1.25rem; }
+  .feature-cta h2 { font-size: clamp(1.45rem, 6.2vw, 1.75rem); }
+  .feature-cta .btn { width: 100%; }
+}
 
 /* ---------- 10. Marcas del grupo ---------- */
 .marcas { position: relative; overflow: hidden; width: 100%; background: var(--surface); border-block: 1px solid var(--border); }
@@ -562,8 +622,16 @@ main .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
   92% { transform: translateY(0); }
   95% { transform: translateY(-3px); }
 }
+/* Celular: más pequeño, encima del botón de WhatsApp */
 @media (max-width: 575.98px) {
-  .lo-quiero-flotante { right: 1rem; bottom: calc(1.25rem + 54px + .7rem + env(safe-area-inset-bottom)); padding: .7rem 1.2rem; font-size: var(--fs-sm); }
+  .lo-quiero-flotante {
+    right: 1rem;
+    bottom: calc(1.25rem + 54px + .5rem + env(safe-area-inset-bottom));
+    padding: .5rem .95rem;
+    font-size: .85rem;
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--cf-azul) 45%, transparent);
+  }
+  .lo-quiero-flotante::before { display: none; }
 }
 
 /* ---------- Estados vacíos (buscadores sin resultados) ---------- */

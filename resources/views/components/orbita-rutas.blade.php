@@ -1,3 +1,60 @@
+{{-- Rutas de envío a las siete provincias de Costa Rica. Si se cambia el número de rutas, ajustar los retrasos en caracteristicas.css. --}}
+<div class="orbita">
+  <svg class="orbita__mapa" viewBox="-30 -10 660 620" role="img" aria-label="Mapa de envíos a las siete provincias de Costa Rica" focusable="false">
+    <circle class="orbita__anillo" cx="300" cy="300" r="205"/>
+    <circle class="orbita__anillo orbita__anillo--giro" cx="300" cy="300" r="120"/>
+    <g class="ruta">
+      <line class="ruta__linea" x1="300" y1="300" x2="300.0" y2="125.0"/>
+      <line class="ruta__pulso" x1="300" y1="300" x2="300.0" y2="125.0" pathLength="100"/>
+      <circle class="ruta__nodo" cx="300.0" cy="125.0" r="6"/>
+      <text class="ruta__codigo" x="300.0" y="88.0" text-anchor="middle">Guanacaste</text>
+    </g>
+    <g class="ruta">
+      <line class="ruta__linea" x1="300" y1="300" x2="436.8" y2="190.9"/>
+      <line class="ruta__pulso" x1="300" y1="300" x2="436.8" y2="190.9" pathLength="100"/>
+      <circle class="ruta__nodo" cx="436.8" cy="190.9" r="6"/>
+      <text class="ruta__codigo" x="464.2" y="175.1" text-anchor="start">Alajuela</text>
+    </g>
+    <g class="ruta">
+      <line class="ruta__linea" x1="300" y1="300" x2="470.6" y2="338.9"/>
+      <line class="ruta__pulso" x1="300" y1="300" x2="470.6" y2="338.9" pathLength="100"/>
+      <circle class="ruta__nodo" cx="470.6" cy="338.9" r="6"/>
+      <text class="ruta__codigo" x="504.7" y="352.7" text-anchor="start">Heredia</text>
+    </g>
+    <g class="ruta">
+      <line class="ruta__linea" x1="300" y1="300" x2="375.9" y2="457.7"/>
+      <line class="ruta__pulso" x1="300" y1="300" x2="375.9" y2="457.7" pathLength="100"/>
+      <circle class="ruta__nodo" cx="375.9" cy="457.7" r="6"/>
+      <text class="ruta__codigo" x="391.1" y="509.2" text-anchor="start">Cartago</text>
+    </g>
+    <g class="ruta">
+      <line class="ruta__linea" x1="300" y1="300" x2="224.1" y2="457.7"/>
+      <line class="ruta__pulso" x1="300" y1="300" x2="224.1" y2="457.7" pathLength="100"/>
+      <circle class="ruta__nodo" cx="224.1" cy="457.7" r="6"/>
+      <text class="ruta__codigo" x="208.9" y="509.2" text-anchor="end">Puntarenas</text>
+    </g>
+    <g class="ruta">
+      <line class="ruta__linea" x1="300" y1="300" x2="129.4" y2="338.9"/>
+      <line class="ruta__pulso" x1="300" y1="300" x2="129.4" y2="338.9" pathLength="100"/>
+      <circle class="ruta__nodo" cx="129.4" cy="338.9" r="6"/>
+      <text class="ruta__codigo" x="95.3" y="352.7" text-anchor="end">Limón</text>
+    </g>
+    <g class="ruta">
+      <line class="ruta__linea" x1="300" y1="300" x2="163.2" y2="190.9"/>
+      <line class="ruta__pulso" x1="300" y1="300" x2="163.2" y2="190.9" pathLength="100"/>
+      <circle class="ruta__nodo" cx="163.2" cy="190.9" r="6"/>
+      <text class="ruta__codigo" x="135.8" y="175.1" text-anchor="end">San José</text>
+    </g>
+    <circle class="orbita__centro-halo" cx="300" cy="300" r="46"/>
+    <circle class="orbita__centro" cx="300" cy="300" r="34"/>
+    <text class="orbita__centro-texto" x="300" y="307" text-anchor="middle">SMS</text>
+  </svg>
+</div>
+
+{{--
+VERSIÓN ANTERIOR (hasta noviembre 2026): SMS a Costa Rica y a otros países, con tabla de tarifas por destino. Se deja comentada por si hay que volver a ella.
+Para volver a ella: reemplazar todo lo de arriba por lo que sigue y cambiar los <!-- --> por comentarios de Blade.
+
 <div class="orbita">
   <svg class="orbita__mapa" viewBox="-30 -10 660 620" role="img" aria-label="Mapa de rutas de envío por país" focusable="false">
     <circle class="orbita__anillo" cx="300" cy="300" r="205"/>
@@ -109,3 +166,4 @@
     <text class="orbita__centro-texto" x="300" y="307" text-anchor="middle">SMS</text>
   </svg>
 </div>
+--}}

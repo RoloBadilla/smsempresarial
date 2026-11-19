@@ -37,7 +37,7 @@
                         <p class="mb-4">Somos SMS Empresarial, un servicio de Cyberfuel. Conectamos a las empresas con sus
                             clientes por SMS y WhatsApp, con tecnología y soporte de aquí.</p>
                         <div class="d-flex flex-wrap gap-3">
-                            <a href="{{ route('contactanos') }}" class="btn btn-celeste btn-lg rounded-pill px-4">Hablar con un asesor</a>
+                            <a href="{{ route('contactanos') }}" class="btn btn-blanco btn-lg rounded-pill px-4">Hablar con un asesor</a>
                             <a href="{{ config('services.plataforma.registro') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Abrir una cuenta</a>
                         </div>
                     </div>
@@ -121,7 +121,8 @@
                         <span class="nosotros-cobertura-icono"><x-icono nombre="operador" size="30" /></span>
                         <div>
                             <strong>Tus mensajes llegan a todo Costa Rica</strong>
-                            <span>A los clientes de los tres operadores del país, y también a otros países.</span>
+                            {{-- VERSIÓN ANTERIOR: <span>A los clientes de los tres operadores del país, y también a otros países.</span> --}}
+                            <span>A los clientes de los tres operadores del país, en las siete provincias.</span>
                         </div>
                     </div>
                     <ul class="nosotros-operadores">
@@ -129,7 +130,7 @@
                         <li>Claro</li>
                         <li>Liberty</li>
                     </ul>
-                    <a class="btn btn-lg rounded-pill nosotros-cobertura-btn" href="{{ route('tarifas') }}">Ver tarifas</a>
+                    <a class="btn btn-hero-borde btn-lg rounded-pill nosotros-cobertura-btn" href="{{ route('tarifas') }}">Ver tarifas</a>
                 </div>
             </div>
         </section>
