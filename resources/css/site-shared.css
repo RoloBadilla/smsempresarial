@@ -580,10 +580,8 @@ main .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
   text-shadow: 0 1px 2px color-mix(in srgb, var(--cf-negro) 25%, transparent);
   box-shadow: 0 12px 30px color-mix(in srgb, var(--cf-azul) 50%, transparent), inset 0 1px 0 color-mix(in srgb, var(--cf-blanco) 35%, transparent);
   animation: lo-quiero-salto 6s var(--ease) 2s infinite;
-  transition: background-position .5s var(--ease), box-shadow var(--dur) ease, transform var(--dur) var(--ease), opacity var(--dur) ease, visibility var(--dur) ease;
+  transition: background-position .5s var(--ease), box-shadow var(--dur) ease, transform var(--dur) var(--ease);
 }
-/* Escondido mientras se ve la portada o el pie de página (lo controla js/modules/lo-quiero.js) */
-.lo-quiero-flotante.is-oculto { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(1rem); animation: none; }
 /* Pulso que sale del botón, como una señal enviándose */
 .lo-quiero-flotante::before {
   content: "";
@@ -624,9 +622,16 @@ main .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
   92% { transform: translateY(0); }
   95% { transform: translateY(-3px); }
 }
-/* Celular y tableta: solo queda el botón de WhatsApp, para no tapar el contenido */
-@media (max-width: 767.98px) {
-  .lo-quiero-flotante { display: none; }
+/* Celular: más pequeño, encima del botón de WhatsApp */
+@media (max-width: 575.98px) {
+  .lo-quiero-flotante {
+    right: 1rem;
+    bottom: calc(1.25rem + 54px + .5rem + env(safe-area-inset-bottom));
+    padding: .5rem .95rem;
+    font-size: .85rem;
+    box-shadow: 0 8px 20px color-mix(in srgb, var(--cf-azul) 45%, transparent);
+  }
+  .lo-quiero-flotante::before { display: none; }
 }
 
 /* ---------- Estados vacíos (buscadores sin resultados) ---------- */

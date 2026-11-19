@@ -187,12 +187,9 @@
                             {{-- Calculadora (como la de Twilio): el total se calcula en resources/js/pages/tarifas.js
                                  con los precios de data-precio, que salen de config/tarifas.php --}}
                             <form class="wa-calc" id="wa-calc" aria-labelledby="wa-calc-title" data-iva="{{ $iva }}" novalidate>
-                                <h3 class="wa-calc-titulo" id="wa-calc-title">Calcula tu costo mensual</h3>
-
-                                <div class="wa-calc-pais">
-                                    <span class="wa-calc-etiqueta">País</span>
-                                    <span class="wa-calc-pais-valor"><img src="{{ versioned_asset('images/banderas/cr.png') }}" alt="" width="20" height="15">Costa Rica (+506)</span>
-                                </div>
+                                {{-- El país va en el título (no es un campo: la calculadora solo tiene precios de Costa Rica) --}}
+                                <h3 class="wa-calc-titulo" id="wa-calc-title"><span>Calcula tu costo mensual en Costa Rica</span><img src="{{ versioned_asset('images/banderas/cr.png') }}" alt="" width="22" height="16"></h3>
+                                <p class="wa-calc-ayuda wa-calc-ayuda-pais">Los precios de Meta cambian según el país del número.</p>
 
                                 <fieldset class="wa-calc-modo">
                                     <legend class="wa-calc-etiqueta">Cómo vas a usar WhatsApp</legend>
