@@ -245,7 +245,7 @@
                 <p class="mb-4">Explora cómo combinar SMS, WhatsApp y automatización para mantener informados a tus
                     clientes.</p>
                 <div class="d-flex flex-wrap gap-3">
-                    <a href="{{ config('services.plataforma.registro') }}" class="btn btn-celeste btn-lg rounded-pill px-4">Crear mi cuenta</a>
+                    <a href="{{ config('services.plataforma.registro') }}" class="btn btn-blanco btn-lg rounded-pill px-4">Crear mi cuenta</a>
                     <a href="{{ route('contactanos') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Hablar con un asesor</a>
                 </div>
             </div>

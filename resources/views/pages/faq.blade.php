@@ -165,7 +165,7 @@
                         <p class="mb-4">Encuentra respuestas sobre el envío de SMS y WhatsApp, tus contactos, el saldo y
                             las funciones de la plataforma. Consulta c&oacute;mo usar la plataforma, revisar tarifas y
                             conocer las opciones de integraci&oacute;n.</p>
-                        <a class="btn btn-celeste rounded-pill px-4 py-3" href="#preguntas">Explorar preguntas <span
+                        <a class="btn btn-blanco rounded-pill px-4 py-3" href="#preguntas">Explorar preguntas <span
                                 aria-hidden="true">&#8595;</span></a>
                     </div>
                     <aside class="faq-hero-card" aria-label="Temas disponibles en preguntas frecuentes">

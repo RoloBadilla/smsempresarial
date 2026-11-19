@@ -110,7 +110,7 @@
                             @foreach ($paquetes as $paquete)
                                 @php $ahorro = (int) round((1 - (float) $paquete['precio_sms'] / $precioBase) * 100); @endphp
                                 <tr>
-                                    <th scope="row" class="pt-paquete"><strong>{{ $miles($paquete['cantidad']) }} <span>SMS</span></strong><span class="pt-codigo">{{ $paquete['nombre'] }}</span></th>
+                                    <th scope="row" class="pt-paquete"><strong>{{ $miles($paquete['cantidad']) }} <span>SMS</span></strong></th>
                                     <td class="pt-num pt-precio">US${{ $dolares($paquete['precio']) }} <span class="paquete-iva">+ IVA</span></td>
                                     <td class="pt-num pt-dato"><span class="pt-etiqueta">Precio por SMS</span> <span>${{ $limpio($paquete['precio_sms']) }}@if ($ahorro > 0) <span class="paquete-ahorro">-{{ $ahorro }}%</span>@else <span class="paquete-ahorro pt-sin-ahorro" aria-hidden="true"></span>@endif</span></td>
                                     <td class="pt-num pt-dato"><span class="pt-etiqueta">SMS adicional</span> <span>${{ $limpio($paquete['adicional']) }}</span></td>

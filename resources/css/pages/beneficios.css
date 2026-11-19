@@ -236,7 +236,8 @@
 .dato-destacado { display: grid; justify-items: start; gap: .5rem; padding: 1.75rem; border-top: 4px solid var(--accent); }
 .dato-etiqueta { color: var(--accent); font-size: var(--fs-kicker); font-weight: var(--fw-bold); letter-spacing: .12em; text-transform: uppercase; }
 .dato-cifra { color: var(--heading); font-size: clamp(2.25rem, 1.8rem + 1.6vw, 2.75rem); line-height: 1.05; }
-.dato-cifra small { color: var(--text-muted); font-size: 1rem; font-weight: var(--fw-regular); }
+/* "+ IVA" va en su propia línea, debajo del precio: junto a él no cabe en la tarjeta. */
+.dato-cifra small { display: block; margin-top: .3rem; color: var(--text-muted); font-size: 1rem; font-weight: var(--fw-regular); line-height: 1.2; }
 .dato-detalle { padding: .2rem .7rem; border-radius: 999px; background: var(--icon-tile); color: var(--icon-color); font-size: .85rem; font-weight: var(--fw-bold); }
 .dato-destacado p { margin: .25rem 0 .75rem; color: var(--text-muted); line-height: 1.65; }
 
@@ -413,8 +414,6 @@
 .feature-cta > * { position: relative; }
 .feature-cta h2 { max-width: 22ch; color: var(--cf-blanco); font-size: var(--fs-h2); }
 .feature-cta p { max-width: 650px; color: var(--cf-blanco); }
-.btn-cta-secundario { border: 1px solid color-mix(in srgb, var(--cf-blanco) 55%, transparent); background: transparent; color: var(--cf-blanco); }
-.btn-cta-secundario:hover, .btn-cta-secundario:focus-visible { border-color: var(--cf-blanco); background: color-mix(in srgb, var(--cf-blanco) 12%, transparent); color: var(--cf-blanco); transform: translateY(-2px); }
 
 /* ---------- Móvil: más limpio y más corto ---------- */
 @media (max-width: 767.98px) {

@@ -38,8 +38,8 @@
                             sistema por API. Llegan a los celulares de kölbi, Claro y Liberty en todo el país, con
                             capacidad para más de 100&nbsp;000 SMS por hora y soporte técnico 24/7 en Costa Rica.</p>
                         <div class="d-flex flex-wrap gap-3">
-                            <a href="{{ route('contactanos') }}" class="btn btn-azul btn-lg rounded-pill fw-bold btn-hero btn-hero-primario">¡Lo quiero!</a>
-                            <a href="{{ route('tarifas') }}" class="btn btn-lg rounded-pill fw-bold btn-hero btn-hero-secundario">Ver tarifas</a>
+                            <a href="{{ route('contactanos') }}" class="btn btn-blanco btn-lg rounded-pill fw-bold btn-hero btn-hero-primario">¡Lo quiero!</a>
+                            <a href="{{ route('tarifas') }}" class="btn btn-hero-borde btn-lg rounded-pill fw-bold btn-hero">Ver tarifas</a>
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -99,7 +99,7 @@
                         </div>
                         <p class="banda-descripcion mb-4">Usa SMS y WhatsApp para enviar avisos, promociones y
                             recordatorios a tus clientes.</p>
-                        <a href="{{ route('tarifas') }}" class="btn btn-banda btn-lg rounded-pill fw-bold px-4">Ver tarifas</a>
+                        <a href="{{ route('tarifas') }}" class="btn btn-blanco btn-banda btn-lg rounded-pill fw-bold px-4">Ver tarifas</a>
                     </div>
                 </div>
             </div>

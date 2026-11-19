@@ -50,7 +50,7 @@
 
 /* En celular no se muestra "Explorar preguntas": las preguntas están justo debajo */
 @media (max-width: 575.98px) {
-  .faq-hero-copy .btn-celeste { display: none; }
+  .faq-hero-copy .btn-blanco { display: none; }
 }
 .faq-card-art {
   position: relative;

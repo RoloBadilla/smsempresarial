@@ -335,9 +335,10 @@ html[lang="en"] .lang-bandera .bandera-us { display: block; }
 .btn { font-family: var(--font-text); font-weight: var(--fw-bold); border-radius: 999px; transition: transform var(--dur) var(--ease), box-shadow var(--dur) ease, background-color var(--dur) ease, color var(--dur) ease, border-color var(--dur) ease; }
 .btn-azul, .btn-brand { background: var(--primary); color: var(--on-primary); border: 1px solid transparent; }
 .btn-azul:hover, .btn-brand:hover, .btn-azul:focus-visible, .btn-brand:focus-visible { background: var(--primary-hover); color: var(--on-primary); transform: translateY(-2px); box-shadow: 0 12px 30px var(--glow); }
-.btn-celeste { background: var(--cf-celeste); color: color-mix(in srgb, var(--cf-azul) 30%, var(--cf-negro)); border: 1px solid transparent; }
-.btn-celeste:hover, .btn-celeste:focus-visible { background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 30%, var(--cf-negro)); transform: translateY(-2px); box-shadow: 0 12px 30px color-mix(in srgb, var(--cf-celeste) 35%, transparent); }
-/* Botón con borde blanco sobre fondo azul (cabecera de servicios y llamados finales) */
+/* Sobre fondo azul (portadas y franjas): principal = .btn-blanco, secundario = .btn-hero-borde.
+   Sobre fondo claro (tarjetas, formularios): principal = .btn-brand. */
+.btn-blanco { background: var(--cf-blanco); color: color-mix(in srgb, var(--cf-azul) 55%, var(--cf-negro)); border: 1px solid transparent; }
+.btn-blanco:hover, .btn-blanco:focus-visible { background: var(--cf-blanco); color: var(--cf-azul); transform: translateY(-2px); box-shadow: 0 14px 30px color-mix(in srgb, var(--cf-negro) 30%, transparent); }
 .btn-hero-borde { border: 1px solid color-mix(in srgb, var(--cf-blanco) 55%, transparent); color: var(--hero-text); font-weight: var(--fw-bold); }
 .btn-hero-borde:hover, .btn-hero-borde:focus-visible { border-color: var(--cf-blanco); background: color-mix(in srgb, var(--cf-blanco) 12%, transparent); color: var(--hero-text); transform: translateY(-2px); }
 .btn-brand > [aria-hidden="true"] { display: inline-block; transition: transform var(--dur) var(--ease); }
@@ -531,8 +532,10 @@ main .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
   text-shadow: 0 1px 2px color-mix(in srgb, var(--cf-negro) 25%, transparent);
   box-shadow: 0 12px 30px color-mix(in srgb, var(--cf-azul) 50%, transparent), inset 0 1px 0 color-mix(in srgb, var(--cf-blanco) 35%, transparent);
   animation: lo-quiero-salto 6s var(--ease) 2s infinite;
-  transition: background-position .5s var(--ease), box-shadow var(--dur) ease, transform var(--dur) var(--ease);
+  transition: background-position .5s var(--ease), box-shadow var(--dur) ease, transform var(--dur) var(--ease), opacity var(--dur) ease, visibility var(--dur) ease;
 }
+/* Escondido mientras se ve la portada o el pie de página (lo controla js/modules/lo-quiero.js) */
+.lo-quiero-flotante.is-oculto { opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(1rem); animation: none; }
 /* Pulso que sale del botón, como una señal enviándose */
 .lo-quiero-flotante::before {
   content: "";

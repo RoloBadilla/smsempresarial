@@ -46,7 +46,7 @@
                         <h1 class="mb-3">{{ $servicio['h1'] }}</h1>
                         <p class="mb-4">{{ $servicio['intro'] }}</p>
                         <div class="d-flex flex-wrap gap-3">
-                            <a href="{{ config('services.plataforma.registro') }}" class="btn btn-celeste btn-lg rounded-pill px-4">Abrir una cuenta</a>
+                            <a href="{{ config('services.plataforma.registro') }}" class="btn btn-blanco btn-lg rounded-pill px-4">Abrir una cuenta</a>
                             <a href="{{ route('contactanos') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Hablar con un asesor</a>
                         </div>
                     </div>
@@ -157,7 +157,7 @@
                 <p class="mb-4">Regístrate, haz una recarga inicial de US$30 y, cuando se apruebe el pago, ya puedes enviar tu
                     primer mensaje.</p>
                 <div class="d-flex flex-wrap gap-3">
-                    <a href="{{ config('services.plataforma.registro') }}" class="btn btn-celeste btn-lg rounded-pill px-4">Abrir una cuenta</a>
+                    <a href="{{ config('services.plataforma.registro') }}" class="btn btn-blanco btn-lg rounded-pill px-4">Abrir una cuenta</a>
                     <a href="{{ route('tarifas') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Ver tarifas</a>
                 </div>
             </div>
