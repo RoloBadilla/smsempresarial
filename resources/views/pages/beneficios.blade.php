@@ -172,7 +172,8 @@
             </ul>
         </section>
 
-        {{-- 2. Pequeñas empresas: lista numerada, dato destacado y sectores --}}
+        {{-- 2. Pequeñas empresas: lista numerada, dato destacado y sectores (en filas, como los de la sección 3
+             y los de desarrolladores) --}}
         <section class="feature-band py-5" id="pequenas-empresas">
             <div class="container">
                 <div class="pymes-grid">
@@ -202,16 +203,16 @@
                     </aside>
                 </div>
 
-                <h3 class="beneficios-subtitulo mt-5">Sectores con alto potencial</h3>
-                <div class="sectores-columnas">
+                <h3 class="beneficios-subtitulo mt-5">Sectores para pequeñas empresas</h3>
+                <ul class="filas filas--dos">
                     @foreach ($sectoresPymes as [$icono, $sector, $texto])
-                        <div class="sector-columna">
-                            <span class="sector-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{!! $iconos[$icono] !!}</svg></span>
+                        <li>
+                            <span class="fila-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{!! $iconos[$icono] !!}</svg></span>
                             <h4>{{ $sector }}</h4>
                             <p>{{ $texto }}</p>
-                        </div>
+                        </li>
                     @endforeach
-                </div>
+                </ul>
             </div>
         </section>
 
@@ -235,16 +236,16 @@
                 @endforeach
             </ol>
 
-            <h3 class="beneficios-subtitulo mt-5">Sectores con alto potencial</h3>
-            <div class="sectores-columnas">
+            <h3 class="beneficios-subtitulo mt-5">Sectores para medianas y grandes empresas</h3>
+            <ul class="filas filas--dos">
                 @foreach ($sectoresEmpresas as [$icono, $sector, $texto])
-                    <div class="sector-columna">
-                        <span class="sector-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{!! $iconos[$icono] !!}</svg></span>
+                    <li>
+                        <span class="fila-icono" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">{!! $iconos[$icono] !!}</svg></span>
                         <h4>{{ $sector }}</h4>
                         <p>{{ $texto }}</p>
-                    </div>
+                    </li>
                 @endforeach
-            </div>
+            </ul>
         </section>
 
         {{-- 4. Comparación con otros medios: banda oscura con tabla comparativa (en celular, una ficha por medio) --}}

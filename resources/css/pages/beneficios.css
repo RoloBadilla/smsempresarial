@@ -1,5 +1,6 @@
 /* Beneficios y ventajas. Cabecera, títulos, paneles y botones vienen de site-shared.css.
-   Cada sección usa un formato distinto (lista, numeración, tarjetas, banda, filas) para que la página no sea monótona. */
+   Formatos de la página (pocos, para que se vea como una sola): cuadrícula de generales, filas con divisores
+   (pequeñas empresas, sectores y desarrolladores), tarjetas (medianas y grandes) y la banda oscura de comparación. */
 
 .pagina-hero::before {
   content: "";
@@ -258,8 +259,12 @@
 .feature-card h3 { margin: .15rem 0 .55rem; color: var(--heading); font-size: var(--fs-h3); }
 .feature-card p { margin: 0; color: var(--text-muted); font-size: .97rem; line-height: 1.7; }
 
-.beneficios-lista { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; counter-reset: beneficio; }
-.beneficio-item { counter-increment: beneficio; display: block; padding-left: 4.25rem; }
+/* Son 6 tarjetas: 2 o 3 columnas las reparten sin dejar huecos */
+.beneficios-lista { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 0; padding: 0; list-style: none; counter-reset: beneficio; }
+@media (min-width: 576px) { .beneficios-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 992px) { .beneficios-lista { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* En columna: el "Ver más" baja al final, así todas las tarjetas de una fila terminan parejas */
+.beneficio-item { counter-increment: beneficio; display: flex; flex-direction: column; align-items: flex-start; gap: 0; padding-left: 4.25rem; }
 .beneficio-item::after {
   content: counter(beneficio, decimal-leading-zero);
   position: absolute;
@@ -279,17 +284,10 @@
 .beneficio-item h3 { margin-top: 0; margin-bottom: .3rem; }
 .beneficio-item p { font-size: .93rem; line-height: 1.6; }
 /* Enlace "Ver más" hacia la página del servicio relacionado */
-.beneficio-enlace { display: inline-block; margin-top: .6rem; color: var(--accent); font-size: .88rem; font-weight: var(--fw-bold); text-decoration: none; }
+.beneficio-enlace { display: inline-block; margin-top: auto; padding-top: .6rem; color: var(--accent); font-size: .88rem; font-weight: var(--fw-bold); text-decoration: none; }
 .beneficio-enlace span[aria-hidden] { display: inline-block; transition: transform var(--dur) var(--ease); }
 .beneficio-enlace:hover span[aria-hidden], .beneficio-enlace:focus-visible span[aria-hidden] { transform: translateX(4px); }
 
-/* Sectores en columnas con borde de acento arriba */
-.sectores-columnas { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); gap: 2rem; }
-.sector-columna { padding-top: 1.25rem; border-top: 3px solid var(--accent); }
-.sector-icono { display: inline-grid; color: var(--icon-color); }
-.sector-icono svg { width: 32px; height: 32px; }
-.sector-columna h4 { margin: .6rem 0 .5rem; color: var(--heading); font-size: var(--fs-h3); }
-.sector-columna p { margin: 0; color: var(--text-muted); font-size: .94rem; line-height: 1.6; }
 
 /* ---------- 4. Comparación: banda oscura (en los dos temas, como la cabecera) con filas tipo tabla ---------- */
 .banda-oscura {
@@ -379,27 +377,32 @@
   .medio svg { width: 32px; height: 32px; padding: 7px; }
 }
 
-/* ---------- 5. Desarrolladores: filas con divisores ---------- */
+/* ---------- 5. Desarrolladores ---------- */
 .especializadas-grid { display: grid; gap: 2rem; }
 @media (min-width: 992px) {
   .especializadas-grid { grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 3rem; align-items: center; }
   .especializadas-grid .dato-destacado { position: static; }
 }
-.filas { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--border); }
+
+/* ---------- Filas con divisores: sectores (pequeñas y grandes) y desarrolladores ----------
+   Ícono a la izquierda; título y texto uno debajo del otro. .filas--dos las reparte en dos columnas. */
+.filas { display: grid; column-gap: 2.5rem; margin: 0; padding: 0; list-style: none; }
+@media (min-width: 768px) { .filas--dos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .filas li {
   display: grid;
-  grid-template-columns: auto minmax(160px, 1fr) 2fr;
-  gap: .25rem 1.25rem;
-  align-items: center;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: .2rem 1rem;
+  align-items: start;
   padding: 1rem .5rem;
   border-bottom: 1px solid var(--border);
-  transition: background-color var(--dur) ease, padding var(--dur) var(--ease);
+  transition: background-color var(--dur) ease;
 }
-.filas li:hover { background: var(--surface); padding-left: 1rem; }
-.fila-icono { display: inline-grid; color: var(--icon-color); }
-.fila-icono svg { width: 26px; height: 26px; }
-.filas h3 { margin: 0; color: var(--heading); font-size: 1rem; }
-.filas p { margin: 0; color: var(--text-muted); font-size: .93rem; line-height: 1.55; }
+.filas li:hover { background: var(--surface); }
+.feature-band .filas li:hover { background: var(--bg); }
+.fila-icono { display: grid; place-items: center; grid-row: 1 / 3; width: 44px; height: 44px; border: 1px solid color-mix(in srgb, var(--icon-color) 25%, transparent); border-radius: 14px; background: var(--icon-tile); color: var(--icon-color); }
+.fila-icono svg { width: 22px; height: 22px; }
+.filas :is(h3, h4) { margin: .1rem 0 0; color: var(--heading); font-size: 1rem; }
+.filas p { grid-column: 2; margin: 0; color: var(--text-muted); font-size: .93rem; line-height: 1.55; }
 
 /* ---------- 6. Llamado final ---------- */
 .feature-cta {
@@ -443,8 +446,6 @@
   .feature-card p { font-size: .92rem; line-height: 1.55; }
   .beneficio-item { padding-left: 3.6rem; }
   .beneficio-item::after { top: 1rem; left: .9rem; width: 2rem; height: 2rem; border-radius: 10px; font-size: .78rem; }
-  .filas li { grid-template-columns: auto 1fr; }
-  .filas p { grid-column: 2; }
 
   .feature-cta { padding: 1.5rem 1.25rem; }
   .feature-cta .btn { width: 100%; }

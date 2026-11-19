@@ -594,7 +594,6 @@
     "Fidelización de clientes": "Customer loyalty",
     "Imagen profesional": "Professional image",
     "Paquete inicial": "Starter package",
-    "Sectores con alto potencial": "High-potential sectors",
     "Clínicas y consultorios": "Clinics and medical offices",
     "Comercios": "Retail stores",
     "Restaurantes": "Restaurants",
@@ -629,5 +628,7 @@
     "WhatsApp desde": "WhatsApp from",
     "Por mensaje, más IVA.": "Per message, plus VAT.",
     "Hola, quiero enviar recordatorios a mis clientes.": "Hi, I want to send reminders to my customers.",
-    "¡Con gusto! Te ayudamos a escoger entre SMS y WhatsApp.": "Happy to help! We will help you choose between SMS and WhatsApp."
+    "¡Con gusto! Te ayudamos a escoger entre SMS y WhatsApp.": "Happy to help! We will help you choose between SMS and WhatsApp.",
+    "Sectores para pequeñas empresas": "Sectors for small businesses",
+    "Sectores para medianas y grandes empresas": "Sectors for medium and large companies"
 }
