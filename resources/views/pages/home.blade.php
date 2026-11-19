@@ -150,6 +150,19 @@
                 </div>
             @endif
         </section>
+
+        <!-- ===== LLAMADO FINAL (el mismo de Beneficios) ===== -->
+        <section class="container pb-5">
+            <div class="feature-cta">
+                <h2 class="mb-3">Tus mensajes. Tus clientes. Tu empresa siempre conectada.</h2>
+                <p class="mb-4">SMS y WhatsApp empresarial para comunicar, automatizar y conectar tus sistemas con tus
+                    clientes.</p>
+                <div class="d-flex flex-wrap gap-3">
+                    <a href="{{ route('contactanos') }}" class="btn btn-blanco btn-lg rounded-pill px-4">Quiero más información</a>
+                    <a href="{{ route('tarifas') }}" class="btn btn-hero-borde btn-lg rounded-pill px-4">Ver tarifas</a>
+                </div>
+            </div>
+        </section>
         <!-- ===== MARCAS QUE ROTAN ===== -->
     </main>
     <x-brand-marquee />

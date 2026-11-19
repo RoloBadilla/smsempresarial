@@ -171,14 +171,26 @@
                     <aside class="faq-hero-card" aria-label="Temas disponibles en preguntas frecuentes">
                         <div class="faq-card-label"><span class="faq-card-dot" aria-hidden="true"></span> Centro de ayuda
                             SMSEmpresarial</div>
-                        <div class="faq-card-art"><img class="faq-card-logo"
-                                src="{{ versioned_asset('images/logos/sms.svg') }}" alt="Logotipo de SMS Empresarial"
-                                width="205" height="205"></div>
+                        {{-- Accesos directos a tres preguntas de la lista: abren esa respuesta (resources/js/pages/faq.js).
+                             El número se busca por el texto de la pregunta, así no se desordena si cambia la lista. --}}
+                        @php
+                            $atajos = collect([
+                                ['SMS', '¿Cuál es el largo de un mensaje de texto SMS?'],
+                                ['WhatsApp', '¿Puedo enviar mensajes de WhatsApp?'],
+                                ['Cuenta y saldo', '¿Cuánto dura el saldo adquirido?'],
+                            ])->map(fn ($atajo) => [$atajo[0], $atajo[1], collect($preguntas)->search(fn ($p) => $p['pregunta'] === $atajo[1])])
+                              ->filter(fn ($atajo) => $atajo[2] !== false);
+                        @endphp
+                        <span class="faq-card-subtitulo">Preguntas destacadas</span>
+                        <ul class="faq-card-atajos">
+                            @foreach ($atajos as [$tema, $pregunta, $indice])
+                                <li><a href="#faq-heading-{{ $indice + 1 }}" data-faq-abrir="{{ $indice + 1 }}"><small>{{ $tema }}</small><span>{{ $pregunta }}</span></a></li>
+                            @endforeach
+                        </ul>
                         <div class="faq-card-summary">
                             <div class="faq-card-count"><strong>{{ count($preguntas) }}</strong><span>respuestas<br>frecuentes</span></div>
                             <span class="faq-card-hint">Encuentra aquí lo que necesitas</span>
                         </div>
-                        <div class="faq-card-topics"><span>SMS</span><span>WhatsApp</span><span>Cuenta y saldo</span></div>
                     </aside>
                 </div>
             </div>

@@ -243,6 +243,8 @@
   .celular, .hero-visual:hover .celular { transform: none !important; }
 }
 
-/* Reseñas: título y nota dentro de la escala tipográfica. */
-.reviews-titulo { font-size: var(--fs-lg); }
-.reviews-score { font-size: var(--fs-xl); }
+/* Reseñas: título de sección y una nota grande, para que se vean como un dato importante. */
+.reviews-titulo { color: var(--heading); font-size: var(--fs-h2); line-height: 1.12; }
+.reviews-card { padding: 1.25rem 1.75rem !important; gap: 1.25rem !important; }
+.reviews-score { font-size: clamp(2.75rem, 2rem + 2.5vw, 3.5rem); }
+.reviews-card .reviews-stars { font-size: 1.25rem; }

@@ -467,6 +467,25 @@ main .g-4 { --bs-gutter-x: 1rem; --bs-gutter-y: 1rem; }
 }
 .icon-tile svg, .feature-icon svg, .tarjeta .icono svg, .contact-icon svg { width: 26px; height: 26px; }
 
+/* Llamado final sobre fondo azul (Inicio y Beneficios) */
+.feature-cta {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border-radius: var(--radius-lg);
+  background: var(--texture-noise), radial-gradient(60% 120% at 100% 0%, color-mix(in srgb, var(--cf-cian) 25%, transparent), transparent 60%), linear-gradient(135deg, color-mix(in srgb, var(--cf-azul) 62%, var(--cf-negro)), var(--cf-azul));
+  color: var(--cf-blanco);
+}
+.feature-cta::after { content: ""; position: absolute; right: -6rem; bottom: -10rem; width: 22rem; aspect-ratio: 1; border: 1px solid color-mix(in srgb, var(--cf-blanco) 20%, transparent); border-radius: 50%; box-shadow: 0 0 0 2.5rem color-mix(in srgb, var(--cf-blanco) 5%, transparent); pointer-events: none; }
+.feature-cta > * { position: relative; }
+.feature-cta h2 { max-width: 22ch; color: var(--cf-blanco); font-size: var(--fs-h2); }
+.feature-cta p { max-width: 650px; color: var(--cf-blanco); }
+@media (max-width: 767.98px) {
+  .feature-cta { padding: 1.5rem 1.25rem; }
+  .feature-cta h2 { font-size: clamp(1.45rem, 6.2vw, 1.75rem); }
+  .feature-cta .btn { width: 100%; }
+}
+
 /* ---------- 10. Marcas del grupo ---------- */
 .marcas { position: relative; overflow: hidden; width: 100%; background: var(--surface); border-block: 1px solid var(--border); }
 .marcas-track { display: flex; width: max-content; animation: marcas-scroll 32s linear infinite; }

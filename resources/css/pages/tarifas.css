@@ -470,3 +470,9 @@ main { background: linear-gradient(var(--surface) 0, var(--bg) 380px); }
 .tarifa-precios dt { color: var(--text-muted); font-size: var(--fs-xs); font-weight: var(--fw-regular); }
 .tarifa-precios dd { margin: .15rem 0 0; color: var(--heading); font-family: var(--font-brand); font-size: 1.45rem; font-weight: var(--fw-bold); line-height: 1.1; }
 .tarifa-ticket-nota { margin: .75rem 0 0; color: var(--text-muted) !important; font-size: var(--fs-xs) !important; line-height: 1.4 !important; }
+
+/* Celular: los dos accesos de la portada lado a lado, en una sola fila */
+@media (max-width: 575.98px) {
+  .rates-switch { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; margin-top: 1.5rem; }
+  .rates-switch a { justify-content: center; padding: .65rem .6rem; font-size: .88rem; }
+}

@@ -23,6 +23,18 @@
           : `${items.length} ${english ? 'questions available' : 'preguntas disponibles'}`;
       });
 
+      // Accesos directos de la tarjeta de la portada: el enlace baja hasta la pregunta y aquí se abre su respuesta.
+      document.querySelectorAll('[data-faq-abrir]').forEach((atajo) => {
+        atajo.addEventListener('click', () => {
+          if (input.value) {
+            input.value = '';
+            input.dispatchEvent(new Event('input'));
+          }
+          const boton = document.querySelector(`#faq-heading-${atajo.dataset.faqAbrir} .accordion-button`);
+          if (boton && boton.classList.contains('collapsed')) boton.click();
+        });
+      });
+
       // Estado vacío: "Limpiar búsqueda" vuelve a mostrar todas las preguntas.
       empty.querySelector('[data-empty-clear]').addEventListener('click', () => {
         input.value = '';
